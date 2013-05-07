@@ -34,6 +34,16 @@
 		71DFF0351738D58400EF1491 /* ctdVoucherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0331738D58400EF1491 /* ctdVoucherViewController.xib */; };
 		71DFF0391738D59B00EF1491 /* ctdProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0371738D59B00EF1491 /* ctdProfileViewController.m */; };
 		71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */; };
+		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
+		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
+		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
+		DDA08B441738F602002882B4 /* button_attendance_check-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3B1738F602002882B4 /* button_attendance_check-in.png */; };
+		DDA08B451738F602002882B4 /* button_attendance_check-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3C1738F602002882B4 /* button_attendance_check-out.png */; };
+		DDA08B461738F602002882B4 /* button_daily_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3D1738F602002882B4 /* button_daily_attendance.png */; };
+		DDA08B471738F602002882B4 /* button_main-menu_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3E1738F602002882B4 /* button_main-menu_profile.png */; };
+		DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */; };
+		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
+		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +97,16 @@
 		71DFF0361738D59B00EF1491 /* ctdProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileViewController.h; sourceTree = "<group>"; };
 		71DFF0371738D59B00EF1491 /* ctdProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileViewController.m; sourceTree = "<group>"; };
 		71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdProfileViewController.xib; sourceTree = "<group>"; };
+		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
+		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
+		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
+		DDA08B3B1738F602002882B4 /* button_attendance_check-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_check-in.png"; sourceTree = "<group>"; };
+		DDA08B3C1738F602002882B4 /* button_attendance_check-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_check-out.png"; sourceTree = "<group>"; };
+		DDA08B3D1738F602002882B4 /* button_daily_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_daily_attendance.png; sourceTree = "<group>"; };
+		DDA08B3E1738F602002882B4 /* button_main-menu_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_profile.png"; sourceTree = "<group>"; };
+		DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_voucher.png"; sourceTree = "<group>"; };
+		DDA08B401738F602002882B4 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_sign-out.png"; sourceTree = "<group>"; };
+		DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_sign-in.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +175,7 @@
 		713342F71737C9B700057FE6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DDA08B371738F602002882B4 /* images */,
 				713342F81737C9B700057FE6 /* ConnectToDoor-Info.plist */,
 				713342F91737C9B700057FE6 /* InfoPlist.strings */,
 				713342FC1737C9B700057FE6 /* main.m */,
@@ -375,6 +396,23 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		DDA08B371738F602002882B4 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */,
+				DDA08B381738F602002882B4 /* background_allpages.png */,
+				DDA08B391738F602002882B4 /* box_transparent_attendance.png */,
+				DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */,
+				DDA08B3B1738F602002882B4 /* button_attendance_check-in.png */,
+				DDA08B3C1738F602002882B4 /* button_attendance_check-out.png */,
+				DDA08B3D1738F602002882B4 /* button_daily_attendance.png */,
+				DDA08B3E1738F602002882B4 /* button_main-menu_profile.png */,
+				DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */,
+				DDA08B401738F602002882B4 /* button_sign-out.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -457,6 +495,16 @@
 				71DFF0301738D56B00EF1491 /* ctdDailyAttendaceViewController.xib in Resources */,
 				71DFF0351738D58400EF1491 /* ctdVoucherViewController.xib in Resources */,
 				71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */,
+				DDA08B411738F602002882B4 /* background_allpages.png in Resources */,
+				DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */,
+				DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */,
+				DDA08B441738F602002882B4 /* button_attendance_check-in.png in Resources */,
+				DDA08B451738F602002882B4 /* button_attendance_check-out.png in Resources */,
+				DDA08B461738F602002882B4 /* button_daily_attendance.png in Resources */,
+				DDA08B471738F602002882B4 /* button_main-menu_profile.png in Resources */,
+				DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */,
+				DDA08B491738F602002882B4 /* button_sign-out.png in Resources */,
+				DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
