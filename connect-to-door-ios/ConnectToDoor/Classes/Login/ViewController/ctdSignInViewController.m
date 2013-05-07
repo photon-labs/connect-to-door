@@ -33,6 +33,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -60,7 +64,6 @@
 
 -(void)goToWelcome {
     ctdWelcomeViewController *welcomeViewController = [[ctdWelcomeViewController alloc]initWithNibName:@"ctdWelcomeViewController" bundle:nil];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self.navigationController pushViewController:welcomeViewController animated:YES];
 }
 

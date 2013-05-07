@@ -34,6 +34,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 - (IBAction)didLoginButtonClicked:(id)sender{
     NSString *un = self.userName.text;
     NSString *pass = self.password.text;

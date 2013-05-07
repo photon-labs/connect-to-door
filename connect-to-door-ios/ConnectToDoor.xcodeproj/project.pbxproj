@@ -36,6 +36,8 @@
 		71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */; };
 		71DFF0481739080500EF1491 /* ctdSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0461739080500EF1491 /* ctdSignInViewController.m */; };
 		71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0471739080500EF1491 /* ctdSignInViewController.xib */; };
+		71DFF04B1739304E00EF1491 /* box_transparent_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF04A1739304E00EF1491 /* box_transparent_profile.png */; };
+		71DFF04D1739331D00EF1491 /* button_main-menu_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
 		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
 		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
@@ -102,6 +104,8 @@
 		71DFF0451739080400EF1491 /* ctdSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSignInViewController.h; sourceTree = "<group>"; };
 		71DFF0461739080500EF1491 /* ctdSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSignInViewController.m; sourceTree = "<group>"; };
 		71DFF0471739080500EF1491 /* ctdSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSignInViewController.xib; sourceTree = "<group>"; };
+		71DFF04A1739304E00EF1491 /* box_transparent_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_profile.png; sourceTree = "<group>"; };
+		71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_attendance.png"; sourceTree = "<group>"; };
 		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
 		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
 		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */,
+				71DFF04A1739304E00EF1491 /* box_transparent_profile.png */,
 				DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */,
 				DDA08B381738F602002882B4 /* background_allpages.png */,
 				DDA08B391738F602002882B4 /* box_transparent_attendance.png */,
@@ -514,6 +520,8 @@
 				DDA08B491738F602002882B4 /* button_sign-out.png in Resources */,
 				DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */,
 				71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */,
+				71DFF04B1739304E00EF1491 /* box_transparent_profile.png in Resources */,
+				71DFF04D1739331D00EF1491 /* button_main-menu_attendance.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

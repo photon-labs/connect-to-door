@@ -7,6 +7,9 @@
 //
 
 #import "ctdWelcomeViewController.h"
+#import "ctdProfileViewController.h"
+#import "ctdVoucherViewController.h"
+#import "ctdDailyAttendaceViewController.h"
 
 @interface ctdWelcomeViewController ()
 
@@ -26,7 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.title = @"Welcome";
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+  [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,15 +52,15 @@
 }
 
 - (IBAction)didProfileClicked:(id)sender{
-    
+    [self goToProfile];
 }
 
 - (IBAction)didVoucherClicked:(id)sender{
-    
+    [self goToVoucher];
 }
 
 - (IBAction)didDailyAttendanceClicked:(id)sender{
-    
+    [self goToDailyAttendance];
 }
 
 - (IBAction)didAttendanceListClicked:(id)sender{
@@ -61,6 +69,27 @@
 
 - (IBAction)didSignOutClicked:(id)sender{
     
+}
+
+-(void) goToProfile{
+    ctdProfileViewController *profileViewController = [[ctdProfileViewController alloc]initWithNibName:@"ctdProfileViewController" bundle:nil];
+    [self.navigationController pushViewController:profileViewController animated:YES];
+}
+
+-(void) goToVoucher{
+    ctdVoucherViewController *voucherViewController = [[ctdVoucherViewController alloc]initWithNibName:@"ctdVoucherViewController" bundle:nil];
+    [self.navigationController pushViewController:voucherViewController animated:YES];
+}
+
+-(void) goToDailyAttendance{
+    ctdDailyAttendaceViewController *dailyAttendanceViewController = [[ctdDailyAttendaceViewController alloc]initWithNibName:@"ctdDailyAttendaceViewController" bundle:nil];
+    [self.navigationController pushViewController:dailyAttendanceViewController animated:YES];
+}
+
+-(void) goToAttendanceList{
+    ///
+    ///
+    ///
 }
 
 @end
