@@ -4,5 +4,8 @@
     <string name="app_name">Connect To Door</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="welcome">Welcome,</string>
+	<string name="checkInText">You have checked in at,</string>
+	<string name="checkOutText">You have checked out at,</string>
+    
 </resources>
