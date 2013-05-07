@@ -7,5 +7,21 @@
 	<string name="welcome">Welcome,</string>
 	<string name="checkInText">You have checked in at,</string>
 	<string name="checkOutText">You have checked out at,</string>
+	<string name="name_profile">Name </string>
+    <string name="employeeId_profile">Employee ID</string>
+    <string name="projectId_profile">Project ID</string>
+    <string name="role_profile">Role</string>
+    <string name="dateworking_profile">Start Working</string>
+    <string name="email_profile">Email Address</string>
+    <string name="annualLeaveInfo_profile">Annual Leave</string>
+    <string name="coffInfo_profile">C-Off</string>
+    <string name="condLeaveInfo_profile">Condolances Leave</string>
+    <string name="marriedInfo_profile">Married Leave</string>
+    <string name="maternityInfo_profile">Maternity Leave</string>
+    <string name="paternityInfo_profile">Paternity Leave</string>
+    <string name="onsiteInfo_profile">Onsite</string>
+    <string name="sickInfo_profile">Sick Leave</string>
+    <string name="daysInfo_profile">Days</string>
+	
     
 </resources>
