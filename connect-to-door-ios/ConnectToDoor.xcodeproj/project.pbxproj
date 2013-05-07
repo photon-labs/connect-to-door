@@ -12,17 +12,28 @@
 		713342F51737C9B700057FE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713342F41737C9B700057FE6 /* CoreGraphics.framework */; };
 		713342FB1737C9B700057FE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 713342F91737C9B700057FE6 /* InfoPlist.strings */; };
 		713342FD1737C9B700057FE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 713342FC1737C9B700057FE6 /* main.m */; };
-		713343011737C9B700057FE6 /* ctdAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343001737C9B700057FE6 /* ctdAppDelegate.m */; };
 		713343031737C9B700057FE6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 713343021737C9B700057FE6 /* Default.png */; };
 		713343051737C9B700057FE6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 713343041737C9B700057FE6 /* Default@2x.png */; };
 		713343071737C9B700057FE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 713343061737C9B700057FE6 /* Default-568h@2x.png */; };
-		7133430A1737C9B700057FE6 /* ctdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343091737C9B700057FE6 /* ctdViewController.m */; };
-		7133430D1737C9B700057FE6 /* ctdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7133430B1737C9B700057FE6 /* ctdViewController.xib */; };
 		713343151737C9B800057FE6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713343141737C9B800057FE6 /* SenTestingKit.framework */; };
 		713343161737C9B800057FE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713342F01737C9B700057FE6 /* UIKit.framework */; };
 		713343171737C9B800057FE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713342F21737C9B700057FE6 /* Foundation.framework */; };
 		7133431F1737C9B800057FE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7133431D1737C9B800057FE6 /* InfoPlist.strings */; };
 		713343221737C9B800057FE6 /* ConnectToDoorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343211737C9B800057FE6 /* ConnectToDoorTests.m */; };
+		713343311737CB8500057FE6 /* ctdAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133432E1737CB8500057FE6 /* ctdAppDelegate.m */; };
+		7133433C1737CC2900057FE6 /* ctdBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133433A1737CC2900057FE6 /* ctdBaseViewController.m */; };
+		7133433D1737CC2900057FE6 /* ctdBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */; };
+		713343521737E01C00057FE6 /* ctdLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343501737E01C00057FE6 /* ctdLoginViewController.m */; };
+		713343531737E01C00057FE6 /* ctdLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713343511737E01C00057FE6 /* ctdLoginViewController.xib */; };
+		713343581737EF5F00057FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343571737EF5F00057FE6 /* MBProgressHUD.m */; };
+		71DFF02A1738CCAF00EF1491 /* ctdWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0281738CCAF00EF1491 /* ctdWelcomeViewController.m */; };
+		71DFF02B1738CCAF00EF1491 /* ctdWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0291738CCAF00EF1491 /* ctdWelcomeViewController.xib */; };
+		71DFF02F1738D56B00EF1491 /* ctdDailyAttendaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF02D1738D56B00EF1491 /* ctdDailyAttendaceViewController.m */; };
+		71DFF0301738D56B00EF1491 /* ctdDailyAttendaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF02E1738D56B00EF1491 /* ctdDailyAttendaceViewController.xib */; };
+		71DFF0341738D58400EF1491 /* ctdVoucherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0321738D58400EF1491 /* ctdVoucherViewController.m */; };
+		71DFF0351738D58400EF1491 /* ctdVoucherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0331738D58400EF1491 /* ctdVoucherViewController.xib */; };
+		71DFF0391738D59B00EF1491 /* ctdProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0371738D59B00EF1491 /* ctdProfileViewController.m */; };
+		71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,20 +55,38 @@
 		713342FA1737C9B700057FE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		713342FC1737C9B700057FE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		713342FE1737C9B700057FE6 /* ConnectToDoor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConnectToDoor-Prefix.pch"; sourceTree = "<group>"; };
-		713342FF1737C9B700057FE6 /* ctdAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ctdAppDelegate.h; sourceTree = "<group>"; };
-		713343001737C9B700057FE6 /* ctdAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ctdAppDelegate.m; sourceTree = "<group>"; };
 		713343021737C9B700057FE6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		713343041737C9B700057FE6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		713343061737C9B700057FE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		713343081737C9B700057FE6 /* ctdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ctdViewController.h; sourceTree = "<group>"; };
-		713343091737C9B700057FE6 /* ctdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ctdViewController.m; sourceTree = "<group>"; };
-		7133430C1737C9B700057FE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ctdViewController.xib; sourceTree = "<group>"; };
 		713343131737C9B800057FE6 /* ConnectToDoorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectToDoorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		713343141737C9B800057FE6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		7133431C1737C9B800057FE6 /* ConnectToDoorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConnectToDoorTests-Info.plist"; sourceTree = "<group>"; };
 		7133431E1737C9B800057FE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		713343201737C9B800057FE6 /* ConnectToDoorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectToDoorTests.h; sourceTree = "<group>"; };
 		713343211737C9B800057FE6 /* ConnectToDoorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectToDoorTests.m; sourceTree = "<group>"; };
+		7133432D1737CB8500057FE6 /* ctdAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAppDelegate.h; sourceTree = "<group>"; };
+		7133432E1737CB8500057FE6 /* ctdAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAppDelegate.m; sourceTree = "<group>"; };
+		713343391737CC2900057FE6 /* ctdBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdBaseViewController.h; sourceTree = "<group>"; };
+		7133433A1737CC2900057FE6 /* ctdBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdBaseViewController.m; sourceTree = "<group>"; };
+		7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdBaseViewController.xib; sourceTree = "<group>"; };
+		713343411737D16000057FE6 /* ctdConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdConstants.h; sourceTree = "<group>"; };
+		7133434F1737E01C00057FE6 /* ctdLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdLoginViewController.h; sourceTree = "<group>"; };
+		713343501737E01C00057FE6 /* ctdLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdLoginViewController.m; sourceTree = "<group>"; };
+		713343511737E01C00057FE6 /* ctdLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdLoginViewController.xib; sourceTree = "<group>"; };
+		713343561737EF5F00057FE6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		713343571737EF5F00057FE6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		71DFF0271738CCAF00EF1491 /* ctdWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdWelcomeViewController.h; sourceTree = "<group>"; };
+		71DFF0281738CCAF00EF1491 /* ctdWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdWelcomeViewController.m; sourceTree = "<group>"; };
+		71DFF0291738CCAF00EF1491 /* ctdWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdWelcomeViewController.xib; sourceTree = "<group>"; };
+		71DFF02C1738D56B00EF1491 /* ctdDailyAttendaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendaceViewController.h; sourceTree = "<group>"; };
+		71DFF02D1738D56B00EF1491 /* ctdDailyAttendaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdDailyAttendaceViewController.m; sourceTree = "<group>"; };
+		71DFF02E1738D56B00EF1491 /* ctdDailyAttendaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdDailyAttendaceViewController.xib; sourceTree = "<group>"; };
+		71DFF0311738D58400EF1491 /* ctdVoucherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdVoucherViewController.h; sourceTree = "<group>"; };
+		71DFF0321738D58400EF1491 /* ctdVoucherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdVoucherViewController.m; sourceTree = "<group>"; };
+		71DFF0331738D58400EF1491 /* ctdVoucherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdVoucherViewController.xib; sourceTree = "<group>"; };
+		71DFF0361738D59B00EF1491 /* ctdProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileViewController.h; sourceTree = "<group>"; };
+		71DFF0371738D59B00EF1491 /* ctdProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileViewController.m; sourceTree = "<group>"; };
+		71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +146,7 @@
 		713342F61737C9B700057FE6 /* ConnectToDoor */ = {
 			isa = PBXGroup;
 			children = (
-				713342FF1737C9B700057FE6 /* ctdAppDelegate.h */,
-				713343001737C9B700057FE6 /* ctdAppDelegate.m */,
-				713343081737C9B700057FE6 /* ctdViewController.h */,
-				713343091737C9B700057FE6 /* ctdViewController.m */,
-				7133430B1737C9B700057FE6 /* ctdViewController.xib */,
+				7133432B1737CB8500057FE6 /* Classes */,
 				713342F71737C9B700057FE6 /* Supporting Files */,
 			);
 			path = ConnectToDoor;
@@ -158,6 +183,196 @@
 				7133431D1737C9B800057FE6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7133432B1737CB8500057FE6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7133432D1737CB8500057FE6 /* ctdAppDelegate.h */,
+				7133432E1737CB8500057FE6 /* ctdAppDelegate.m */,
+				71DFF0201738C9C800EF1491 /* Profile */,
+				71DFF01F1738C9B900EF1491 /* Voucher */,
+				71DFF01E1738C9AB00EF1491 /* DailyAttendance */,
+				713343541737EF5F00057FE6 /* Utilities */,
+				7133433F1737D0CF00057FE6 /* Common */,
+				713343471737D66B00057FE6 /* Login */,
+				713343441737D23900057FE6 /* Welcome */,
+				7133432C1737CB8500057FE6 /* Base */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7133432C1737CB8500057FE6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				713343381737CC2900057FE6 /* ViewControllers */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		713343381737CC2900057FE6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				713343391737CC2900057FE6 /* ctdBaseViewController.h */,
+				7133433A1737CC2900057FE6 /* ctdBaseViewController.m */,
+				7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7133433F1737D0CF00057FE6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				713343411737D16000057FE6 /* ctdConstants.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		713343441737D23900057FE6 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				713343451737D23900057FE6 /* View */,
+				713343461737D23900057FE6 /* ViewController */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		713343451737D23900057FE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		713343461737D23900057FE6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				71DFF0271738CCAF00EF1491 /* ctdWelcomeViewController.h */,
+				71DFF0281738CCAF00EF1491 /* ctdWelcomeViewController.m */,
+				71DFF0291738CCAF00EF1491 /* ctdWelcomeViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		713343471737D66B00057FE6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				713343481737D66B00057FE6 /* View */,
+				713343491737D66B00057FE6 /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		713343481737D66B00057FE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		713343491737D66B00057FE6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7133434F1737E01C00057FE6 /* ctdLoginViewController.h */,
+				713343501737E01C00057FE6 /* ctdLoginViewController.m */,
+				713343511737E01C00057FE6 /* ctdLoginViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		713343541737EF5F00057FE6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				713343551737EF5F00057FE6 /* MBProgressHUD */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		713343551737EF5F00057FE6 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				713343561737EF5F00057FE6 /* MBProgressHUD.h */,
+				713343571737EF5F00057FE6 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		71DFF01E1738C9AB00EF1491 /* DailyAttendance */ = {
+			isa = PBXGroup;
+			children = (
+				71DFF0251738CA2B00EF1491 /* View */,
+				71DFF0261738CA2B00EF1491 /* ViewController */,
+			);
+			path = DailyAttendance;
+			sourceTree = "<group>";
+		};
+		71DFF01F1738C9B900EF1491 /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				71DFF0231738CA1D00EF1491 /* View */,
+				71DFF0241738CA1D00EF1491 /* ViewController */,
+			);
+			path = Voucher;
+			sourceTree = "<group>";
+		};
+		71DFF0201738C9C800EF1491 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				71DFF0211738CA1200EF1491 /* View */,
+				71DFF0221738CA1200EF1491 /* ViewController */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		71DFF0211738CA1200EF1491 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71DFF0221738CA1200EF1491 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				71DFF0361738D59B00EF1491 /* ctdProfileViewController.h */,
+				71DFF0371738D59B00EF1491 /* ctdProfileViewController.m */,
+				71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		71DFF0231738CA1D00EF1491 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71DFF0241738CA1D00EF1491 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				71DFF0311738D58400EF1491 /* ctdVoucherViewController.h */,
+				71DFF0321738D58400EF1491 /* ctdVoucherViewController.m */,
+				71DFF0331738D58400EF1491 /* ctdVoucherViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		71DFF0251738CA2B00EF1491 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71DFF0261738CA2B00EF1491 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				71DFF02C1738D56B00EF1491 /* ctdDailyAttendaceViewController.h */,
+				71DFF02D1738D56B00EF1491 /* ctdDailyAttendaceViewController.m */,
+				71DFF02E1738D56B00EF1491 /* ctdDailyAttendaceViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +451,12 @@
 				713343031737C9B700057FE6 /* Default.png in Resources */,
 				713343051737C9B700057FE6 /* Default@2x.png in Resources */,
 				713343071737C9B700057FE6 /* Default-568h@2x.png in Resources */,
-				7133430D1737C9B700057FE6 /* ctdViewController.xib in Resources */,
+				7133433D1737CC2900057FE6 /* ctdBaseViewController.xib in Resources */,
+				713343531737E01C00057FE6 /* ctdLoginViewController.xib in Resources */,
+				71DFF02B1738CCAF00EF1491 /* ctdWelcomeViewController.xib in Resources */,
+				71DFF0301738D56B00EF1491 /* ctdDailyAttendaceViewController.xib in Resources */,
+				71DFF0351738D58400EF1491 /* ctdVoucherViewController.xib in Resources */,
+				71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,8 +492,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				713342FD1737C9B700057FE6 /* main.m in Sources */,
-				713343011737C9B700057FE6 /* ctdAppDelegate.m in Sources */,
-				7133430A1737C9B700057FE6 /* ctdViewController.m in Sources */,
+				713343311737CB8500057FE6 /* ctdAppDelegate.m in Sources */,
+				7133433C1737CC2900057FE6 /* ctdBaseViewController.m in Sources */,
+				713343521737E01C00057FE6 /* ctdLoginViewController.m in Sources */,
+				713343581737EF5F00057FE6 /* MBProgressHUD.m in Sources */,
+				71DFF02A1738CCAF00EF1491 /* ctdWelcomeViewController.m in Sources */,
+				71DFF02F1738D56B00EF1491 /* ctdDailyAttendaceViewController.m in Sources */,
+				71DFF0341738D58400EF1491 /* ctdVoucherViewController.m in Sources */,
+				71DFF0391738D59B00EF1491 /* ctdProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,14 +528,6 @@
 				713342FA1737C9B700057FE6 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7133430B1737C9B700057FE6 /* ctdViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7133430C1737C9B700057FE6 /* en */,
-			);
-			name = ctdViewController.xib;
 			sourceTree = "<group>";
 		};
 		7133431D1737C9B800057FE6 /* InfoPlist.strings */ = {
@@ -456,6 +674,7 @@
 				713343271737C9B800057FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		713343281737C9B800057FE6 /* Build configuration list for PBXNativeTarget "ConnectToDoorTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +683,7 @@
 				7133432A1737C9B800057FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

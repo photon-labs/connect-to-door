@@ -1,5 +1,5 @@
 //
-//  ctdViewController.h
+//  ctdBaseViewController.h
 //  ConnectToDoor
 //
 //  Created by aldi cita putra on 5/6/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ctdViewController : UIViewController
+@interface ctdBaseViewController : UIViewController
 
 @end

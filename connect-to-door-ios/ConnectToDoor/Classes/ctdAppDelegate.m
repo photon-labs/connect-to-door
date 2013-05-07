@@ -8,16 +8,22 @@
 
 #import "ctdAppDelegate.h"
 
-#import "ctdViewController.h"
+
 
 @implementation ctdAppDelegate
+@synthesize window;
+@synthesize navigationController;
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ctdViewController alloc] initWithNibName:@"ctdViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.viewController = [[ctdLoginViewController alloc] initWithNibName:@"ctdLoginViewController" bundle:nil];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    
+    [self.window setRootViewController:self.navigationController];
     [self.window makeKeyAndVisible];
     return YES;
 }
