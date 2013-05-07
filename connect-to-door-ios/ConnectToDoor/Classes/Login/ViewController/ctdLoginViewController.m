@@ -12,9 +12,9 @@
 
 @implementation ctdLoginViewController
 
-@synthesize loginButton = _loginButton;
-@synthesize password = _password;
-@synthesize userName = _username;
+@synthesize loginButton = loginButton;
+@synthesize password = password;
+@synthesize userName = username;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
