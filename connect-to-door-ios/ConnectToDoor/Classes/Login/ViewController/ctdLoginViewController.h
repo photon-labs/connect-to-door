@@ -14,9 +14,9 @@
     IBOutlet UIButton *loginButton;
 }
 
-@property (nonatomic, weak) IBOutlet UITextField *userName;
-@property (nonatomic, weak) IBOutlet UITextField *password;
-@property (nonatomic, weak) IBOutlet UIButton *loginButton;
+@property (nonatomic, strong) IBOutlet UITextField *userName;
+@property (nonatomic, strong) IBOutlet UITextField *password;
+@property (nonatomic, strong) IBOutlet UIButton *loginButton;
 
 
 - (IBAction)didLoginButtonClicked:(id)sender;

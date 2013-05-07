@@ -34,6 +34,8 @@
 		71DFF0351738D58400EF1491 /* ctdVoucherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0331738D58400EF1491 /* ctdVoucherViewController.xib */; };
 		71DFF0391738D59B00EF1491 /* ctdProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0371738D59B00EF1491 /* ctdProfileViewController.m */; };
 		71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */; };
+		71DFF0481739080500EF1491 /* ctdSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0461739080500EF1491 /* ctdSignInViewController.m */; };
+		71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0471739080500EF1491 /* ctdSignInViewController.xib */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
 		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
 		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
@@ -97,6 +99,9 @@
 		71DFF0361738D59B00EF1491 /* ctdProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileViewController.h; sourceTree = "<group>"; };
 		71DFF0371738D59B00EF1491 /* ctdProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileViewController.m; sourceTree = "<group>"; };
 		71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdProfileViewController.xib; sourceTree = "<group>"; };
+		71DFF0451739080400EF1491 /* ctdSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSignInViewController.h; sourceTree = "<group>"; };
+		71DFF0461739080500EF1491 /* ctdSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSignInViewController.m; sourceTree = "<group>"; };
+		71DFF0471739080500EF1491 /* ctdSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSignInViewController.xib; sourceTree = "<group>"; };
 		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
 		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
 		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
@@ -294,6 +299,9 @@
 		713343491737D66B00057FE6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				71DFF0451739080400EF1491 /* ctdSignInViewController.h */,
+				71DFF0461739080500EF1491 /* ctdSignInViewController.m */,
+				71DFF0471739080500EF1491 /* ctdSignInViewController.xib */,
 				7133434F1737E01C00057FE6 /* ctdLoginViewController.h */,
 				713343501737E01C00057FE6 /* ctdLoginViewController.m */,
 				713343511737E01C00057FE6 /* ctdLoginViewController.xib */,
@@ -505,6 +513,7 @@
 				DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */,
 				DDA08B491738F602002882B4 /* button_sign-out.png in Resources */,
 				DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */,
+				71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +557,7 @@
 				71DFF02F1738D56B00EF1491 /* ctdDailyAttendaceViewController.m in Sources */,
 				71DFF0341738D58400EF1491 /* ctdVoucherViewController.m in Sources */,
 				71DFF0391738D59B00EF1491 /* ctdProfileViewController.m in Sources */,
+				71DFF0481739080500EF1491 /* ctdSignInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

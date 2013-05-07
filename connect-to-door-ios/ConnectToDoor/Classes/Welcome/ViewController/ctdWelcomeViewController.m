@@ -35,4 +35,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)didCheckInClicked:(id)sender{
+    
+}
+
+- (IBAction)didCheckOutClicked:(id)sender{
+    
+}
+
+- (IBAction)didProfileClicked:(id)sender{
+    
+}
+
+- (IBAction)didVoucherClicked:(id)sender{
+    
+}
+
+- (IBAction)didDailyAttendanceClicked:(id)sender{
+    
+}
+
+- (IBAction)didAttendanceListClicked:(id)sender{
+    
+}
+
+- (IBAction)didSignOutClicked:(id)sender{
+    
+}
+
 @end

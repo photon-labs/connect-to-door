@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ctdSignInViewController : UIViewController
+@interface ctdSignInViewController : UIViewController{
+    IBOutlet UITextField *employeeID;
+    IBOutlet UIButton *continueButton;
+}
+@property (nonatomic, strong) IBOutlet UITextField *employeeID;
+@property (nonatomic, strong) IBOutlet UIButton *continueButton;
+
+- (IBAction)didContinueClicked:(id)sender;
 
 @end

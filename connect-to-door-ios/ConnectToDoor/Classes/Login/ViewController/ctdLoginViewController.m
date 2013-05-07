@@ -8,7 +8,7 @@
 
 #import "ctdLoginViewController.h"
 #import "MBProgressHUD.h"
-#import "ctdWelcomeViewController.h"
+#import "ctdSignInViewController.h"
 
 @implementation ctdLoginViewController
 
@@ -35,17 +35,35 @@
 }
 
 - (IBAction)didLoginButtonClicked:(id)sender{
-     [self showActivityIndicator];
-    [self goToWelcome];
-    [self hideActivityIndicator];
+    NSString *un = self.userName.text;
+    NSString *pass = self.password.text;
+    [self checkUseranmeAndPassword:un :pass];
+}
+
+
+-(void) checkUseranmeAndPassword:(NSString *)userName :(NSString *)passWord {
+    if(userName.length > 0 && passWord.length > 0){
+       [self goToWelcome];
+    }else{
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                          message:@"Please input username and password."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
+}
+
+
+-(void)showAlert:(NSString *)message {
+    
 }
 
 
 -(void) goToWelcome{
-    sleep(3);
-
-    ctdWelcomeViewController *welcomeViewController = [[ctdWelcomeViewController alloc]initWithNibName:@"ctdWelcomeViewController" bundle:nil];
-    [self.navigationController pushViewController:welcomeViewController animated:YES];
+    ctdSignInViewController *signInViewController = [[ctdSignInViewController alloc]initWithNibName:@"ctdSignInViewController" bundle:nil];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController pushViewController:signInViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
