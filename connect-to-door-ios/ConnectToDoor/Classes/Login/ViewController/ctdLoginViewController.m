@@ -7,7 +7,6 @@
 //
 
 #import "ctdLoginViewController.h"
-#import "MBProgressHUD.h"
 #import "ctdSignInViewController.h"
 
 @implementation ctdLoginViewController
@@ -41,26 +40,38 @@
 - (IBAction)didLoginButtonClicked:(id)sender{
     NSString *un = self.userName.text;
     NSString *pass = self.password.text;
-    [self checkUseranmeAndPassword:un :pass];
-}
-
-
--(void) checkUseranmeAndPassword:(NSString *)userName :(NSString *)passWord {
-    if(userName.length > 0 && passWord.length > 0){
-       [self goToWelcome];
+    NSString *status = [self checkUseranmeAndPassword:un :pass];
+    if(status == @""){
+        [self goToWelcome];
     }else{
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                          message:@"Please input username and password."
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self showAlert:status :@"Alert" :@"OK"];
     }
 }
 
 
--(void)showAlert:(NSString *)message {
-    
+-(NSString *)checkUseranmeAndPassword:(NSString *)userName :(NSString *)passWord {
+    NSString *message = @"";
+    if(userName.length == 0 && passWord.length == 0){
+        message = @"Please fill field Username and Password";
+    }else if (userName.length == 0){
+        message = @"Please fill field Username";
+    }else if (passWord.length == 0){
+        message = @"Please fill field Password";
+    }
+    else{
+       
+    }
+    return message;
+}
+
+
+-(void)showAlert:(NSString *)messageText :(NSString *)titleText :(NSString *)buttonText{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:titleText
+                                                      message:messageText
+                                                     delegate:nil
+                                            cancelButtonTitle:buttonText
+                                            otherButtonTitles:nil];
+    [message show];
 }
 
 
@@ -76,14 +87,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showActivityIndicator {
-	MBProgressHUD  *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //hud.layer.Position = 1;
-	hud.mode = MBProgressHUDModeIndeterminate;
-}
-
-- (void)hideActivityIndicator {
-	[MBProgressHUD hideHUDForView:self.view animated:YES];
-}
 
 @end

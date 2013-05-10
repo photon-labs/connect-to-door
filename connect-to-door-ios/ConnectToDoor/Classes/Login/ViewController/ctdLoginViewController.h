@@ -20,5 +20,6 @@
 
 
 - (IBAction)didLoginButtonClicked:(id)sender;
+- (NSString *)checkUseranmeAndPassword:(NSString *)userName :(NSString *)passWord ;
 
 @end

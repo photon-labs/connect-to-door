@@ -26,6 +26,9 @@
 		713343521737E01C00057FE6 /* ctdLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343501737E01C00057FE6 /* ctdLoginViewController.m */; };
 		713343531737E01C00057FE6 /* ctdLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713343511737E01C00057FE6 /* ctdLoginViewController.xib */; };
 		713343581737EF5F00057FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343571737EF5F00057FE6 /* MBProgressHUD.m */; };
+		713C75F9173A205D0026AFBE /* ctdLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 713C75F8173A205D0026AFBE /* ctdLoginService.m */; };
+		713C7603173A6CA10026AFBE /* ctdWelcomeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 713C7602173A6CA10026AFBE /* ctdWelcomeService.m */; };
+		713C7611173A7F490026AFBE /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 713C7609173A7F490026AFBE /* libOCMock.a */; };
 		71DFF02A1738CCAF00EF1491 /* ctdWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0281738CCAF00EF1491 /* ctdWelcomeViewController.m */; };
 		71DFF02B1738CCAF00EF1491 /* ctdWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0291738CCAF00EF1491 /* ctdWelcomeViewController.xib */; };
 		71DFF02F1738D56B00EF1491 /* ctdDailyAttendaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF02D1738D56B00EF1491 /* ctdDailyAttendaceViewController.m */; };
@@ -89,6 +92,17 @@
 		713343511737E01C00057FE6 /* ctdLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdLoginViewController.xib; sourceTree = "<group>"; };
 		713343561737EF5F00057FE6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		713343571737EF5F00057FE6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		713C75F7173A205D0026AFBE /* ctdLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdLoginService.h; sourceTree = "<group>"; };
+		713C75F8173A205D0026AFBE /* ctdLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdLoginService.m; sourceTree = "<group>"; };
+		713C7601173A6CA10026AFBE /* ctdWelcomeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdWelcomeService.h; sourceTree = "<group>"; };
+		713C7602173A6CA10026AFBE /* ctdWelcomeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdWelcomeService.m; sourceTree = "<group>"; };
+		713C7609173A7F490026AFBE /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		713C760B173A7F490026AFBE /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		713C760C173A7F490026AFBE /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		713C760D173A7F490026AFBE /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		713C760E173A7F490026AFBE /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		713C760F173A7F490026AFBE /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		713C7610173A7F490026AFBE /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		71DFF0271738CCAF00EF1491 /* ctdWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdWelcomeViewController.h; sourceTree = "<group>"; };
 		71DFF0281738CCAF00EF1491 /* ctdWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdWelcomeViewController.m; sourceTree = "<group>"; };
 		71DFF0291738CCAF00EF1491 /* ctdWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdWelcomeViewController.xib; sourceTree = "<group>"; };
@@ -133,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713C7611173A7F490026AFBE /* libOCMock.a in Frameworks */,
 				713343151737C9B800057FE6 /* SenTestingKit.framework in Frameworks */,
 				713343161737C9B800057FE6 /* UIKit.framework in Frameworks */,
 				713343171737C9B800057FE6 /* Foundation.framework in Frameworks */,
@@ -164,6 +179,7 @@
 		713342EF1737C9B700057FE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				713C7608173A7F490026AFBE /* OCMock */,
 				713342F01737C9B700057FE6 /* UIKit.framework */,
 				713342F21737C9B700057FE6 /* Foundation.framework */,
 				713342F41737C9B700057FE6 /* CoreGraphics.framework */,
@@ -261,6 +277,9 @@
 		713343441737D23900057FE6 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				713C75F4173A1EE80026AFBE /* DAL */,
+				713C75F5173A1EE80026AFBE /* Model */,
+				713C75F6173A1EE80026AFBE /* Parser */,
 				713343451737D23900057FE6 /* View */,
 				713343461737D23900057FE6 /* ViewController */,
 			);
@@ -287,6 +306,9 @@
 		713343471737D66B00057FE6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				713C75F1173A1EDE0026AFBE /* DAL */,
+				713C75F2173A1EDE0026AFBE /* Model */,
+				713C75F3173A1EDE0026AFBE /* Parser */,
 				713343481737D66B00057FE6 /* View */,
 				713343491737D66B00057FE6 /* ViewController */,
 			);
@@ -330,9 +352,143 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		713C75E8173A1EA20026AFBE /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		713C75E9173A1EA20026AFBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713C75EA173A1EA20026AFBE /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		713C75EB173A1EAE0026AFBE /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		713C75EC173A1EAE0026AFBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713C75ED173A1EAE0026AFBE /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		713C75EE173A1ECB0026AFBE /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		713C75EF173A1ECB0026AFBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713C75F0173A1ECB0026AFBE /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		713C75F1173A1EDE0026AFBE /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				713C75F7173A205D0026AFBE /* ctdLoginService.h */,
+				713C75F8173A205D0026AFBE /* ctdLoginService.m */,
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		713C75F2173A1EDE0026AFBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713C75F3173A1EDE0026AFBE /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		713C75F4173A1EE80026AFBE /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				713C7601173A6CA10026AFBE /* ctdWelcomeService.h */,
+				713C7602173A6CA10026AFBE /* ctdWelcomeService.m */,
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		713C75F5173A1EE80026AFBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713C75F6173A1EE80026AFBE /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		713C7608173A7F490026AFBE /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				713C7609173A7F490026AFBE /* libOCMock.a */,
+				713C760A173A7F490026AFBE /* OCMock */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
+		713C760A173A7F490026AFBE /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				713C760B173A7F490026AFBE /* NSNotificationCenter+OCMAdditions.h */,
+				713C760C173A7F490026AFBE /* OCMArg.h */,
+				713C760D173A7F490026AFBE /* OCMConstraint.h */,
+				713C760E173A7F490026AFBE /* OCMock.h */,
+				713C760F173A7F490026AFBE /* OCMockObject.h */,
+				713C7610173A7F490026AFBE /* OCMockRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
 		71DFF01E1738C9AB00EF1491 /* DailyAttendance */ = {
 			isa = PBXGroup;
 			children = (
+				713C75EE173A1ECB0026AFBE /* DAL */,
+				713C75EF173A1ECB0026AFBE /* Model */,
+				713C75F0173A1ECB0026AFBE /* Parser */,
 				71DFF0251738CA2B00EF1491 /* View */,
 				71DFF0261738CA2B00EF1491 /* ViewController */,
 			);
@@ -342,6 +498,9 @@
 		71DFF01F1738C9B900EF1491 /* Voucher */ = {
 			isa = PBXGroup;
 			children = (
+				713C75EB173A1EAE0026AFBE /* DAL */,
+				713C75EC173A1EAE0026AFBE /* Model */,
+				713C75ED173A1EAE0026AFBE /* Parser */,
 				71DFF0231738CA1D00EF1491 /* View */,
 				71DFF0241738CA1D00EF1491 /* ViewController */,
 			);
@@ -351,6 +510,9 @@
 		71DFF0201738C9C800EF1491 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				713C75E8173A1EA20026AFBE /* DAL */,
+				713C75E9173A1EA20026AFBE /* Model */,
+				713C75EA173A1EA20026AFBE /* Parser */,
 				71DFF0211738CA1200EF1491 /* View */,
 				71DFF0221738CA1200EF1491 /* ViewController */,
 			);
@@ -566,6 +728,8 @@
 				71DFF0341738D58400EF1491 /* ctdVoucherViewController.m in Sources */,
 				71DFF0391738D59B00EF1491 /* ctdProfileViewController.m in Sources */,
 				71DFF0481739080500EF1491 /* ctdSignInViewController.m in Sources */,
+				713C75F9173A205D0026AFBE /* ctdLoginService.m in Sources */,
+				713C7603173A6CA10026AFBE /* ctdWelcomeService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +862,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoorTests/ConnectToDoorTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/OCMock\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -715,6 +883,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoorTests/ConnectToDoorTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/OCMock\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
