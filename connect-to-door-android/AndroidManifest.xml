@@ -30,6 +30,8 @@
         </activity>
         <activity android:name="com.photon.connecttodoor.DailyAttandanceActivity" >
         </activity>
+        <activity android:name="com.photon.connecttodoor.AttendanceListActivity" >
+        </activity>
     </application>
 
 </manifest>

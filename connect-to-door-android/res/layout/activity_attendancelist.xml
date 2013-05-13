@@ -1,0 +1,203 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_allpages"
+    android:gravity="right"
+    android:orientation="vertical"
+    tools:context=".AttendaceListActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.5"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.56"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="145dp"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date "
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/startFromDateTxt"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="1dp"
+                        android:background="@drawable/nubox_finddate"
+                        android:editable="false"
+                        android:hint="                        "
+                        android:paddingLeft="10dp"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <ImageView
+                        android:id="@+id/startFromDateImage"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Calendar-Image"
+                        android:src="@drawable/nuicon_datealt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Until"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/untilFromDateTxt"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="1dp"
+                        android:background="@drawable/nubox_finddate"
+                        android:editable="false"
+                        android:hint="                        "
+                        android:paddingLeft="10dp"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <ImageView
+                        android:id="@+id/untilFromDateImage"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Calendar-Image"
+                        android:src="@drawable/nuicon_datealt" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Search By :"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinnerCategory"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/box_wdropdown" >
+                </Spinner>
+
+                <EditText
+                    android:id="@+id/inputCategory"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/box_wdropdown"
+                    android:inputType="text"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/searchButton"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_search" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="0.8"
+            android:background="@drawable/box_transparentattlist"
+            android:gravity="center_horizontal"
+            android:paddingBottom="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="100dp" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/header_list" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/back_buttonattlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="45dp"
+                android:background="@drawable/button_back" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/signout_buttonattlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/button_signout" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -17,6 +17,7 @@ public class WelcomeScreenActivity extends Activity {
 	private ImageButton dailyButton;
 	private ImageButton checkInButton;
 	private ImageButton checkOutButton;
+	private ImageButton attendanceListButton;
 	private TextView checkInText;
 	private TextView checkOutText;
 	private TextView currentTime;
@@ -27,6 +28,7 @@ public class WelcomeScreenActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome_screen);
+		attendanceListButton = (ImageButton)findViewById(R.id.attandanceListButton);
 		dailyButton = (ImageButton)findViewById(R.id.dailyAttandanceButton);
 		profilButton = (ImageButton) findViewById(R.id.profileButton);
 		voucherButton = (ImageButton) findViewById(R.id.voucherButton);
@@ -46,7 +48,7 @@ public class WelcomeScreenActivity extends Activity {
 					checkOutText.setVisibility(View.GONE);
 					isCheckIn = false;
 				}
-				
+
 			}
 		});
 
@@ -60,7 +62,7 @@ public class WelcomeScreenActivity extends Activity {
 					currentTime.setText("20:00");
 					isCheckOut = false;
 				}
-				
+
 			}
 		});
 
@@ -88,8 +90,19 @@ public class WelcomeScreenActivity extends Activity {
 				goToProfilPage();
 			}
 		});
-	}
+		attendanceListButton.setOnClickListener(new OnClickListener() {
 
+			@Override
+			public void onClick(View v) {
+				goToAttendancePage();
+
+			}
+		});
+	}
+	private void goToAttendancePage(){
+		Intent intentAttandanceList = new Intent(WelcomeScreenActivity.this, AttendanceListActivity.class);
+		startActivity(intentAttandanceList);
+	}
 	private void goToDailyAttandancePage(){
 		Intent intentDailyAttandance = new Intent(WelcomeScreenActivity.this, DailyAttandanceActivity.class);
 		startActivity(intentDailyAttandance);
