@@ -112,7 +112,8 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/box_wdropdown" >
+                    android:background="@drawable/box_wdropdown"
+                    android:paddingLeft="10dp" >
                 </Spinner>
 
                 <EditText

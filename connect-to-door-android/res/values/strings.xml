@@ -24,5 +24,6 @@
     <string name="daysInfo_profile">Days</string>
     <string name="date_report">Month/Year:</string>
     <string name="filter_report">Filter by:</string>
+    <string name="empID">Employee ID :</string>
 
 </resources>

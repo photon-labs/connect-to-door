@@ -32,6 +32,10 @@
         </activity>
         <activity android:name="com.photon.connecttodoor.AttendanceListActivity" >
         </activity>
+        <activity android:name="com.photon.connecttodoor.SignInActivity" >
+        </activity>
+        <activity android:name="com.photon.connecttodoor.AttendanceFormActivity" >
+        </activity>
     </application>
 
 </manifest>

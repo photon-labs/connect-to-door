@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_allpages"
+    android:gravity="right"
+    android:orientation="horizontal"
+    tools:context=".Sign_In_Activity" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/box_transparent_sign_in" >
+
+        <TextView
+            android:id="@+id/text_emp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="70dp"
+            android:text="@string/empID"
+            android:layout_alignParentLeft="true"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/edit_message"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="65dp"
+            android:paddingLeft="5dp"
+            android:layout_toRightOf="@+id/text_emp" 
+            android:background="@drawable/box_add_text_on_sign_in_employee_id" 
+            android:inputType="text"
+            android:maxLength="5"/>
+
+        <Button
+            android:id="@+id/buttonSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/edit_message"
+            android:layout_below="@+id/edit_message"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_continue_on_sign_in" />
+
+    </RelativeLayout>
+
+</LinearLayout>

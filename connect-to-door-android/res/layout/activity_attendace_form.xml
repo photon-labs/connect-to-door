@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_allpages"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp" >
+
+            <Button
+                android:id="@+id/button_create"
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/button_attform_create_account" />
+
+            <Button
+                android:id="@+id/button_edit"
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_attform_edit_account" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Search by :"
+                android:textSize="7sp" />
+
+         <!--    <EditText
+                android:id="@+id/category"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/text_emp"
+                android:background="@drawable/box_white_att_form_long"
+                android:inputType="text" /> -->
+            
+            <Spinner 
+                android:id="@+id/spinnerCategory"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/box_white_att_form_long">
+            </Spinner>
+            
+            <RelativeLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-28dp">
+                
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="23dp"
+                    android:layout_marginLeft="118dp"
+                    android:background="@drawable/filter_by_button_arrow_dropdown" />
+                
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/category_id"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@+id/text_emp"
+                android:background="@drawable/box_white_att_form_long"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/button_search"
+                android:layout_width="30dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="108dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_transparent_att_form"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="65dp"
+                    android:text="Full Name :"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="65dp"
+                    android:text="Employee ID :"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="65dp"
+                    android:text="Project ID :"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/edit_text_name"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="@drawable/box_add_text_n_e_p_in_active" 
+                    android:enabled="false"
+                    android:singleLine="true"/>
+
+                <EditText
+                    android:id="@+id/edit_text_employee"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="@drawable/box_add_text_n_e_p_in_active" 
+                    android:enabled="false"
+                    android:singleLine="true"/>
+
+                <EditText
+                    android:id="@+id/edit_text_project"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="@drawable/box_add_text_n_e_p_in_active" 
+                    android:enabled="false"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Start Working :"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Email Address :"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/edit_text_start_working"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="@drawable/box_add_text_form_start_working_in_active" 
+                    android:enabled="false"/>
+
+                <ImageButton
+                    android:id="@+id/image_button_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/icon_calendar_in_active" />
+
+                <EditText
+                    android:id="@+id/edit_text_email"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="@drawable/box_add_text_form_email_in_active" 
+                    android:enabled="false"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Annual :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_annual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active" 
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Married :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_married"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active" 
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Paternity :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_paternity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active"
+                    android:enabled="false" 
+                    android:inputType="number"
+                    android:maxLength="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="C-Off :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_coff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active"
+                    android:enabled="false" 
+                    android:inputType="number"
+                    android:maxLength="2"/>
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Maternity :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_maternity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active" 
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Sick :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_sick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active" 
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Condolences :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_condolences"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active" 
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Onsite :"
+                    android:textColor="@android:color/white" />
+
+                <EditText
+                    android:id="@+id/edit_text_onsite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:background="@drawable/box_add_text_form_small_in_active" 
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:maxLength="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button_save"
+                    android:layout_width="30dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_save" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="35dp"
+                android:background="@drawable/button_back" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/signout_button"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_signout" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

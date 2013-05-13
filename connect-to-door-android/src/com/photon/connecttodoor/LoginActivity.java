@@ -27,7 +27,7 @@ public class LoginActivity extends Activity {
 		});
 	}
 	public void goToSignInPage(){
-		Intent signInPage = new Intent(LoginActivity.this, WelcomeScreenActivity.class);
+		Intent signInPage = new Intent(LoginActivity.this, SignInActivity.class);
 		startActivity(signInPage);
 	}
 
