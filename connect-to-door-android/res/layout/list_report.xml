@@ -144,7 +144,7 @@
                 android:orientation="vertical" >
 
                 <ListView
-                    android:id="@+id/table_report"
+                    android:id="@+id/table_report_attendance"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:columnWidth="50dp"

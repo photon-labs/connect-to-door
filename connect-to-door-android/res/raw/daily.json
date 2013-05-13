@@ -2,21 +2,48 @@
 	"attendance" :	[
 		{
 			"no" : "1",
-			"name" : "dani",
+			"name" : "dani mahardika",
 			"check_in" : "08.00",
-			"check_out" : "19.00"
+			"check_out" : "19.00",
+			"employeeId" : "I0099",
+			"annual" : "5",
+			"coff" : "5",
+			"condolences" : "1",
+			"married" : "1",
+			"maternity" : "1",
+			"onsite" : "1",
+			"paternity" : "1",
+			"sick" : "1"
 		},
 		{
 			"no" : "2",
-			"name" : "nizar",
+			"name" : "Fadli Mardian",
 			"check_in" : "06.00",
-			"check_out" : "18.00"
+			"check_out" : "18.00",
+			"employeeId" : "I0069",
+			"annual" : "5",
+			"coff" : "5",
+			"condolences" : "1",
+			"married" : "1",
+			"maternity" : "1",
+			"onsite" : "1",
+			"paternity" : "1",
+			"sick" : "1"
 		},
 		{
 			"no" : "3",
-			"name" : "aldi",
+			"name" : "Aldi Cipta",
 			"check_in" : "07.00",
-			"check_out" : "20.00"
+			"check_out" : "20.00",
+			"employeeId" : "I0033",
+			"annual" : "5",
+			"coff" : "5",
+			"condolences" : "1",
+			"married" : "1",
+			"maternity" : "1",
+			"onsite" : "1",
+			"paternity" : "1",
+			"sick" : "1"
 		}
 	]
 }

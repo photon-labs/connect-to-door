@@ -11,15 +11,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.photon.connecttodoor.R;
-import com.photon.datamodel.DailyAttendanceListModel;
+import com.photon.datamodel.ReportAttendanceListModel;
 
 public class ListGeneratedReportArrayAdapter extends BaseAdapter {
 
 	private final Context context;
-	private ArrayList<DailyAttendanceListModel> values;
+	private ArrayList<ReportAttendanceListModel> values;
 
 
-	public ListGeneratedReportArrayAdapter(Context context ,ArrayList<DailyAttendanceListModel> arrayList) {
+	public ListGeneratedReportArrayAdapter(Context context ,ArrayList<ReportAttendanceListModel> arrayList) {
 		//super(context, textViewResourceId);
 		this.context = context;
 		this.values = arrayList;
@@ -53,15 +53,29 @@ public class ListGeneratedReportArrayAdapter extends BaseAdapter {
 		convertView = inflater.inflate(R.layout.text_table_report, null);
 		TextView numberTextView = (TextView) convertView.findViewById(R.id.number_text);
 		TextView nameTextView = (TextView) convertView.findViewById(R.id.name_text);
-		TextView checkInTextView = (TextView) convertView.findViewById(R.id.check_in_text);
-		TextView checkOutTextView = (TextView) convertView.findViewById(R.id.check_out_text);
+		TextView employeeId = (TextView) convertView.findViewById(R.id.employee_text);
+		TextView annual = (TextView) convertView.findViewById(R.id.annual_text);
+		TextView coff = (TextView) convertView.findViewById(R.id.coff_text);
+		TextView condolences = (TextView) convertView.findViewById(R.id.condolances_text);
+		TextView married = (TextView) convertView.findViewById(R.id.married_text);
+		TextView maternity = (TextView) convertView.findViewById(R.id.maternity_text);
+		TextView onsite = (TextView) convertView.findViewById(R.id.onsite_text);
+		TextView paternity = (TextView) convertView.findViewById(R.id.paternity_text);
+		TextView sick = (TextView) convertView.findViewById(R.id.sick_text);
 		convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#cbe7f3"));
 
 		numberTextView.setText(values.get(position).getNumber());
 		nameTextView.setText(values.get(position).getName());
-		checkInTextView.setText(values.get(position).getCheckIn());
-		checkOutTextView.setText(values.get(position).getCheckOut());
-
+		employeeId.setText(values.get(position).getEmployeeId());
+		annual.setText(values.get(position).getAnnual());
+		coff.setText(values.get(position).getCoff());
+		condolences.setText(values.get(position).getCondolances());
+		married.setText(values.get(position).getMarried());
+		maternity.setText(values.get(position).getMaternity());
+		onsite.setText(values.get(position).getOnsite());
+		paternity.setText(values.get(position).getPaternity());
+		sick.setText(values.get(position).getSick());
+		
 
 		return convertView;
 	}

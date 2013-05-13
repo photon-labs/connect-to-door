@@ -104,7 +104,7 @@ public class WelcomeScreenActivity extends Activity {
 		startActivity(intentAttandanceList);
 	}
 	private void goToDailyAttandancePage(){
-		Intent intentDailyAttandance = new Intent(WelcomeScreenActivity.this, DailyAttandanceActivity.class);
+		Intent intentDailyAttandance = new Intent(WelcomeScreenActivity.this, DailyAttendanceActivity.class);
 		startActivity(intentDailyAttandance);
 	}
 	private void goToProfilPage(){
