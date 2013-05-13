@@ -28,6 +28,8 @@
         </activity>
         <activity android:name="com.photon.connecttodoor.VoucherActivity" >
         </activity>
+        <activity android:name="com.photon.connecttodoor.DailyAttandanceActivity" >
+        </activity>
     </application>
 
 </manifest>

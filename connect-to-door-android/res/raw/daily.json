@@ -1,0 +1,22 @@
+{
+	"attendance" :	[
+		{
+			"no" : "1",
+			"name" : "dani",
+			"check_in" : "08.00",
+			"check_out" : "19.00"
+		},
+		{
+			"no" : "2",
+			"name" : "nizar",
+			"check_in" : "06.00",
+			"check_out" : "18.00"
+		},
+		{
+			"no" : "3",
+			"name" : "aldi",
+			"check_in" : "07.00",
+			"check_out" : "20.00"
+		}
+	]
+}
