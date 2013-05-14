@@ -10,7 +10,6 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -74,7 +73,6 @@ public class DailyAttendanceActivity extends Activity{
         try {
             //While the BufferedReader readLine is not null
             while ((line = br.readLine()) != null) {
-                Log.i("JSON", line);
                 text.append(line);
                 text.append('\n');
             }    

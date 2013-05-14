@@ -62,7 +62,7 @@ public class ListGeneratedReportArrayAdapter extends BaseAdapter {
 		TextView onsite = (TextView) convertView.findViewById(R.id.onsite_text);
 		TextView paternity = (TextView) convertView.findViewById(R.id.paternity_text);
 		TextView sick = (TextView) convertView.findViewById(R.id.sick_text);
-		convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#cbe7f3"));
+		convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#cfe9d0"));
 
 		numberTextView.setText(values.get(position).getNumber());
 		nameTextView.setText(values.get(position).getName());

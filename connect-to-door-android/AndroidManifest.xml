@@ -28,13 +28,15 @@
         </activity>
         <activity android:name="com.photon.connecttodoor.VoucherActivity" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.DailyAttandanceActivity" >
+        <activity android:name="com.photon.connecttodoor.DailyAttendanceActivity" >
         </activity>
         <activity android:name="com.photon.connecttodoor.AttendanceListActivity" >
         </activity>
         <activity android:name="com.photon.connecttodoor.SignInActivity" >
         </activity>
         <activity android:name="com.photon.connecttodoor.AttendanceFormActivity" >
+        </activity>
+         <activity android:name="com.photon.connecttodoor.ReportActivity" >
         </activity>
     </application>
 

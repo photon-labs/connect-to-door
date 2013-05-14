@@ -1,7 +1,5 @@
 package com.photon.connecttodoor;
 
-import org.w3c.dom.Text;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +16,9 @@ public class WelcomeScreenActivity extends Activity {
 	private ImageButton checkInButton;
 	private ImageButton checkOutButton;
 	private ImageButton attendanceListButton;
+	private ImageButton attendanceReportButton;
+	private ImageButton attendanceFormButton;
+	private ImageButton signOutButton;
 	private TextView checkInText;
 	private TextView checkOutText;
 	private TextView currentTime;
@@ -34,6 +35,9 @@ public class WelcomeScreenActivity extends Activity {
 		voucherButton = (ImageButton) findViewById(R.id.voucherButton);
 		checkInButton = (ImageButton) findViewById(R.id.checkInButton);
 		checkOutButton = (ImageButton) findViewById(R.id.checkOutButton);
+		attendanceReportButton = (ImageButton) findViewById(R.id.attandanceReportButton);
+		attendanceFormButton = (ImageButton) findViewById(R.id.attandanceFormButton);
+		signOutButton = (ImageButton)findViewById(R.id.signOutButton);
 		checkInText = (TextView) findViewById(R.id.checkInText);
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
@@ -98,6 +102,31 @@ public class WelcomeScreenActivity extends Activity {
 
 			}
 		});
+		attendanceReportButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				goToReportPage();
+
+			}
+		});
+		attendanceFormButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				goToFormPage();
+
+			}
+		});
+
+		signOutButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				goToLoginPage();
+
+			}
+		});
 	}
 	private void goToAttendancePage(){
 		Intent intentAttandanceList = new Intent(WelcomeScreenActivity.this, AttendanceListActivity.class);
@@ -114,5 +143,17 @@ public class WelcomeScreenActivity extends Activity {
 	private void goToVoucherPage(){
 		Intent intentVoucherPage = new Intent(WelcomeScreenActivity.this, VoucherActivity.class);
 		startActivity(intentVoucherPage);
+	}
+	private void goToReportPage(){
+		Intent intentReportPage = new Intent(WelcomeScreenActivity.this, ReportActivity.class);
+		startActivity(intentReportPage);
+	}
+	private void goToFormPage(){
+		Intent intentFormPage = new Intent(WelcomeScreenActivity.this,AttendanceFormActivity.class);
+		startActivity(intentFormPage);
+	}
+	private void goToLoginPage(){
+		Intent loginPage = new Intent(WelcomeScreenActivity.this,LoginActivity.class);
+		startActivity(loginPage);
 	}
 }
