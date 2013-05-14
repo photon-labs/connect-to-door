@@ -15,9 +15,9 @@
         android:orientation="horizontal" >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.9"
+            android:layout_weight="0.7"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -140,11 +140,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginRight="40dp"
             android:layout_marginTop="40dp"
-            android:layout_weight="0.8"
+            android:layout_weight="0.3"
             android:background="@drawable/box_transparentattlist"
             android:gravity="center_horizontal"
             android:paddingBottom="25dp"

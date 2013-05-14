@@ -158,7 +158,6 @@ public class AttendanceListActivity extends Activity {
         try {
             //While the BufferedReader readLine is not null
             while ((line = br.readLine()) != null) {
-                Log.i("JSON", line);
                 text.append(line);
                 text.append('\n');
             }    
