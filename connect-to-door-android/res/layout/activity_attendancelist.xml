@@ -10,14 +10,14 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:gravity="right"
         android:orientation="horizontal" >
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.56"
+            android:layout_weight="0.9"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -152,10 +152,13 @@
             android:paddingRight="20dp"
             android:paddingTop="100dp" >
 
+            <include layout="@layout/list_report_attendancelist" />
+
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/header_list" />
+                android:background="@drawable/header_list"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 

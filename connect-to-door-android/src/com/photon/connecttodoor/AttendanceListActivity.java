@@ -1,12 +1,25 @@
 package com.photon.connecttodoor;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Calendar;
+
+import org.json.JSONException;
+
+import com.photon.datamodel.AttendanceModel;
+import com.photon.datamodel.ReportAttendanceModel;
+import com.photon.uiadapter.ListGeneratedAttendanceListArrayAdapter;
+import com.photon.uiadapter.ListGeneratedReportArrayAdapter;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -16,7 +29,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class AttendanceListActivity extends Activity {
@@ -32,6 +47,8 @@ public class AttendanceListActivity extends Activity {
 	private int pMonth;
 	private int pDay;
 	private boolean isSetStartDateText = true;
+	private ListView attendanceListReport;
+	
 
 	private String category[] = {"Date","Name","Project ID","Employee ID"};
 
@@ -52,11 +69,23 @@ public class AttendanceListActivity extends Activity {
 		startFromDateImage = (ImageView)findViewById(R.id.startFromDateImage);
 		untilFromDateImage = (ImageView)findViewById(R.id.untilFromDateImage);
 		inputCategory = (EditText)findViewById(R.id.inputCategory);
-
+		attendanceListReport = (ListView)findViewById(R.id.table_report_attendancelist);
 		searchButton = (Button)findViewById(R.id.searchButton);
 		spinnerCategory = (Spinner)findViewById(R.id.spinnerCategory);
 		backButton = (Button)findViewById(R.id.back_buttonattlist);
 		signOutButton = (Button)findViewById(R.id.signout_buttonattlist);
+		
+		String response = LoadAccount(R.raw.daily);
+		AttendanceModel attendance = new AttendanceModel(response);
+		
+		try {
+			attendance.parseSource();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(this,attendance.getAttendanceListModels());
+		attendanceListReport.setAdapter(tableReport);
 		
 		backButton.setOnClickListener(new OnClickListener() {
 			
@@ -116,9 +145,32 @@ public class AttendanceListActivity extends Activity {
 				//total.setText("Anda Belum Memilih");   
 			}
 		});
-
+		
 	}
 	
+	protected String LoadAccount(int resourceId) {
+        // The InputStream opens the resourceId and sends it to the buffer
+        InputStream is = this.getResources().openRawResource(resourceId);
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        String line;
+        StringBuilder text = new StringBuilder();
+        
+        try {
+            //While the BufferedReader readLine is not null
+            while ((line = br.readLine()) != null) {
+                Log.i("JSON", line);
+                text.append(line);
+                text.append('\n');
+            }    
+            //Close the InputStream and BufferedReader
+            is.close();
+            br.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return text.toString();
+    }
+
 	//go to welcome screen
 	private void goToWelcomeScreen(){
 		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);
