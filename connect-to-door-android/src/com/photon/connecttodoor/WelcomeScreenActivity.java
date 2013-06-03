@@ -24,6 +24,7 @@ public class WelcomeScreenActivity extends Activity {
 	private TextView currentTime;
 	private Boolean isCheckIn = true;
 	private Boolean isCheckOut = true;
+	//public static final String employeeId = "employeeId";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,19 @@ public class WelcomeScreenActivity extends Activity {
 		checkInText = (TextView) findViewById(R.id.checkInText);
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
+		
+	/*	//make admin view in welcome page
+		Intent employID = this.getIntent();
+		if(employID.hasExtra(employeeId)){
+			String eId=(String)employID.getSerializableExtra(employeeId);
+			if(eId.equalsIgnoreCase("i0001")){
+				attendanceReportButton.setVisibility(View.VISIBLE);
+				attendanceFormButton.setVisibility(View.VISIBLE);
+			}else{
+				attendanceReportButton.setVisibility(View.GONE);
+				attendanceFormButton.setVisibility(View.GONE);
+			}
+		} */
 
 		checkInButton.setOnClickListener(new OnClickListener() {
 

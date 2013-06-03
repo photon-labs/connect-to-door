@@ -157,12 +157,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:visibility="gone"
                 android:background="@drawable/button_attendance_attendancereport" />
             
             <ImageButton
                 android:id="@+id/attandanceFormButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:background="@drawable/button_attendance_attendanceform" />
         </LinearLayout>
     </LinearLayout>
