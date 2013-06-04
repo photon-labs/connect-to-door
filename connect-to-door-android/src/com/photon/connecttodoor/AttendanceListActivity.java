@@ -241,20 +241,20 @@ public class AttendanceListActivity extends Activity {
 					}
 					else if(startFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && untilFromDateTxt.getText().length() != empty)
 							|| (inputCategoryLength != empty && untilFromDateTxt.getText().length() == empty))){
-						alertMessage("You must fill the Start From Date and the others");
+						alertMessage("You must fill the start From date and the others");
 					}
 					else if(untilFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && startFromDateTxt.getText().length() != empty)
 							|| (inputCategoryLength != empty && startFromDateTxt.getText().length() == empty))){
-						alertMessage("You must fill the Until Date and the others");
+						alertMessage("You must fill the until date and the others");
 					}
 					else if(inputCategoryLength == empty  && startFromDateTxt.getText().length() != empty  && untilFromDateTxt.getText().length() != empty){
 						alertMessage("Please input fill blank");
 					}
 					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty){
-						alertMessage("You must fill the Start From Date");
+						alertMessage("You must fill the start from date");
 					}
 					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ){
-						alertMessage("You must fill the Until Date");
+						alertMessage("You must fill the until date");
 					}
 					else{
 
@@ -264,15 +264,15 @@ public class AttendanceListActivity extends Activity {
 
 							if(isDateValidated){
 								headerList.setVisibility(View.VISIBLE);
-								alertMessage("search date success");
+								alertMessage("Search date success");
 							}else{
-								alertMessage("end Date is lesst than start Date");
+								alertMessage("End date is less than start date");
 							}
 
 						}
 						else if(inputCategoryLength!= empty){
 
-							alertMessage("You Must Fill the Blank");
+							alertMessage("You Must Fill the blank");
 
 						}
 						else if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
@@ -283,7 +283,7 @@ public class AttendanceListActivity extends Activity {
 								headerList.setVisibility(View.VISIBLE);
 								alertMessage("search date success");
 							}else{
-								alertMessage("end Date lesst than start Date");
+								alertMessage("End date less than start date");
 							}
 
 						}
@@ -303,9 +303,9 @@ public class AttendanceListActivity extends Activity {
 
 							if(isDateValidated){
 								headerList.setVisibility(View.VISIBLE);
-								alertMessage("search date success");
+								alertMessage("Search date success");
 							}else{
-								alertMessage("end Date lesst than start Date");
+								alertMessage("End date less than start date");
 							}
 
 						}
@@ -331,7 +331,7 @@ public class AttendanceListActivity extends Activity {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 		boolean isValidated = false;
-
+		
 		try {
 			Date startDate = simpleDateFormat.parse(startDateString);
 			Date endDate = simpleDateFormat.parse(endDateString);
