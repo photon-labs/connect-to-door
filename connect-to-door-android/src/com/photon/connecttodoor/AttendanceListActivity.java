@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import org.json.JSONException;
 
@@ -13,10 +16,13 @@ import com.photon.datamodel.ReportAttendanceModel;
 import com.photon.uiadapter.ListGeneratedAttendanceListArrayAdapter;
 import com.photon.uiadapter.ListGeneratedReportArrayAdapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,8 +35,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -43,12 +51,13 @@ public class AttendanceListActivity extends Activity {
 	private EditText inputCategory;
 	private Button backButton;
 	private Button signOutButton;
+	private LinearLayout headerList;
 	private int pYear;
 	private int pMonth;
 	private int pDay;
 	private boolean isSetStartDateText = true;
 	private ListView attendanceListReport;
-	
+
 
 	private String category[] = {"Date","Name","Project ID","Employee ID"};
 
@@ -74,10 +83,11 @@ public class AttendanceListActivity extends Activity {
 		spinnerCategory = (Spinner)findViewById(R.id.spinnerCategory);
 		backButton = (Button)findViewById(R.id.back_buttonattlist);
 		signOutButton = (Button)findViewById(R.id.signout_buttonattlist);
-		
+		headerList = (LinearLayout)findViewById(R.id.headerList);
+
 		String response = LoadAccount(R.raw.daily);
 		AttendanceModel attendance = new AttendanceModel(response);
-		
+
 		try {
 			attendance.parseSource();
 		} catch (JSONException e) {
@@ -86,25 +96,25 @@ public class AttendanceListActivity extends Activity {
 		}
 		ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(this,attendance.getAttendanceListModels());
 		attendanceListReport.setAdapter(tableReport);
-		
+
 		backButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				goToWelcomeScreen();
-				
+
 			}
 		});
-		
+
 		signOutButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				goToLogin();
-				
+
 			}
 		});
-		
+
 
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,category);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -145,30 +155,30 @@ public class AttendanceListActivity extends Activity {
 				//total.setText("Anda Belum Memilih");   
 			}
 		});
-		
+
 	}
-	
+
 	protected String LoadAccount(int resourceId) {
-        // The InputStream opens the resourceId and sends it to the buffer
-        InputStream is = this.getResources().openRawResource(resourceId);
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        String line;
-        StringBuilder text = new StringBuilder();
-        
-        try {
-            //While the BufferedReader readLine is not null
-            while ((line = br.readLine()) != null) {
-                text.append(line);
-                text.append('\n');
-            }    
-            //Close the InputStream and BufferedReader
-            is.close();
-            br.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return text.toString();
-    }
+		// The InputStream opens the resourceId and sends it to the buffer
+		InputStream is = this.getResources().openRawResource(resourceId);
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		String line;
+		StringBuilder text = new StringBuilder();
+
+		try {
+			//While the BufferedReader readLine is not null
+			while ((line = br.readLine()) != null) {
+				text.append(line);
+				text.append('\n');
+			}    
+			//Close the InputStream and BufferedReader
+			is.close();
+			br.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		return text.toString();
+	}
 
 	//go to welcome screen
 	private void goToWelcomeScreen(){
@@ -176,11 +186,11 @@ public class AttendanceListActivity extends Activity {
 		startActivity(intentWelcomeScreen);
 	}
 	//go to login
-		private void goToLogin(){
-			Intent intentLoginPage = new Intent(AttendanceListActivity.this, LoginActivity.class);
-			startActivity(intentLoginPage);
-		}
-	
+	private void goToLogin(){
+		Intent intentLoginPage = new Intent(AttendanceListActivity.this, LoginActivity.class);
+		startActivity(intentLoginPage);
+	}
+
 
 	/** 
 	 * Get the current date or reset date to current date after used 
@@ -214,6 +224,127 @@ public class AttendanceListActivity extends Activity {
 
 			}
 		});
+		searchButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				int empty = 0;
+				int inputCategoryLength = inputCategory.getText().length();
+				if(inputCategory.isShown()){
+					if(inputCategoryLength == empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() == empty){
+						alertMessage("You must fill the blank");
+
+					}
+					else if(inputCategoryLength == empty  && ((startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty )
+							|| (startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ))){
+						alertMessage("You must fill the blank");
+					}
+					else if(startFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && untilFromDateTxt.getText().length() != empty)
+							|| (inputCategoryLength != empty && untilFromDateTxt.getText().length() == empty))){
+						alertMessage("You must fill the Start From Date and the others");
+					}
+					else if(untilFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && startFromDateTxt.getText().length() != empty)
+							|| (inputCategoryLength != empty && startFromDateTxt.getText().length() == empty))){
+						alertMessage("You must fill the Until Date and the others");
+					}
+					else if(inputCategoryLength == empty  && startFromDateTxt.getText().length() != empty  && untilFromDateTxt.getText().length() != empty){
+						alertMessage("Please input fill blank");
+					}
+					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty){
+						alertMessage("You must fill the Start From Date");
+					}
+					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ){
+						alertMessage("You must fill the Until Date");
+					}
+					else{
+
+						if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
+
+							boolean isDateValidated = validateDateSection();
+
+							if(isDateValidated){
+								headerList.setVisibility(View.VISIBLE);
+								alertMessage("search date success");
+							}else{
+								alertMessage("end Date is lesst than start Date");
+							}
+
+						}
+						else if(inputCategoryLength!= empty){
+
+							alertMessage("You Must Fill the Blank");
+
+						}
+						else if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
+
+							boolean isDateValidated = validateDateSection();
+
+							if(isDateValidated){
+								headerList.setVisibility(View.VISIBLE);
+								alertMessage("search date success");
+							}else{
+								alertMessage("end Date lesst than start Date");
+							}
+
+						}
+						else{
+							alertMessage("Error!");
+						}
+					}
+
+				}else{
+					if(startFromDateTxt.getText().length() == empty || untilFromDateTxt.getText().length() == empty ){
+						alertMessage("Please input date");
+					}else{
+
+						if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
+
+							boolean isDateValidated = validateDateSection();
+
+							if(isDateValidated){
+								headerList.setVisibility(View.VISIBLE);
+								alertMessage("search date success");
+							}else{
+								alertMessage("end Date lesst than start Date");
+							}
+
+						}
+						else{
+							alertMessage("Error!");
+						}
+
+					}
+				}
+
+			}
+		});
+	}
+
+	/**
+	 * Validate if startDate is less than endDate in Date section
+	 * @return isValidated as boolean
+	 */
+	@SuppressLint("SimpleDateFormat")
+	private boolean validateDateSection(){
+		String startDateString = startFromDateTxt.getText().toString().replace(" ", "");
+		String endDateString = untilFromDateTxt.getText().toString().replace(" ", "");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+		boolean isValidated = false;
+
+		try {
+			Date startDate = simpleDateFormat.parse(startDateString);
+			Date endDate = simpleDateFormat.parse(endDateString);
+
+			if(startDate.getTime() < endDate.getTime()){
+				isValidated = true;
+			}
+
+			return isValidated;
+
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	/** Callback received when the user "picks" a date in the dialog */
 	private DatePickerDialog.OnDateSetListener pDateSetListener =
@@ -272,6 +403,31 @@ public class AttendanceListActivity extends Activity {
 		}
 
 		return null;
+	}
+
+	private void alertMessage(String message){
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(AttendanceListActivity.this);
+
+		// set title
+		alertDialogBuilder.setTitle("Alert");
+
+		// set dialog message
+		alertDialogBuilder
+		.setMessage(message)
+		.setCancelable(false)
+		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog,int id) {
+				// if this button is clicked, close
+				// current activity
+				dialog.dismiss();
+			}
+		});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
 	}
 
 }

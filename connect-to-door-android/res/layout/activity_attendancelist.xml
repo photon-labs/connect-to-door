@@ -152,13 +152,16 @@
             android:paddingRight="20dp"
             android:paddingTop="100dp" >
 
-            <include layout="@layout/list_report_attendancelist" />
+            <include
+                android:id="@+id/headerList"
+                layout="@layout/list_report_attendancelist" 
+                android:visibility="gone"/>
 
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@drawable/header_list"
-                android:visibility="gone" />
+                android:visibility="visible" />
         </LinearLayout>
     </LinearLayout>
 
