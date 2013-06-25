@@ -1,4 +1,4 @@
-package com.photon.datamodel;
+package com.photon.connecttodoor.datamodel;
 
 import java.util.ArrayList;
 

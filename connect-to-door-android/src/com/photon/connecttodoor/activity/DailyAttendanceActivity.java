@@ -1,4 +1,4 @@
-package com.photon.connecttodoor;
+package com.photon.connecttodoor.activity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,8 +16,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.photon.datamodel.DailyAttendanceModel;
-import com.photon.uiadapter.ListGeneratedDailyArrayAdapter;
+import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.datamodel.DailyAttendanceModel;
+import com.photon.connecttodoor.uiadapter.ListGeneratedDailyArrayAdapter;
 
 public class DailyAttendanceActivity extends Activity{
 

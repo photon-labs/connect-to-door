@@ -1,4 +1,4 @@
-package com.photon.connecttodoor;
+package com.photon.connecttodoor.activity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,8 +15,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.photon.datamodel.ReportAttendanceModel;
-import com.photon.uiadapter.ListGeneratedReportArrayAdapter;
+import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.datamodel.ReportAttendanceModel;
+import com.photon.connecttodoor.uiadapter.ListGeneratedReportArrayAdapter;
 
 public class ReportActivity extends Activity {
 

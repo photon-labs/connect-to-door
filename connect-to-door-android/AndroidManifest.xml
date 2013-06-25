@@ -8,13 +8,15 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.photon.connecttodoor.LoginActivity"
+            android:name="com.photon.connecttodoor.activity.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,21 +24,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.photon.connecttodoor.ProfilActivity" >
+        <activity android:name="com.photon.connecttodoor.activity.ProfilActivity" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.WelcomeScreenActivity" >
+        <activity android:name="com.photon.connecttodoor.activity.WelcomeScreenActivity" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.VoucherActivity" >
+        <activity android:name="com.photon.connecttodoor.activity.VoucherActivity" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.DailyAttendanceActivity" >
+        <activity android:name="com.photon.connecttodoor.activity.DailyAttendanceActivity" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.AttendanceListActivity" >
+        <activity android:name="com.photon.connecttodoor.activity.AttendanceListActivity" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.SignInActivity" >
+        <activity android:name="com.photon.connecttodoor.activity.SignInActivity" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.AttendanceFormActivity" >
+        <activity android:name="com.photon.connecttodoor.activity.AttendanceFormActivity" >
         </activity>
-         <activity android:name="com.photon.connecttodoor.ReportActivity" >
+         <activity android:name="com.photon.connecttodoor.activity.ReportActivity" >
         </activity>
     </application>
 

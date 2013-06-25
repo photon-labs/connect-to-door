@@ -1,4 +1,4 @@
-package com.photon.connecttodoor;
+package com.photon.connecttodoor.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import com.photon.connecttodoor.R;
 
 public class AttendanceFormActivity extends Activity {
 	

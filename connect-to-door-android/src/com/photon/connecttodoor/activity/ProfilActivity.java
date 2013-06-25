@@ -1,4 +1,4 @@
-package com.photon.connecttodoor;
+package com.photon.connecttodoor.activity;
 
 import com.photon.connecttodoor.R;
 

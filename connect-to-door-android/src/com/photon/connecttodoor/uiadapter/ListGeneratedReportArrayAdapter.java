@@ -1,4 +1,4 @@
-package com.photon.uiadapter;
+package com.photon.connecttodoor.uiadapter;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.photon.connecttodoor.R;
-import com.photon.datamodel.ReportAttendanceListModel;
+import com.photon.connecttodoor.datamodel.ReportAttendanceListModel;
 
 public class ListGeneratedReportArrayAdapter extends BaseAdapter {
 

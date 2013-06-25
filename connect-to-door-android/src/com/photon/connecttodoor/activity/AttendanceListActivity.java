@@ -1,4 +1,4 @@
-package com.photon.connecttodoor;
+package com.photon.connecttodoor.activity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,10 +11,11 @@ import java.util.Date;
 
 import org.json.JSONException;
 
-import com.photon.datamodel.AttendanceModel;
-import com.photon.datamodel.ReportAttendanceModel;
-import com.photon.uiadapter.ListGeneratedAttendanceListArrayAdapter;
-import com.photon.uiadapter.ListGeneratedReportArrayAdapter;
+import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.datamodel.AttendanceModel;
+import com.photon.connecttodoor.datamodel.ReportAttendanceModel;
+import com.photon.connecttodoor.uiadapter.ListGeneratedAttendanceListArrayAdapter;
+import com.photon.connecttodoor.uiadapter.ListGeneratedReportArrayAdapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

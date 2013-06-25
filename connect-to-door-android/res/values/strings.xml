@@ -25,5 +25,5 @@
     <string name="date_report">Month/Year:</string>
     <string name="filter_report">Filter by:</string>
     <string name="empID">Employee ID :</string>
-
+    <string name="login_url">http://172.17.10.165:8080/AttendanceWebService/api/check-in-out</string>
 </resources>
