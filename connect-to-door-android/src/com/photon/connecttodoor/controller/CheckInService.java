@@ -3,8 +3,8 @@ package com.photon.connecttodoor.controller;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginService {
-	public String handleLoginRequest(final String employeeId, final String url){
+public class CheckInService {
+	public String handleCheckInRequest(final String employeeId, final String url){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String responseString ;
 		JSONObject response = null ;

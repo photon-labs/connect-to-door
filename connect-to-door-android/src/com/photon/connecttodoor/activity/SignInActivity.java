@@ -37,7 +37,7 @@ public class SignInActivity extends Activity {
 			public void onClick(View v) {
 				int empty = 0;
 				if(signInEditText.getText().length() != empty){
-					new CallServiceLoginTask().execute();
+					goToWelcomePage();
 				}else{
 					alertMessage("Please input your employee id");
 				}
@@ -74,41 +74,4 @@ public class SignInActivity extends Activity {
 		alertDialog.show();
 	}
 	
-	private class CallServiceLoginTask extends AsyncTask<Void, Void, String> {
-
-		private ProgressDialog dialog;
-		
-		protected void onPreExecute() {
-			this.dialog = ProgressDialog.show(SignInActivity.this,
-					"Login Process", "Please Wait...", true);
-		}
-		
-		@Override
-		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
-			String url = getResources().getString(R.string.login_url);
-			String employeeId = signInEditText.getText().toString();
-			JSONObject postBody = new JSONObject();
-			try {
-				postBody.put("employee_id", employeeId);
-				postBody.put("status", "checkIn");
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			LoginService loginService = new LoginService();
-			String response = loginService.handleLoginRequest(postBody.toString(), url);
-			return response;
-		}
-		
-		protected void onPostExecute(String result) {
-			Log.i("=====response======",result);
-			goToWelcomePage();	
-			this.dialog.dismiss();
-		}
-		
-	}
-
-
 }
