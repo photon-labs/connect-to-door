@@ -12,10 +12,12 @@ import android.util.Log;
 
 public class HttpAdapter {
 	private static final int STATUS_CODE_ERROR = 400;
-	
-	public String sendPostRequest(String data, String url){
-		
+	private static final String APIHOST = "172.17.10.165";
+	private static final String PORT = "8080";
+	public String sendPostRequest(String data, String module){
 		String response = "";
+		final String urlService = "http://" + APIHOST + ":" + PORT + "/AttendanceWebService/api";
+		String url = urlService+module;
 		try {
 			// Send data
 			URL urls = new URL(url);
@@ -52,7 +54,7 @@ public class HttpAdapter {
 		} catch (Exception e) {
 			Log.i("JavaHTTPAdapter", "====== "+url+" ==== error "+e);
 		}
-		
+
 		return response;
 	}
 

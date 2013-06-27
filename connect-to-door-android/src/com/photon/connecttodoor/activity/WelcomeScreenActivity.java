@@ -1,6 +1,7 @@
 package com.photon.connecttodoor.activity;
 
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.datamodel.LoginDataModel;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,6 +27,8 @@ public class WelcomeScreenActivity extends Activity {
 	private TextView currentTime;
 	private Boolean isCheckIn = true;
 	private Boolean isCheckOut = true;
+	private TextView username;
+	LoginDataModel loginDataModel;
 	//public static final String employeeId = "employeeId";
 
 	@Override
@@ -44,20 +47,14 @@ public class WelcomeScreenActivity extends Activity {
 		checkInText = (TextView) findViewById(R.id.checkInText);
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
+		username = (TextView) findViewById(R.id.username);
 		
-	/*	//make admin view in welcome page
-		Intent employID = this.getIntent();
-		if(employID.hasExtra(employeeId)){
-			String eId=(String)employID.getSerializableExtra(employeeId);
-			if(eId.equalsIgnoreCase("i0001")){
-				attendanceReportButton.setVisibility(View.VISIBLE);
-				attendanceFormButton.setVisibility(View.VISIBLE);
-			}else{
-				attendanceReportButton.setVisibility(View.GONE);
-				attendanceFormButton.setVisibility(View.GONE);
-			}
-		} */
-
+		Intent response = this.getIntent();
+		if(response.hasExtra("response")){
+			loginDataModel = (LoginDataModel)response.getSerializableExtra("response");
+			setUIWelcomeScreen();
+		}
+		
 		checkInButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -143,6 +140,17 @@ public class WelcomeScreenActivity extends Activity {
 
 			}
 		});
+	}
+	private void setUIWelcomeScreen(){
+		username.setText(loginDataModel.getUsername());
+		String previlage = loginDataModel.getPrevilage();
+		if(previlage.equals("Admin")){
+			attendanceReportButton.setVisibility(View.VISIBLE);
+			attendanceFormButton.setVisibility(View.VISIBLE);
+		}else{
+			attendanceReportButton.setVisibility(View.GONE);
+			attendanceFormButton.setVisibility(View.GONE);
+		}
 	}
 	private void goToAttendancePage(){
 		Intent intentAttandanceList = new Intent(WelcomeScreenActivity.this, AttendanceListActivity.class);

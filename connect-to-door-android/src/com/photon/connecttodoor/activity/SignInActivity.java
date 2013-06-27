@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.LoginService;
+import com.photon.connecttodoor.datamodel.LoginDataModel;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -37,15 +38,16 @@ public class SignInActivity extends Activity {
 			public void onClick(View v) {
 				int empty = 0;
 				if(signInEditText.getText().length() != empty){
-					goToWelcomePage();
+					new CallServiceLoginTask().execute();
 				}else{
 					alertMessage("Please input your employee id");
 				}
 			}
 		});
 	}		
-	public void goToWelcomePage(){
+	public void goToWelcomePage(LoginDataModel model){
 		Intent welcomePage = new Intent(SignInActivity.this, WelcomeScreenActivity.class);
+		welcomePage.putExtra("response", model);
 		startActivity(welcomePage);
 	}
 
@@ -66,12 +68,45 @@ public class SignInActivity extends Activity {
 				dialog.dismiss();
 			}
 		});
-		
+
 		// create alert dialog
 		AlertDialog alertDialog = alertDialogBuilder.create();
 
 		// show it
 		alertDialog.show();
 	}
-	
+
+	private class CallServiceLoginTask extends AsyncTask<Void, Void, String> {
+
+		private ProgressDialog dialog;
+
+		protected void onPreExecute() {
+			this.dialog = ProgressDialog.show(SignInActivity.this,
+					"Login Process", "Please Wait...", true);
+		}
+
+		@Override
+		protected String doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+			String employeeId = signInEditText.getText().toString();
+			String fbId = "100001687854142";
+			LoginService loginService = new LoginService();
+			String response = loginService.handleLoginRequest(employeeId, fbId);
+			return response;
+		}
+
+		protected void onPostExecute(String result) {
+			LoginDataModel responseObject = new LoginDataModel();
+			try {
+				responseObject.parseJSON(result);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Log.i("Result", " <><><><><> url = "+result+" <><><><><><>");
+			goToWelcomePage(responseObject);
+			this.dialog.dismiss();
+		}
+	}
+
 }
