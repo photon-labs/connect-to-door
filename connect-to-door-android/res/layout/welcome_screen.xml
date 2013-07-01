@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:paddingTop="55dp" >
+            android:paddingTop="40dp" >
 
             <TextView
                 android:id="@+id/checkInText"
@@ -84,19 +84,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:paddingTop="35dp" >
+            android:paddingTop="30dp" >
 
             <ImageButton
                 android:id="@+id/checkInButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_attendance_checkin" />
 
             <ImageButton
                 android:id="@+id/checkOutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
                 android:background="@drawable/button_attendance_checkout" />
         </LinearLayout>
     </LinearLayout>
@@ -117,15 +117,15 @@
 
             <ImageButton
                 android:id="@+id/profileButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:layout_height="60dp"
                 android:layout_marginBottom="35dp"
                 android:background="@drawable/button_main_menu_profile" />
 
             <ImageButton
                 android:id="@+id/voucherButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:layout_height="60dp"
                 android:background="@drawable/button_mainmenuvoucher" />
         </LinearLayout>
 
@@ -140,30 +140,30 @@
 
             <ImageButton
                 android:id="@+id/dailyAttandanceButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:layout_height="60dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/button_daily_attendance" />
 
             <ImageButton
                 android:id="@+id/attandanceListButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:layout_height="60dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/button_attendance_attendance_list" />
             
             <ImageButton
                 android:id="@+id/attandanceReportButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:layout_height="60dp"
                 android:layout_marginBottom="5dp"
                 android:visibility="gone"
                 android:background="@drawable/button_attendance_attendancereport" />
             
             <ImageButton
                 android:id="@+id/attandanceFormButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:layout_height="60dp"
                 android:visibility="gone"
                 android:background="@drawable/button_attendance_attendanceform" />
         </LinearLayout>
@@ -171,11 +171,11 @@
 
     <ImageButton
         android:id="@+id/signOutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_gravity="right"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/button_signout" />
 
 </LinearLayout>
