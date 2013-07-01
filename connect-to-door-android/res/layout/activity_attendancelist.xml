@@ -36,13 +36,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Date "
+                        android:text="Date"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/startFromDateTxt"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="140dp"
+                        android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="1dp"
                         android:background="@drawable/nubox_finddate"
@@ -54,8 +55,8 @@
 
                     <ImageView
                         android:id="@+id/startFromDateImage"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
                         android:contentDescription="Calendar-Image"
                         android:src="@drawable/nuicon_datealt" />
                 </LinearLayout>
@@ -70,13 +71,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Until"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/untilFromDateTxt"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_width="140dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="9dp"
                         android:layout_marginRight="1dp"
                         android:background="@drawable/nubox_finddate"
                         android:editable="false"
@@ -87,8 +89,8 @@
 
                     <ImageView
                         android:id="@+id/untilFromDateImage"
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
                         android:contentDescription="Calendar-Image"
                         android:src="@drawable/nuicon_datealt" />
                 </LinearLayout>
@@ -105,12 +107,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Search By :"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinnerCategory"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="240dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/box_wdropdown"
                     android:paddingLeft="10dp" >
@@ -130,10 +133,10 @@
 
                 <Button
                     android:id="@+id/searchButton"
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/button_search" />
             </LinearLayout>
@@ -154,8 +157,8 @@
 
             <include
                 android:id="@+id/headerList"
-                layout="@layout/list_report_attendancelist" 
-                android:visibility="gone"/>
+                layout="@layout/list_report_attendancelist"
+                android:visibility="gone" />
 
             <ImageView
                 android:layout_width="fill_parent"
@@ -166,45 +169,35 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="20dp"
         android:gravity="bottom"
         android:orientation="horizontal" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/back_buttonattlist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="45dp"
-                android:background="@drawable/button_back" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/back_buttonattlist"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="45dp"
+            android:layout_weight="0.01"
+            android:background="@drawable/button_back" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/signout_buttonattlist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="45dp"
-                android:background="@drawable/button_signout" />
+            android:layout_weight="0.1" >
         </LinearLayout>
+
+        <Button
+            android:id="@+id/signout_buttonattlist"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="45dp"
+            android:layout_weight="0.01"
+            android:background="@drawable/button_signout" />
     </LinearLayout>
 
 </LinearLayout>
