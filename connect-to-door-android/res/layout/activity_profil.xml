@@ -17,15 +17,15 @@
 
         <ImageButton
             android:id="@+id/attendancebutton"
-            android:layout_width="159dp"
-            android:layout_height="50dp"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="60dp"
             android:background="@drawable/button_mainmenuattendance" />
 
         <ImageButton
             android:id="@+id/voucherbutton"
-            android:layout_width="159dp"
-            android:layout_height="50dp"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
             android:background="@drawable/button_mainmenuvoucher" />
     </LinearLayout>
 
@@ -408,8 +408,8 @@
 
             <ImageButton
                 android:id="@+id/signOutButton"
-                android:layout_width="159dp"
-                android:layout_height="50dp"
+                android:layout_width="190dp"
+                android:layout_height="60dp"
                 android:background="@drawable/button_signout" />
         </LinearLayout>
     </LinearLayout>
