@@ -5,9 +5,9 @@
 
     <TextView
         android:id="@+id/number_text"
-        android:layout_width="80dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="13dp"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
@@ -15,17 +15,17 @@
 
     <TextView
         android:id="@+id/name_text"
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:gravity="center_horizontal"
+        android:layout_marginLeft="25dp"
+        android:gravity="left"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
-    
+
     <TextView
         android:id="@+id/check_in_text"
-        android:layout_width="115dp"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:gravity="center_horizontal"
@@ -35,7 +35,17 @@
 
     <TextView
         android:id="@+id/check_out_text"
-        android:layout_width="120dp"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
+    </TextView>
+    
+        <TextView
+        android:id="@+id/edit_by_text"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:gravity="center_horizontal"

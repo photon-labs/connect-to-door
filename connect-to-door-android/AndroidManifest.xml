@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -17,28 +17,45 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.photon.connecttodoor.activity.LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.photon.connecttodoor.activity.ProfilActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.ProfilActivity"
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.activity.WelcomeScreenActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.WelcomeScreenActivity"
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.activity.VoucherActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.VoucherActivity"
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.activity.DailyAttendanceActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.DailyAttendanceActivity"
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.activity.AttendanceListActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.AttendanceListActivity"
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.activity.SignInActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.SignInActivity"
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name="com.photon.connecttodoor.activity.AttendanceFormActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.AttendanceFormActivity"
+            android:screenOrientation="landscape" >
         </activity>
-         <activity android:name="com.photon.connecttodoor.activity.ReportActivity" >
+        <activity
+            android:name="com.photon.connecttodoor.activity.ReportActivity"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 
