@@ -11,22 +11,14 @@ import java.util.Date;
 
 import org.json.JSONException;
 
-import com.photon.connecttodoor.R;
-import com.photon.connecttodoor.datamodel.AttendanceModel;
-import com.photon.connecttodoor.datamodel.ReportAttendanceModel;
-import com.photon.connecttodoor.uiadapter.ListGeneratedAttendanceListArrayAdapter;
-import com.photon.connecttodoor.uiadapter.ListGeneratedReportArrayAdapter;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -39,8 +31,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.datamodel.AttendanceModel;
+import com.photon.connecttodoor.uiadapter.ListGeneratedAttendanceListArrayAdapter;
 
 
 public class AttendanceListActivity extends Activity {

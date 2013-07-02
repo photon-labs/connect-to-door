@@ -5,8 +5,9 @@
 
     <TextView
         android:id="@+id/no_att_text"
-        android:layout_width="50dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
@@ -14,9 +15,10 @@
 
     <TextView
         android:id="@+id/name__att_text"
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:gravity="left"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
@@ -74,4 +76,5 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
 </LinearLayout>

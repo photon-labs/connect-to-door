@@ -1,7 +1,10 @@
 package com.photon.connecttodoor.activity;
 
+import org.json.JSONException;
+
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
+import com.photon.connecttodoor.utils.Utility;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -48,13 +51,19 @@ public class WelcomeScreenActivity extends Activity {
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
 		username = (TextView) findViewById(R.id.username);
-		
-		Intent response = this.getIntent();
-		if(response.hasExtra("response")){
-			loginDataModel = (LoginDataModel)response.getSerializableExtra("response");
-			setUIWelcomeScreen();
+
+		String datalogin = Utility.loadStringPreferences("responseLogin", getApplicationContext());
+		if(!datalogin.equalsIgnoreCase("")){
+			loginDataModel = new LoginDataModel();
+			try {
+				loginDataModel.parseJSON(datalogin);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		
+		setUIWelcomeScreen();
+
 		checkInButton.setOnClickListener(new OnClickListener() {
 
 			@Override

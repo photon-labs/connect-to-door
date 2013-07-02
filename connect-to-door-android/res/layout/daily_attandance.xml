@@ -20,9 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:orientation="horizontal"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="90dp" >
+            android:layout_marginTop="90dp"
+            android:orientation="horizontal" >
 
             <EditText
                 android:id="@+id/startFromDateTxt"
@@ -57,23 +57,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/header_table_background" >
+                android:background="@drawable/header_table_background"
+                android:orientation="horizontal" >
 
                 <TextView
-                    android:layout_width="20dp"
+                    android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="left"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_horizontal"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:text="No"
                     android:textColor="#ffffff" >
                 </TextView>
 
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="37dp"
+                    android:background="#27593E" />
+
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="260dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
                     android:gravity="left"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
@@ -81,10 +89,14 @@
                     android:textColor="#ffffff" >
                 </TextView>
 
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="37dp"
+                    android:background="#27593E" />
+
                 <TextView
-                    android:layout_width="90dp"
+                    android:layout_width="85dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
                     android:gravity="center_horizontal"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
@@ -92,21 +104,29 @@
                     android:textColor="#ffffff" >
                 </TextView>
 
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="37dp"
+                    android:background="#27593E" />
+
                 <TextView
-                    android:layout_width="90dp"
+                    android:layout_width="85dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
                     android:gravity="center_horizontal"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:text="Check Out"
                     android:textColor="#ffffff" >
                 </TextView>
-                
-                 <TextView
-                    android:layout_width="90dp"
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="37dp"
+                    android:background="#27593E" />
+
+                <TextView
+                    android:layout_width="85dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
                     android:gravity="center_horizontal"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"

@@ -1,12 +1,5 @@
 package com.photon.connecttodoor.activity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.photon.connecttodoor.R;
-import com.photon.connecttodoor.controller.LoginService;
-import com.photon.connecttodoor.datamodel.LoginDataModel;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -19,6 +12,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.LoginService;
+import com.photon.connecttodoor.utils.Utility;
 
 public class SignInActivity extends Activity {
 
@@ -45,9 +42,8 @@ public class SignInActivity extends Activity {
 			}
 		});
 	}		
-	public void goToWelcomePage(LoginDataModel model){
+	public void goToWelcomePage(){
 		Intent welcomePage = new Intent(SignInActivity.this, WelcomeScreenActivity.class);
-		welcomePage.putExtra("response", model);
 		startActivity(welcomePage);
 	}
 
@@ -96,15 +92,9 @@ public class SignInActivity extends Activity {
 		}
 
 		protected void onPostExecute(String result) {
-			LoginDataModel responseObject = new LoginDataModel();
-			try {
-				responseObject.parseJSON(result);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			Log.i("Result", " <><><><><> url = "+result+" <><><><><><>");
-			goToWelcomePage(responseObject);
+			Utility.savePreference("responseLogin", result, getApplicationContext());
+			goToWelcomePage();
 			this.dialog.dismiss();
 		}
 	}
