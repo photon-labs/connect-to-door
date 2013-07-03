@@ -1,6 +1,7 @@
 package com.photon.connecttodoor.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,26 +14,28 @@ import android.widget.Spinner;
 import com.photon.connecttodoor.R;
 
 public class AttendanceFormActivity extends Activity {
-	
+
 	private String category[] = {"Name", "Employee ID", "Project ID" };
 	Spinner dropDownCategory;
-	private Button createButton;
+	private Button createButton, backButton, signOutButton;
 	private EditText editTextName, editTextEmployee, editTextProject, editTextStartWork,
-					 editTextEmail, editTextAnnual, editTextMarried, editTextPaternity,
-					 editTextCoff, editTextMaternity, editTextSick, editTextCondolences, editTextOnsite;
+	editTextEmail, editTextAnnual, editTextMarried, editTextPaternity,
+	editTextCoff, editTextMaternity, editTextSick, editTextCondolences, editTextOnsite;
 	private ImageButton imageCalendar;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_attendace_form);
-		
+
 		dropDownCategory = (Spinner)findViewById(R.id.spinnerCategory);
-		
+
 		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, category);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		dropDownCategory.setAdapter(adapter);
-		
+
+		backButton = (Button)findViewById(R.id.back_button);
+		signOutButton = (Button)findViewById(R.id.signout_button);
 		createButton = (Button)findViewById(R.id.button_create);
 		imageCalendar = (ImageButton)findViewById(R.id.image_button_calendar);
 		editTextName = (EditText)findViewById(R.id.edit_text_name);
@@ -48,8 +51,10 @@ public class AttendanceFormActivity extends Activity {
 		editTextCoff = (EditText)findViewById(R.id.edit_text_coff);
 		editTextCondolences = (EditText)findViewById(R.id.edit_text_condolences);
 		editTextOnsite = (EditText)findViewById(R.id.edit_text_onsite);
+
+		//onClick for create account button
 		createButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -82,5 +87,31 @@ public class AttendanceFormActivity extends Activity {
 				editTextOnsite.setEnabled(true);			
 			}
 		});
+
+		backButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				goToWelcomePage();
+			}
+		});
+		
+		signOutButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				goToLoginPage();
+			}
+		});
+	}
+
+	private void goToWelcomePage(){
+		Intent intentWelcomeScreen = new Intent(AttendanceFormActivity.this, WelcomeScreenActivity.class);
+		startActivity(intentWelcomeScreen);
+	}
+
+	private void goToLoginPage(){
+		Intent intentLoginPage = new Intent(AttendanceFormActivity.this, LoginActivity.class);
+		startActivity(intentLoginPage);
 	}
 }
