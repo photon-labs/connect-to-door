@@ -1,16 +1,13 @@
 package com.photon.connecttodoor.datamodel;
 
-import java.io.Serializable;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginDataModel implements Serializable{
+public class LoginDataModel{
 	String username;
 	String previlage;
 	String message;
 	String status;
-	private static final long serialVersionUID = 1L;
 	
 	public String getUsername() {
 		return username;

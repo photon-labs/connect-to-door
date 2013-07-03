@@ -5,7 +5,7 @@
 
     <TextView
         android:id="@+id/number_text"
-        android:layout_width="25dp"
+        android:layout_width="35dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
@@ -13,24 +13,39 @@
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/name_text"
-        android:layout_width="190dp"
+        android:layout_width="245dp"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:paddingLeft="55dp"
         android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/employee_text"
-        android:layout_width="80dp"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
 
     <TextView
         android:id="@+id/annual_text"
@@ -41,41 +56,66 @@
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/coff_text"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
 
     <TextView
         android:id="@+id/condolances_text"
-        android:layout_width="80dp"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
 
     <TextView
         android:id="@+id/married_text"
-        android:layout_width="80dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/maternity_text"
-        android:layout_width="80dp"
+        android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
 
     <TextView
         android:id="@+id/onsite_text"
@@ -86,18 +126,28 @@
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/paternity_text"
-        android:layout_width="80dp"
+        android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/sick_text"
-        android:layout_width="40dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"

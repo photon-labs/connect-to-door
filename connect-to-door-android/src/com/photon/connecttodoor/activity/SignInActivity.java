@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -85,6 +84,7 @@ public class SignInActivity extends Activity {
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 			String employeeId = signInEditText.getText().toString();
+			Utility.savePreference("employeeId", employeeId, getApplicationContext());
 			String fbId = "100001687854142";
 			LoginService loginService = new LoginService();
 			String response = loginService.handleLoginRequest(employeeId, fbId);
@@ -92,7 +92,6 @@ public class SignInActivity extends Activity {
 		}
 
 		protected void onPostExecute(String result) {
-			Log.i("Result", " <><><><><> url = "+result+" <><><><><><>");
 			Utility.savePreference("responseLogin", result, getApplicationContext());
 			goToWelcomePage();
 			this.dialog.dismiss();

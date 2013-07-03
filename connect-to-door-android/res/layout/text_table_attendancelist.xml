@@ -5,23 +5,32 @@
 
     <TextView
         android:id="@+id/no_att_text"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/name__att_text"
-        android:layout_width="170dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:paddingLeft="10dp"
         android:gravity="left"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
 
     <TextView
         android:id="@+id/employee_att_text"
@@ -32,14 +41,24 @@
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/project_att_text"
-        android:layout_width="90dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
 
     <TextView
         android:id="@+id/total_att_text"
@@ -50,27 +69,42 @@
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/total_working_text"
-        android:layout_width="80dp"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
 
     <TextView
         android:id="@+id/total_leave_text"
-        android:layout_width="80dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
 
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="42dp"
+        android:background="#86AA8E" />
+
     <TextView
         android:id="@+id/avg_working_text"
-        android:layout_width="140dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
