@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.photon.connecttodoor.R;
@@ -17,6 +18,7 @@ import com.photon.connecttodoor.utils.Utility;
 public class ProfilActivity extends Activity {
 
 	private ImageButton attendanceButton,voucherButton,signOutButton; 
+	private ImageView imageProfile;
 	private TextView name,employeeId,projectId,role,startWorking,emailAddress,annual,
 					 coof,condolances,married,maternity,paternity,onsite,sick;
 	ProfileModel profileDataModel;
@@ -42,7 +44,7 @@ public class ProfilActivity extends Activity {
 		paternity = (TextView)findViewById(R.id.paternityInfoDynamicsProfile);
 		onsite = (TextView)findViewById(R.id.onsiteInfoDynamicsProfile);
 		sick = (TextView)findViewById(R.id.sickInfoDynamicsProfile);
-		
+		imageProfile =(ImageView)findViewById(R.id.photoProfile);
 		String dataProfile = Utility.loadStringPreferences("responseProfile", getApplicationContext());
 		if(!dataProfile.equalsIgnoreCase("")){
 			profileDataModel = new ProfileModel();
@@ -98,6 +100,7 @@ public class ProfilActivity extends Activity {
 		paternity.setText(profileDataModel.getPaternity()+" Days");
 		onsite.setText(profileDataModel.getOnsite()+" Days");
 		sick.setText(profileDataModel.getSick()+" Days");
+		
 	}
 
 	private void goToAttendancePage(){

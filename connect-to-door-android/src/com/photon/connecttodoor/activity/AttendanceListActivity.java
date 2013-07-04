@@ -1,9 +1,5 @@
 package com.photon.connecttodoor.activity;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,9 +12,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -33,6 +32,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.AttendanceListService;
 import com.photon.connecttodoor.datamodel.AttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedAttendanceListArrayAdapter;
 
@@ -52,6 +52,7 @@ public class AttendanceListActivity extends Activity {
 	private int pDay;
 	private boolean isSetStartDateText = true;
 	private ListView attendanceListReport;
+	String responseAttendanceList;
 
 
 	private String category[] = {"Date","Name","Project ID","Employee ID"};
@@ -79,18 +80,6 @@ public class AttendanceListActivity extends Activity {
 		backButton = (Button)findViewById(R.id.back_buttonattlist);
 		signOutButton = (Button)findViewById(R.id.signout_buttonattlist);
 		headerList = (LinearLayout)findViewById(R.id.headerList);
-
-		String response = LoadAccount(R.raw.daily);
-		AttendanceModel attendance = new AttendanceModel(response);
-
-		try {
-			attendance.parseSource();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(this,attendance.getAttendanceListModels());
-		attendanceListReport.setAdapter(tableReport);
 
 		backButton.setOnClickListener(new OnClickListener() {
 
@@ -153,28 +142,6 @@ public class AttendanceListActivity extends Activity {
 
 	}
 
-	protected String LoadAccount(int resourceId) {
-		// The InputStream opens the resourceId and sends it to the buffer
-		InputStream is = this.getResources().openRawResource(resourceId);
-		BufferedReader br = new BufferedReader(new InputStreamReader(is));
-		String line;
-		StringBuilder text = new StringBuilder();
-
-		try {
-			//While the BufferedReader readLine is not null
-			while ((line = br.readLine()) != null) {
-				text.append(line);
-				text.append('\n');
-			}    
-			//Close the InputStream and BufferedReader
-			is.close();
-			br.close();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		return text.toString();
-	}
-
 	//go to welcome screen
 	private void goToWelcomeScreen(){
 		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);
@@ -206,7 +173,7 @@ public class AttendanceListActivity extends Activity {
 				isSetStartDateText = true;
 				getCurrentDate();
 				showDialog(DATE_DIALOG_ID);
-
+				Log.i("JavaHTTPAdapter", " <><><><><> startDate = ");
 			}
 		});
 		untilFromDateImage.setOnClickListener(new OnClickListener() {
@@ -216,7 +183,7 @@ public class AttendanceListActivity extends Activity {
 				isSetStartDateText = false;
 				getCurrentDate();
 				showDialog(DATE_DIALOG_ID);
-
+				Log.i("JavaHTTPAdapter", " <><><><><> untilDate = ");
 			}
 		});
 		searchButton.setOnClickListener(new OnClickListener() {
@@ -258,8 +225,8 @@ public class AttendanceListActivity extends Activity {
 							boolean isDateValidated = validateDateSection();
 
 							if(isDateValidated){
+								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
-								alertMessage("Search date success");
 							}else{
 								alertMessage("End date is less than start date");
 							}
@@ -275,8 +242,8 @@ public class AttendanceListActivity extends Activity {
 							boolean isDateValidated = validateDateSection();
 
 							if(isDateValidated){
+								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
-								alertMessage("search date success");
 							}else{
 								alertMessage("End date less than start date");
 							}
@@ -297,8 +264,8 @@ public class AttendanceListActivity extends Activity {
 							boolean isDateValidated = validateDateSection();
 
 							if(isDateValidated){
+								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
-								alertMessage("Search date success");
 							}else{
 								alertMessage("End date less than start date");
 							}
@@ -321,16 +288,15 @@ public class AttendanceListActivity extends Activity {
 	 */
 	@SuppressLint("SimpleDateFormat")
 	private boolean validateDateSection(){
-		String startDateString = startFromDateTxt.getText().toString().replace(" ", "");
-		String endDateString = untilFromDateTxt.getText().toString().replace(" ", "");
+		String startDateString = startFromDateTxt.getText().toString().replace("-", "/");
+		String endDateString = untilFromDateTxt.getText().toString().replace("-", "/");;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 		boolean isValidated = false;
-		
+
 		try {
 			Date startDate = simpleDateFormat.parse(startDateString);
 			Date endDate = simpleDateFormat.parse(endDateString);
-
 			if(startDate.getTime() < endDate.getTime()){
 				isValidated = true;
 			}
@@ -383,9 +349,9 @@ public class AttendanceListActivity extends Activity {
 		}
 
 		return new StringBuilder()
-		.append(pDayString).append(" / ")
-		.append(pMonthString).append(" / ")
-		.append(pYearString).append(" ");
+		.append(pDayString).append("-")
+		.append(pMonthString).append("-")
+		.append(pYearString).append("");
 	}
 
 	@Override
@@ -423,6 +389,50 @@ public class AttendanceListActivity extends Activity {
 
 		// show it
 		alertDialog.show();
+	}
+
+	private String changeFormatDate(String date){
+		String [] formatDate = date.split("-");
+		String day = formatDate[0];
+		String month = formatDate[1];
+		String year = formatDate[2];
+		return year+"-"+month+"-"+day;
+	}
+
+	private class CallServiceAttendanceListTask extends AsyncTask<Void, Void, String> {
+
+		private ProgressDialog dialog;
+
+		protected void onPreExecute() {
+			this.dialog = ProgressDialog.show(AttendanceListActivity.this,
+					"List Process", "Please Wait...", true);
+		}
+
+		@Override
+		protected String doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+			String searchingValue = "1624";
+			String searchParameter = "projectID";
+			String startDateParam = changeFormatDate(startFromDateTxt.getText().toString());
+			String endDateParam = changeFormatDate(untilFromDateTxt.getText().toString());
+			AttendanceListService attendanceListService = new AttendanceListService();
+			String response = attendanceListService.handleRequestAttendanceList(searchParameter, searchingValue,startDateParam,endDateParam);
+			return response;
+		}
+
+		protected void onPostExecute(String result) {
+			AttendanceModel attendance = new AttendanceModel(result);
+			try {
+				attendance.parseSource();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());
+			attendanceListReport.setAdapter(tableReport);
+			tableReport.notifyDataSetChanged();
+			this.dialog.dismiss();
+		}
 	}
 
 }

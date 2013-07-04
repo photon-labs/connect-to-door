@@ -194,7 +194,7 @@
                     android:gravity="right"
                     android:paddingRight="30dp" >
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/photoProfile"
                         android:layout_width="100dp"
                         android:layout_height="100dp"

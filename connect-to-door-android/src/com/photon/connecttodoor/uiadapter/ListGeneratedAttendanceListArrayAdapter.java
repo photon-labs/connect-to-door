@@ -56,8 +56,8 @@ public class ListGeneratedAttendanceListArrayAdapter extends BaseAdapter {
 		TextView totalLeave = (TextView) convertView.findViewById(R.id.total_leave_text);
 		TextView avgWorkingHour = (TextView) convertView.findViewById(R.id.avg_working_text);
 		convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#cfe9d0"));
-
-		numberTextView.setText(values.get(position).getNumber());
+		int number = position+1;
+		numberTextView.setText(""+number);
 		nameTextView.setText(values.get(position).getName());
 		employeeId.setText(values.get(position).getEmployeeId());
 		projectId.setText(values.get(position).getProjectId());

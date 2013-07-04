@@ -25,8 +25,8 @@ public class AttendanceModel extends MainParser {
 	@Override
 	public void parseSource() throws JSONException {
 		// TODO Auto-generated method stub
-		if(jsonObject.has("attendance")){
-			JSONArray attendanceJSONArray = jsonObject.getJSONArray("attendance");
+		if(jsonObject.has("data")){
+			JSONArray attendanceJSONArray = jsonObject.getJSONArray("data");
 			ArrayList<AttendanceListModel> attendanceArr = new ArrayList<AttendanceListModel>();
 
 			for(int i=0;i<attendanceJSONArray.length();i++){

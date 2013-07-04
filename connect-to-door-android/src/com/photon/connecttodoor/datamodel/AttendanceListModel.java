@@ -75,16 +75,13 @@ public class AttendanceListModel extends MainParser {
 	@Override
 	public void parseSource() throws JSONException {
 		// TODO Auto-generated method stub
-		if(jsonObject.has("no")){
-			String number = jsonObject.getString("no");
-			this.setNumber(number);
-		}
-		if(jsonObject.has("name")){
-			String name = jsonObject.getString("name");
+		
+		if(jsonObject.has("employee_name")){
+			String name = jsonObject.getString("employee_name");
 			this.setName(name);
 		}
-		if(jsonObject.has("employeeId")){
-			String employeeId = jsonObject.getString("employeeId");
+		if(jsonObject.has("employee_id")){
+			String employeeId = jsonObject.getString("employee_id");
 			this.setEmployeeId(employeeId);
 		}
 		if(jsonObject.has("project_id")){
@@ -103,8 +100,8 @@ public class AttendanceListModel extends MainParser {
 			String totalLeave = jsonObject.getString("total_leave");
 			this.setTotalLeave(totalLeave);
 		}
-		if(jsonObject.has("avg_working_hour")){
-			String avgWorkingHour = jsonObject.getString("avg_working_hour");
+		if(jsonObject.has("average_working_hour")){
+			String avgWorkingHour = jsonObject.getString("average_working_hour");
 			this.setAvgWorkingHour(avgWorkingHour);
 		}
 	}
