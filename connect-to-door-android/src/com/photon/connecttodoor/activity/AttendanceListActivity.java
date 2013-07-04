@@ -359,8 +359,8 @@ public class AttendanceListActivity extends Activity {
 		}
 
 		return new StringBuilder()
-		.append(pDayString).append("-")
-		.append(pMonthString).append("-")
+		.append(pDayString).append("/")
+		.append(pMonthString).append("/")
 		.append(pYearString).append("");
 	}
 
@@ -401,13 +401,13 @@ public class AttendanceListActivity extends Activity {
 		alertDialog.show();
 	}
 
-	private String changeFormatDate(String date){
-		String [] formatDate = date.split("-");
-		String day = formatDate[0];
-		String month = formatDate[1];
-		String year = formatDate[2];
-		return year+"-"+month+"-"+day;
-	}
+//	private String changeFormatDate(String date){
+//		String [] formatDate = date.split("-");
+//		String day = formatDate[0];
+//		String month = formatDate[1];
+//		String year = formatDate[2];
+//		return year+"-"+month+"-"+day;
+//	}
 
 	private class CallServiceAttendanceListTask extends AsyncTask<Void, Void, String> {
 
@@ -423,8 +423,8 @@ public class AttendanceListActivity extends Activity {
 			// TODO Auto-generated method stub
 			String searchingValue = inputCategory.getText().toString();;
 			String searchParameter = searchParameters;
-			String startDateParam = changeFormatDate(startFromDateTxt.getText().toString());
-			String endDateParam = changeFormatDate(untilFromDateTxt.getText().toString());
+			String startDateParam = untilFromDateTxt.getText().toString();
+			String endDateParam = startFromDateTxt.getText().toString();
 			AttendanceListService attendanceListService = new AttendanceListService();
 			String response = attendanceListService.handleRequestAttendanceList(searchParameter, searchingValue,startDateParam,endDateParam);
 			return response;

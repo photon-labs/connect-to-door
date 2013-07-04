@@ -48,9 +48,10 @@ public class DailyAttendanceActivity extends Activity{
 		startFromDateTxt = (EditText)findViewById(R.id.startFromDateTxt);
 		startFromDateImage = (ImageView)findViewById(R.id.startFromDateImage);
 		dailyReport = (ListView) findViewById(R.id.table_report);
-
+		startFromDateTxt.setText(getDateEditText());
 		actionButton();
 		getCurrentDate();
+		new CallServiceAttendanceListTask().execute(getDateEditText().toString());
 		backButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -93,7 +94,7 @@ public class DailyAttendanceActivity extends Activity{
 			pMonth = monthOfYear;
 			pDay = dayOfMonth;
 			startFromDateTxt.setText(getDateEditText());
-			new CallServiceAttendanceListTask().execute();
+			new CallServiceAttendanceListTask().execute(getDateEditText().toString());
 		}
 	};
 	/**
@@ -140,7 +141,7 @@ public class DailyAttendanceActivity extends Activity{
 		return year+"-"+month+"-"+day;
 	}
 
-	private class CallServiceAttendanceListTask extends AsyncTask<Void, Void, String> {
+	private class CallServiceAttendanceListTask extends AsyncTask<String, Void, String> {
 
 		private ProgressDialog dialog;
 
@@ -150,10 +151,11 @@ public class DailyAttendanceActivity extends Activity{
 		}
 
 		@Override
-		protected String doInBackground(Void... params) {
+		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
+			String searchValues = params[0];
 			String employeeId = Utility.loadStringPreferences("employeeId", getApplicationContext());
-			String startDateParam = changeFormatDate(startFromDateTxt.getText().toString());
+			String startDateParam = changeFormatDate(searchValues);
 			DailyAttendanceService dailyAttendanceService = new DailyAttendanceService();
 			String response = dailyAttendanceService.handleRequestDailyAttendance(employeeId,startDateParam);
 			return response;
