@@ -149,20 +149,20 @@ public class ReportAttendanceListModel extends MainParser{
 			String number = jsonObject.getString("no");
 			this.setNumber(number);
 		}
-		if(jsonObject.has("name")){
-			String name = jsonObject.getString("name");
+		if(jsonObject.has("employee_name")){
+			String name = jsonObject.getString("employee_name");
 			this.setName(name);
 		}
-		if(jsonObject.has("employeeId")){
-			String employeeId = jsonObject.getString("employeeId");
+		if(jsonObject.has("employee_id")){
+			String employeeId = jsonObject.getString("employee_id");
 			this.setEmployeeId(employeeId);
 		}
 		if(jsonObject.has("annual")){
 			String annual = jsonObject.getString("annual");
 			this.setAnnual(annual);
 		}
-		if(jsonObject.has("coff")){
-			String coff = jsonObject.getString("coff");
+		if(jsonObject.has("c_off")){
+			String coff = jsonObject.getString("c_off");
 			this.setCoff(coff);
 		}
 		if(jsonObject.has("condolences")){
