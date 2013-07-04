@@ -24,6 +24,7 @@ import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.DailyAttendanceService;
 import com.photon.connecttodoor.datamodel.DailyAttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedDailyArrayAdapter;
+import com.photon.connecttodoor.utils.Utility;
 
 public class DailyAttendanceActivity extends Activity{
 
@@ -151,7 +152,7 @@ public class DailyAttendanceActivity extends Activity{
 		@Override
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			String employeeId = "i0064";
+			String employeeId = Utility.loadStringPreferences("employeeId", getApplicationContext());
 			String startDateParam = changeFormatDate(startFromDateTxt.getText().toString());
 			DailyAttendanceService dailyAttendanceService = new DailyAttendanceService();
 			String response = dailyAttendanceService.handleRequestDailyAttendance(employeeId,startDateParam);

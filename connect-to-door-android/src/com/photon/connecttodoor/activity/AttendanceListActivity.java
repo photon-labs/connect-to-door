@@ -55,6 +55,7 @@ public class AttendanceListActivity extends Activity {
 	String responseAttendanceList;
 	String selectCategory;
 	String searchParameters;
+	String searchValues;
 	private String category[] = {"Date","Name","Project ID","Employee ID"};
 
 	/** This integer will uniquely define the dialog to be used for displaying date picker.*/
@@ -84,7 +85,6 @@ public class AttendanceListActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				goToWelcomeScreen();
-
 			}
 		});
 
@@ -93,16 +93,12 @@ public class AttendanceListActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				goToLogin();
-
 			}
 		});
-
 
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,category);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinnerCategory.setAdapter(adapter);
-
-
 		this.getCurrentDate();
 		this.actionButton();
 
@@ -112,27 +108,14 @@ public class AttendanceListActivity extends Activity {
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
 				selectCategory = spinnerCategory.getSelectedItem().toString();
 				try {
-
-					if(selectCategory.equals("Date")){
-						inputCategory.setVisibility(View.GONE);	
-						((EditText) findViewById(R.id.inputCategory)).setText("");
-						searchParameters = selectCategory;
-						inputCategory.getText().toString();
-					}else if(selectCategory.equals("Name")){
-						inputCategory.setVisibility(View.VISIBLE);
-						((EditText) findViewById(R.id.inputCategory)).setText("");
-						searchParameters = "username";
-						inputCategory.getText().toString();
+					if(selectCategory.equals("Name")){
+						setValeuForSelectedName();
 					}else if(selectCategory.equals("Project ID")){
-						inputCategory.setVisibility(View.VISIBLE);
-						((EditText) findViewById(R.id.inputCategory)).setText("");
-						searchParameters = "projectID";
-						inputCategory.getText().toString();
+						setValeuForSelectedProjectId();
 					}else if(selectCategory.equals("Employee ID")){
-						inputCategory.setVisibility(View.VISIBLE);
-						((EditText) findViewById(R.id.inputCategory)).setText("");
-						searchParameters = "employeeID";
-						inputCategory.getText().toString();
+						setValeuForSelectedEmployeeId();
+					}else{
+						setValeuForSelectedDate();
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);
@@ -147,6 +130,30 @@ public class AttendanceListActivity extends Activity {
 
 	}
 
+	private void setValeuForSelectedDate(){
+		inputCategory.setVisibility(View.GONE);	
+		((EditText) findViewById(R.id.inputCategory)).setText("");
+		searchParameters = selectCategory;
+		inputCategory.getText().toString();
+	}
+	private void setValeuForSelectedName(){
+		inputCategory.setVisibility(View.VISIBLE);
+		((EditText) findViewById(R.id.inputCategory)).setText("");
+		searchParameters = "username";
+		inputCategory.getText().toString();
+	}
+	private void setValeuForSelectedProjectId(){
+		inputCategory.setVisibility(View.VISIBLE);
+		((EditText) findViewById(R.id.inputCategory)).setText("");
+		searchParameters = "projectID";
+		inputCategory.getText().toString();
+	}
+	private void setValeuForSelectedEmployeeId(){
+		inputCategory.setVisibility(View.VISIBLE);
+		((EditText) findViewById(R.id.inputCategory)).setText("");
+		searchParameters = "employeeID";
+		inputCategory.getText().toString();
+	}
 	//go to welcome screen
 	private void goToWelcomeScreen(){
 		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);

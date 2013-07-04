@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class AttendanceListService {
 	public String handleRequestAttendanceList (final String searchParameter, final String searchingValue, final String dateStart, final String dateEnd){
 		final HttpAdapter httpAdapter = new HttpAdapter();
-		String moduleLogin ="/attendance-list";
+		String moduleAttendanceList ="/attendance-list";
 		String responseString ;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
@@ -29,7 +29,7 @@ public class AttendanceListService {
 			}
 
 			String postBodyString = postBody.toString();
-			final String jsonString = httpAdapter.sendPostRequest(postBodyString, moduleLogin);
+			final String jsonString = httpAdapter.sendPostRequest(postBodyString, moduleAttendanceList);
 			response = new JSONObject(jsonString);
 		}catch (JSONException e) {
 			// TODO Auto-generated catch block
