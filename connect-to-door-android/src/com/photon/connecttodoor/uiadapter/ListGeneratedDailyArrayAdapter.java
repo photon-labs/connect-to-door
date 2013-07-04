@@ -57,7 +57,8 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 		TextView checkOutTextView = (TextView) convertView.findViewById(R.id.check_out_text);
 		convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#cfe9d0"));
 
-		numberTextView.setText(values.get(position).getNumber());
+		int number = position+1;
+		numberTextView.setText(""+number);
 		nameTextView.setText(values.get(position).getName());
 		checkInTextView.setText(values.get(position).getCheckIn());
 		checkOutTextView.setText(values.get(position).getCheckOut());

@@ -9,8 +9,25 @@ public class DailyAttendanceListModel extends MainParser{
 	private String name;
 	private String checkIn;
 	private String checkOut;
+	private String previlage;
+	private String presentId;
 	
-	
+	public String getPresentId() {
+		return presentId;
+	}
+
+	public void setPresentId(String presentId) {
+		this.presentId = presentId;
+	}
+
+	public String getPrevilage() {
+		return previlage;
+	}
+
+	public void setPrevilage(String previlage) {
+		this.previlage = previlage;
+	}
+
 	public DailyAttendanceListModel(JSONObject jsonObject) {
 		super(jsonObject);
 		// TODO Auto-generated constructor stub
@@ -56,12 +73,8 @@ public class DailyAttendanceListModel extends MainParser{
 	@Override
 	public void parseSource() throws JSONException {
 		// TODO Auto-generated method stub
-		if(jsonObject.has("no")){
-			String number = jsonObject.getString("no");
-			this.setNumber(number);
-		}
-		if(jsonObject.has("name")){
-			String name = jsonObject.getString("name");
+		if(jsonObject.has("employee_name")){
+			String name = jsonObject.getString("employee_name");
 			this.setName(name);
 		}
 		if(jsonObject.has("check_in")){

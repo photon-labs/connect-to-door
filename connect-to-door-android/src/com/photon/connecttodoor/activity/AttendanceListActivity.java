@@ -57,8 +57,6 @@ public class AttendanceListActivity extends Activity {
 
 	private String category[] = {"Date","Name","Project ID","Employee ID"};
 
-	private String[] month = {"January","February","March","April","May","June","July","August","September","October","November","December"};
-
 	/** This integer will uniquely define the dialog to be used for displaying date picker.*/
 	static final int DATE_DIALOG_ID = 0;
 
@@ -173,7 +171,6 @@ public class AttendanceListActivity extends Activity {
 				isSetStartDateText = true;
 				getCurrentDate();
 				showDialog(DATE_DIALOG_ID);
-				Log.i("JavaHTTPAdapter", " <><><><><> startDate = ");
 			}
 		});
 		untilFromDateImage.setOnClickListener(new OnClickListener() {
@@ -183,7 +180,6 @@ public class AttendanceListActivity extends Activity {
 				isSetStartDateText = false;
 				getCurrentDate();
 				showDialog(DATE_DIALOG_ID);
-				Log.i("JavaHTTPAdapter", " <><><><><> untilDate = ");
 			}
 		});
 		searchButton.setOnClickListener(new OnClickListener() {
