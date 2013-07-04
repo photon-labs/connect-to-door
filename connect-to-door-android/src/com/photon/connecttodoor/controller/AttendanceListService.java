@@ -12,7 +12,7 @@ public class AttendanceListService {
 		JSONObject postBody = new JSONObject();
 		try {	
 			if(searchParameter.equalsIgnoreCase("username")){
-				postBody.put("username", searchingValue);
+				postBody.put("user_name", searchingValue);
 				postBody.put("date_start", dateStart);
 				postBody.put("date_end", dateEnd);
 			}else if(searchParameter.equalsIgnoreCase("employeeID")){

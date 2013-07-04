@@ -53,8 +53,8 @@ public class AttendanceListActivity extends Activity {
 	private boolean isSetStartDateText = true;
 	private ListView attendanceListReport;
 	String responseAttendanceList;
-
-
+	String selectCategory;
+	String searchParameters;
 	private String category[] = {"Date","Name","Project ID","Employee ID"};
 
 	/** This integer will uniquely define the dialog to be used for displaying date picker.*/
@@ -110,22 +110,29 @@ public class AttendanceListActivity extends Activity {
 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
-				String selectCategory = spinnerCategory.getSelectedItem().toString();
-
+				selectCategory = spinnerCategory.getSelectedItem().toString();
 				try {
 
 					if(selectCategory.equals("Date")){
 						inputCategory.setVisibility(View.GONE);	
 						((EditText) findViewById(R.id.inputCategory)).setText("");
+						searchParameters = selectCategory;
+						inputCategory.getText().toString();
 					}else if(selectCategory.equals("Name")){
 						inputCategory.setVisibility(View.VISIBLE);
 						((EditText) findViewById(R.id.inputCategory)).setText("");
+						searchParameters = "username";
+						inputCategory.getText().toString();
 					}else if(selectCategory.equals("Project ID")){
 						inputCategory.setVisibility(View.VISIBLE);
 						((EditText) findViewById(R.id.inputCategory)).setText("");
+						searchParameters = "projectID";
+						inputCategory.getText().toString();
 					}else if(selectCategory.equals("Employee ID")){
 						inputCategory.setVisibility(View.VISIBLE);
 						((EditText) findViewById(R.id.inputCategory)).setText("");
+						searchParameters = "employeeID";
+						inputCategory.getText().toString();
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);
@@ -407,8 +414,8 @@ public class AttendanceListActivity extends Activity {
 		@Override
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			String searchingValue = "1624";
-			String searchParameter = "projectID";
+			String searchingValue = inputCategory.getText().toString();;
+			String searchParameter = searchParameters;
 			String startDateParam = changeFormatDate(startFromDateTxt.getText().toString());
 			String endDateParam = changeFormatDate(untilFromDateTxt.getText().toString());
 			AttendanceListService attendanceListService = new AttendanceListService();
