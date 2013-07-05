@@ -401,14 +401,6 @@ public class AttendanceListActivity extends Activity {
 		alertDialog.show();
 	}
 
-//	private String changeFormatDate(String date){
-//		String [] formatDate = date.split("-");
-//		String day = formatDate[0];
-//		String month = formatDate[1];
-//		String year = formatDate[2];
-//		return year+"-"+month+"-"+day;
-//	}
-
 	private class CallServiceAttendanceListTask extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;

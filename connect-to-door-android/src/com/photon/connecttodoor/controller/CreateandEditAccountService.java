@@ -1,0 +1,46 @@
+package com.photon.connecttodoor.controller;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class CreateandEditAccountService {
+	public String handleCreateandEditAccountRequest(final String status, final String employeeID, final String username, final String projectID, final String name, final String emailPhoton, final String facebookId, final String startWork, 
+			final String jobRole, final String annual, final String coff,final String condolences, final String married, 
+			final String maternity, final String paternity, final String onsite, final String sick, 
+			final String dataURLSignature, final String gender){
+		final HttpAdapter httpAdapter = new HttpAdapter();
+		String moduleCreateEditAccount ="/create-edit-account";
+		String responseString ;
+		JSONObject response = null ;
+		JSONObject postBody = new JSONObject();
+		try {	
+			postBody.put("status", status);
+			postBody.put("employee_id", employeeID);
+			postBody.put("username", username);
+			postBody.put("project_id", projectID);
+			postBody.put("name", name);
+			postBody.put("email_photon", emailPhoton);
+			postBody.put("facebook_id", facebookId);
+			postBody.put("start_work", startWork);
+			postBody.put("job_role", jobRole);
+			postBody.put("annual", annual);
+			postBody.put("c_off", coff);
+			postBody.put("condolences", condolences);
+			postBody.put("married", married);
+			postBody.put("maternity", maternity);
+			postBody.put("paternity", paternity);
+			postBody.put("onsite", onsite);
+			postBody.put("sick", sick);
+			postBody.put("signature", dataURLSignature);
+			postBody.put("gender", gender);
+			String postBodyString = postBody.toString();
+			final String jsonString = httpAdapter.sendPostRequest(postBodyString, moduleCreateEditAccount);
+			response = new JSONObject(jsonString);
+		}catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		responseString = response.toString();
+		return responseString;
+	}
+}
