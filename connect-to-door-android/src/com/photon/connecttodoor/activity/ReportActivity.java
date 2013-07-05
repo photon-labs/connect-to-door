@@ -1,9 +1,5 @@
 package com.photon.connecttodoor.activity;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Calendar;
 
 import org.json.JSONException;
@@ -15,27 +11,33 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.photon.connecttodoor.R;
-import com.photon.connecttodoor.controller.DailyAttendanceService;
 import com.photon.connecttodoor.controller.ReportAttendanceService;
-import com.photon.connecttodoor.datamodel.DailyAttendanceModel;
 import com.photon.connecttodoor.datamodel.ReportAttendanceModel;
-import com.photon.connecttodoor.uiadapter.ListGeneratedDailyArrayAdapter;
 import com.photon.connecttodoor.uiadapter.ListGeneratedReportArrayAdapter;
 
 public class ReportActivity extends Activity {
 
+	private String category[] = {"Before Adjustment", "Adjustment", "After Adjustment" };
+	Spinner dropDownCategory;
+	String selectCategory;
+	private String attendanceStatus = "before";
 	private ListView attendanceAdminReport;
 	private Button signOutButton ;
-	private Button backButton ;
+	private Button backButton, searchButton ;
 	private EditText startFromDateTxt;
 	private ImageView startFromDateImage;
 	private int pYear;
@@ -52,8 +54,36 @@ public class ReportActivity extends Activity {
 		backButton = (Button)findViewById(R.id.back_button);
 		startFromDateImage = (ImageView)findViewById(R.id.dateReportId);
 		startFromDateTxt = (EditText)findViewById(R.id.inputDateReport);
-		attendanceAdminReport = (ListView) findViewById(R.id.table_report_attendance);
+		searchButton = (Button)findViewById(R.id.search_button);
+		attendanceAdminReport = (ListView) findViewById(R.id.table_report_attendance);	
+		dropDownCategory = (Spinner)findViewById(R.id.spinnerCategory);
+
+		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, category);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		dropDownCategory.setAdapter(adapter);
 		
+		dropDownCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+				selectCategory = dropDownCategory.getSelectedItem().toString();
+				try {
+					if(selectCategory.equalsIgnoreCase("Before Adjustment")){
+						attendanceStatus = "before";
+					}else if(selectCategory.equalsIgnoreCase("Adjustment")){
+						attendanceStatus = "adjustment";
+					}else if(selectCategory.equalsIgnoreCase("After Adjustment")){
+						attendanceStatus = "after";
+					}
+				}catch(NumberFormatException nfe) {
+					System.out.println("Could not parse " + nfe);
+				} 
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		});
 
 		signOutButton.setOnClickListener(new OnClickListener() {
 
@@ -81,6 +111,14 @@ public class ReportActivity extends Activity {
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
+		
+		searchButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				new CallServiceAttendanceReportTask().execute();
+			}
+		});
 	}
 
 	private void getCurrentDate(){
@@ -101,7 +139,6 @@ public class ReportActivity extends Activity {
 			pMonth = monthOfYear;
 			pDay = dayOfMonth;
 			startFromDateTxt.setText(getDateEditText());
-			new CallServiceAttendanceReportTask().execute();
 		}
 	};
 	/**
@@ -160,10 +197,9 @@ public class ReportActivity extends Activity {
 		@Override
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			String status = "before";
 			String startDateParam = changeFormatDate(startFromDateTxt.getText().toString());
 			ReportAttendanceService reportAttendanceService = new ReportAttendanceService();
-			String response = reportAttendanceService.handleRequestReportAttendance(status,startDateParam);
+			String response = reportAttendanceService.handleRequestReportAttendance(attendanceStatus,startDateParam);
 			return response;
 		}
 
@@ -190,29 +226,6 @@ public class ReportActivity extends Activity {
 	private void goToLoginPage(){
 		Intent loginPage = new Intent(ReportActivity.this,LoginActivity.class);
 		startActivity(loginPage);
-	}
-
-
-	protected String LoadAccount(int resourceId) {
-		// The InputStream opens the resourceId and sends it to the buffer
-		InputStream is = this.getResources().openRawResource(resourceId);
-		BufferedReader br = new BufferedReader(new InputStreamReader(is));
-		String line;
-		StringBuilder text = new StringBuilder();
-
-		try {
-			//While the BufferedReader readLine is not null
-			while ((line = br.readLine()) != null) {
-				text.append(line);
-				text.append('\n');
-			}    
-			//Close the InputStream and BufferedReader
-			is.close();
-			br.close();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		return text.toString();
 	}
 
 }
