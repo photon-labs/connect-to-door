@@ -10,12 +10,24 @@
 #import "ctdProfileViewController.h"
 #import "ctdVoucherViewController.h"
 #import "ctdDailyAttendaceViewController.h"
+#import "ctdLoginViewController.h"
 
 @interface ctdWelcomeViewController ()
 
 @end
 
 @implementation ctdWelcomeViewController
+
+
+@synthesize welcome;
+@synthesize statusCheck;
+@synthesize checkInButton;
+@synthesize checkOutButton;
+@synthesize profileButton;
+@synthesize voucherButton;
+@synthesize dailyAttendanceButton;
+@synthesize attendanceListButton;
+@synthesize signOutButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,11 +56,13 @@
 }
 
 - (IBAction)didCheckInClicked:(id)sender{
-    
+     NSString* totalProductLoadedStr = [NSString stringWithFormat:@"You have checked in at %@", [self getCurrentDate]];
+    statusCheck.text = totalProductLoadedStr;
 }
 
 - (IBAction)didCheckOutClicked:(id)sender{
-    
+    NSString* totalProductLoadedStr = [NSString stringWithFormat:@"You have checked out at %@", [self getCurrentDate]];
+    statusCheck.text = totalProductLoadedStr;
 }
 
 - (IBAction)didProfileClicked:(id)sender{
@@ -64,11 +78,12 @@
 }
 
 - (IBAction)didAttendanceListClicked:(id)sender{
-    
+    [self goToAttendanceList];
 }
 
 - (IBAction)didSignOutClicked:(id)sender{
-    
+    ctdLoginViewController *loginViewController = [[ctdLoginViewController alloc]initWithNibName:@"ctdLoginViewController" bundle:nil];
+    [self.navigationController pushViewController:loginViewController animated:YES];
 }
 
 -(void) goToProfile{
@@ -90,6 +105,16 @@
     ///
     ///
     ///
+}
+
+-(NSString*) getCurrentDate {
+    NSDate *today = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // display in 12HR/24HR (i.e. 11:25PM or 23:25) format according to User Settings
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    NSString *currentTime = [dateFormatter stringFromDate:today];
+    NSLog(@"User's current time in their preference format:%@",currentTime);
+    return currentTime;
 }
 
 @end
