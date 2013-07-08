@@ -14,7 +14,10 @@
 @end
 
 @interface ctdLoginService : NSObject{
-    
+    id<LoginServiceDelegate> _delegate;
 }
 
+@property (nonatomic,strong) id<LoginServiceDelegate>delegate;
+
+-(void) loginToServer:(NSString*)employeeId facebookID:(NSString*)facebookId;
 @end

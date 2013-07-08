@@ -8,6 +8,7 @@
 
 #import "ctdSignInViewController.h"
 #import "ctdWelcomeViewController.h"
+#import "ctdLoginService.h"
 
 @interface ctdSignInViewController ()
 
@@ -17,6 +18,8 @@
 
 @synthesize employeeID = employeeID;
 @synthesize continueButton = continueButton;
+
+NSString *test;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,7 +53,7 @@
 
 
 -(void)checkEmployeeID:(NSString *)employeeID{
-    if(employeeID.length > 0){
+    if([employeeID length] > 0){
         [self goToWelcome];
     }else{
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
@@ -63,8 +66,22 @@
 }
 
 -(void)goToWelcome {
+    ctdLoginService *loginService = [[ctdLoginService alloc]init];
+    loginService.delegate = self;
+    NSString *employeeId= employeeID.text;
+    [loginService loginToServer:employeeId facebookID:@"100001687854142"];
     ctdWelcomeViewController *welcomeViewController = [[ctdWelcomeViewController alloc]initWithNibName:@"ctdWelcomeViewController" bundle:nil];
     [self.navigationController pushViewController:welcomeViewController animated:YES];
+}
+
+
+#pragma login Service Delegate
+-(void)didReceivedLoginResponse:(NSString *)response{
+    
+}
+
+-(void)didReceiveLoginErrorResponse:(NSError *)error{
+    
 }
 
 @end

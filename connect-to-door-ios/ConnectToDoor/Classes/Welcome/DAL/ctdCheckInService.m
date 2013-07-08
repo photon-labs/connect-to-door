@@ -1,48 +1,48 @@
 //
-//  ctdLoginService.m
+//  ctdCheckInService.m
 //  ConnectToDoor
 //
-//  Created by aldi cita putra on 5/8/13.
+//  Created by Photon Infotech on 7/8/13.
 //  Copyright (c) 2013 aldi cita putra. All rights reserved.
 //
 
-#import "ctdLoginService.h"
-#import "AFHTTPClient.h"
+#import "ctdCheckInService.h"
 #import "ctdConstants.h"
+#import "AFHTTPClient.h"
 
-@implementation ctdLoginService
+@implementation ctdCheckInService
 
 @synthesize delegate = _delegate;
 
 /**
  * aldi_p
- * this method for call API Login
+ * this method for call API checkInAndCheckOut
  * @param String employeeId
- * @param String facebookId
  */
--(void) loginToServer:(NSString*)employeeId facebookID:(NSString*)facebookId{
+-(void)checkInToServer:(NSString*)employeeId{
     NSString* urlServer = URLSERVER;
     NSURL *url =[NSURL URLWithString:urlServer];
-
+    
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                             employeeId, @"employee_id",
-                            facebookId, @"facebook_id",
+                            CHECKIN, @"status",
                             nil];
     httpClient.parameterEncoding = AFJSONParameterEncoding;
-    [httpClient postPath:MODULE_LOGIN parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [httpClient postPath:MODULE_CHECKOUT_CHECKIN parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //this block function for response success and return velue
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"Request Successful loginToServer, response '%@'", responseStr);
         [self didReceivedResponse:responseStr];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //this block function for response error and return velue error
+         //this block function for response error and return velue error
         NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
-        if ([_delegate respondsToSelector:@selector(didReceiveLoginErrorResponse:)]) {
-            [_delegate didReceiveLoginErrorResponse:error];
+        if ([_delegate respondsToSelector:@selector(didReceiveCheckInErrorResponse:)]) {
+            [_delegate didReceiveCheckInErrorResponse:error];
         }
     }];
 }
+
 
 /**
  * aldi_p

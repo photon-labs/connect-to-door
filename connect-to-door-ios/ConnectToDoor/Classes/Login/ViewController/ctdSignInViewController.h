@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ctdSignInViewController : UIViewController{
+#import "ctdLoginService.h"
+@interface ctdSignInViewController : UIViewController<LoginServiceDelegate>{
     IBOutlet UITextField *employeeID;
     IBOutlet UIButton *continueButton;
 }

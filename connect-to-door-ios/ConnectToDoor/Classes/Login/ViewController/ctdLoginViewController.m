@@ -41,7 +41,7 @@
     NSString *un = self.userName.text;
     NSString *pass = self.password.text;
     NSString *status = [self checkUseranmeAndPassword:un :pass];
-    if(status == @""){
+    if([status isEqual: @""]){
         [self goToWelcome];
     }else{
         [self showAlert:status :@"Alert" :@"OK"];
@@ -51,11 +51,11 @@
 
 -(NSString *)checkUseranmeAndPassword:(NSString *)userName :(NSString *)passWord {
     NSString *message = @"";
-    if(userName.length == 0 && passWord.length == 0){
+    if([userName length] == 0 && [passWord length] == 0){
         message = @"Please fill field Username and Password";
-    }else if (userName.length == 0){
+    }else if ([userName length] == 0){
         message = @"Please fill field Username";
-    }else if (passWord.length == 0){
+    }else if ([passWord length] == 0){
         message = @"Please fill field Password";
     }
     else{
