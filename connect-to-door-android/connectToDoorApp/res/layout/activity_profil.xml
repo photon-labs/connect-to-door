@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="10dp"
     android:background="@drawable/background_allpages"
     android:orientation="horizontal"
     tools:context=".Profil_Activity" >
@@ -10,7 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="320dp"
         android:layout_weight="0.7"
         android:gravity="left"
         android:orientation="vertical" >
@@ -43,7 +44,7 @@
             android:background="@drawable/box_transparentprofile"
             android:gravity="left"
             android:orientation="vertical"
-            android:paddingBottom="20dp"
+            android:paddingBottom="30dp"
             android:paddingLeft="40dp"
             android:paddingTop="110dp" >
 
@@ -403,7 +404,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="90dp"
             android:gravity="right" >
 
             <ImageButton
