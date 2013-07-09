@@ -1,5 +1,7 @@
 package com.photon.connecttodoor.activity;
 
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -14,6 +16,7 @@ import android.widget.EditText;
 
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.LoginService;
+import com.photon.connecttodoor.datamodel.LoginDataModel;
 import com.photon.connecttodoor.utils.Utility;
 
 public class SignInActivity extends Activity {
@@ -93,7 +96,19 @@ public class SignInActivity extends Activity {
 
 		protected void onPostExecute(String result) {
 			Utility.savePreference("responseLogin", result, getApplicationContext());
-			goToWelcomePage();
+			String response = result;
+			LoginDataModel loginDataModel = new LoginDataModel();
+			try {
+				loginDataModel.parseJSON(response);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(loginDataModel.getStatus().equalsIgnoreCase("success")){
+				goToWelcomePage();
+			}else{
+				alertMessage("Login failed");
+			}
 			this.dialog.dismiss();
 		}
 	}
