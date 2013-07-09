@@ -9,6 +9,8 @@
 #import "ctdLoginService.h"
 #import "AFHTTPClient.h"
 #import "ctdConstants.h"
+#import "ctdLoginParser.h"
+#import "ctdReponseLoginModel.h"
 
 @implementation ctdLoginService
 
@@ -50,7 +52,20 @@
  * @param String response
  */
 -(void)didReceivedResponse:(NSString*)response{
-    
+    if(response != NULL || response.length > 0){
+        ctdLoginParser *parse = [[ctdLoginParser alloc]init];
+        ctdReponseLoginModel *model = [parse parseResponse:response];
+        if ([_delegate respondsToSelector:@selector(didReceivedLoginResponse:)]) {
+            [_delegate didReceivedLoginResponse:model.message];
+        }
+    }else{
+        if ([_delegate respondsToSelector:@selector(didReceiveLoginErrorResponse:)]) {
+            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+            [errorDetail setValue:@"server error" forKey:NSLocalizedDescriptionKey];
+            NSError *error = [NSError errorWithDomain:@"server error" code:412 userInfo:errorDetail];
+            [_delegate didReceiveLoginErrorResponse:error];
+        }
+    }
 }
 
 @end

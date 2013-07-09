@@ -10,7 +10,7 @@
 
 @interface ctdResponseDailyAttendanceModel : NSObject
 
-@property (nonatomic, strong) NSArray *arrayDailyAttendance;
+@property (nonatomic, strong) NSMutableArray *arrayDailyAttendance;
 
 - (ctdResponseDailyAttendanceModel *)initWithDefault;
 @end

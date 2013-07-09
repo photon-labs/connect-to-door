@@ -69,6 +69,8 @@
 		DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */; };
 		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
 		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
+		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
+		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,10 @@
 		DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_voucher.png"; sourceTree = "<group>"; };
 		DDA08B401738F602002882B4 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_sign-out.png"; sourceTree = "<group>"; };
 		DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_sign-in.png"; sourceTree = "<group>"; };
+		DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceParser.h; sourceTree = "<group>"; };
+		DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdDailyAttendanceParser.m; sourceTree = "<group>"; };
+		DDAF29B5178BB5A100597570 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = "<group>"; };
+		DDAF29B6178BB5A200597570 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +399,7 @@
 		713343541737EF5F00057FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DDAF29B4178BB58300597570 /* JSONKit */,
 				DD3487C7178A704F0070702C /* AFNetworking */,
 				713343551737EF5F00057FE6 /* MBProgressHUD */,
 			);
@@ -471,6 +478,8 @@
 		713C75F0173A1ECB0026AFBE /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */,
+				DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -689,6 +698,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		DDAF29B4178BB58300597570 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				DDAF29B5178BB5A100597570 /* JSONKit.h */,
+				DDAF29B6178BB5A200597570 /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -848,6 +866,8 @@
 				DD3487FF178AA6DD0070702C /* ctdResponseCheckOutModel.m in Sources */,
 				DD348802178AAB5A0070702C /* ctdResponseDailyAttendanceModel.m in Sources */,
 				DD348805178AB44C0070702C /* ctdResponseDailyAttendanceListModel.m in Sources */,
+				DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */,
+				DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -54,7 +54,10 @@ NSString *test;
 
 -(void)checkEmployeeID:(NSString *)employeeID{
     if([employeeID length] > 0){
-        [self goToWelcome];
+        ctdLoginService *loginService = [[ctdLoginService alloc]init];
+        loginService.delegate = self;
+        NSString *employeeId= employeeID;
+        [loginService loginToServer:employeeId facebookID:@"100001687854142"];
     }else{
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
                                                           message:@"Please input Employee ID."
@@ -66,10 +69,6 @@ NSString *test;
 }
 
 -(void)goToWelcome {
-    ctdLoginService *loginService = [[ctdLoginService alloc]init];
-    loginService.delegate = self;
-    NSString *employeeId= employeeID.text;
-    [loginService loginToServer:employeeId facebookID:@"100001687854142"];
     ctdWelcomeViewController *welcomeViewController = [[ctdWelcomeViewController alloc]initWithNibName:@"ctdWelcomeViewController" bundle:nil];
     [self.navigationController pushViewController:welcomeViewController animated:YES];
 }
@@ -77,7 +76,16 @@ NSString *test;
 
 #pragma login Service Delegate
 -(void)didReceivedLoginResponse:(NSString *)response{
-    
+    if([response isEqualToString:@"Login failed"]){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                          message:response
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }else{
+        [self goToWelcome];
+    }
 }
 
 -(void)didReceiveLoginErrorResponse:(NSError *)error{
