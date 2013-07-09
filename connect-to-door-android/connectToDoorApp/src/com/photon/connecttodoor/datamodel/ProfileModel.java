@@ -175,6 +175,18 @@ public class ProfileModel {
 		if (responseObject.has("authority")){
 			this.setAuthority(responseObject.getString("authority"));
 		}
+		if (responseObject.has("facebook_id")){
+			this.setFacebookId(responseObject.getString("facebook_id"));
+		}
+		if (responseObject.has("signature")){
+			this.setSignature(responseObject.getString("signature"));
+		}
+		if (responseObject.has("gender")){
+			this.setGender(responseObject.getString("gender"));
+		}
+		if (responseObject.has("user_name")){
+			this.setUsername(responseObject.getString("user_name"));
+		}
 		
 	}
 }

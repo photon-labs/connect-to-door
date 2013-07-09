@@ -45,55 +45,78 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_attform_delete_account" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/editLiniarLayout"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:text="Search by :"
-                android:textSize="14sp" />
+                android:orientation="vertical"
+                android:visibility="invisible" >
 
-            <Spinner
-                android:id="@+id/spinnerSearchCategory"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/box_white_att_form_long"
-                android:paddingLeft="5dp" >
-            </Spinner>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Search by :"
+                    android:textSize="14sp" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-38dp" >
+                <Spinner
+                    android:id="@+id/spinnerSearchCategory"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/box_white_att_form_long"
+                    android:paddingLeft="5dp" >
+                </Spinner>
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="185dp"
-                    android:background="@drawable/filter_by_button_arrow_dropdown" />
-            </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-38dp" >
 
-            <EditText
-                android:id="@+id/category_id"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@+id/text_emp"
-                android:background="@drawable/box_white_att_form_long"
-                android:inputType="text"
-                android:paddingLeft="5dp"
-                android:paddingRight="8dp" />
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="185dp"
+                        android:background="@drawable/filter_by_button_arrow_dropdown" />
+                </RelativeLayout>
 
-            <Button
-                android:id="@+id/button_search"
-                android:layout_width="90dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="135dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_search" />
+                <EditText
+                    android:id="@+id/category_id"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_toRightOf="@+id/text_emp"
+                    android:background="@drawable/box_white_att_form_long"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="8dp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/button_deleteacc"
+                        android:layout_width="90dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/button_deleteacc"
+                        android:visibility="invisible" />
+
+                    <Button
+                        android:id="@+id/button_search"
+                        android:layout_width="90dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/button_search" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -221,11 +244,11 @@
 
                         <ImageView
                             android:id="@+id/imgDropdownRole"
-                            android:visibility="invisible"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="160dp"
-                            android:background="@drawable/filter_by_button_arrow_dropdown" />
+                            android:background="@drawable/filter_by_button_arrow_dropdown"
+                            android:visibility="invisible" />
                     </RelativeLayout>
 
                     <TextView
@@ -500,10 +523,10 @@
 
                         <ImageView
                             android:id="@+id/imgFacebookid"
-                            android:visibility="invisible"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:background="@drawable/facebook_id" />
+                            android:background="@drawable/facebook_id"
+                            android:visibility="invisible" />
                     </RelativeLayout>
 
                     <Spinner
@@ -527,8 +550,8 @@
                             android:id="@+id/imgDroddownGender"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:visibility="invisible"
-                            android:background="@drawable/filter_by_button_arrow_dropdown" />
+                            android:background="@drawable/filter_by_button_arrow_dropdown"
+                            android:visibility="invisible" />
                     </RelativeLayout>
                 </LinearLayout>
 

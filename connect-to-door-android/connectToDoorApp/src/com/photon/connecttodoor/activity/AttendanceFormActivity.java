@@ -15,41 +15,42 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.CreateandEditAccountService;
 import com.photon.connecttodoor.controller.DeleteAccountService;
-import com.photon.connecttodoor.controller.ReportAttendanceService;
-import com.photon.connecttodoor.datamodel.ReportAttendanceModel;
-import com.photon.connecttodoor.uiadapter.ListGeneratedReportArrayAdapter;
-import com.photon.connecttodoor.utils.Utility;
+import com.photon.connecttodoor.controller.ProfileService;
+import com.photon.connecttodoor.datamodel.ProfileModel;
 
 public class AttendanceFormActivity extends Activity {
 
 	private String searchCategory[] = {"Username", "Employee ID" };
-	private String roleCategory[] = {"General Manager", "Finance", "Admin", "Project Manager", "Employee" };
-	private String genderCategory[] = {"Male", "Female"};
+	private String roleCategory[] = {"","General Manager", "Finance", "Admin", "Project Manager", "Employee" };
+	private String genderCategory[] = {"","Male", "Female"};
 	Spinner dropDownCategory,dropDownRole,dropDownGender;
-	private Button createButton, backButton, signOutButton, saveButton,deleteButton;
+	private Button createButton, backButton, signOutButton, saveButton,deleteButton,editButton,deleteButtonAcc,searchButton;
 	private EditText editTextName, editTextEmployee, editTextProject, editTextStartWork,
 	editTextEmail, editTextAnnual, editTextMarried, editTextPaternity,
 	editTextCoff, editTextMaternity, editTextSick, editTextCondolences, editTextOnsite,
-	editTextUsername, editTextFacebookId, editTextSignature, editTextUserId;
+	editTextUsername, editTextFacebookId, editTextSignature, editTextUserId, editSearchCategory;
 	private ImageView imgFacebook, imgDropDwnRole, imgDropDwnGender,imageCalendar;
+	private LinearLayout editSection;
 	private int pYear;
 	private int pMonth;
 	private int pDay;
 	ArrayAdapter<CharSequence> adapter ;
 	static final int DATE_DIALOG_ID = 0;
 	String selectSearchCategory, selectRole,selectGender;
+	String status,searchBy;
+	ProfileModel profileDataModel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,12 @@ public class AttendanceFormActivity extends Activity {
 		imgDropDwnGender =(ImageView)findViewById(R.id.imgDroddownGender);
 		saveButton =(Button)findViewById(R.id.button_save);
 		deleteButton =(Button)findViewById(R.id.button_delete);
+		editButton =(Button)findViewById(R.id.button_edit);
+		editSection =(LinearLayout)findViewById(R.id.editLiniarLayout);
+		deleteButtonAcc =(Button)findViewById(R.id.button_deleteacc);
+		searchButton =(Button)findViewById(R.id.button_search);
+		editSearchCategory =(EditText)findViewById(R.id.category_id);
+		
 		setDropdownSearchCategory();
 		setDropdownRoleCategory();
 		setDropdownGenderCategory();
@@ -97,8 +104,41 @@ public class AttendanceFormActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				status = "create";
+				editSection.setVisibility(View.INVISIBLE);
 				// TODO Auto-generated method stub
-				setUIForCreateBtnClick();
+				setFormActive();
+				clearValue();
+			}
+		});
+
+		editButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				status = "update";
+				deleteButtonAcc.setVisibility(View.INVISIBLE);
+				setFormInactive();
+				// TODO Auto-generated method stub
+
+			}
+		});
+
+		deleteButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				deleteButtonAcc.setVisibility(View.VISIBLE);
+				setFormInactive();
+			}
+		});
+
+		deleteButtonAcc.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				status = "delete";
+				new CallServiceDeleteAccount().execute();
 			}
 		});
 
@@ -117,7 +157,7 @@ public class AttendanceFormActivity extends Activity {
 				goToLoginPage();
 			}
 		});
-		
+
 		saveButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -126,13 +166,16 @@ public class AttendanceFormActivity extends Activity {
 				//goToLoginPage();
 			}
 		});
-		
-		deleteButton.setOnClickListener(new OnClickListener() {
+
+		searchButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				new CallServiceDeleteAccount().execute();
-				//goToLoginPage();
+				clearValue();
+				setFormActive();
+				new CallServiceSearchAccount().execute();
+				// TODO Auto-generated method stub
+
 			}
 		});
 	}
@@ -165,7 +208,7 @@ public class AttendanceFormActivity extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		dropDownGender.setAdapter(adapter);
 	}
-	private void setUIForCreateBtnClick(){
+	private void setFormActive(){
 		imageCalendar.setBackgroundResource(R.drawable.icon_calendar_start_working);
 		editTextName.setBackgroundResource(R.drawable.box_add_text_n_e_p_active);
 		editTextName.setEnabled(true);
@@ -208,6 +251,52 @@ public class AttendanceFormActivity extends Activity {
 		imgDropDwnGender.setVisibility(View.VISIBLE);
 		imgDropDwnRole.setVisibility(View.VISIBLE);
 		imgFacebook.setVisibility(View.VISIBLE);
+	}
+
+	private void setFormInactive(){
+		imageCalendar.setBackgroundResource(R.drawable.icon_calendar_in_active);
+		editTextName.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		editTextName.setEnabled(false);
+		editTextEmployee.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		editTextEmployee.setEnabled(false);
+		editTextProject.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		editTextProject.setEnabled(false);
+		editTextStartWork.setBackgroundResource(R.drawable.box_add_text_form_start_working_in_active);
+		editTextStartWork.setEnabled(false);
+		editTextEmail.setBackgroundResource(R.drawable.box_add_text_form_email_in_active);
+		editTextEmail.setEnabled(false);
+		editTextAnnual.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextAnnual.setEnabled(false);
+		editTextMarried.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextMarried.setEnabled(false);
+		editTextPaternity.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextPaternity.setEnabled(false);
+		editTextCoff.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextCoff.setEnabled(false);
+		editTextMaternity.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextMaternity.setEnabled(false);
+		editTextCondolences.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextCondolences.setEnabled(false);
+		editTextSick.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextSick.setEnabled(false);
+		editTextOnsite.setBackgroundResource(R.drawable.box_add_text_form_small_in_active);
+		editTextOnsite.setEnabled(false);	
+		editTextUsername.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		editTextUsername.setEnabled(false);
+		editTextFacebookId.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		editTextFacebookId.setEnabled(false);
+		dropDownGender.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		dropDownGender.setEnabled(false);
+		dropDownRole.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		dropDownRole.setEnabled(false);
+		editTextSignature.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		editTextSignature.setEnabled(false);
+		editTextUserId.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
+		editTextUserId.setEnabled(false);
+		imgDropDwnGender.setVisibility(View.INVISIBLE);
+		imgDropDwnRole.setVisibility(View.INVISIBLE);
+		imgFacebook.setVisibility(View.INVISIBLE);
+		editSection.setVisibility(View.VISIBLE);
 	}
 
 	private void getCurrentDate(){
@@ -289,11 +378,12 @@ public class AttendanceFormActivity extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
 				selectSearchCategory = dropDownCategory.getSelectedItem().toString();
+				editSearchCategory.setText("");
 				try {
 					if(selectSearchCategory.equals("Username")){
-						//TO DO : send parameter to get service search account
+						searchBy = "username";
 					}else{
-						//TO DO : send parameter to get service search account
+						searchBy = "employee_id";
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);
@@ -302,7 +392,7 @@ public class AttendanceFormActivity extends Activity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-			
+
 			}
 		});
 	}
@@ -316,26 +406,63 @@ public class AttendanceFormActivity extends Activity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-			 
+
 			}
 		});
 	}
-	
+
 	private void selectRole(){
 		dropDownRole.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int pos, long arg3){
 				selectRole = dropDownRole.getSelectedItem().toString();
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-			 
+
 			}
 		});
 	}
-	
+
+	private void setValueForEditAccount(){
+		editTextName.setText(profileDataModel.getEmployeeName());
+		editTextUsername.setText(profileDataModel.getUsername());
+		editTextEmployee.setText(profileDataModel.getEmployeeId());
+		editTextProject.setText(profileDataModel.getProjectId());
+		editTextStartWork.setText(profileDataModel.getEmployeeStartWork());
+		editTextAnnual.setText(profileDataModel.getAnnual());
+		editTextCoff.setText(profileDataModel.getcOff());
+		editTextCondolences.setText(profileDataModel.getCondolences());
+		editTextMarried.setText(profileDataModel.getMarried());
+		editTextPaternity.setText(profileDataModel.getPaternity());
+		editTextMaternity.setText(profileDataModel.getMaternity());
+		editTextOnsite.setText(profileDataModel.getOnsite());
+		editTextSick.setText(profileDataModel.getSick());
+		editTextFacebookId.setText(profileDataModel.getFacebookId());
+		editTextEmail.setText(profileDataModel.getEmployeeEmail());
+		editTextSignature.setText(profileDataModel.getSignature());
+	}
+	private void clearValue(){
+		editTextName.setText("");
+		editTextUsername.setText("");
+		editTextEmployee.setText("");
+		editTextProject.setText("");
+		editTextStartWork.setText("");
+		editTextAnnual.setText("");
+		editTextCoff.setText("");
+		editTextCondolences.setText("");
+		editTextMarried.setText("");
+		editTextPaternity.setText("");
+		editTextMaternity.setText("");
+		editTextOnsite.setText("");
+		editTextSick.setText("");
+		editTextFacebookId.setText("");
+		editTextEmail.setText("");
+		editTextSignature.setText("");
+	}
+
 	private class CallServiceCreateandEditAccount extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -349,7 +476,7 @@ public class AttendanceFormActivity extends Activity {
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 			CreateandEditAccountService createAndEditAccountService = new CreateandEditAccountService();
-			String status = "create";
+			String statusAccount = status;
 			String employeeID = editTextEmployee.getText().toString();
 			String username = editTextUsername.getText().toString();
 			String projectID = editTextProject.getText().toString();
@@ -368,7 +495,7 @@ public class AttendanceFormActivity extends Activity {
 			String sick = editTextSick.getText().toString();
 			String dataURLSignature = editTextSignature.getText().toString();
 			String gender = selectGender;
-			String response = createAndEditAccountService.handleCreateandEditAccountRequest(status, employeeID, username, projectID, name, emailPhoton, facebookId, 
+			String response = createAndEditAccountService.handleCreateandEditAccountRequest(statusAccount, employeeID, username, projectID, name, emailPhoton, facebookId, 
 					startWork, jobRole, annual, coff, condolences, married, maternity, paternity, onsite, sick, dataURLSignature, gender);
 			return response;
 		}
@@ -377,7 +504,7 @@ public class AttendanceFormActivity extends Activity {
 			this.dialog.dismiss();
 		}
 	}
-	
+
 	private class CallServiceDeleteAccount extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -390,14 +517,46 @@ public class AttendanceFormActivity extends Activity {
 		@Override
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			String status = "delete";
-			String employeeID = "3456";
+			String statusDel = status;
+			String value = editSearchCategory.getText().toString();
 			DeleteAccountService deleteAccountService = new DeleteAccountService();
-			String response = deleteAccountService.handleDeleteAccountRequest(status, employeeID);
+			String response = deleteAccountService.handleDeleteAccountRequest(statusDel, value);
 			return response;
 		}
 
 		protected void onPostExecute(String result) {
+			this.dialog.dismiss();
+		}
+	}
+
+	private class CallServiceSearchAccount extends AsyncTask<Void, Void, String> {
+
+		private ProgressDialog dialog;
+
+		protected void onPreExecute() {
+			this.dialog = ProgressDialog.show(AttendanceFormActivity.this,
+					"Search Process", "Please Wait...", true);
+		}
+
+		@Override
+		protected String doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+			String value = editSearchCategory.getText().toString();
+			String searchParameter = searchBy;
+			ProfileService profileService = new ProfileService();
+			String response = profileService.handleProfileRequest(searchParameter, value);
+			return response;
+		}
+
+		protected void onPostExecute(String result) {
+			profileDataModel = new ProfileModel();
+			try {
+				profileDataModel.parseJSON(result);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			setValueForEditAccount();
 			this.dialog.dismiss();
 		}
 	}
