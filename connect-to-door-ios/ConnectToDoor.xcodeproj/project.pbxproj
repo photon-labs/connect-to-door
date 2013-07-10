@@ -71,6 +71,7 @@
 		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,8 @@
 		DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdDailyAttendanceParser.m; sourceTree = "<group>"; };
 		DDAF29B5178BB5A100597570 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = "<group>"; };
 		DDAF29B6178BB5A200597570 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
+		DDAF29B9178C1A6200597570 /* ctdLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdLocalStorage.h; path = LocalStorage/ctdLocalStorage.h; sourceTree = "<group>"; };
+		DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdLocalStorage.m; path = LocalStorage/ctdLocalStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +402,7 @@
 		713343541737EF5F00057FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DDAF29B8178C1A0400597570 /* LocalStorage */,
 				DDAF29B4178BB58300597570 /* JSONKit */,
 				DD3487C7178A704F0070702C /* AFNetworking */,
 				713343551737EF5F00057FE6 /* MBProgressHUD */,
@@ -707,6 +711,15 @@
 			name = JSONKit;
 			sourceTree = "<group>";
 		};
+		DDAF29B8178C1A0400597570 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				DDAF29B9178C1A6200597570 /* ctdLocalStorage.h */,
+				DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */,
+			);
+			name = LocalStorage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -868,6 +881,7 @@
 				DD348805178AB44C0070702C /* ctdResponseDailyAttendanceListModel.m in Sources */,
 				DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */,
 				DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */,
+				DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
