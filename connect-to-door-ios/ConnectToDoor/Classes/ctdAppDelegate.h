@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ctdLoginViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @class ctdViewController;
 
@@ -16,6 +17,9 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ctdLoginViewController *viewController;
 @property (strong, nonatomic) UINavigationController *navigationController;
+
+//facebook
+@property (strong, nonatomic) FBSession *session;
 
 
 @end

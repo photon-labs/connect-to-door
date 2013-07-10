@@ -8,12 +8,12 @@
 
 #import "ctdLoginViewController.h"
 #import "ctdSignInViewController.h"
+#import "ctdAppDelegate.h"
 
 @implementation ctdLoginViewController
 
 @synthesize loginButton = loginButton;
-@synthesize password = password;
-@synthesize userName = username;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +30,30 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.title = @"Login";
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    
+    //[self updateView];
+    
+    ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+   if (!appDelegate.session.isOpen) {
+        // create a fresh session object
+        appDelegate.session = [[FBSession alloc] init];
+        
+        // if we don't have a cached token, a call to open here would cause UX for login to
+        // occur; we don't want that to happen unless the user clicks the login button, and so
+        // we check here to make sure we have a token before calling open
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            // even though we had a cached token, we need to login to make the session usable
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+                // we recurse here, in order to update buttons and labels
+                [self goToWelcome];
+            }];
+        }
+    }
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -38,30 +62,52 @@
 }
 
 - (IBAction)didLoginButtonClicked:(id)sender{
-    NSString *un = self.userName.text;
-    NSString *pass = self.password.text;
-    NSString *status = [self checkUseranmeAndPassword:un :pass];
-    if([status isEqual: @""]){
-        [self goToWelcome];
-    }else{
-        [self showAlert:status :@"Alert" :@"OK"];
+    // get the app delegate so that we can access the session property
+    ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    
+    // this button's job is to flip-flop the session from open to closed
+    if (appDelegate.session.isOpen) {
+        // if a user logs out explicitly, we delete any cached token information, and next
+        // time they run the applicaiton they will be presented with log in UX again; most
+        // users will simply close the app or switch away, without logging out; this will
+        // cause the implicit cached-token login to occur on next launch of the application
+        [appDelegate.session closeAndClearTokenInformation];
+        
+    } else {
+        if (appDelegate.session.state != FBSessionStateCreated) {
+            // Create a new, logged out session.
+            appDelegate.session = [[FBSession alloc] init];
+        }
+        
+        // if the session isn't open, let's open it now and present the login UX to the user
+        [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                         FBSessionState status,
+                                                         NSError *error) {
+            
+            
+            
+            // and here we make sure to update our UX according to the new session state
+            NSLog(@"SESSION TOKEN == %@",appDelegate.session.accessTokenData.accessToken);
+            
+            //get User id and name
+            [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:
+             ^(FBRequestConnection *connection,
+               NSDictionary<FBGraphUser> *user,
+               NSError *error) {
+                 if (!error) {
+                     NSLog(@"id %@", user.id);
+                     NSLog(@"name %@", user.first_name);
+                     [self goToWelcome];
+                 }else {
+                     [self showAlert:@"server error" :@"alert" :@"OK"];
+                     NSLog(@"Error: %@",error);
+                 }
+             }];
+        }];
     }
-}
-
-
--(NSString *)checkUseranmeAndPassword:(NSString *)userName :(NSString *)passWord {
-    NSString *message = @"";
-    if([userName length] == 0 && [passWord length] == 0){
-        message = @"Please fill field Username and Password";
-    }else if ([userName length] == 0){
-        message = @"Please fill field Username";
-    }else if ([passWord length] == 0){
-        message = @"Please fill field Password";
-    }
-    else{
-       
-    }
-    return message;
+    
+    
+ 
 }
 
 

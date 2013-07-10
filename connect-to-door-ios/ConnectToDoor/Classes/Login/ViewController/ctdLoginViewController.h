@@ -7,19 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ctdLoginViewController : UIViewController<UITextFieldDelegate>{
-    IBOutlet UITextField *userName;
-    IBOutlet UITextField *password;
     IBOutlet UIButton *loginButton;
 }
 
-@property (nonatomic, strong) IBOutlet UITextField *userName;
-@property (nonatomic, strong) IBOutlet UITextField *password;
+
 @property (nonatomic, strong) IBOutlet UIButton *loginButton;
 
 
 - (IBAction)didLoginButtonClicked:(id)sender;
-- (NSString *)checkUseranmeAndPassword:(NSString *)userName :(NSString *)passWord ;
 
 @end

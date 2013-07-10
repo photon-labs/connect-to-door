@@ -72,6 +72,13 @@
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */; };
+		DDEE3A31178D23C800E7F0C1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */; };
+		DDEE3A33178D359800E7F0C1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */; };
+		DDEE3A35178D35F400E7F0C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A34178D35F400E7F0C1 /* Social.framework */; };
+		DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A36178D360000E7F0C1 /* Accounts.framework */; };
+		DDEE3A39178D361000E7F0C1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A38178D361000E7F0C1 /* AdSupport.framework */; };
+		DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A3A178D36B400E7F0C1 /* Security.framework */; };
+		DDEE3A3D178D4FED00E7F0C1 /* button_signinfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +201,13 @@
 		DDAF29B6178BB5A200597570 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		DDAF29B9178C1A6200597570 /* ctdLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdLocalStorage.h; path = LocalStorage/ctdLocalStorage.h; sourceTree = "<group>"; };
 		DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdLocalStorage.m; path = LocalStorage/ctdLocalStorage.m; sourceTree = "<group>"; };
+		DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ConnectToDoor/FacebookSDK.framework; sourceTree = "<group>"; };
+		DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		DDEE3A34178D35F400E7F0C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		DDEE3A36178D360000E7F0C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		DDEE3A38178D361000E7F0C1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		DDEE3A3A178D36B400E7F0C1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_signinfacebook.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,9 +215,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */,
+				DDEE3A39178D361000E7F0C1 /* AdSupport.framework in Frameworks */,
+				DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */,
+				DDEE3A35178D35F400E7F0C1 /* Social.framework in Frameworks */,
+				DDEE3A33178D359800E7F0C1 /* libsqlite3.dylib in Frameworks */,
 				713342F11737C9B700057FE6 /* UIKit.framework in Frameworks */,
 				713342F31737C9B700057FE6 /* Foundation.framework in Frameworks */,
 				713342F51737C9B700057FE6 /* CoreGraphics.framework in Frameworks */,
+				DDEE3A31178D23C800E7F0C1 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +244,11 @@
 		713342E41737C9B700057FE6 = {
 			isa = PBXGroup;
 			children = (
+				DDEE3A3A178D36B400E7F0C1 /* Security.framework */,
+				DDEE3A38178D361000E7F0C1 /* AdSupport.framework */,
+				DDEE3A36178D360000E7F0C1 /* Accounts.framework */,
+				DDEE3A34178D35F400E7F0C1 /* Social.framework */,
+				DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */,
 				713342F61737C9B700057FE6 /* ConnectToDoor */,
 				7133431A1737C9B800057FE6 /* ConnectToDoorTests */,
 				713342EF1737C9B700057FE6 /* Frameworks */,
@@ -243,6 +268,7 @@
 		713342EF1737C9B700057FE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */,
 				713C7608173A7F490026AFBE /* OCMock */,
 				713342F01737C9B700057FE6 /* UIKit.framework */,
 				713342F21737C9B700057FE6 /* Foundation.framework */,
@@ -686,6 +712,7 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */,
 				71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */,
 				71DFF04A1739304E00EF1491 /* box_transparent_profile.png */,
 				DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */,
@@ -815,6 +842,7 @@
 				71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */,
 				71DFF04B1739304E00EF1491 /* box_transparent_profile.png in Resources */,
 				71DFF04D1739331D00EF1491 /* button_main-menu_attendance.png in Resources */,
+				DDEE3A3D178D4FED00E7F0C1 /* button_signinfacebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +1012,10 @@
 		713343261737C9B800057FE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
@@ -995,6 +1027,10 @@
 		713343271737C9B800057FE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
