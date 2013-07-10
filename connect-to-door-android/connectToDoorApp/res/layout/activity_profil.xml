@@ -195,11 +195,11 @@
                     android:gravity="right"
                     android:paddingRight="30dp" >
 
-                    <ImageView
+                     <com.facebook.widget.ProfilePictureView
                         android:id="@+id/photoProfile"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:background="@drawable/photo_profile" />
+                        />
                 </LinearLayout>
             </LinearLayout>
 
