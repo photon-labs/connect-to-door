@@ -20,7 +20,7 @@ public class ApplicationConstant {
 	public static final String MODULE_ATT_LIST = "/attendance-list";
 	public static final String MODULE_CHECK_IN_OUT = "/check-in-out";
 	public static final String MODULE_CREATE_EDIT_DELETE_ACCOUNT = "/create-edit-account";
-	public static final String MODULE_DAILY_ATT = "/create-edit-account";
+	public static final String MODULE_DAILY_ATT = "/daily-attendance";
 	public static final String MODULE_LOGIN = "/login";
 	public static final String MODULE_PROFILE = "/profile";
 	public static final String MODULE_REPORT = "/report";

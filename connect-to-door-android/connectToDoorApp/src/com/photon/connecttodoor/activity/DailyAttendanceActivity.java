@@ -66,6 +66,7 @@ public class DailyAttendanceActivity extends Activity{
 		signOutButton.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v) {
+				LoginActivity.onClickLogout();
 				goToLoginPage();
 			}
 		});

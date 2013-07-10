@@ -149,8 +149,8 @@ public class WelcomeScreenActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				goToLoginPage();
 				LoginActivity.onClickLogout();
+				goToLoginPage();
 			}
 		});
 	}

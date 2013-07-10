@@ -91,6 +91,7 @@ public class ReportActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				LoginActivity.onClickLogout();
 				goToLoginPage();
 
 			}
