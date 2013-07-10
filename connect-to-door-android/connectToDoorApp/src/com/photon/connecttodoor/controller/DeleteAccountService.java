@@ -3,10 +3,12 @@ package com.photon.connecttodoor.controller;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.photon.connecttodoor.utils.ApplicationConstant;
+
 public class DeleteAccountService {
 	public String handleDeleteAccountRequest(final String status, final String employeeID){
 		final HttpAdapter httpAdapter = new HttpAdapter();
-		String moduleDeleteAccount = "/create-edit-account";
+		String moduleDeleteAccount = ApplicationConstant.MODULE_CREATE_EDIT_DELETE_ACCOUNT;
 		String responseString ;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();

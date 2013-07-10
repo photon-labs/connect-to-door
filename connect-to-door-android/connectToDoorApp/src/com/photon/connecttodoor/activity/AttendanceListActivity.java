@@ -9,15 +9,12 @@ import org.json.JSONException;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -35,6 +32,8 @@ import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.AttendanceListService;
 import com.photon.connecttodoor.datamodel.AttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedAttendanceListArrayAdapter;
+import com.photon.connecttodoor.utils.ApplicationConstant;
+import com.photon.connecttodoor.utils.Utility;
 
 
 public class AttendanceListActivity extends Activity {
@@ -56,10 +55,15 @@ public class AttendanceListActivity extends Activity {
 	String selectCategory;
 	String searchParameters;
 	String searchValues;
-	private String category[] = {"Date","Name","Project ID","Employee ID"};
+	private String category[] = {ApplicationConstant.CAT_DATE,ApplicationConstant.CAT_NAME,ApplicationConstant.CAT_PROJECT_ID,ApplicationConstant.CAT_EMPLOYEE_ID};
 
-	/** This integer will uniquely define the dialog to be used for displaying date picker.*/
-	static final int DATE_DIALOG_ID = 0;
+	private static final int DATE_DIALOG_ID = 0;
+	private static final String USERNAME = "username";
+	private static final String PROJECT_ID = "projectID";
+	private static final String EMPLOYEE_ID = "employeeID";
+	private static final String STRIP = "-";
+	private static final String SLASH = "/";
+	private static final String NUMBER_DATE = "0";
 
 	Spinner spinnerCategory;
 
@@ -108,11 +112,11 @@ public class AttendanceListActivity extends Activity {
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
 				selectCategory = spinnerCategory.getSelectedItem().toString();
 				try {
-					if(selectCategory.equals("Name")){
+					if(selectCategory.equals(ApplicationConstant.CAT_NAME)){
 						setValeuForSelectedName();
-					}else if(selectCategory.equals("Project ID")){
+					}else if(selectCategory.equals(ApplicationConstant.CAT_PROJECT_ID)){
 						setValeuForSelectedProjectId();
-					}else if(selectCategory.equals("Employee ID")){
+					}else if(selectCategory.equals(ApplicationConstant.EMPLOYEE_ID)){
 						setValeuForSelectedEmployeeId();
 					}else{
 						setValeuForSelectedDate();
@@ -124,7 +128,6 @@ public class AttendanceListActivity extends Activity {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				//total.setText("Anda Belum Memilih");   
 			}
 		});
 
@@ -132,26 +135,26 @@ public class AttendanceListActivity extends Activity {
 
 	private void setValeuForSelectedDate(){
 		inputCategory.setVisibility(View.GONE);	
-		((EditText) findViewById(R.id.inputCategory)).setText("");
+		inputCategory.setText("");
 		searchParameters = selectCategory;
 		inputCategory.getText().toString();
 	}
 	private void setValeuForSelectedName(){
 		inputCategory.setVisibility(View.VISIBLE);
-		((EditText) findViewById(R.id.inputCategory)).setText("");
-		searchParameters = "username";
+		inputCategory.setText("");
+		searchParameters = USERNAME;
 		inputCategory.getText().toString();
 	}
 	private void setValeuForSelectedProjectId(){
 		inputCategory.setVisibility(View.VISIBLE);
-		((EditText) findViewById(R.id.inputCategory)).setText("");
-		searchParameters = "projectID";
+		inputCategory.setText("");
+		searchParameters = PROJECT_ID;
 		inputCategory.getText().toString();
 	}
 	private void setValeuForSelectedEmployeeId(){
 		inputCategory.setVisibility(View.VISIBLE);
-		((EditText) findViewById(R.id.inputCategory)).setText("");
-		searchParameters = "employeeID";
+		inputCategory.setText("");
+		searchParameters = EMPLOYEE_ID;
 		inputCategory.getText().toString();
 	}
 	//go to welcome screen
@@ -204,29 +207,29 @@ public class AttendanceListActivity extends Activity {
 				int inputCategoryLength = inputCategory.getText().length();
 				if(inputCategory.isShown()){
 					if(inputCategoryLength == empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() == empty){
-						alertMessage("You must fill the blank");
+						Utility.alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 
 					}
 					else if(inputCategoryLength == empty  && ((startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty )
 							|| (startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ))){
-						alertMessage("You must fill the blank");
+						Utility.alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 					}
 					else if(startFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && untilFromDateTxt.getText().length() != empty)
 							|| (inputCategoryLength != empty && untilFromDateTxt.getText().length() == empty))){
-						alertMessage("You must fill the start From date and the others");
+						Utility.alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
 					}
 					else if(untilFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && startFromDateTxt.getText().length() != empty)
 							|| (inputCategoryLength != empty && startFromDateTxt.getText().length() == empty))){
-						alertMessage("You must fill the until date and the others");
+						Utility.alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
 					}
 					else if(inputCategoryLength == empty  && startFromDateTxt.getText().length() != empty  && untilFromDateTxt.getText().length() != empty){
-						alertMessage("Please input fill blank");
+						Utility.alertMessage(ApplicationConstant.ERR_INPUT_BLANK,AttendanceListActivity.this);
 					}
 					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty){
-						alertMessage("You must fill the start from date");
+						Utility.alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
 					}
 					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ){
-						alertMessage("You must fill the until date");
+						Utility.alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
 					}
 					else{
 
@@ -238,13 +241,13 @@ public class AttendanceListActivity extends Activity {
 								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
 							}else{
-								alertMessage("End date is less than start date");
+								Utility.alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
 							}
 
 						}
 						else if(inputCategoryLength!= empty){
 
-							alertMessage("You Must Fill the blank");
+							Utility.alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 
 						}
 						else if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
@@ -255,18 +258,18 @@ public class AttendanceListActivity extends Activity {
 								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
 							}else{
-								alertMessage("End date less than start date");
+								Utility.alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
 							}
 
 						}
 						else{
-							alertMessage("Error!");
+							Utility.alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
 						}
 					}
 
 				}else{
 					if(startFromDateTxt.getText().length() == empty || untilFromDateTxt.getText().length() == empty ){
-						alertMessage("Please input date");
+						Utility.alertMessage(ApplicationConstant.ERR_FILL_DATE,AttendanceListActivity.this);
 					}else{
 
 						if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
@@ -277,12 +280,12 @@ public class AttendanceListActivity extends Activity {
 								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
 							}else{
-								alertMessage("End date less than start date");
+								Utility.alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
 							}
 
 						}
 						else{
-							alertMessage("Error!");
+							Utility.alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
 						}
 
 					}
@@ -298,9 +301,9 @@ public class AttendanceListActivity extends Activity {
 	 */
 	@SuppressLint("SimpleDateFormat")
 	private boolean validateDateSection(){
-		String startDateString = startFromDateTxt.getText().toString().replace("-", "/");
-		String endDateString = untilFromDateTxt.getText().toString().replace("-", "/");;
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		String startDateString = startFromDateTxt.getText().toString().replace(STRIP, SLASH);
+		String endDateString = untilFromDateTxt.getText().toString().replace(STRIP, SLASH);;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ApplicationConstant.DATE_PATTERN);
 
 		boolean isValidated = false;
 
@@ -351,16 +354,16 @@ public class AttendanceListActivity extends Activity {
 		String pYearString = String.valueOf(pYear).trim().toString();
 
 		if(pMonthString.length() < 2){
-			pMonthString = "0"+pMonthString;
+			pMonthString = NUMBER_DATE+pMonthString;
 		}
 
 		if(pDayString.length() < 2){
-			pDayString = "0"+pDayString;
+			pDayString = NUMBER_DATE+pDayString;
 		}
 
 		return new StringBuilder()
-		.append(pDayString).append("/")
-		.append(pMonthString).append("/")
+		.append(pDayString).append(SLASH)
+		.append(pMonthString).append(SLASH)
 		.append(pYearString).append("");
 	}
 
@@ -374,31 +377,6 @@ public class AttendanceListActivity extends Activity {
 		}
 
 		return null;
-	}
-
-	private void alertMessage(String message){
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(AttendanceListActivity.this);
-
-		// set title
-		alertDialogBuilder.setTitle("Alert");
-
-		// set dialog message
-		alertDialogBuilder
-		.setMessage(message)
-		.setCancelable(false)
-		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog,int id) {
-				// if this button is clicked, close
-				// current activity
-				dialog.dismiss();
-			}
-		});
-
-		// create alert dialog
-		AlertDialog alertDialog = alertDialogBuilder.create();
-
-		// show it
-		alertDialog.show();
 	}
 
 	private class CallServiceAttendanceListTask extends AsyncTask<Void, Void, String> {

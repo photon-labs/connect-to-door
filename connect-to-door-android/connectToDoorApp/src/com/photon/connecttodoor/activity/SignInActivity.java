@@ -17,12 +17,15 @@ import android.widget.EditText;
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.LoginService;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 import com.photon.connecttodoor.utils.Utility;
 
 public class SignInActivity extends Activity {
 
 	private Button signInButton;
 	private EditText signInEditText;
+	private static final String EMPLOYEE_ID = "employeeId";
+	private static final String FACEBOOK_ID = "facebookId";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class SignInActivity extends Activity {
 				if(signInEditText.getText().length() != empty){
 					new CallServiceLoginTask().execute();
 				}else{
-					alertMessage("Please input your employee id");
+					Utility.alertMessage("Please input your employee id",SignInActivity.this);
 				}
 			}
 		});
@@ -47,31 +50,6 @@ public class SignInActivity extends Activity {
 	public void goToWelcomePage(){
 		Intent welcomePage = new Intent(SignInActivity.this, WelcomeScreenActivity.class);
 		startActivity(welcomePage);
-	}
-
-	private void alertMessage(String message){
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SignInActivity.this);
-
-		// set title
-		alertDialogBuilder.setTitle("Alert");
-
-		// set dialog message
-		alertDialogBuilder
-		.setMessage(message)
-		.setCancelable(false)
-		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog,int id) {
-				// if this button is clicked, close
-				// current activity
-				dialog.dismiss();
-			}
-		});
-
-		// create alert dialog
-		AlertDialog alertDialog = alertDialogBuilder.create();
-
-		// show it
-		alertDialog.show();
 	}
 
 	private class CallServiceLoginTask extends AsyncTask<Void, Void, String> {
@@ -87,8 +65,8 @@ public class SignInActivity extends Activity {
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 			String employeeId = signInEditText.getText().toString();
-			Utility.savePreference("employeeId", employeeId, getApplicationContext());
-			String fbId = Utility.loadStringPreferences("facebookId", getApplicationContext());
+			Utility.savePreference(EMPLOYEE_ID, employeeId, getApplicationContext());
+			String fbId = Utility.loadStringPreferences(FACEBOOK_ID, getApplicationContext());
 			LoginService loginService = new LoginService();
 			String response = loginService.handleLoginRequest(employeeId, fbId);
 			return response;
@@ -107,7 +85,7 @@ public class SignInActivity extends Activity {
 			if(loginDataModel.getStatus().equalsIgnoreCase("success")){
 				goToWelcomePage();
 			}else{
-				alertMessage("Login failed");
+				Utility.alertMessage(ApplicationConstant.ERR_LOGIN_FAIL,SignInActivity.this);
 			}
 			this.dialog.dismiss();
 		}

@@ -22,6 +22,7 @@ public class ProfilActivity extends Activity {
 	private TextView name,employeeId,projectId,role,startWorking,emailAddress,annual,
 					 coof,condolances,married,maternity,paternity,onsite,sick;
 	ProfileModel profileDataModel;
+	private static final String DAYS = " Days"; 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,14 +93,14 @@ public class ProfilActivity extends Activity {
 		role.setText(": "+profileDataModel.getAuthority());
 		startWorking.setText(": "+profileDataModel.getEmployeeStartWork());
 		emailAddress.setText(": "+profileDataModel.getEmployeeEmail());
-		annual.setText(profileDataModel.getAnnual()+" Days");
-		coof.setText(profileDataModel.getcOff()+" Days");
-		condolances.setText(profileDataModel.getCondolences()+" Days");
-		married.setText(profileDataModel.getMarried()+" Days");
-		maternity.setText(profileDataModel.getMaternity()+" Days");
-		paternity.setText(profileDataModel.getPaternity()+" Days");
-		onsite.setText(profileDataModel.getOnsite()+" Days");
-		sick.setText(profileDataModel.getSick()+" Days");
+		annual.setText(profileDataModel.getAnnual()+DAYS);
+		coof.setText(profileDataModel.getcOff()+DAYS);
+		condolances.setText(profileDataModel.getCondolences()+DAYS);
+		married.setText(profileDataModel.getMarried()+DAYS);
+		maternity.setText(profileDataModel.getMaternity()+DAYS);
+		paternity.setText(profileDataModel.getPaternity()+DAYS);
+		onsite.setText(profileDataModel.getOnsite()+DAYS);
+		sick.setText(profileDataModel.getSick()+DAYS);
 		
 	}
 

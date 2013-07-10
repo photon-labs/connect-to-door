@@ -3,10 +3,12 @@ package com.photon.connecttodoor.controller;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.photon.connecttodoor.utils.ApplicationConstant;
+
 public class DailyAttendanceService {
 	public String handleRequestDailyAttendance(final String employeeId, final String date){
 		final HttpAdapter httpAdapter = new HttpAdapter();
-		String moduleDailyAttendance ="/daily-attendance";
+		String moduleDailyAttendance = ApplicationConstant.MODULE_DAILY_ATT;
 		String responseString ;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();

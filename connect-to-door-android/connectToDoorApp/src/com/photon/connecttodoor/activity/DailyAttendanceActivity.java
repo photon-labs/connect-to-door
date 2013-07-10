@@ -38,6 +38,10 @@ public class DailyAttendanceActivity extends Activity{
 	private int pDay;
 
 	static final int DATE_DIALOG_ID = 0;
+	private static final String STRIP = "-";
+	private static final String SLASH = "/";
+	private static final String NUMBER_DATE = "0";
+	private static final String EMPLOYEE_ID = "employeeId";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -108,16 +112,16 @@ public class DailyAttendanceActivity extends Activity{
 		String pYearString = String.valueOf(pYear).trim().toString();
 
 		if(pMonthString.length() < 2){
-			pMonthString = "0"+pMonthString;
+			pMonthString = NUMBER_DATE+pMonthString;
 		}
 
 		if(pDayString.length() < 2){
-			pDayString = "0"+pDayString;
+			pDayString = NUMBER_DATE+pDayString;
 		}
 
 		return new StringBuilder()
-		.append(pDayString).append("-")
-		.append(pMonthString).append("-")
+		.append(pDayString).append(STRIP)
+		.append(pMonthString).append(STRIP)
 		.append(pYearString).append("");
 	}
 
@@ -134,11 +138,11 @@ public class DailyAttendanceActivity extends Activity{
 	}
 
 	private String changeFormatDate(String date){
-		String [] formatDate = date.split("-");
+		String [] formatDate = date.split(STRIP);
 		String day = formatDate[0];
 		String month = formatDate[1];
 		String year = formatDate[2];
-		return year+"-"+month+"-"+day;
+		return year+STRIP+month+STRIP+day;
 	}
 
 	private class CallServiceAttendanceListTask extends AsyncTask<String, Void, String> {
@@ -154,7 +158,7 @@ public class DailyAttendanceActivity extends Activity{
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
 			String searchValues = params[0];
-			String employeeId = Utility.loadStringPreferences("employeeId", getApplicationContext());
+			String employeeId = Utility.loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
 			String startDateParam = changeFormatDate(searchValues);
 			DailyAttendanceService dailyAttendanceService = new DailyAttendanceService();
 			String response = dailyAttendanceService.handleRequestDailyAttendance(employeeId,startDateParam);

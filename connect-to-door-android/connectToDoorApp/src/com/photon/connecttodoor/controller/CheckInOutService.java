@@ -3,10 +3,12 @@ package com.photon.connecttodoor.controller;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.photon.connecttodoor.utils.ApplicationConstant;
+
 public class CheckInOutService {
 	public String handleCheckInRequest(final String employeeId, final String status){
 		final HttpAdapter httpAdapter = new HttpAdapter();
-		String moduleCheckinOut = "/check-in-out";
+		String moduleCheckinOut = ApplicationConstant.MODULE_CHECK_IN_OUT;
 		String responseString ;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();

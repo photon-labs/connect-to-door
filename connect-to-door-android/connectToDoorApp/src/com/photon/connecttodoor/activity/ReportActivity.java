@@ -45,7 +45,9 @@ public class ReportActivity extends Activity {
 	private int pDay;
 
 	static final int DATE_DIALOG_ID = 0;
-
+	private static final String BEFORE = "before";
+	private static final String ADJUSTMENT = "adjustment";
+	private static final String AFTER = "after";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -69,11 +71,11 @@ public class ReportActivity extends Activity {
 				selectCategory = dropDownCategory.getSelectedItem().toString();
 				try {
 					if(selectCategory.equalsIgnoreCase("Before Adjustment")){
-						attendanceStatus = "before";
+						attendanceStatus = BEFORE;
 					}else if(selectCategory.equalsIgnoreCase("Adjustment")){
-						attendanceStatus = "adjustment";
+						attendanceStatus = ADJUSTMENT;
 					}else if(selectCategory.equalsIgnoreCase("After Adjustment")){
-						attendanceStatus = "after";
+						attendanceStatus = AFTER;
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);

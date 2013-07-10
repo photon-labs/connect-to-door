@@ -29,12 +29,14 @@ import com.photon.connecttodoor.controller.CreateandEditAccountService;
 import com.photon.connecttodoor.controller.DeleteAccountService;
 import com.photon.connecttodoor.controller.ProfileService;
 import com.photon.connecttodoor.datamodel.ProfileModel;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class AttendanceFormActivity extends Activity {
 
-	private String searchCategory[] = {"Username", "Employee ID" };
-	private String roleCategory[] = {"","General Manager", "Finance", "Admin", "Project Manager", "Employee" };
-	private String genderCategory[] = {"","Male", "Female"};
+	private String searchCategory[] = {ApplicationConstant.CAT_USERNAME, ApplicationConstant.CAT_EMPLOYEE_ID };
+	private String roleCategory[] = {"",ApplicationConstant.CAT_GENERAL_MANAGER, ApplicationConstant.CAT_FINANCE, ApplicationConstant.CAT_ADMIN, 
+			ApplicationConstant.CAT_PROJECT_MANAGER, ApplicationConstant.CAT_EMPLOYEE };
+	private String genderCategory[] = {"",ApplicationConstant.CAT_MALE, ApplicationConstant.CAT_FEMALE};
 	Spinner dropDownCategory,dropDownRole,dropDownGender;
 	private Button createButton, backButton, signOutButton, saveButton,deleteButton,editButton,deleteButtonAcc,searchButton;
 	private EditText editTextName, editTextEmployee, editTextProject, editTextStartWork,
@@ -104,7 +106,7 @@ public class AttendanceFormActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				status = "create";
+				status = ApplicationConstant.CREATE;
 				editSection.setVisibility(View.INVISIBLE);
 				// TODO Auto-generated method stub
 				setFormActive();
@@ -116,7 +118,7 @@ public class AttendanceFormActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				status = "update";
+				status = ApplicationConstant.UPDATE;
 				deleteButtonAcc.setVisibility(View.INVISIBLE);
 				setFormInactive();
 				// TODO Auto-generated method stub
@@ -137,7 +139,7 @@ public class AttendanceFormActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				status = "delete";
+				status = ApplicationConstant.DELETE;
 				new CallServiceDeleteAccount().execute();
 			}
 		});
@@ -380,10 +382,10 @@ public class AttendanceFormActivity extends Activity {
 				selectSearchCategory = dropDownCategory.getSelectedItem().toString();
 				editSearchCategory.setText("");
 				try {
-					if(selectSearchCategory.equals("Username")){
-						searchBy = "username";
+					if(selectSearchCategory.equals(ApplicationConstant.CAT_USERNAME)){
+						searchBy = ApplicationConstant.USERNAME;
 					}else{
-						searchBy = "employee_id";
+						searchBy = ApplicationConstant.EMPLOYEE_ID;
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);

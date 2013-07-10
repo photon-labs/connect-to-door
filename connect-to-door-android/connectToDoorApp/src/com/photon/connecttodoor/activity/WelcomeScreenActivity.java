@@ -5,6 +5,7 @@ import org.json.JSONException;
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.ProfileService;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 import com.photon.connecttodoor.utils.Utility;
 
 import android.app.Activity;
@@ -35,8 +36,8 @@ public class WelcomeScreenActivity extends Activity {
 	private Boolean isCheckOut = true;
 	private TextView username;
 	LoginDataModel loginDataModel;
-	//public static final String employeeId = "employeeId";
-
+	private static final String ADMIN = "Admin";
+	private static final String EMPLOYEE_ID = "employeeId";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -156,7 +157,7 @@ public class WelcomeScreenActivity extends Activity {
 	private void setUIWelcomeScreen(){
 		username.setText(loginDataModel.getUsername());
 		String previlage = loginDataModel.getPrevilage();
-		if(previlage.equals("Admin")){
+		if(previlage.equals(ADMIN)){
 			attendanceReportButton.setVisibility(View.VISIBLE);
 			attendanceFormButton.setVisibility(View.VISIBLE);
 		}else{
@@ -177,8 +178,8 @@ public class WelcomeScreenActivity extends Activity {
 		@Override
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			String employeeId = Utility.loadStringPreferences("employeeId", getApplicationContext());
-			String searchParameter = "employee_id";
+			String employeeId = Utility.loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
+			String searchParameter = ApplicationConstant.EMPLOYEE_ID;
 			ProfileService profileService = new ProfileService();
 			String response = profileService.handleProfileRequest(searchParameter, employeeId);
 			return response;

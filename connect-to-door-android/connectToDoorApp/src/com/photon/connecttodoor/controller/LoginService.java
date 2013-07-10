@@ -3,10 +3,12 @@ package com.photon.connecttodoor.controller;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.photon.connecttodoor.utils.ApplicationConstant;
+
 public class LoginService {
 	public String handleLoginRequest(final String employeeId, final String fbId){
 		final HttpAdapter httpAdapter = new HttpAdapter();
-		String moduleLogin ="/login";
+		String moduleLogin = ApplicationConstant.MODULE_LOGIN;
 		String responseString ;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();

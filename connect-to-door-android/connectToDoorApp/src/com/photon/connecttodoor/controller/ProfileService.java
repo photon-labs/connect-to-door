@@ -3,10 +3,12 @@ package com.photon.connecttodoor.controller;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.photon.connecttodoor.utils.ApplicationConstant;
+
 public class ProfileService {
 	public String handleProfileRequest(final String searchParameter, final String value){
 		final HttpAdapter httpAdapter = new HttpAdapter();
-		String moduleProfile ="/profile";
+		String moduleProfile = ApplicationConstant.MODULE_PROFILE;
 		String responseString ;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
