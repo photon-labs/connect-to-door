@@ -244,7 +244,6 @@
 		713342E41737C9B700057FE6 = {
 			isa = PBXGroup;
 			children = (
-				DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */,
 				713342F61737C9B700057FE6 /* ConnectToDoor */,
 				7133431A1737C9B800057FE6 /* ConnectToDoorTests */,
 				713342EF1737C9B700057FE6 /* Frameworks */,
@@ -264,6 +263,7 @@
 		713342EF1737C9B700057FE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */,
 				DDEE3A3A178D36B400E7F0C1 /* Security.framework */,
 				DDEE3A38178D361000E7F0C1 /* AdSupport.framework */,
 				DDEE3A36178D360000E7F0C1 /* Accounts.framework */,
