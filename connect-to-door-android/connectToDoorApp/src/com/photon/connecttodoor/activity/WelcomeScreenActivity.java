@@ -3,7 +3,9 @@ package com.photon.connecttodoor.activity;
 import org.json.JSONException;
 
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.CheckInOutService;
 import com.photon.connecttodoor.controller.ProfileService;
+import com.photon.connecttodoor.datamodel.CheckPresentModel;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 import com.photon.connecttodoor.utils.Utility;
@@ -13,6 +15,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -32,12 +35,12 @@ public class WelcomeScreenActivity extends Activity {
 	private TextView checkInText;
 	private TextView checkOutText;
 	private TextView currentTime;
-	private Boolean isCheckIn = true;
-	private Boolean isCheckOut = true;
 	private TextView username;
 	LoginDataModel loginDataModel;
 	private static final String ADMIN = "Admin";
 	private static final String EMPLOYEE_ID = "employeeId";
+	CheckPresentModel checkPresentModel;
+	String status;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,7 +58,8 @@ public class WelcomeScreenActivity extends Activity {
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
 		username = (TextView) findViewById(R.id.username);
-
+		status = "check-status";
+		checkPresentModel = new CheckPresentModel();
 		String datalogin = Utility.loadStringPreferences("responseLogin", getApplicationContext());
 		if(!datalogin.equalsIgnoreCase("")){
 			loginDataModel = new LoginDataModel();
@@ -67,18 +71,13 @@ public class WelcomeScreenActivity extends Activity {
 			}
 		}
 		setUIWelcomeScreen();
-
+		new CallServiceCheckInOut().execute();
 		checkInButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				if(isCheckIn){
-					checkInText.setVisibility(View.VISIBLE);
-					currentTime.setVisibility(View.VISIBLE);
-					checkOutText.setVisibility(View.GONE);
-					isCheckIn = false;
-				}
-
+				status = "checkIn";
+				new CallServiceCheckInOut().execute();
 			}
 		});
 
@@ -86,13 +85,8 @@ public class WelcomeScreenActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				if(isCheckOut){
-					checkInText.setVisibility(View.GONE);
-					checkOutText.setVisibility(View.VISIBLE);
-					currentTime.setText("20:00");
-					isCheckOut = false;
-				}
-
+				status = "checkOut";
+				new CallServiceCheckInOut().execute();
 			}
 		});
 
@@ -154,6 +148,67 @@ public class WelcomeScreenActivity extends Activity {
 			}
 		});
 	}
+
+	private void updateViewCheckInSucces(){
+		String currentdate = checkPresentModel.getCheck_in();
+		if(checkPresentModel.getStatus().equals("success")){
+			checkInText.setVisibility(View.VISIBLE);
+			String checkInTime = splitCurrentTime(currentdate);
+			currentTime.setText(checkInTime);
+			currentTime.setVisibility(View.VISIBLE);
+			checkOutText.setVisibility(View.GONE);
+		}else{
+			String message = checkPresentModel.getMessage();
+			Utility.alertMessage(message, WelcomeScreenActivity.this);
+		}
+	}
+
+	private void updateViewCheckOutSucces(){
+		String currentdate = checkPresentModel.getCheck_out();
+		if(checkPresentModel.getStatus().equals("success")){
+			checkOutText.setVisibility(View.VISIBLE);
+			String checkOutTime = splitCurrentTime(currentdate);
+			currentTime.setText(checkOutTime);
+			currentTime.setVisibility(View.VISIBLE);
+			checkInText.setVisibility(View.GONE);
+		}else{
+			String message = checkPresentModel.getMessage();
+			Utility.alertMessage(message, WelcomeScreenActivity.this);
+		}
+	}
+
+	private void checkPresentstatus(){
+		String currentdate = null;
+		if (!checkPresentModel.getCheckoutPresent().equals("") && checkPresentModel.getCheckoutPresent() != null){
+			currentdate = checkPresentModel.getCheckoutPresent();
+			checkOutText.setVisibility(View.VISIBLE);
+			currentTime.setText(currentdate);
+			currentTime.setVisibility(View.VISIBLE);
+			checkInText.setVisibility(View.GONE);
+		}else{
+			currentdate = checkPresentModel.getCheckinPresent();
+			checkInText.setVisibility(View.VISIBLE);
+			currentTime.setText(currentdate);
+			currentTime.setVisibility(View.VISIBLE);
+			checkOutText.setVisibility(View.GONE);
+		}
+
+	}
+	private void setUIDefaultStatus(){
+		checkInText.setVisibility(View.INVISIBLE);
+		checkOutText.setVisibility(View.INVISIBLE);
+		currentTime.setVisibility(View.INVISIBLE);
+	}
+
+	private String splitCurrentTime(String currentTime){
+		String [] formatTime = currentTime.split(" ");
+		String time = formatTime[1];
+		String [] checkInTime = time.split(":");
+		String hours = checkInTime[0];
+		String minutes = checkInTime[1];
+		String currentTimes = hours+":"+minutes;
+		return currentTimes;
+	}
 	private void setUIWelcomeScreen(){
 		username.setText(loginDataModel.getUsername());
 		String previlage = loginDataModel.getPrevilage();
@@ -165,7 +220,7 @@ public class WelcomeScreenActivity extends Activity {
 			attendanceFormButton.setVisibility(View.GONE);
 		}
 	}
-	
+
 	private class CallServiceProfileTask extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -191,7 +246,50 @@ public class WelcomeScreenActivity extends Activity {
 			this.dialog.dismiss();
 		}
 	}
-	
+
+	private class CallServiceCheckInOut extends AsyncTask<Void, Void, String> {
+
+		private ProgressDialog dialog;
+
+		protected void onPreExecute() {
+			this.dialog = ProgressDialog.show(WelcomeScreenActivity.this,
+					"On Process", "Please Wait...", true);
+		}
+
+		@Override
+		protected String doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+			String employeeId = Utility.loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
+			CheckInOutService checkInService = new CheckInOutService();
+			String response = checkInService.handleCheckInRequest(employeeId, status);
+			return response;
+		}
+
+		protected void onPostExecute(String result) {
+			String response = result;
+			if(response != null){
+				if(!response.equals("{}")){
+					try {
+						checkPresentModel.parseSource(response);
+						if(status == "checkIn"){
+							updateViewCheckInSucces();
+						}else if(status == "checkOut"){
+							updateViewCheckOutSucces();
+						}else{
+							checkPresentstatus();
+						}
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}else{
+					setUIDefaultStatus();
+				}
+			}
+			this.dialog.dismiss();
+		}
+	}
+
 	private void goToAttendancePage(){
 		Intent intentAttandanceList = new Intent(WelcomeScreenActivity.this, AttendanceListActivity.class);
 		startActivity(intentAttandanceList);
