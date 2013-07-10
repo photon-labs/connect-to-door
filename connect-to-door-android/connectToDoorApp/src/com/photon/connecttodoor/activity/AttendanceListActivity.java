@@ -117,7 +117,7 @@ public class AttendanceListActivity extends Activity {
 						setValeuForSelectedName();
 					}else if(selectCategory.equals(ApplicationConstant.CAT_PROJECT_ID)){
 						setValeuForSelectedProjectId();
-					}else if(selectCategory.equals(ApplicationConstant.EMPLOYEE_ID)){
+					}else if(selectCategory.equals(ApplicationConstant.CAT_EMPLOYEE_ID)){
 						setValeuForSelectedEmployeeId();
 					}else{
 						setValeuForSelectedDate();

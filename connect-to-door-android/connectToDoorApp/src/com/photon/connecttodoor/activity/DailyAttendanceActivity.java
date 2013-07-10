@@ -52,9 +52,10 @@ public class DailyAttendanceActivity extends Activity{
 		startFromDateTxt = (EditText)findViewById(R.id.startFromDateTxt);
 		startFromDateImage = (ImageView)findViewById(R.id.startFromDateImage);
 		dailyReport = (ListView) findViewById(R.id.table_report);
-		startFromDateTxt.setText(getDateEditText());
+		
 		actionButton();
 		getCurrentDate();
+		startFromDateTxt.setText(getDateEditText());
 		new CallServiceAttendanceListTask().execute(getDateEditText().toString());
 		backButton.setOnClickListener(new OnClickListener() {
 			@Override
