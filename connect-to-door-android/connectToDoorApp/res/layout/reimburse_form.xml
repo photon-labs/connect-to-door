@@ -11,20 +11,20 @@
         android:layout_height="fill_parent" >
 
         <LinearLayout
-            android:layout_marginTop="200dp"
             android:layout_width="900dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="200dp"
             android:background="@drawable/box_transparentvoucher"
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/dateNow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginRight="50dp"
                 android:layout_marginTop="190dp"
-                android:text="date"
                 android:textColor="#ffffff"
                 android:textSize="14sp" />
 
@@ -48,7 +48,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Nameeeeee"
                     android:textColor="#ffffff"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -73,7 +72,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Nameeeeee"
                     android:textColor="#ffffff"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -98,7 +96,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Nameeeeee"
                     android:textColor="#ffffff"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -278,14 +275,14 @@
 
                 <EditText
                     android:id="@+id/reimburse_date"
-                    android:text="0"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/box_white_att_form_long"
                     android:inputType="number"
                     android:paddingLeft="5dp"
-                    android:paddingRight="8dp" />
+                    android:paddingRight="8dp"
+                    android:text="0" />
 
                 <ImageButton
                     android:id="@+id/saveButton"
@@ -334,11 +331,18 @@
                     android:textSize="14sp" />
 
                 <ImageButton
-                    android:id="@+id/editButton"
+                    android:id="@+id/insertSignature"
                     android:layout_width="80dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/button_search" />
+
+                <ImageView
+                    android:id="@+id/signature"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="10dp"
+                  />
             </LinearLayout>
 
             <LinearLayout
@@ -382,8 +386,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="100dp"
                 android:layout_marginBottom="50dp"
+                android:layout_marginTop="100dp"
                 android:orientation="horizontal" >
 
                 <ImageButton

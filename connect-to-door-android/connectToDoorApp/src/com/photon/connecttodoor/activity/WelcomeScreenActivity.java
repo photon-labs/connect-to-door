@@ -2,24 +2,21 @@ package com.photon.connecttodoor.activity;
 
 import org.json.JSONException;
 
-import com.photon.connecttodoor.R;
-import com.photon.connecttodoor.controller.CheckInOutService;
-import com.photon.connecttodoor.controller.ProfileService;
-import com.photon.connecttodoor.datamodel.CheckPresentModel;
-import com.photon.connecttodoor.datamodel.LoginDataModel;
-import com.photon.connecttodoor.utils.ApplicationConstant;
-import com.photon.connecttodoor.utils.Utility;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.CheckInOutService;
+import com.photon.connecttodoor.datamodel.CheckPresentModel;
+import com.photon.connecttodoor.datamodel.LoginDataModel;
+import com.photon.connecttodoor.utils.Utility;
 
 public class WelcomeScreenActivity extends Activity {
 
@@ -111,7 +108,7 @@ public class WelcomeScreenActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				new CallServiceProfileTask().execute();
+				goToProfilPage();
 			}
 		});
 		attendanceListButton.setOnClickListener(new OnClickListener() {
@@ -218,32 +215,6 @@ public class WelcomeScreenActivity extends Activity {
 		}else{
 			attendanceReportButton.setVisibility(View.GONE);
 			attendanceFormButton.setVisibility(View.GONE);
-		}
-	}
-
-	private class CallServiceProfileTask extends AsyncTask<Void, Void, String> {
-
-		private ProgressDialog dialog;
-
-		protected void onPreExecute() {
-			this.dialog = ProgressDialog.show(WelcomeScreenActivity.this,
-					"Profile Process", "Please Wait...", true);
-		}
-
-		@Override
-		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
-			String employeeId = Utility.loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
-			String searchParameter = ApplicationConstant.EMPLOYEE_ID;
-			ProfileService profileService = new ProfileService();
-			String response = profileService.handleProfileRequest(searchParameter, employeeId);
-			return response;
-		}
-
-		protected void onPostExecute(String result) {
-			Utility.savePreference("responseProfile", result, getApplicationContext());
-			goToProfilPage();
-			this.dialog.dismiss();
 		}
 	}
 
