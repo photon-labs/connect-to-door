@@ -7,13 +7,14 @@
 //
 
 #import "ctdAppDelegate.h"
-
+#import "Reachability.h"
 
 
 @implementation ctdAppDelegate
 @synthesize window;
 @synthesize navigationController;
 @synthesize viewController;
+@synthesize globals = _globals;
 
 //facebook
 @synthesize session = _session;
@@ -32,6 +33,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+     [self setupReachabilityChecks];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ctdLoginViewController alloc] initWithNibName:@"ctdLoginViewController" bundle:nil];
@@ -68,6 +71,63 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     //check session token
     [FBAppCall handleDidBecomeActiveWithSession:self.session];
+}
+
+/*
+ *aldi_p
+ *open check connection
+ *
+ */
+- (void)setupReachabilityChecks {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    // Allocate a reachability object.
+    NSURL *urlObject = [[NSURL alloc] initWithString:@"http://www.google.com"];
+    Reachability *reach = [Reachability reachabilityWithHostname:urlObject.host];
+    
+    // set the blocks
+    reach.reachableBlock = ^(Reachability *reach) {
+        _globals.isOffline = NO;
+    };
+    
+    reach.unreachableBlock = ^(Reachability *reach) {
+#if DEBUG
+        NSLog(@"Exception:\nName:%@\nDescription:%@\nReason:%@", @"Reachability", @"Unable to reach the host.", @"The device may be disconnected from network access.");
+#endif
+        _globals.isOffline = YES;
+    };
+    
+    // start the notifier which will cause the reachability object to retain itself!
+    [reach startNotifier];
+}
+
+/*
+ *aldi_p
+ */
+-(void)reachabilityChanged:(NSNotification*)note
+{
+    Reachability * reach = [note object];
+    //WiFi
+    if ([reach isReachableViaWiFi])
+    {
+        NSLog(@"Wifi On");
+        _globals.isWifiOn = YES;
+    }else{
+        NSLog(@"Wifi Off");
+        _globals.isWifiOn = NO;
+    }
+    if([reach isReachable])
+    {
+        NSLog(@"online");
+        _globals.isOffline = NO;
+    }
+    else
+    {
+        NSLog(@"down");
+        _globals.isOffline = YES;
+    }
 }
 
 @end

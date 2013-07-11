@@ -72,6 +72,10 @@
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */; };
+		DDD91759178EBA1600750702 /* ctdGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD91758178EBA1600750702 /* ctdGlobal.m */; };
+		DDD9175D178EBEF200750702 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD9175C178EBEF200750702 /* Reachability.m */; };
+		DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD9175E178ED0D000750702 /* MobileCoreServices.framework */; };
+		DDD91761178ED1CA00750702 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD91760178ED1CA00750702 /* SystemConfiguration.framework */; };
 		DDEE3A31178D23C800E7F0C1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */; };
 		DDEE3A33178D359800E7F0C1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */; };
 		DDEE3A35178D35F400E7F0C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A34178D35F400E7F0C1 /* Social.framework */; };
@@ -201,6 +205,12 @@
 		DDAF29B6178BB5A200597570 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		DDAF29B9178C1A6200597570 /* ctdLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdLocalStorage.h; path = LocalStorage/ctdLocalStorage.h; sourceTree = "<group>"; };
 		DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdLocalStorage.m; path = LocalStorage/ctdLocalStorage.m; sourceTree = "<group>"; };
+		DDD91757178EBA1600750702 /* ctdGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdGlobal.h; path = Model/ctdGlobal.h; sourceTree = "<group>"; };
+		DDD91758178EBA1600750702 /* ctdGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdGlobal.m; path = Model/ctdGlobal.m; sourceTree = "<group>"; };
+		DDD9175B178EBEF200750702 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
+		DDD9175C178EBEF200750702 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
+		DDD9175E178ED0D000750702 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DDD91760178ED1CA00750702 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ConnectToDoor/FacebookSDK.framework; sourceTree = "<group>"; };
 		DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		DDEE3A34178D35F400E7F0C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -215,6 +225,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD91761178ED1CA00750702 /* SystemConfiguration.framework in Frameworks */,
+				DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */,
 				DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */,
 				DDEE3A39178D361000E7F0C1 /* AdSupport.framework in Frameworks */,
 				DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */,
@@ -244,6 +256,8 @@
 		713342E41737C9B700057FE6 = {
 			isa = PBXGroup;
 			children = (
+				DDD91760178ED1CA00750702 /* SystemConfiguration.framework */,
+				DDD9175E178ED0D000750702 /* MobileCoreServices.framework */,
 				713342F61737C9B700057FE6 /* ConnectToDoor */,
 				7133431A1737C9B800057FE6 /* ConnectToDoorTests */,
 				713342EF1737C9B700057FE6 /* Frameworks */,
@@ -341,6 +355,7 @@
 		7133432C1737CB8500057FE6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				DDD91756178EB96800750702 /* Model */,
 				713343381737CC2900057FE6 /* ViewControllers */,
 			);
 			path = Base;
@@ -428,6 +443,7 @@
 		713343541737EF5F00057FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DDD9175A178EBEDB00750702 /* Reachability */,
 				DDAF29B8178C1A0400597570 /* LocalStorage */,
 				DDAF29B4178BB58300597570 /* JSONKit */,
 				DD3487C7178A704F0070702C /* AFNetworking */,
@@ -747,6 +763,24 @@
 			name = LocalStorage;
 			sourceTree = "<group>";
 		};
+		DDD91756178EB96800750702 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDD91757178EBA1600750702 /* ctdGlobal.h */,
+				DDD91758178EBA1600750702 /* ctdGlobal.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DDD9175A178EBEDB00750702 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				DDD9175B178EBEF200750702 /* Reachability.h */,
+				DDD9175C178EBEF200750702 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -910,6 +944,8 @@
 				DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */,
 				DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */,
 				DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */,
+				DDD91759178EBA1600750702 /* ctdGlobal.m in Sources */,
+				DDD9175D178EBEF200750702 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

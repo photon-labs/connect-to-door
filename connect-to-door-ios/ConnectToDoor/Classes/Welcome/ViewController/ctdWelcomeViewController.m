@@ -11,6 +11,7 @@
 #import "ctdVoucherViewController.h"
 #import "ctdDailyAttendaceViewController.h"
 #import "ctdLoginViewController.h"
+#import "ctdLocalStorage.h"
 
 @interface ctdWelcomeViewController ()
 
@@ -42,7 +43,13 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.title = @"Welcome";
+    welcome.text = [NSString stringWithFormat:@"Welcome, %@",[self getNameUser]];
+    self.title = @"Welcomea";
+}
+
+-(NSString*)getNameUser{
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc] init];
+    return [localStorage getNameUserFacebook];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -98,9 +98,10 @@
                NSDictionary<FBGraphUser> *user,
                NSError *error) {
                  if (!error) {
+                     NSString *fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                      NSLog(@"id %@", user.id);
-                     NSLog(@"name %@", user.first_name);
-                     [self saveLocalStoreValue:user.first_name :user.id];
+                     NSLog(@"name %@", fullName);
+                     [self saveLocalStoreValue:fullName :user.id];
                      [self goToWelcome];
                  }else {
                      [self showAlert:@"server error" :@"alert" :@"OK"];
