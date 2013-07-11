@@ -4,14 +4,15 @@ import java.util.Calendar;
 
 import org.json.JSONException;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.DatePicker;
@@ -26,6 +27,7 @@ import com.photon.connecttodoor.datamodel.DailyAttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedDailyArrayAdapter;
 import com.photon.connecttodoor.utils.Utility;
 
+@SuppressLint("NewApi")
 public class DailyAttendanceActivity extends Activity{
 
 	private ImageButton backButton;
@@ -39,7 +41,6 @@ public class DailyAttendanceActivity extends Activity{
 
 	static final int DATE_DIALOG_ID = 0;
 	private static final String STRIP = "-";
-	private static final String SLASH = "/";
 	private static final String NUMBER_DATE = "0";
 	private static final String EMPLOYEE_ID = "employeeId";
 
@@ -52,7 +53,6 @@ public class DailyAttendanceActivity extends Activity{
 		startFromDateTxt = (EditText)findViewById(R.id.startFromDateTxt);
 		startFromDateImage = (ImageView)findViewById(R.id.startFromDateImage);
 		dailyReport = (ListView) findViewById(R.id.table_report);
-		
 		actionButton();
 		getCurrentDate();
 		startFromDateTxt.setText(getDateEditText());
@@ -71,6 +71,9 @@ public class DailyAttendanceActivity extends Activity{
 				goToLoginPage();
 			}
 		});
+
+		dailyReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
+
 	}
 
 	private void getCurrentDate(){

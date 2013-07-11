@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import org.json.JSONException;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -48,6 +49,7 @@ public class ReportActivity extends Activity {
 	private static final String BEFORE = "before";
 	private static final String ADJUSTMENT = "adjustment";
 	private static final String AFTER = "after";
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -122,6 +124,7 @@ public class ReportActivity extends Activity {
 				new CallServiceAttendanceReportTask().execute();
 			}
 		});
+		attendanceAdminReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 	}
 
 	private void getCurrentDate(){

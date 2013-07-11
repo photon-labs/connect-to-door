@@ -36,6 +36,7 @@ import com.photon.connecttodoor.utils.ApplicationConstant;
 import com.photon.connecttodoor.utils.Utility;
 
 
+@SuppressLint("NewApi")
 public class AttendanceListActivity extends Activity {
 	private EditText startFromDateTxt;
 	private EditText untilFromDateTxt;
@@ -104,6 +105,7 @@ public class AttendanceListActivity extends Activity {
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,category);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinnerCategory.setAdapter(adapter);
+		attendanceListReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 		this.getCurrentDate();
 		this.actionButton();
 
@@ -131,7 +133,6 @@ public class AttendanceListActivity extends Activity {
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
-
 	}
 
 	private void setValeuForSelectedDate(){
