@@ -10,4 +10,11 @@
 
 @interface ctdLocalStorage : NSObject
 
+-(void)setUserFacebookId:(NSString*)value;
+-(NSString*)getUserFacebookId;
+-(void)setEmployeeId:(NSString*)value;
+-(NSString*)getEmployeeId;
+-(void)setNameUserFacebook:(NSString*)value;
+-(NSString*)getNameUserFacebook;
+-(void)resetLocalStorage;
 @end

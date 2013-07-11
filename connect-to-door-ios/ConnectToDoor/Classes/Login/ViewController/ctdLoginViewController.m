@@ -9,6 +9,7 @@
 #import "ctdLoginViewController.h"
 #import "ctdSignInViewController.h"
 #import "ctdAppDelegate.h"
+#import "ctdLocalStorage.h"
 
 @implementation ctdLoginViewController
 
@@ -61,6 +62,11 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+/*
+ *aldi_p
+ *
+ *this method for action click button login facebook
+ */
 - (IBAction)didLoginButtonClicked:(id)sender{
     // get the app delegate so that we can access the session property
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
@@ -83,9 +89,6 @@
         [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                          FBSessionState status,
                                                          NSError *error) {
-            
-            
-            
             // and here we make sure to update our UX according to the new session state
             NSLog(@"SESSION TOKEN == %@",appDelegate.session.accessTokenData.accessToken);
             
@@ -97,6 +100,7 @@
                  if (!error) {
                      NSLog(@"id %@", user.id);
                      NSLog(@"name %@", user.first_name);
+                     [self saveLocalStoreValue:user.first_name :user.id];
                      [self goToWelcome];
                  }else {
                      [self showAlert:@"server error" :@"alert" :@"OK"];
@@ -110,7 +114,20 @@
  
 }
 
+/*
+ *aldi_p
+ *this method save value to lacal storage
+ */
+-(void)saveLocalStoreValue:(NSString*)nameUserFacebook : (NSString*)userFacebookId{
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc] init];
+    [localStorage setNameUserFacebook:nameUserFacebook];
+    [localStorage setUserFacebookId:userFacebookId];
+}
 
+/*
+ *aldi_p
+ *this method for show alert
+ */
 -(void)showAlert:(NSString *)messageText :(NSString *)titleText :(NSString *)buttonText{
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:titleText
                                                       message:messageText
@@ -120,7 +137,10 @@
     [message show];
 }
 
-
+/*
+ *aldi_p
+ *this method for show welcome view
+ */
 -(void) goToWelcome{
     ctdSignInViewController *signInViewController = [[ctdSignInViewController alloc]initWithNibName:@"ctdSignInViewController" bundle:nil];
     [self.navigationController setNavigationBarHidden:YES animated:YES];

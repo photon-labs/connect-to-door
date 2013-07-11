@@ -9,6 +9,7 @@
 #import "ctdSignInViewController.h"
 #import "ctdWelcomeViewController.h"
 #import "ctdLoginService.h"
+#import "ctdLocalStorage.h"
 
 @interface ctdSignInViewController ()
 
@@ -52,12 +53,15 @@ NSString *test;
 }
 
 
--(void)checkEmployeeID:(NSString *)employeeID{
-    if([employeeID length] > 0){
+-(void)checkEmployeeID:(NSString *)employeeId{
+    if([employeeId length] > 0){
         ctdLoginService *loginService = [[ctdLoginService alloc]init];
         loginService.delegate = self;
-        NSString *employeeId= employeeID;
-        [loginService loginToServer:employeeId facebookID:@"100001687854142"];
+        //NSString *employeeId= employeeId;
+        [self saveEmployeeIdtoLocalStorage:employeeId];
+        NSLog(@"EMPLOYEE ID == %@",employeeId);
+        NSLog(@"FACEBOOK ID == %@",[self getFacebookId]);
+        [loginService loginToServer:employeeId facebookID:[self getFacebookId]];
     }else{
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
                                                           message:@"Please input Employee ID."
@@ -66,6 +70,17 @@ NSString *test;
                                                 otherButtonTitles:nil];
         [message show];
     }
+}
+-(NSString*)getFacebookId{
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
+    NSString* facebookId = [localStorage getUserFacebookId];
+    return facebookId;
+}
+
+
+-(void) saveEmployeeIdtoLocalStorage:(NSString*)employeeId{
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
+    [localStorage setEmployeeId:employeeId];
 }
 
 -(void)goToWelcome {
