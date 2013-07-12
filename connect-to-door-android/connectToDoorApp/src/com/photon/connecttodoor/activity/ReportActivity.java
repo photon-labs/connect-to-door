@@ -1,36 +1,31 @@
 package com.photon.connecttodoor.activity;
 
-import java.util.Calendar;
-
 import org.json.JSONException;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.ReportAttendanceService;
 import com.photon.connecttodoor.datamodel.ReportAttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedReportArrayAdapter;
 
-public class ReportActivity extends Activity {
+public class ReportActivity extends MainActivity {
 
 	private String category[] = {"Before Adjustment", "Adjustment", "After Adjustment" };
 	Spinner dropDownCategory;
@@ -41,11 +36,6 @@ public class ReportActivity extends Activity {
 	private Button backButton, searchButton ;
 	private EditText startFromDateTxt;
 	private ImageView startFromDateImage;
-	private int pYear;
-	private int pMonth;
-	private int pDay;
-
-	static final int DATE_DIALOG_ID = 0;
 	private static final String BEFORE = "before";
 	private static final String ADJUSTMENT = "adjustment";
 	private static final String AFTER = "after";
@@ -62,9 +52,7 @@ public class ReportActivity extends Activity {
 		attendanceAdminReport = (ListView) findViewById(R.id.table_report_attendance);	
 		dropDownCategory = (Spinner)findViewById(R.id.spinnerCategory);
 
-		ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, category);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		dropDownCategory.setAdapter(adapter);
+		createDropdownCategory(this, category, dropDownCategory);
 		
 		dropDownCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -110,6 +98,7 @@ public class ReportActivity extends Activity {
 
 		startFromDateImage.setOnClickListener(new OnClickListener() {
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
 				getCurrentDate();
@@ -127,14 +116,6 @@ public class ReportActivity extends Activity {
 		attendanceAdminReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 	}
 
-	private void getCurrentDate(){
-		final Calendar cal = Calendar.getInstance();
-		pYear = cal.get(Calendar.YEAR);
-		pMonth = cal.get(Calendar.MONTH);
-		pDay = cal.get(Calendar.DAY_OF_MONTH);
-	}
-
-
 	/** Callback received when the user "picks" a date in the dialog */
 	private DatePickerDialog.OnDateSetListener pDateSetListener =
 			new DatePickerDialog.OnDateSetListener() {
@@ -147,29 +128,6 @@ public class ReportActivity extends Activity {
 			startFromDateTxt.setText(getDateEditText());
 		}
 	};
-	/**
-	 * Create Date for startDate editText and untilDate editText 
-	 * @return getDateEditText as StringBuilder
-	 */
-	private StringBuilder getDateEditText(){
-		// Month is 0 based so add 1
-		String pMonthString = String.valueOf((pMonth+1)).trim().toString();
-		String pDayString = String.valueOf(pDay).trim().toString();
-		String pYearString = String.valueOf(pYear).trim().toString();
-
-		if(pMonthString.length() < 2){
-			pMonthString = "0"+pMonthString;
-		}
-
-		if(pDayString.length() < 2){
-			pDayString = "0"+pDayString;
-		}
-
-		return new StringBuilder()
-		.append(pDayString).append("-")
-		.append(pMonthString).append("-")
-		.append(pYearString).append("");
-	}
 
 	@Override
 	protected Dialog onCreateDialog(int id) {
@@ -183,14 +141,6 @@ public class ReportActivity extends Activity {
 		return null;
 	}
 
-	private String changeFormatDate(String date){
-		String [] formatDate = date.split("-");
-		String day = formatDate[0];
-		String month = formatDate[1];
-		String year = formatDate[2];
-		return year+"-"+month+"-"+day;
-	}
-
 	private class CallServiceAttendanceReportTask extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -202,7 +152,6 @@ public class ReportActivity extends Activity {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
 			String startDateParam = changeFormatDate(startFromDateTxt.getText().toString());
 			ReportAttendanceService reportAttendanceService = new ReportAttendanceService();
 			String response = reportAttendanceService.handleRequestReportAttendance(attendanceStatus,startDateParam);
@@ -214,7 +163,6 @@ public class ReportActivity extends Activity {
 			try {
 				reportModel.parseSource();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			ListGeneratedReportArrayAdapter tableReport = new ListGeneratedReportArrayAdapter(ReportActivity.this,reportModel.getReportAttendanceList());

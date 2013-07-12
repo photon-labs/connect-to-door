@@ -1,15 +1,11 @@
 package com.photon.connecttodoor.activity;
 
-import com.photon.connecttodoor.R;
-import com.photon.connecttodoor.utils.Utility;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.app.Activity;
-import android.content.Intent;
 
 import com.facebook.LoggingBehavior;
 import com.facebook.Request;
@@ -18,8 +14,9 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.Settings;
 import com.facebook.model.GraphUser;
+import com.photon.connecttodoor.R;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends MainActivity {
 	private Button facebookButton;
 
 	private Session.StatusCallback statusCallback = new SessionStatusCallback();
@@ -86,7 +83,7 @@ public class LoginActivity extends Activity {
 	                         	Log.v("RESPONSE", "Response : " + response);
 	                             Log.v("USERID", "UserID : " + user.getId());
 	                             Log.v("FIRSTNAME", "User FirstName : " + user.getFirstName());
-	                             Utility.savePreference("facebookId", user.getId(), getApplicationContext());
+	                             savePreference("facebookId", user.getId(), getApplicationContext());
 	                             goToSignInPage();
 	                         }   
 	                     }   

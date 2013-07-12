@@ -1,22 +1,17 @@
 package com.photon.connecttodoor.activity;
 
-import java.util.Calendar;
-
 import org.json.JSONException;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -31,7 +26,7 @@ import com.photon.connecttodoor.controller.ProfileService;
 import com.photon.connecttodoor.datamodel.ProfileModel;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
-public class AttendanceFormActivity extends Activity {
+public class AttendanceFormActivity extends MainActivity {
 
 	private String searchCategory[] = {ApplicationConstant.CAT_USERNAME, ApplicationConstant.CAT_EMPLOYEE_ID };
 	private String roleCategory[] = {"",ApplicationConstant.CAT_GENERAL_MANAGER, ApplicationConstant.CAT_FINANCE, ApplicationConstant.CAT_ADMIN, 
@@ -45,11 +40,6 @@ public class AttendanceFormActivity extends Activity {
 	editTextUsername, editTextFacebookId, editTextSignature, editTextUserId, editSearchCategory;
 	private ImageView imgFacebook, imgDropDwnRole, imgDropDwnGender,imageCalendar;
 	private LinearLayout editSection;
-	private int pYear;
-	private int pMonth;
-	private int pDay;
-	ArrayAdapter<CharSequence> adapter ;
-	static final int DATE_DIALOG_ID = 0;
 	String selectSearchCategory, selectRole,selectGender;
 	String status,searchBy;
 	ProfileModel profileDataModel;
@@ -80,6 +70,7 @@ public class AttendanceFormActivity extends Activity {
 		editTextFacebookId = (EditText)findViewById(R.id.edit_text_facebookId);
 		editTextSignature =(EditText)findViewById(R.id.edit_text_signature);
 		editTextUserId =(EditText)findViewById(R.id.edit_text_userId);
+		dropDownCategory = (Spinner)findViewById(R.id.spinnerSearchCategory);
 		dropDownRole =(Spinner)findViewById(R.id.spinnerRole);
 		dropDownGender =(Spinner)findViewById(R.id.spinnerGender);
 		imgFacebook =(ImageView)findViewById(R.id.imgFacebookid);
@@ -92,15 +83,23 @@ public class AttendanceFormActivity extends Activity {
 		deleteButtonAcc =(Button)findViewById(R.id.button_deleteacc);
 		searchButton =(Button)findViewById(R.id.button_search);
 		editSearchCategory =(EditText)findViewById(R.id.category_id);
-		
+
 		setDropdownSearchCategory();
 		setDropdownRoleCategory();
 		setDropdownGenderCategory();
-		actionButton();
-		getCurrentDate();
 		selectSearchCategory();
 		selectGender();
 		selectRole();
+		imageCalendar.setOnClickListener(new OnClickListener() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public void onClick(View v) {
+				getCurrentDate();
+				showDialog(DATE_DIALOG_ID);
+			}
+		});
+		getCurrentDate();
 		//onClick for create account button
 		createButton.setOnClickListener(new OnClickListener() {
 
@@ -194,22 +193,13 @@ public class AttendanceFormActivity extends Activity {
 	}
 
 	private void setDropdownSearchCategory(){
-		dropDownCategory = (Spinner)findViewById(R.id.spinnerSearchCategory);
-		adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, searchCategory);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		dropDownCategory.setAdapter(adapter);
+		createDropdownCategory(this, searchCategory, dropDownCategory);
 	}
 	private void setDropdownRoleCategory(){
-		dropDownRole = (Spinner)findViewById(R.id.spinnerRole);
-		adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, roleCategory);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		dropDownRole.setAdapter(adapter);
+		createDropdownCategory(this, roleCategory, dropDownRole);
 	}
 	private void setDropdownGenderCategory() {
-		dropDownGender = (Spinner)findViewById(R.id.spinnerGender);
-		adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, genderCategory);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		dropDownGender.setAdapter(adapter);
+		createDropdownCategory(this, genderCategory, dropDownGender);
 	}
 	private void setFormActive(){
 		imageCalendar.setBackgroundResource(R.drawable.icon_calendar_start_working);
@@ -302,23 +292,6 @@ public class AttendanceFormActivity extends Activity {
 		editSection.setVisibility(View.VISIBLE);
 	}
 
-	private void getCurrentDate(){
-		final Calendar cal = Calendar.getInstance();
-		pYear = cal.get(Calendar.YEAR);
-		pMonth = cal.get(Calendar.MONTH);
-		pDay = cal.get(Calendar.DAY_OF_MONTH);
-	}
-	private void actionButton(){
-		imageCalendar.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				getCurrentDate();
-				showDialog(DATE_DIALOG_ID);
-			}
-		});
-	}
-
 	/** Callback received when the user "picks" a date in the dialog */
 	private DatePickerDialog.OnDateSetListener pDateSetListener =
 			new DatePickerDialog.OnDateSetListener() {
@@ -331,29 +304,7 @@ public class AttendanceFormActivity extends Activity {
 			editTextStartWork.setText(getDateEditText());
 		}
 	};
-	/**
-	 * Create Date for startDate editText and untilDate editText 
-	 * @return getDateEditText as StringBuilder
-	 */
-	private StringBuilder getDateEditText(){
-		// Month is 0 based so add 1
-		String pMonthString = String.valueOf((pMonth+1)).trim().toString();
-		String pDayString = String.valueOf(pDay).trim().toString();
-		String pYearString = String.valueOf(pYear).trim().toString();
 
-		if(pMonthString.length() < 2){
-			pMonthString = "0"+pMonthString;
-		}
-
-		if(pDayString.length() < 2){
-			pDayString = "0"+pDayString;
-		}
-
-		return new StringBuilder()
-		.append(pDayString).append("-")
-		.append(pMonthString).append("-")
-		.append(pYearString).append("");
-	}
 
 	@Override
 	protected Dialog onCreateDialog(int id) {
@@ -365,14 +316,6 @@ public class AttendanceFormActivity extends Activity {
 		}
 
 		return null;
-	}
-
-	private String changeFormatDate(String date){
-		String [] formatDate = date.split("-");
-		String day = formatDate[0];
-		String month = formatDate[1];
-		String year = formatDate[2];
-		return year+"-"+month+"-"+day;
 	}
 
 	private void selectSearchCategory(){

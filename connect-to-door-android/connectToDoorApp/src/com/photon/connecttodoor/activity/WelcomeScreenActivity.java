@@ -2,7 +2,6 @@ package com.photon.connecttodoor.activity;
 
 import org.json.JSONException;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -16,9 +15,8 @@ import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.CheckInOutService;
 import com.photon.connecttodoor.datamodel.CheckPresentModel;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
-import com.photon.connecttodoor.utils.Utility;
 
-public class WelcomeScreenActivity extends Activity {
+public class WelcomeScreenActivity extends MainActivity {
 
 	private ImageButton profilButton;
 	private ImageButton voucherButton;
@@ -57,7 +55,7 @@ public class WelcomeScreenActivity extends Activity {
 		username = (TextView) findViewById(R.id.username);
 		status = "check-status";
 		checkPresentModel = new CheckPresentModel();
-		String datalogin = Utility.loadStringPreferences("responseLogin", getApplicationContext());
+		String datalogin = loadStringPreferences("responseLogin", getApplicationContext());
 		if(!datalogin.equalsIgnoreCase("")){
 			loginDataModel = new LoginDataModel();
 			try {
@@ -156,7 +154,7 @@ public class WelcomeScreenActivity extends Activity {
 			checkOutText.setVisibility(View.GONE);
 		}else{
 			String message = checkPresentModel.getMessage();
-			Utility.alertMessage(message, WelcomeScreenActivity.this);
+			alertMessage(message, WelcomeScreenActivity.this);
 		}
 	}
 
@@ -170,7 +168,7 @@ public class WelcomeScreenActivity extends Activity {
 			checkInText.setVisibility(View.GONE);
 		}else{
 			String message = checkPresentModel.getMessage();
-			Utility.alertMessage(message, WelcomeScreenActivity.this);
+			alertMessage(message, WelcomeScreenActivity.this);
 		}
 	}
 
@@ -230,7 +228,7 @@ public class WelcomeScreenActivity extends Activity {
 		@Override
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			String employeeId = Utility.loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
+			String employeeId = loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
 			CheckInOutService checkInService = new CheckInOutService();
 			String response = checkInService.handleCheckInRequest(employeeId, status);
 			return response;

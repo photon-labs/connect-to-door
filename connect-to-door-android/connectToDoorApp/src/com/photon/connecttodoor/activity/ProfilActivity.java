@@ -2,26 +2,23 @@ package com.photon.connecttodoor.activity;
 
 import org.json.JSONException;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.widget.ProfilePictureView;
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.datamodel.ProfileModel;
-import com.photon.connecttodoor.utils.Utility;
 
-public class ProfilActivity extends Activity {
+public class ProfilActivity extends MainActivity {
 
 	private ImageButton attendanceButton,voucherButton,signOutButton; 
 	private ProfilePictureView imageProfile;
 	private TextView name,employeeId,projectId,role,startWorking,emailAddress,annual,
-					 coof,condolances,married,maternity,paternity,onsite,sick;
+	coof,condolances,married,maternity,paternity,onsite,sick;
 	ProfileModel profileDataModel;
 	private static final String DAYS = " Days"; 
 	private static final String FACEBOOK_ID = "facebookId";
@@ -48,8 +45,8 @@ public class ProfilActivity extends Activity {
 		onsite = (TextView)findViewById(R.id.onsiteInfoDynamicsProfile);
 		sick = (TextView)findViewById(R.id.sickInfoDynamicsProfile);
 		imageProfile =(ProfilePictureView)findViewById(R.id.photoProfile);
-		
-		String dataProfile = Utility.loadStringPreferences("responseProfile", getApplicationContext());
+
+		String dataProfile = loadStringPreferences("responseProfile", getApplicationContext());
 		if(!dataProfile.equalsIgnoreCase("")){
 			profileDataModel = new ProfileModel();
 			try {
@@ -105,7 +102,7 @@ public class ProfilActivity extends Activity {
 		paternity.setText(profileDataModel.getPaternity()+DAYS);
 		onsite.setText(profileDataModel.getOnsite()+DAYS);
 		sick.setText(profileDataModel.getSick()+DAYS);
-		String fbId = Utility.loadStringPreferences(FACEBOOK_ID, getApplicationContext());
+		String fbId = loadStringPreferences(FACEBOOK_ID, getApplicationContext());
 		imageProfile.setProfileId(fbId);
 	}
 

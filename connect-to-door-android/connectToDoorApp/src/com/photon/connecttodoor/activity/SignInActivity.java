@@ -2,10 +2,7 @@ package com.photon.connecttodoor.activity;
 
 import org.json.JSONException;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,9 +16,8 @@ import com.photon.connecttodoor.controller.LoginService;
 import com.photon.connecttodoor.controller.ProfileService;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
 import com.photon.connecttodoor.utils.ApplicationConstant;
-import com.photon.connecttodoor.utils.Utility;
 
-public class SignInActivity extends Activity {
+public class SignInActivity extends MainActivity {
 
 	private Button signInButton;
 	private EditText signInEditText;
@@ -44,7 +40,7 @@ public class SignInActivity extends Activity {
 					new CallServiceLoginTask().execute();
 					new CallServiceProfileTask().execute();
 				}else{
-					Utility.alertMessage("Please input your employee id",SignInActivity.this);
+					alertMessage("Please input your employee id",SignInActivity.this);
 				}
 			}
 		});
@@ -67,15 +63,15 @@ public class SignInActivity extends Activity {
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 			String employeeId = signInEditText.getText().toString();
-			Utility.savePreference(EMPLOYEE_ID, employeeId, getApplicationContext());
-			String fbId = Utility.loadStringPreferences(FACEBOOK_ID, getApplicationContext());
+			savePreference(EMPLOYEE_ID, employeeId, getApplicationContext());
+			String fbId = loadStringPreferences(FACEBOOK_ID, getApplicationContext());
 			LoginService loginService = new LoginService();
 			String response = loginService.handleLoginRequest(employeeId, fbId);
 			return response;
 		}
 
 		protected void onPostExecute(String result) {
-			Utility.savePreference("responseLogin", result, getApplicationContext());
+			savePreference("responseLogin", result, getApplicationContext());
 			String response = result;
 			LoginDataModel loginDataModel = new LoginDataModel();
 			try {
@@ -87,16 +83,16 @@ public class SignInActivity extends Activity {
 			if(loginDataModel.getStatus().equalsIgnoreCase("success")){
 				goToWelcomePage();
 			}else{
-				Utility.alertMessage(ApplicationConstant.ERR_LOGIN_FAIL,SignInActivity.this);
+				alertMessage(ApplicationConstant.ERR_LOGIN_FAIL,SignInActivity.this);
 			}
 			this.dialog.dismiss();
 		}
 	}
-	
+
 	private class CallServiceProfileTask extends AsyncTask<Void, Void, String> {
 
 		protected void onPreExecute() {
-		
+
 		}
 
 		@Override
@@ -110,7 +106,7 @@ public class SignInActivity extends Activity {
 		}
 
 		protected void onPostExecute(String result) {
-			Utility.savePreference("responseProfile", result, getApplicationContext());
+			savePreference("responseProfile", result, getApplicationContext());
 		}
 	}
 

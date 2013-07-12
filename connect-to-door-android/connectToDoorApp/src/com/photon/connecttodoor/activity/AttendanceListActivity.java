@@ -2,13 +2,11 @@ package com.photon.connecttodoor.activity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import org.json.JSONException;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -19,7 +17,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -33,11 +30,10 @@ import com.photon.connecttodoor.controller.AttendanceListService;
 import com.photon.connecttodoor.datamodel.AttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedAttendanceListArrayAdapter;
 import com.photon.connecttodoor.utils.ApplicationConstant;
-import com.photon.connecttodoor.utils.Utility;
 
 
 @SuppressLint("NewApi")
-public class AttendanceListActivity extends Activity {
+public class AttendanceListActivity extends MainActivity {
 	private EditText startFromDateTxt;
 	private EditText untilFromDateTxt;
 	private ImageView startFromDateImage;
@@ -47,9 +43,6 @@ public class AttendanceListActivity extends Activity {
 	private Button backButton;
 	private Button signOutButton;
 	private LinearLayout headerList;
-	private int pYear;
-	private int pMonth;
-	private int pDay;
 	private boolean isSetStartDateText = true;
 	private ListView attendanceListReport;
 	String responseAttendanceList;
@@ -57,22 +50,14 @@ public class AttendanceListActivity extends Activity {
 	String searchParameters;
 	String searchValues;
 	private String category[] = {ApplicationConstant.CAT_DATE,ApplicationConstant.CAT_NAME,ApplicationConstant.CAT_PROJECT_ID,ApplicationConstant.CAT_EMPLOYEE_ID};
-
-	private static final int DATE_DIALOG_ID = 0;
 	private static final String USERNAME = "username";
 	private static final String PROJECT_ID = "projectID";
 	private static final String EMPLOYEE_ID = "employeeID";
-	private static final String STRIP = "-";
-	private static final String SLASH = "/";
-	private static final String NUMBER_DATE = "0";
-
 	Spinner spinnerCategory;
-
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_attendancelist);
-
 		startFromDateTxt = (EditText)findViewById(R.id.startFromDateTxt);
 		untilFromDateTxt = (EditText)findViewById(R.id.untilFromDateTxt);
 		startFromDateImage = (ImageView)findViewById(R.id.startFromDateImage);
@@ -101,10 +86,7 @@ public class AttendanceListActivity extends Activity {
 				goToLogin();
 			}
 		});
-
-		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,category);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinnerCategory.setAdapter(adapter);
+		createDropdownCategory(this, category, spinnerCategory);
 		attendanceListReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 		this.getCurrentDate();
 		this.actionButton();
@@ -134,7 +116,7 @@ public class AttendanceListActivity extends Activity {
 			}
 		});
 	}
-
+	
 	private void setValeuForSelectedDate(){
 		inputCategory.setVisibility(View.GONE);	
 		inputCategory.setText("");
@@ -170,21 +152,10 @@ public class AttendanceListActivity extends Activity {
 		startActivity(intentLoginPage);
 	}
 
-
-	/** 
-	 * Get the current date or reset date to current date after used 
-	 * 
-	 */
-	private void getCurrentDate(){
-		final Calendar cal = Calendar.getInstance();
-		pYear = cal.get(Calendar.YEAR);
-		pMonth = cal.get(Calendar.MONTH);
-		pDay = cal.get(Calendar.DAY_OF_MONTH);
-	}
-
 	private void actionButton(){
 		startFromDateImage.setOnClickListener(new OnClickListener() {
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
 				isSetStartDateText = true;
@@ -194,6 +165,7 @@ public class AttendanceListActivity extends Activity {
 		});
 		untilFromDateImage.setOnClickListener(new OnClickListener() {
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
 				isSetStartDateText = false;
@@ -209,29 +181,29 @@ public class AttendanceListActivity extends Activity {
 				int inputCategoryLength = inputCategory.getText().length();
 				if(inputCategory.isShown()){
 					if(inputCategoryLength == empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() == empty){
-						Utility.alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 
 					}
 					else if(inputCategoryLength == empty  && ((startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty )
 							|| (startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ))){
-						Utility.alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 					}
 					else if(startFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && untilFromDateTxt.getText().length() != empty)
 							|| (inputCategoryLength != empty && untilFromDateTxt.getText().length() == empty))){
-						Utility.alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
 					}
 					else if(untilFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && startFromDateTxt.getText().length() != empty)
 							|| (inputCategoryLength != empty && startFromDateTxt.getText().length() == empty))){
-						Utility.alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
 					}
 					else if(inputCategoryLength == empty  && startFromDateTxt.getText().length() != empty  && untilFromDateTxt.getText().length() != empty){
-						Utility.alertMessage(ApplicationConstant.ERR_INPUT_BLANK,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_INPUT_BLANK,AttendanceListActivity.this);
 					}
 					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty){
-						Utility.alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
 					}
 					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ){
-						Utility.alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
 					}
 					else{
 
@@ -243,13 +215,13 @@ public class AttendanceListActivity extends Activity {
 								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
 							}else{
-								Utility.alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+								alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
 							}
 
 						}
 						else if(inputCategoryLength!= empty){
 
-							Utility.alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
+							alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 
 						}
 						else if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
@@ -260,18 +232,18 @@ public class AttendanceListActivity extends Activity {
 								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
 							}else{
-								Utility.alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+								alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
 							}
 
 						}
 						else{
-							Utility.alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
+							alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
 						}
 					}
 
 				}else{
 					if(startFromDateTxt.getText().length() == empty || untilFromDateTxt.getText().length() == empty ){
-						Utility.alertMessage(ApplicationConstant.ERR_FILL_DATE,AttendanceListActivity.this);
+						alertMessage(ApplicationConstant.ERR_FILL_DATE,AttendanceListActivity.this);
 					}else{
 
 						if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
@@ -282,12 +254,12 @@ public class AttendanceListActivity extends Activity {
 								new CallServiceAttendanceListTask().execute();
 								headerList.setVisibility(View.VISIBLE);
 							}else{
-								Utility.alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+								alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
 							}
 
 						}
 						else{
-							Utility.alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
+							alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
 						}
 
 					}
@@ -336,39 +308,6 @@ public class AttendanceListActivity extends Activity {
 		}
 	};
 
-	/** Updates the date in the TextView */
-	private void updateDisplay() {
-
-		if(isSetStartDateText){
-			startFromDateTxt.setText(getDateEditText());
-		}else{
-			untilFromDateTxt.setText(getDateEditText());
-		}
-	}
-	/**
-	 * Create Date for startDate editText and untilDate editText 
-	 * @return getDateEditText as StringBuilder
-	 */
-	private StringBuilder getDateEditText(){
-		// Month is 0 based so add 1
-		String pMonthString = String.valueOf((pMonth+1)).trim().toString();
-		String pDayString = String.valueOf(pDay).trim().toString();
-		String pYearString = String.valueOf(pYear).trim().toString();
-
-		if(pMonthString.length() < 2){
-			pMonthString = NUMBER_DATE+pMonthString;
-		}
-
-		if(pDayString.length() < 2){
-			pDayString = NUMBER_DATE+pDayString;
-		}
-
-		return new StringBuilder()
-		.append(pDayString).append(SLASH)
-		.append(pMonthString).append(SLASH)
-		.append(pYearString).append("");
-	}
-
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
@@ -379,6 +318,16 @@ public class AttendanceListActivity extends Activity {
 		}
 
 		return null;
+	}
+
+	/** Updates the date in the TextView */
+	private void updateDisplay() {
+
+		if(isSetStartDateText){
+			startFromDateTxt.setText(getDateEditText());
+		}else{
+			untilFromDateTxt.setText(getDateEditText());
+		}
 	}
 
 	private class CallServiceAttendanceListTask extends AsyncTask<Void, Void, String> {
