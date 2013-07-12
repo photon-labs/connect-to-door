@@ -90,6 +90,11 @@ public class AttendanceFormActivity extends MainActivity {
 		selectSearchCategory();
 		selectGender();
 		selectRole();
+		getCurrentDate();
+		actionButton();
+	}
+
+	private void actionButton(){
 		imageCalendar.setOnClickListener(new OnClickListener() {
 
 			@SuppressWarnings("deprecation")
@@ -99,7 +104,7 @@ public class AttendanceFormActivity extends MainActivity {
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
-		getCurrentDate();
+
 		//onClick for create account button
 		createButton.setOnClickListener(new OnClickListener() {
 

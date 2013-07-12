@@ -54,19 +54,15 @@ public class WelcomeScreenActivity extends MainActivity {
 		currentTime = (TextView) findViewById(R.id.currentTime);
 		username = (TextView) findViewById(R.id.username);
 		status = "check-status";
+		
 		checkPresentModel = new CheckPresentModel();
-		String datalogin = loadStringPreferences("responseLogin", getApplicationContext());
-		if(!datalogin.equalsIgnoreCase("")){
-			loginDataModel = new LoginDataModel();
-			try {
-				loginDataModel.parseJSON(datalogin);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		setDataLogin();
 		setUIWelcomeScreen();
 		new CallServiceCheckInOut().execute();
+		actionButton();
+	}
+	
+	private void actionButton(){
 		checkInButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -144,6 +140,18 @@ public class WelcomeScreenActivity extends MainActivity {
 		});
 	}
 
+	private void setDataLogin(){
+		String datalogin = loadStringPreferences("responseLogin", getApplicationContext());
+		if(!datalogin.equalsIgnoreCase("")){
+			loginDataModel = new LoginDataModel();
+			try {
+				loginDataModel.parseJSON(datalogin);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	private void updateViewCheckInSucces(){
 		String currentdate = checkPresentModel.getCheck_in();
 		if(checkPresentModel.getStatus().equals("success")){

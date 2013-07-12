@@ -68,6 +68,11 @@ public class ReimburseActivity extends MainActivity{
 		}
 		getResponseFromProfileModel();
 		setupdateUIRembursment();
+		actionButton();
+		
+	}
+
+	private void actionButton(){
 		backButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -95,7 +100,6 @@ public class ReimburseActivity extends MainActivity{
 			}
 		});
 	}
-
 	private void setDropDownApprovalCategory() {
 		createDropdownCategory(this,approvalCategory, dropDownApprovalCategory);
 	}

@@ -52,8 +52,12 @@ public class ReportActivity extends MainActivity {
 		attendanceAdminReport = (ListView) findViewById(R.id.table_report_attendance);	
 		dropDownCategory = (Spinner)findViewById(R.id.spinnerCategory);
 
+		actionButton();
 		createDropdownCategory(this, category, dropDownCategory);
-		
+		attendanceAdminReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
+	}
+	
+	private void actionButton(){
 		dropDownCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -113,7 +117,6 @@ public class ReportActivity extends MainActivity {
 				new CallServiceAttendanceReportTask().execute();
 			}
 		});
-		attendanceAdminReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 	}
 
 	/** Callback received when the user "picks" a date in the dialog */

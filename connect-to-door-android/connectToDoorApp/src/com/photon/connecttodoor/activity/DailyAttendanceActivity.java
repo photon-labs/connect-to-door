@@ -42,6 +42,14 @@ public class DailyAttendanceActivity extends MainActivity{
 		startFromDateImage = (ImageView)findViewById(R.id.startFromDateImage);
 		dailyReport = (ListView) findViewById(R.id.table_report);
 
+		actionButton();
+		getCurrentDate();
+		startFromDateTxt.setText(getDateEditText());
+		new CallServiceAttendanceListTask().execute(getDateEditText().toString());
+		dailyReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
+	}
+
+	private void actionButton(){
 		backButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -66,13 +74,7 @@ public class DailyAttendanceActivity extends MainActivity{
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
-
-		getCurrentDate();
-		startFromDateTxt.setText(getDateEditText());
-		new CallServiceAttendanceListTask().execute(getDateEditText().toString());
-		dailyReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 	}
-
 
 	/** Callback received when the user "picks" a date in the dialog */
 	private DatePickerDialog.OnDateSetListener pDateSetListener =

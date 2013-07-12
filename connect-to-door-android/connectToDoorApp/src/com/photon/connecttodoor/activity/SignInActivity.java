@@ -31,6 +31,9 @@ public class SignInActivity extends MainActivity {
 
 		signInEditText = (EditText)findViewById(R.id.edit_message);
 		signInButton = (Button)findViewById(R.id.buttonSignIn);
+		actionButton();
+	}		
+	private void actionButton(){
 		signInButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -44,7 +47,7 @@ public class SignInActivity extends MainActivity {
 				}
 			}
 		});
-	}		
+	}
 	public void goToWelcomePage(){
 		Intent welcomePage = new Intent(SignInActivity.this, WelcomeScreenActivity.class);
 		startActivity(welcomePage);

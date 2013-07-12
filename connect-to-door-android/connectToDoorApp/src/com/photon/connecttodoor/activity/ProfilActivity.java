@@ -45,18 +45,12 @@ public class ProfilActivity extends MainActivity {
 		onsite = (TextView)findViewById(R.id.onsiteInfoDynamicsProfile);
 		sick = (TextView)findViewById(R.id.sickInfoDynamicsProfile);
 		imageProfile =(ProfilePictureView)findViewById(R.id.photoProfile);
-
-		String dataProfile = loadStringPreferences("responseProfile", getApplicationContext());
-		if(!dataProfile.equalsIgnoreCase("")){
-			profileDataModel = new ProfileModel();
-			try {
-				profileDataModel.parseJSON(dataProfile);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		setProfilDataModel();
 		setDataToUI();
+		actionButton();
+	}
+
+	private void actionButton(){
 
 		attendanceButton.setOnClickListener(new OnClickListener() {
 
@@ -86,7 +80,19 @@ public class ProfilActivity extends MainActivity {
 			}
 		});
 	}
-
+	
+	private void setProfilDataModel(){
+		String dataProfile = loadStringPreferences("responseProfile", getApplicationContext());
+		if(!dataProfile.equalsIgnoreCase("")){
+			profileDataModel = new ProfileModel();
+			try {
+				profileDataModel.parseJSON(dataProfile);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	private void setDataToUI (){
 		name.setText(": "+profileDataModel.getEmployeeName());
 		employeeId.setText(": "+profileDataModel.getEmployeeId());

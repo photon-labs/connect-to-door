@@ -70,88 +70,12 @@ public class AttendanceListActivity extends MainActivity {
 		signOutButton = (Button)findViewById(R.id.signout_buttonattlist);
 		headerList = (LinearLayout)findViewById(R.id.headerList);
 
-		backButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				goToWelcomeScreen();
-			}
-		});
-
-		signOutButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLogin();
-			}
-		});
 		createDropdownCategory(this, category, spinnerCategory);
 		attendanceListReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 		this.getCurrentDate();
 		this.actionButton();
-
-		spinnerCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
-				selectCategory = spinnerCategory.getSelectedItem().toString();
-				try {
-					if(selectCategory.equals(ApplicationConstant.CAT_NAME)){
-						setValeuForSelectedName();
-					}else if(selectCategory.equals(ApplicationConstant.CAT_PROJECT_ID)){
-						setValeuForSelectedProjectId();
-					}else if(selectCategory.equals(ApplicationConstant.CAT_EMPLOYEE_ID)){
-						setValeuForSelectedEmployeeId();
-					}else{
-						setValeuForSelectedDate();
-					}
-				}catch(NumberFormatException nfe) {
-					System.out.println("Could not parse " + nfe);
-				} 
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-			}
-		});
 	}
 	
-	private void setValeuForSelectedDate(){
-		inputCategory.setVisibility(View.GONE);	
-		inputCategory.setText("");
-		searchParameters = selectCategory;
-		inputCategory.getText().toString();
-	}
-	private void setValeuForSelectedName(){
-		inputCategory.setVisibility(View.VISIBLE);
-		inputCategory.setText("");
-		searchParameters = USERNAME;
-		inputCategory.getText().toString();
-	}
-	private void setValeuForSelectedProjectId(){
-		inputCategory.setVisibility(View.VISIBLE);
-		inputCategory.setText("");
-		searchParameters = PROJECT_ID;
-		inputCategory.getText().toString();
-	}
-	private void setValeuForSelectedEmployeeId(){
-		inputCategory.setVisibility(View.VISIBLE);
-		inputCategory.setText("");
-		searchParameters = EMPLOYEE_ID;
-		inputCategory.getText().toString();
-	}
-	//go to welcome screen
-	private void goToWelcomeScreen(){
-		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);
-		startActivity(intentWelcomeScreen);
-	}
-	//go to login
-	private void goToLogin(){
-		Intent intentLoginPage = new Intent(AttendanceListActivity.this, LoginActivity.class);
-		startActivity(intentLoginPage);
-	}
-
 	private void actionButton(){
 		startFromDateImage.setOnClickListener(new OnClickListener() {
 
@@ -267,6 +191,83 @@ public class AttendanceListActivity extends MainActivity {
 
 			}
 		});
+
+		backButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				goToWelcomeScreen();
+			}
+		});
+
+		signOutButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				LoginActivity.onClickLogout();
+				goToLogin();
+			}
+		});
+
+		spinnerCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
+				selectCategory = spinnerCategory.getSelectedItem().toString();
+				try {
+					if(selectCategory.equals(ApplicationConstant.CAT_NAME)){
+						setValeuForSelectedName();
+					}else if(selectCategory.equals(ApplicationConstant.CAT_PROJECT_ID)){
+						setValeuForSelectedProjectId();
+					}else if(selectCategory.equals(ApplicationConstant.CAT_EMPLOYEE_ID)){
+						setValeuForSelectedEmployeeId();
+					}else{
+						setValeuForSelectedDate();
+					}
+				}catch(NumberFormatException nfe) {
+					System.out.println("Could not parse " + nfe);
+				} 
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		});
+	}
+
+	private void setValeuForSelectedDate(){
+		inputCategory.setVisibility(View.GONE);	
+		inputCategory.setText("");
+		searchParameters = selectCategory;
+		inputCategory.getText().toString();
+	}
+	private void setValeuForSelectedName(){
+		inputCategory.setVisibility(View.VISIBLE);
+		inputCategory.setText("");
+		searchParameters = USERNAME;
+		inputCategory.getText().toString();
+	}
+	private void setValeuForSelectedProjectId(){
+		inputCategory.setVisibility(View.VISIBLE);
+		inputCategory.setText("");
+		searchParameters = PROJECT_ID;
+		inputCategory.getText().toString();
+	}
+	private void setValeuForSelectedEmployeeId(){
+		inputCategory.setVisibility(View.VISIBLE);
+		inputCategory.setText("");
+		searchParameters = EMPLOYEE_ID;
+		inputCategory.getText().toString();
+	}
+	//go to welcome screen
+	private void goToWelcomeScreen(){
+		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);
+		startActivity(intentWelcomeScreen);
+	}
+	//go to login
+	private void goToLogin(){
+		Intent intentLoginPage = new Intent(AttendanceListActivity.this, LoginActivity.class);
+		startActivity(intentLoginPage);
 	}
 
 	/**
