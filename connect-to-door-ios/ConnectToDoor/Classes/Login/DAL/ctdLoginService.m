@@ -9,8 +9,6 @@
 #import "ctdLoginService.h"
 #import "AFHTTPClient.h"
 #import "ctdConstants.h"
-#import "ctdLoginParser.h"
-#import "ctdReponseLoginModel.h"
 
 @implementation ctdLoginService
 
@@ -53,10 +51,8 @@
  */
 -(void)didReceivedResponse:(NSString*)response{
     if(response != NULL || response.length > 0){
-        ctdLoginParser *parse = [[ctdLoginParser alloc]init];
-        ctdReponseLoginModel *model = [parse parseResponse:response];
         if ([_delegate respondsToSelector:@selector(didReceivedLoginResponse:)]) {
-            [_delegate didReceivedLoginResponse:model.message];
+            [_delegate didReceivedLoginResponse:response];
         }
     }else{
         if ([_delegate respondsToSelector:@selector(didReceiveLoginErrorResponse:)]) {

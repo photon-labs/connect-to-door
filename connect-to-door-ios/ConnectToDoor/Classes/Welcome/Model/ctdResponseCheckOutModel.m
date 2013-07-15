@@ -9,5 +9,16 @@
 #import "ctdResponseCheckOutModel.h"
 
 @implementation ctdResponseCheckOutModel
+@synthesize message = _message;
+@synthesize status = _status;
+@synthesize checkOut = _checkOut;
+
+- (ctdResponseCheckOutModel *)initWithDefault{
+    _message = @"";
+    _status = @"";
+    _checkOut = @"";
+    
+    return self;
+}
 
 @end

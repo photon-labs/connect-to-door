@@ -10,4 +10,10 @@
 
 @interface ctdResponseCheckInModel : NSObject
 
+@property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *checkIn;
+
+- (ctdResponseCheckInModel *)initWithDefault;
+
 @end

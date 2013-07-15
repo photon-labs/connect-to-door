@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ctdResponseCheckInModel.h"
 
 @interface ctdCheckInParser : NSObject
+
+-(ctdResponseCheckInModel*)parseResponse:(NSString*)response;
 
 @end

@@ -32,7 +32,7 @@
     [httpClient postPath:MODULE_CHECKOUT_CHECKIN parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //this block function for response success and return velue
         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"Request Successful loginToServer, response '%@'", responseStr);
+        NSLog(@"Request Successful check out, response '%@'", responseStr);
         [self didReceivedResponse:responseStr];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          //this block function for response error and return velue error

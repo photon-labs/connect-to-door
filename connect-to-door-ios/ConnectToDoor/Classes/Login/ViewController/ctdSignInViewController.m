@@ -10,6 +10,8 @@
 #import "ctdWelcomeViewController.h"
 #import "ctdLoginService.h"
 #import "ctdLocalStorage.h"
+#import "ctdLoginParser.h"
+#import "ctdReponseLoginModel.h"
 
 @interface ctdSignInViewController ()
 
@@ -91,7 +93,9 @@ NSString *test;
 
 #pragma login Service Delegate
 -(void)didReceivedLoginResponse:(NSString *)response{
-    if([response isEqualToString:@"Login failed"]){
+    ctdLoginParser *parse = [[ctdLoginParser alloc]init];
+    ctdReponseLoginModel *model = [parse parseResponse:response];
+    if([model.message isEqualToString:@"Login failed"]){
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
                                                           message:response
                                                          delegate:nil

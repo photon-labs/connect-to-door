@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ctdReponseLoginModel.h"
 
+
 @interface ctdLoginParser : NSObject
 
 -(ctdReponseLoginModel*)parseResponse:(NSString*)response;

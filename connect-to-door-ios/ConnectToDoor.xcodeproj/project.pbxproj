@@ -59,6 +59,8 @@
 		DD3487FF178AA6DD0070702C /* ctdResponseCheckOutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487FE178AA6DD0070702C /* ctdResponseCheckOutModel.m */; };
 		DD348802178AAB5A0070702C /* ctdResponseDailyAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD348801178AAB5A0070702C /* ctdResponseDailyAttendanceModel.m */; };
 		DD348805178AB44C0070702C /* ctdResponseDailyAttendanceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD348804178AB44B0070702C /* ctdResponseDailyAttendanceListModel.m */; };
+		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
+		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
 		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
 		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
@@ -69,6 +71,7 @@
 		DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */; };
 		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
 		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
+		DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */; };
@@ -189,6 +192,10 @@
 		DD348801178AAB5A0070702C /* ctdResponseDailyAttendanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseDailyAttendanceModel.m; sourceTree = "<group>"; };
 		DD348803178AB44B0070702C /* ctdResponseDailyAttendanceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseDailyAttendanceListModel.h; sourceTree = "<group>"; };
 		DD348804178AB44B0070702C /* ctdResponseDailyAttendanceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseDailyAttendanceListModel.m; sourceTree = "<group>"; };
+		DD996E5F1793D5FF000F5A4B /* ctdCheckStatusParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusParser.h; sourceTree = "<group>"; };
+		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
+		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
+		DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseCheckStatusModel.m; sourceTree = "<group>"; };
 		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
 		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
 		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
@@ -199,6 +206,8 @@
 		DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_voucher.png"; sourceTree = "<group>"; };
 		DDA08B401738F602002882B4 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_sign-out.png"; sourceTree = "<group>"; };
 		DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_sign-in.png"; sourceTree = "<group>"; };
+		DDAD6C23178FEAA500D0FDBE /* ctdCheckStatusService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusService.h; sourceTree = "<group>"; };
+		DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusService.m; sourceTree = "<group>"; };
 		DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceParser.h; sourceTree = "<group>"; };
 		DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdDailyAttendanceParser.m; sourceTree = "<group>"; };
 		DDAF29B5178BB5A100597570 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = "<group>"; };
@@ -564,6 +573,8 @@
 				DD3487E9178A9BDF0070702C /* ctdCheckInService.m */,
 				DD3487EB178A9BF80070702C /* ctdCheckOutService.h */,
 				DD3487EC178A9BF80070702C /* ctdCheckOutService.m */,
+				DDAD6C23178FEAA500D0FDBE /* ctdCheckStatusService.h */,
+				DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */,
 			);
 			path = DAL;
 			sourceTree = "<group>";
@@ -575,6 +586,8 @@
 				DD3487FB178AA66C0070702C /* ctdResponseCheckInModel.m */,
 				DD3487FD178AA6DD0070702C /* ctdResponseCheckOutModel.h */,
 				DD3487FE178AA6DD0070702C /* ctdResponseCheckOutModel.m */,
+				DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */,
+				DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -586,6 +599,8 @@
 				DD3487F2178AA2B10070702C /* ctdCheckInParser.m */,
 				DD3487F4178AA2CE0070702C /* ctdCheckOutParser.h */,
 				DD3487F5178AA2CE0070702C /* ctdCheckOutParser.m */,
+				DD996E5F1793D5FF000F5A4B /* ctdCheckStatusParser.h */,
+				DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -946,6 +961,9 @@
 				DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */,
 				DDD91759178EBA1600750702 /* ctdGlobal.m in Sources */,
 				DDD9175D178EBEF200750702 /* Reachability.m in Sources */,
+				DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */,
+				DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */,
+				DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

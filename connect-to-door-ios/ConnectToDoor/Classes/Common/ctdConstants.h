@@ -21,6 +21,7 @@
 //this varible 
 #define CHECKIN @"checkIn"
 #define CHECKOUT @"checkOut"
+#define CHECKSTATUS @"check-status"
 
 #define kUserFaceBookId @"facebookID"
 #define kNameUserFaceBook @"nameUserFacebook"

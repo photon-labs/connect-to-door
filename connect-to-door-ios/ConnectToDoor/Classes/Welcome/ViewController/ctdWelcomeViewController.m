@@ -12,6 +12,15 @@
 #import "ctdDailyAttendaceViewController.h"
 #import "ctdLoginViewController.h"
 #import "ctdLocalStorage.h"
+#import "ctdLocalStorage.h"
+#import "ctdResponseCheckInModel.h"
+#import "ctdCheckInParser.h"
+#import "ctdAppDelegate.h"
+#import "ctdCheckStatusService.h"
+#import "ctdCheckOutParser.h"
+#import "ctdCheckStatusParser.h"
+#import "ctdResponseCheckStatusModel.h"
+#import "ctdResponseCheckOutModel.h"
 
 @interface ctdWelcomeViewController ()
 
@@ -44,7 +53,12 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     welcome.text = [NSString stringWithFormat:@"Welcome, %@",[self getNameUser]];
-    self.title = @"Welcomea";
+    self.title = @"Welcome";
+    ctdCheckStatusService *checkStatusService = [[ctdCheckStatusService alloc]init];
+    checkStatusService.delegate = self;
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
+    NSString *employeeId = [localStorage getEmployeeId];
+    [checkStatusService checkStatusToServer:employeeId];
 }
 
 -(NSString*)getNameUser{
@@ -53,7 +67,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-  [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,13 +77,19 @@
 }
 
 - (IBAction)didCheckInClicked:(id)sender{
-     NSString* totalProductLoadedStr = [NSString stringWithFormat:@"You have checked in at %@", [self getCurrentDate]];
-    statusCheck.text = totalProductLoadedStr;
+    ctdCheckInService *checkInService = [[ctdCheckInService alloc]init];
+    checkInService.delegate = self;
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
+    NSString *employeeId = [localStorage getEmployeeId];
+    [checkInService checkInToServer:employeeId];
 }
 
 - (IBAction)didCheckOutClicked:(id)sender{
-    NSString* totalProductLoadedStr = [NSString stringWithFormat:@"You have checked out at %@", [self getCurrentDate]];
-    statusCheck.text = totalProductLoadedStr;
+    ctdCheckOutService *checkOutService = [[ctdCheckOutService alloc]init];
+    checkOutService.delegate = self;
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
+    NSString *employeeId = [localStorage getEmployeeId];
+    [checkOutService checkOutToServer:employeeId];
 }
 
 - (IBAction)didProfileClicked:(id)sender{
@@ -90,7 +110,10 @@
 
 - (IBAction)didSignOutClicked:(id)sender{
     ctdLoginViewController *loginViewController = [[ctdLoginViewController alloc]initWithNibName:@"ctdLoginViewController" bundle:nil];
+    
+    ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     [self.navigationController pushViewController:loginViewController animated:YES];
+    [appDelegate.session closeAndClearTokenInformation];
 }
 
 -(void) goToProfile{
@@ -122,6 +145,77 @@
     NSString *currentTime = [dateFormatter stringFromDate:today];
     NSLog(@"User's current time in their preference format:%@",currentTime);
     return currentTime;
+}
+
+
+-(BOOL)checkValidationCheckIn:(NSString*)message{
+    if([message isEqualToString:@"success"]){
+        return TRUE;
+    }
+    return FALSE;
+}
+
+
+#pragma CheckIn Service Delegate
+- (void)didReceivedCheckInResponse:(NSString*)response{
+    ctdCheckInParser *parse = [[ctdCheckInParser alloc]init];
+    ctdResponseCheckInModel *model = [parse parseResponse:response];
+    if([self checkValidationCheckIn:model.status]){
+        NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", model.checkIn];
+        statusCheck.text = timeCheckIn;
+    }else{
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                          message:model.message
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
+    
+}
+
+- (void)didReceiveCheckInErrorResponse:(NSError*)error{
+    
+}
+
+#pragma CheckOut Service Delegate
+- (void)didReceivedCheckOutResponse:(NSString*)response{
+    ctdCheckOutParser *parser = [[ctdCheckOutParser alloc]init];
+    ctdResponseCheckOutModel *model = [parser parseResponse:response];
+    if([self checkValidationCheckIn:model.status]){
+        NSString* timeCheckOut = [NSString stringWithFormat:@"You have checked out at %@", model.checkOut];
+        statusCheck.text = timeCheckOut;
+    }else{
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                          message:model.message
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }
+}
+
+- (void)didReceiveCheckOutErrorResponse:(NSError*)error{
+    
+}
+
+#pragma CheckStatus Service Delegate
+- (void)didReceivedCheckStatusResponse:(NSString*)response{
+    ctdCheckStatusParser *parse = [[ctdCheckStatusParser alloc]init];
+    ctdResponseCheckStatusModel *model = [parse parseResponse:response];
+    if(![model.checkIn isEqualToString:@""]){
+        NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", model.checkIn];
+        statusCheck.text = timeCheckIn;
+    }else if(![model.checkOut isEqualToString:@""]){
+        NSString* timeCheckOut = [NSString stringWithFormat:@"You have checked out at %@", model.checkOut];
+        statusCheck.text = timeCheckOut;
+    }else{
+        //do any thing
+    }
+}
+
+- (void)didReceiveCheckStatusErrorResponse:(NSError*)error{
+    
 }
 
 @end

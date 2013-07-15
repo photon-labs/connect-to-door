@@ -10,4 +10,10 @@
 
 @interface ctdResponseCheckOutModel : NSObject
 
+@property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *checkOut;
+
+- (ctdResponseCheckOutModel *)initWithDefault;
+
 @end

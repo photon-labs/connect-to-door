@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ctdResponseCheckOutModel.h"
 
 @interface ctdCheckOutParser : NSObject
+
+-(ctdResponseCheckOutModel*)parseResponse:(NSString*)response;
 
 @end

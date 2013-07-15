@@ -19,4 +19,6 @@
 
 @property (nonatomic,strong) id<CheckOutServiceDelegate>delegate;
 
+-(void)checkOutToServer:(NSString*)employeeId;
+
 @end

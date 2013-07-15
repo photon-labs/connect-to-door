@@ -19,4 +19,5 @@
 
 @property (nonatomic,strong) id<CheckInServiceDelegate>delegate;
 
+-(void)checkInToServer:(NSString*)employeeId;
 @end

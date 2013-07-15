@@ -9,5 +9,15 @@
 #import "ctdResponseCheckInModel.h"
 
 @implementation ctdResponseCheckInModel
+@synthesize message = _message;
+@synthesize status = _status;
+@synthesize checkIn = _checkIn;
+
+- (ctdResponseCheckInModel *)initWithDefault{
+    _message = @"";
+    _status = @"";
+    _checkIn = @"";
+    return self;
+}
 
 @end

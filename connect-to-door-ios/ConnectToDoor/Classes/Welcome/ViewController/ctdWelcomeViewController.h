@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ctdCheckInService.h"
+#import "ctdCheckStatusService.h"
+#import "ctdCheckOutService.h"
 
-@interface ctdWelcomeViewController : UIViewController{
+@interface ctdWelcomeViewController : UIViewController<CheckInServiceDelegate,CheckStatusServiceDelegate,CheckOutServiceDelegate>{
     
 }
 
