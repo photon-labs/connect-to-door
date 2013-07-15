@@ -7,6 +7,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -134,5 +136,18 @@ public abstract class MainActivity extends Activity{
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		nameSpinnerId.setAdapter(adapter);
 	}
-
+	/**
+	 * check internet status connection
+	 * if no internet connection return false
+	 * @return
+	 */
+	public boolean connectionAvailable() {
+		boolean connected = false;
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+				connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+			connected = true;
+		}
+		return connected;
+	}
 }

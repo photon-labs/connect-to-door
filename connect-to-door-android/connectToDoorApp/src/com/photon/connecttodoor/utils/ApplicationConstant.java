@@ -42,4 +42,5 @@ public class ApplicationConstant {
 	public static final String ERROR = "Error";
 	public static final String ERR_FILL_DATE = "Please input date";
 	public static final String ERR_LOGIN_FAIL = "Login failed";
+	public static final String NO_INTERNET_CONNECTION = "NO INTERNET CONNECTION";
 }
