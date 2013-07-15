@@ -21,6 +21,7 @@ import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.DailyAttendanceService;
 import com.photon.connecttodoor.datamodel.DailyAttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedDailyArrayAdapter;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 
 @SuppressLint("NewApi")
 public class DailyAttendanceActivity extends MainActivity{
@@ -45,7 +46,14 @@ public class DailyAttendanceActivity extends MainActivity{
 		actionButton();
 		getCurrentDate();
 		startFromDateTxt.setText(getDateEditText());
-		new CallServiceAttendanceListTask().execute(getDateEditText().toString());
+
+		/**check internet connection before request for attendance list */
+		if(connectionAvailable()){
+			new CallServiceAttendanceListTask().execute(getDateEditText().toString());
+		}else{
+			alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, DailyAttendanceActivity.this);
+		}
+
 		dailyReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 	}
 
@@ -93,7 +101,13 @@ public class DailyAttendanceActivity extends MainActivity{
 			pMonth = monthOfYear;
 			pDay = dayOfMonth;
 			startFromDateTxt.setText(getDateEditText());
-			new CallServiceAttendanceListTask().execute(getDateEditText().toString());
+			
+			/**check internet connection before request for attendance list */
+			if(connectionAvailable()){
+				new CallServiceAttendanceListTask().execute(getDateEditText().toString());
+			}else{
+				alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, DailyAttendanceActivity.this);
+			}
 		}
 	};
 
@@ -108,6 +122,7 @@ public class DailyAttendanceActivity extends MainActivity{
 
 		return null;
 	}
+
 	/**
 	 * call request daily attendance
 	 *
@@ -146,6 +161,7 @@ public class DailyAttendanceActivity extends MainActivity{
 			this.dialog.dismiss();
 		}
 	}
+
 	/**
 	 * launch menu attendance
 	 */
@@ -153,6 +169,7 @@ public class DailyAttendanceActivity extends MainActivity{
 		Intent intentWelcomeScreen = new Intent(DailyAttendanceActivity.this, WelcomeScreenActivity.class);
 		startActivity(intentWelcomeScreen);
 	}
+
 	/**
 	 * launch login page
 	 */

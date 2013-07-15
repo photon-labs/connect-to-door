@@ -112,90 +112,96 @@ public class AttendanceListActivity extends MainActivity {
 			public void onClick(View arg0) {
 				int empty = 0;
 				int inputCategoryLength = inputCategory.getText().length();
-				if(inputCategory.isShown()){
-					if(inputCategoryLength == empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() == empty){
-						alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 
-					}
-					else if(inputCategoryLength == empty  && ((startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty )
-							|| (startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ))){
-						alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
-					}
-					else if(startFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && untilFromDateTxt.getText().length() != empty)
-							|| (inputCategoryLength != empty && untilFromDateTxt.getText().length() == empty))){
-						alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
-					}
-					else if(untilFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && startFromDateTxt.getText().length() != empty)
-							|| (inputCategoryLength != empty && startFromDateTxt.getText().length() == empty))){
-						alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
-					}
-					else if(inputCategoryLength == empty  && startFromDateTxt.getText().length() != empty  && untilFromDateTxt.getText().length() != empty){
-						alertMessage(ApplicationConstant.ERR_INPUT_BLANK,AttendanceListActivity.this);
-					}
-					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty){
-						alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
-					}
-					else if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ){
-						alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
-					}
-					else{
-
-						if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
-
-							boolean isDateValidated = validateDateSection();
-
-							if(isDateValidated){
-								new CallServiceAttendanceListTask().execute();
-								headerList.setVisibility(View.VISIBLE);
-							}else{
-								alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
-							}
-
-						}
-						else if(inputCategoryLength!= empty){
-
+				/**check internet connection before request for attendance list */
+				if(connectionAvailable()){
+					if(inputCategory.isShown()){
+						if(inputCategoryLength == empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() == empty){
 							alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 
 						}
-						else if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
-
-							boolean isDateValidated = validateDateSection();
-
-							if(isDateValidated){
-								new CallServiceAttendanceListTask().execute();
-								headerList.setVisibility(View.VISIBLE);
-							}else{
-								alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
-							}
-
+						else if(inputCategoryLength == empty  && ((startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty )
+								|| (startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ))){
+							alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
+						}
+						else if(startFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && untilFromDateTxt.getText().length() != empty)
+								|| (inputCategoryLength != empty && untilFromDateTxt.getText().length() == empty))){
+							alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
+						}
+						else if(untilFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && startFromDateTxt.getText().length() != empty)
+								|| (inputCategoryLength != empty && startFromDateTxt.getText().length() == empty))){
+							alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
+						}
+						else if(inputCategoryLength == empty  && startFromDateTxt.getText().length() != empty  && untilFromDateTxt.getText().length() != empty){
+							alertMessage(ApplicationConstant.ERR_INPUT_BLANK,AttendanceListActivity.this);
+						}
+						else if(inputCategoryLength != empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty){
+							alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
+						}
+						else if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ){
+							alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
 						}
 						else{
-							alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
-						}
-					}
 
-				}else{
-					if(startFromDateTxt.getText().length() == empty || untilFromDateTxt.getText().length() == empty ){
-						alertMessage(ApplicationConstant.ERR_FILL_DATE,AttendanceListActivity.this);
+							if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
+
+								boolean isDateValidated = validateDateSection();
+
+								if(isDateValidated){
+									new CallServiceAttendanceListTask().execute();
+									headerList.setVisibility(View.VISIBLE);
+								}else{
+									alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+								}
+
+							}
+							else if(inputCategoryLength!= empty){
+
+								alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
+
+							}
+							else if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
+
+								boolean isDateValidated = validateDateSection();
+
+								if(isDateValidated){
+									new CallServiceAttendanceListTask().execute();
+									headerList.setVisibility(View.VISIBLE);
+								}else{
+									alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+								}
+
+							}
+							else{
+								alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
+							}
+						}
+
 					}else{
+						if(startFromDateTxt.getText().length() == empty || untilFromDateTxt.getText().length() == empty ){
+							alertMessage(ApplicationConstant.ERR_FILL_DATE,AttendanceListActivity.this);
+						}else{
 
-						if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
+							if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
 
-							boolean isDateValidated = validateDateSection();
+								boolean isDateValidated = validateDateSection();
 
-							if(isDateValidated){
-								new CallServiceAttendanceListTask().execute();
-								headerList.setVisibility(View.VISIBLE);
-							}else{
-								alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+								if(isDateValidated){
+									new CallServiceAttendanceListTask().execute();
+									headerList.setVisibility(View.VISIBLE);
+								}else{
+									alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+								}
+
+							}
+							else{
+								alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
 							}
 
 						}
-						else{
-							alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
-						}
-
 					}
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceListActivity.this);
 				}
 
 			}
