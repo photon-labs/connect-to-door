@@ -15,6 +15,7 @@ import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.CheckInOutService;
 import com.photon.connecttodoor.datamodel.CheckPresentModel;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class WelcomeScreenActivity extends MainActivity {
 
@@ -54,21 +55,25 @@ public class WelcomeScreenActivity extends MainActivity {
 		currentTime = (TextView) findViewById(R.id.currentTime);
 		username = (TextView) findViewById(R.id.username);
 		status = "check-status";
-		
+
 		checkPresentModel = new CheckPresentModel();
 		setDataLogin();
 		setUIWelcomeScreen();
 		new CallServiceCheckInOut().execute();
 		actionButton();
 	}
-	
+
 	private void actionButton(){
 		checkInButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				status = "checkIn";
-				new CallServiceCheckInOut().execute();
+				if(connectionAvailable()){
+					status = "checkIn";
+					new CallServiceCheckInOut().execute();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, WelcomeScreenActivity.this);
+				}
 			}
 		});
 
@@ -76,8 +81,12 @@ public class WelcomeScreenActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				status = "checkOut";
-				new CallServiceCheckInOut().execute();
+				if(connectionAvailable()){
+					status = "checkOut";
+					new CallServiceCheckInOut().execute();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, WelcomeScreenActivity.this);
+				}
 			}
 		});
 

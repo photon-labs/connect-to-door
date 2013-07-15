@@ -23,13 +23,13 @@ public class VoucherActivity extends Activity {
 	}
 
 	private void actionButton(){
-		reimburseButton.setOnClickListener(new OnClickListener() {
+	/*	reimburseButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				goToReimbursePage();
 			}
-		});
+		}); */
 		signOutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
