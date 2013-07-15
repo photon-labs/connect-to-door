@@ -50,13 +50,18 @@ public class DailyAttendanceActivity extends MainActivity{
 	}
 
 	private void actionButton(){
+		/**
+		 * onClick back button
+		 */
 		backButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				goToWelcomePage();
 			}
 		});
-
+		/**
+		 * onClick sign out button
+		 */
 		signOutButton.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v) {
@@ -64,7 +69,9 @@ public class DailyAttendanceActivity extends MainActivity{
 				goToLoginPage();
 			}
 		});
-
+		/**
+		 * onClick calendar button
+		 */
 		startFromDateImage.setOnClickListener(new OnClickListener() {
 
 			@SuppressWarnings("deprecation")
@@ -101,7 +108,10 @@ public class DailyAttendanceActivity extends MainActivity{
 
 		return null;
 	}
-
+	/**
+	 * call request daily attendance
+	 *
+	 */
 	private class CallServiceAttendanceListTask extends AsyncTask<String, Void, String> {
 
 		private ProgressDialog dialog;
@@ -136,12 +146,16 @@ public class DailyAttendanceActivity extends MainActivity{
 			this.dialog.dismiss();
 		}
 	}
-
+	/**
+	 * launch menu attendance
+	 */
 	private void goToWelcomePage(){
 		Intent intentWelcomeScreen = new Intent(DailyAttendanceActivity.this, WelcomeScreenActivity.class);
 		startActivity(intentWelcomeScreen);
 	}
-
+	/**
+	 * launch login page
+	 */
 	private void goToLoginPage(){
 		Intent intentLoginPage = new Intent(DailyAttendanceActivity.this, LoginActivity.class);
 		startActivity(intentLoginPage);

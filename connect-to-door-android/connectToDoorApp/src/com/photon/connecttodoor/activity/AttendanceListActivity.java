@@ -75,8 +75,11 @@ public class AttendanceListActivity extends MainActivity {
 		this.getCurrentDate();
 		this.actionButton();
 	}
-	
+
 	private void actionButton(){
+		/**
+		 * onClick start date
+		 */
 		startFromDateImage.setOnClickListener(new OnClickListener() {
 
 			@SuppressWarnings("deprecation")
@@ -87,6 +90,9 @@ public class AttendanceListActivity extends MainActivity {
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
+		/**
+		 * onClick end date
+		 */
 		untilFromDateImage.setOnClickListener(new OnClickListener() {
 
 			@SuppressWarnings("deprecation")
@@ -97,6 +103,9 @@ public class AttendanceListActivity extends MainActivity {
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
+		/**
+		 * onClick search employee by category and date
+		 */
 		searchButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -191,7 +200,9 @@ public class AttendanceListActivity extends MainActivity {
 
 			}
 		});
-
+		/**
+		 * onClick back button
+		 */
 		backButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -199,7 +210,9 @@ public class AttendanceListActivity extends MainActivity {
 				goToWelcomeScreen();
 			}
 		});
-
+		/**
+		 * onClick sign out button
+		 */
 		signOutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -208,7 +221,9 @@ public class AttendanceListActivity extends MainActivity {
 				goToLogin();
 			}
 		});
-
+		/**
+		 * onClick drop down category
+		 */
 		spinnerCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -234,37 +249,52 @@ public class AttendanceListActivity extends MainActivity {
 			}
 		});
 	}
-
+	/**
+	 * set data and ui for date
+	 */
 	private void setValeuForSelectedDate(){
 		inputCategory.setVisibility(View.GONE);	
 		inputCategory.setText("");
 		searchParameters = selectCategory;
 		inputCategory.getText().toString();
 	}
+	/**
+	 * set data and ui for name
+	 */
 	private void setValeuForSelectedName(){
 		inputCategory.setVisibility(View.VISIBLE);
 		inputCategory.setText("");
 		searchParameters = USERNAME;
 		inputCategory.getText().toString();
 	}
+	/**
+	 * set data and ui for project id
+	 */
 	private void setValeuForSelectedProjectId(){
 		inputCategory.setVisibility(View.VISIBLE);
 		inputCategory.setText("");
 		searchParameters = PROJECT_ID;
 		inputCategory.getText().toString();
 	}
+	/**
+	 * set data and ui for employee id
+	 */
 	private void setValeuForSelectedEmployeeId(){
 		inputCategory.setVisibility(View.VISIBLE);
 		inputCategory.setText("");
 		searchParameters = EMPLOYEE_ID;
 		inputCategory.getText().toString();
 	}
-	//go to welcome screen
+	/**
+	 * launch attendance menu
+	 */
 	private void goToWelcomeScreen(){
 		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);
 		startActivity(intentWelcomeScreen);
 	}
-	//go to login
+	/**
+	 * launch login page
+	 */
 	private void goToLogin(){
 		Intent intentLoginPage = new Intent(AttendanceListActivity.this, LoginActivity.class);
 		startActivity(intentLoginPage);
@@ -330,7 +360,10 @@ public class AttendanceListActivity extends MainActivity {
 			untilFromDateTxt.setText(getDateEditText());
 		}
 	}
-
+	/**
+	 * request attendance list service
+	 *
+	 */
 	private class CallServiceAttendanceListTask extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -357,7 +390,6 @@ public class AttendanceListActivity extends MainActivity {
 			try {
 				attendance.parseSource();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());

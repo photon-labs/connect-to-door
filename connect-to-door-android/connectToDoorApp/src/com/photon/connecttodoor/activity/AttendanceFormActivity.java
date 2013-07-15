@@ -95,6 +95,9 @@ public class AttendanceFormActivity extends MainActivity {
 	}
 
 	private void actionButton(){
+		/**
+		 * show calendar dialog
+		 */
 		imageCalendar.setOnClickListener(new OnClickListener() {
 
 			@SuppressWarnings("deprecation")
@@ -105,19 +108,22 @@ public class AttendanceFormActivity extends MainActivity {
 			}
 		});
 
-		//onClick for create account button
+		/**
+		 * onClick to create account
+		 */
 		createButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				status = ApplicationConstant.CREATE;
 				editSection.setVisibility(View.INVISIBLE);
-				// TODO Auto-generated method stub
 				setFormActive();
 				clearValue();
 			}
 		});
-
+		/**
+		 * onClick to edit account
+		 */
 		editButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -125,11 +131,11 @@ public class AttendanceFormActivity extends MainActivity {
 				status = ApplicationConstant.UPDATE;
 				deleteButtonAcc.setVisibility(View.INVISIBLE);
 				setFormInactive();
-				// TODO Auto-generated method stub
-
 			}
 		});
-
+		/**
+		 * onClick to show delete button
+		 */
 		deleteButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -138,7 +144,9 @@ public class AttendanceFormActivity extends MainActivity {
 				setFormInactive();
 			}
 		});
-
+		/**
+		 * onClick to delete account
+		 */
 		deleteButtonAcc.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -147,7 +155,9 @@ public class AttendanceFormActivity extends MainActivity {
 				new CallServiceDeleteAccount().execute();
 			}
 		});
-
+		/**
+		 * onClick to launch menu attendance
+		 */
 		backButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -155,7 +165,9 @@ public class AttendanceFormActivity extends MainActivity {
 				goToWelcomePage();
 			}
 		});
-
+		/**
+		 * onClick to sign out application
+		 */
 		signOutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -164,16 +176,19 @@ public class AttendanceFormActivity extends MainActivity {
 				goToLoginPage();
 			}
 		});
-
+		/**
+		 * onClick to submit account
+		 */
 		saveButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				new CallServiceCreateandEditAccount().execute();
-				//goToLoginPage();
 			}
 		});
-
+		/**
+		 * onClick to search account
+		 */
 		searchButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -186,26 +201,41 @@ public class AttendanceFormActivity extends MainActivity {
 			}
 		});
 	}
-
+	/**
+	 * launch menu attendance
+	 */
 	private void goToWelcomePage(){
 		Intent intentWelcomeScreen = new Intent(AttendanceFormActivity.this, WelcomeScreenActivity.class);
 		startActivity(intentWelcomeScreen);
 	}
-
+	/**
+	 * launch login page
+	 */
 	private void goToLoginPage(){
 		Intent intentLoginPage = new Intent(AttendanceFormActivity.this, LoginActivity.class);
 		startActivity(intentLoginPage);
 	}
-
+	/**
+	 * show drop down search category
+	 */
 	private void setDropdownSearchCategory(){
 		createDropdownCategory(this, searchCategory, dropDownCategory);
 	}
+	/**
+	 * show drop down role category
+	 */
 	private void setDropdownRoleCategory(){
 		createDropdownCategory(this, roleCategory, dropDownRole);
 	}
+	/**
+	 * show drop down gender category
+	 */
 	private void setDropdownGenderCategory() {
 		createDropdownCategory(this, genderCategory, dropDownGender);
 	}
+	/**
+	 * set all input form active
+	 */
 	private void setFormActive(){
 		imageCalendar.setBackgroundResource(R.drawable.icon_calendar_start_working);
 		editTextName.setBackgroundResource(R.drawable.box_add_text_n_e_p_active);
@@ -250,7 +280,9 @@ public class AttendanceFormActivity extends MainActivity {
 		imgDropDwnRole.setVisibility(View.VISIBLE);
 		imgFacebook.setVisibility(View.VISIBLE);
 	}
-
+	/**
+	 * set all input form inactive
+	 */
 	private void setFormInactive(){
 		imageCalendar.setBackgroundResource(R.drawable.icon_calendar_in_active);
 		editTextName.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
@@ -322,7 +354,9 @@ public class AttendanceFormActivity extends MainActivity {
 
 		return null;
 	}
-
+	/**
+	 * action dropdown each  search category 
+	 */
 	private void selectSearchCategory(){
 		dropDownCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -347,6 +381,9 @@ public class AttendanceFormActivity extends MainActivity {
 			}
 		});
 	}
+	/**
+	 * action dropdown each  gender category 
+	 */
 	private void selectGender(){
 		dropDownGender.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -361,7 +398,9 @@ public class AttendanceFormActivity extends MainActivity {
 			}
 		});
 	}
-
+	/**
+	 * action dropdown each  role category 
+	 */
 	private void selectRole(){
 		dropDownRole.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -376,8 +415,10 @@ public class AttendanceFormActivity extends MainActivity {
 			}
 		});
 	}
-
-	private void setValueForEditAccount(){
+	/**
+	 * get all value account
+	 */
+	private void getValueForEditAccount(){
 		editTextName.setText(profileDataModel.getEmployeeName());
 		editTextUsername.setText(profileDataModel.getUsername());
 		editTextEmployee.setText(profileDataModel.getEmployeeId());
@@ -395,6 +436,9 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextEmail.setText(profileDataModel.getEmployeeEmail());
 		editTextSignature.setText(profileDataModel.getSignature());
 	}
+	/**
+	 * clear all value account
+	 */
 	private void clearValue(){
 		editTextName.setText("");
 		editTextUsername.setText("");
@@ -413,7 +457,11 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextEmail.setText("");
 		editTextSignature.setText("");
 	}
-
+	/**
+	 * request all about service account (create and edit)
+	 * each service difference by status
+	 *
+	 */
 	private class CallServiceCreateandEditAccount extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -425,7 +473,6 @@ public class AttendanceFormActivity extends MainActivity {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
 			CreateandEditAccountService createAndEditAccountService = new CreateandEditAccountService();
 			String statusAccount = status;
 			String employeeID = editTextEmployee.getText().toString();
@@ -455,7 +502,9 @@ public class AttendanceFormActivity extends MainActivity {
 			this.dialog.dismiss();
 		}
 	}
-
+	/**
+	 * request delete  account service
+	 */
 	private class CallServiceDeleteAccount extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -467,7 +516,6 @@ public class AttendanceFormActivity extends MainActivity {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
 			String statusDel = status;
 			String value = editSearchCategory.getText().toString();
 			DeleteAccountService deleteAccountService = new DeleteAccountService();
@@ -479,7 +527,10 @@ public class AttendanceFormActivity extends MainActivity {
 			this.dialog.dismiss();
 		}
 	}
-
+	/**
+	 * request profile service
+	 *
+	 */
 	private class CallServiceSearchAccount extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -491,7 +542,6 @@ public class AttendanceFormActivity extends MainActivity {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
 			String value = editSearchCategory.getText().toString();
 			String searchParameter = searchBy;
 			ProfileService profileService = new ProfileService();
@@ -504,10 +554,9 @@ public class AttendanceFormActivity extends MainActivity {
 			try {
 				profileDataModel.parseJSON(result);
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			setValueForEditAccount();
+			getValueForEditAccount();
 			this.dialog.dismiss();
 		}
 	}

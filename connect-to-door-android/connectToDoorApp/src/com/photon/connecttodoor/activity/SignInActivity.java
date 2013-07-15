@@ -34,25 +34,40 @@ public class SignInActivity extends MainActivity {
 		actionButton();
 	}		
 	private void actionButton(){
+		/**
+		 * onClick to menu attendance
+		 * this action do two request,login request and profile request
+		 */
 		signInButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				int empty = 0;
-				if(signInEditText.getText().length() != empty){
-					new CallServiceLoginTask().execute();
-					new CallServiceProfileTask().execute();
+				if(connectionAvailable()){
+					if(signInEditText.getText().length() != empty){
+						new CallServiceLoginTask().execute();
+						new CallServiceProfileTask().execute();
+					}else{
+						alertMessage(ApplicationConstant.ERR_INPUT_EMP_ID,SignInActivity.this);
+					}
 				}else{
-					alertMessage("Please input your employee id",SignInActivity.this);
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, SignInActivity.this);
 				}
 			}
 		});
 	}
+	/**
+	 * launch menu attendance
+	 */
 	public void goToWelcomePage(){
 		Intent welcomePage = new Intent(SignInActivity.this, WelcomeScreenActivity.class);
 		startActivity(welcomePage);
 	}
 
+	/**
+	 * request login service
+	 * in do background throws two parameter that is employee id and facebook id
+	 */
 	private class CallServiceLoginTask extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -64,7 +79,6 @@ public class SignInActivity extends MainActivity {
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
 			String employeeId = signInEditText.getText().toString();
 			savePreference(EMPLOYEE_ID, employeeId, getApplicationContext());
 			String fbId = loadStringPreferences(FACEBOOK_ID, getApplicationContext());
@@ -80,7 +94,6 @@ public class SignInActivity extends MainActivity {
 			try {
 				loginDataModel.parseJSON(response);
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if(loginDataModel.getStatus().equalsIgnoreCase("success")){
@@ -91,16 +104,18 @@ public class SignInActivity extends MainActivity {
 			this.dialog.dismiss();
 		}
 	}
-
+	/**
+	 * request profile service
+	 * in do background throws two parameter that is employee id and search parameter
+	 */
 	private class CallServiceProfileTask extends AsyncTask<Void, Void, String> {
 
 		protected void onPreExecute() {
-
+			// TODO Auto-generated method stub
 		}
 
 		@Override
 		protected String doInBackground(Void... params) {
-			// TODO Auto-generated method stub
 			String employeeId = signInEditText.getText().toString();
 			String searchParameter = ApplicationConstant.EMPLOYEE_ID;
 			ProfileService profileService = new ProfileService();

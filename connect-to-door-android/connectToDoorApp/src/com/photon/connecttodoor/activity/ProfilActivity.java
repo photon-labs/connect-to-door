@@ -46,12 +46,14 @@ public class ProfilActivity extends MainActivity {
 		sick = (TextView)findViewById(R.id.sickInfoDynamicsProfile);
 		imageProfile =(ProfilePictureView)findViewById(R.id.photoProfile);
 		setProfilDataModel();
-		setDataToUI();
+		getDataProfile();
 		actionButton();
 	}
 
 	private void actionButton(){
-
+		/**
+		 * onClick attendance button
+		 */
 		attendanceButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -60,7 +62,9 @@ public class ProfilActivity extends MainActivity {
 
 			}
 		});
-
+		/**
+		 * onClick voucher button
+		 */
 		voucherButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -69,7 +73,9 @@ public class ProfilActivity extends MainActivity {
 
 			}
 		});
-
+		/**
+		 * onClick signout button
+		 */
 		signOutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -80,7 +86,9 @@ public class ProfilActivity extends MainActivity {
 			}
 		});
 	}
-	
+	/**
+	 * set profile data model
+	 */
 	private void setProfilDataModel(){
 		String dataProfile = loadStringPreferences("responseProfile", getApplicationContext());
 		if(!dataProfile.equalsIgnoreCase("")){
@@ -93,7 +101,10 @@ public class ProfilActivity extends MainActivity {
 			}
 		}
 	}
-	private void setDataToUI (){
+	/**
+	 * get all value profile
+	 */
+	private void getDataProfile (){
 		name.setText(": "+profileDataModel.getEmployeeName());
 		employeeId.setText(": "+profileDataModel.getEmployeeId());
 		projectId.setText(": "+profileDataModel.getProjectId());
@@ -111,17 +122,23 @@ public class ProfilActivity extends MainActivity {
 		String fbId = loadStringPreferences(FACEBOOK_ID, getApplicationContext());
 		imageProfile.setProfileId(fbId);
 	}
-
+	/**
+	 * launch menu attendance
+	 */
 	private void goToAttendancePage(){
 		Intent attendancePage = new Intent(ProfilActivity.this,WelcomeScreenActivity.class);
 		startActivity(attendancePage);
 	}
-
+	/**
+	 * launch voucher page
+	 */
 	private void goToVoucherPage(){
 		Intent voucherPage = new Intent(ProfilActivity.this,VoucherActivity.class);
 		startActivity(voucherPage);
 	}
-
+	/**
+	 * launch login page
+	 */
 	private void goToLoginPage(){
 		Intent loginPage = new Intent(ProfilActivity.this,LoginActivity.class);
 		startActivity(loginPage);
