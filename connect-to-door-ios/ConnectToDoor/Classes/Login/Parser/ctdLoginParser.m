@@ -7,6 +7,7 @@
 //
 
 #import "ctdLoginParser.h"
+#import "ctdConstants.h"
 #import "JSONKit.h"
 
 
@@ -20,17 +21,17 @@
     
     NSDictionary *objResponse = [response objectFromJSONString];
     ctdReponseLoginModel *model = [[ctdReponseLoginModel alloc]initWithDefault];
-    if([objResponse objectForKey:@"message"]){
-        model.message =  [objResponse objectForKey:@"message"];
+    if([objResponse objectForKey:MESSAGE_KEY]){
+        model.message =  [objResponse objectForKey:MESSAGE_KEY];
     }
-    if([objResponse objectForKey:@"username"]){
-        model.username =  [objResponse objectForKey:@"username"];
+    if([objResponse objectForKey:USERNAME_PARAMETER]){
+        model.username =  [objResponse objectForKey:USERNAME_PARAMETER];
     }
-    if([objResponse objectForKey:@"status"]){
-        model.status =  [objResponse objectForKey:@"status"];
+    if([objResponse objectForKey:STATUS_KEY]){
+        model.status =  [objResponse objectForKey:STATUS_KEY];
     }
-    if([objResponse objectForKey:@"isAdmin"]){
-        model.previlage =  [objResponse objectForKey:@"isAdmin"];
+    if([objResponse objectForKey:ISADMIN_KEY]){
+        model.previlage =  [objResponse objectForKey:ISADMIN_KEY];
     }
     
     return model;

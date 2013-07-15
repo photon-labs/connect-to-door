@@ -61,6 +61,9 @@
 		DD348805178AB44C0070702C /* ctdResponseDailyAttendanceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD348804178AB44B0070702C /* ctdResponseDailyAttendanceListModel.m */; };
 		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
 		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
+		DD6CBCB6178ED3A4000E7F44 /* ctdProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */; };
+		DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB8178ED3B8000E7F44 /* ctdProfileModel.m */; };
+		DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
 		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
 		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
@@ -79,7 +82,7 @@
 		DDD9175D178EBEF200750702 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD9175C178EBEF200750702 /* Reachability.m */; };
 		DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD9175E178ED0D000750702 /* MobileCoreServices.framework */; };
 		DDD91761178ED1CA00750702 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD91760178ED1CA00750702 /* SystemConfiguration.framework */; };
-		DDEE3A31178D23C800E7F0C1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */; };
+		DDDB221F178FDA9A00CAABB8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDB221E178FDA9A00CAABB8 /* FacebookSDK.framework */; };
 		DDEE3A33178D359800E7F0C1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */; };
 		DDEE3A35178D35F400E7F0C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A34178D35F400E7F0C1 /* Social.framework */; };
 		DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A36178D360000E7F0C1 /* Accounts.framework */; };
@@ -196,6 +199,12 @@
 		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
 		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
 		DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseCheckStatusModel.m; sourceTree = "<group>"; };
+		DD6CBCB4178ED3A4000E7F44 /* ctdProfileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileService.h; sourceTree = "<group>"; };
+		DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileService.m; sourceTree = "<group>"; };
+		DD6CBCB7178ED3B8000E7F44 /* ctdProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileModel.h; sourceTree = "<group>"; };
+		DD6CBCB8178ED3B8000E7F44 /* ctdProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileModel.m; sourceTree = "<group>"; };
+		DD6CBCBA178ED3D7000E7F44 /* ctdProfileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileParser.h; sourceTree = "<group>"; };
+		DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileParser.m; sourceTree = "<group>"; };
 		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
 		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
 		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
@@ -220,7 +229,7 @@
 		DDD9175C178EBEF200750702 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
 		DDD9175E178ED0D000750702 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DDD91760178ED1CA00750702 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ConnectToDoor/FacebookSDK.framework; sourceTree = "<group>"; };
+		DDDB221E178FDA9A00CAABB8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		DDEE3A34178D35F400E7F0C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		DDEE3A36178D360000E7F0C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -244,7 +253,7 @@
 				713342F11737C9B700057FE6 /* UIKit.framework in Frameworks */,
 				713342F31737C9B700057FE6 /* Foundation.framework in Frameworks */,
 				713342F51737C9B700057FE6 /* CoreGraphics.framework in Frameworks */,
-				DDEE3A31178D23C800E7F0C1 /* FacebookSDK.framework in Frameworks */,
+				DDDB221F178FDA9A00CAABB8 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +296,11 @@
 			isa = PBXGroup;
 			children = (
 				DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */,
+				DDDB221E178FDA9A00CAABB8 /* FacebookSDK.framework */,
 				DDEE3A3A178D36B400E7F0C1 /* Security.framework */,
 				DDEE3A38178D361000E7F0C1 /* AdSupport.framework */,
 				DDEE3A36178D360000E7F0C1 /* Accounts.framework */,
 				DDEE3A34178D35F400E7F0C1 /* Social.framework */,
-				DDEE3A30178D23C800E7F0C1 /* FacebookSDK.framework */,
 				713C7608173A7F490026AFBE /* OCMock */,
 				713342F01737C9B700057FE6 /* UIKit.framework */,
 				713342F21737C9B700057FE6 /* Foundation.framework */,
@@ -473,6 +482,8 @@
 		713C75E8173A1EA20026AFBE /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				DD6CBCB4178ED3A4000E7F44 /* ctdProfileService.h */,
+				DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */,
 			);
 			path = DAL;
 			sourceTree = "<group>";
@@ -480,6 +491,8 @@
 		713C75E9173A1EA20026AFBE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD6CBCB7178ED3B8000E7F44 /* ctdProfileModel.h */,
+				DD6CBCB8178ED3B8000E7F44 /* ctdProfileModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,6 +500,8 @@
 		713C75EA173A1EA20026AFBE /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				DD6CBCBA178ED3D7000E7F44 /* ctdProfileParser.h */,
+				DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -964,6 +979,9 @@
 				DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */,
 				DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */,
 				DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */,
+				DD6CBCB6178ED3A4000E7F44 /* ctdProfileService.m in Sources */,
+				DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */,
+				DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1069,11 +1087,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1084,11 +1104,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
