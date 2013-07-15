@@ -6,6 +6,30 @@ import org.json.JSONObject;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class CreateandEditAccountService {
+	/**
+	 * @author febrianto_s
+	 * handle request for create and edit account
+	 * @param status
+	 * @param employeeID
+	 * @param username
+	 * @param projectID
+	 * @param name
+	 * @param emailPhoton
+	 * @param facebookId
+	 * @param startWork
+	 * @param jobRole
+	 * @param annual
+	 * @param coff
+	 * @param condolences
+	 * @param married
+	 * @param maternity
+	 * @param paternity
+	 * @param onsite
+	 * @param sick
+	 * @param dataURLSignature
+	 * @param gender
+	 * @return
+	 */
 	public String handleCreateandEditAccountRequest(final String status, final String employeeID, final String username, final String projectID, final String name, final String emailPhoton, final String facebookId, final String startWork, 
 			final String jobRole, final String annual, final String coff,final String condolences, final String married, 
 			final String maternity, final String paternity, final String onsite, final String sick, 

@@ -6,6 +6,13 @@ import org.json.JSONObject;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class DailyAttendanceService {
+	/**
+	 * @author febrianto_s
+	 * handle request for daily attendance
+	 * @param employeeId
+	 * @param date (yyy-mm-dd)
+	 * @return
+	 */
 	public String handleRequestDailyAttendance(final String employeeId, final String date){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleDailyAttendance = ApplicationConstant.MODULE_DAILY_ATT;

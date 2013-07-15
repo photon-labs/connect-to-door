@@ -6,6 +6,13 @@ import org.json.JSONObject;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class LoginService {
+	/**
+	 * @author febrianto_s
+	 * handle login request
+	 * @param employeeId
+	 * @param fbId
+	 * @return
+	 */
 	public String handleLoginRequest(final String employeeId, final String fbId){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleLogin = ApplicationConstant.MODULE_LOGIN;

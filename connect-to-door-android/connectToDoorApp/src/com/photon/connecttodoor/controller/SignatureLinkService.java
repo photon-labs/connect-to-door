@@ -6,6 +6,12 @@ import org.json.JSONObject;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class SignatureLinkService {
+	/**
+	 * @author fadli_m
+	 * get signature image in kind of link
+	 * @param employeeId
+	 * @return
+	 */
 	public String handleSignatureLinkService (final String employeeId){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleSignature = ApplicationConstant.MODULE_SIGNATURE_LINK;

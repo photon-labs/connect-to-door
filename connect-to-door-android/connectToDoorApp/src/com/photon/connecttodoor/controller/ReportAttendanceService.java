@@ -6,6 +6,13 @@ import org.json.JSONObject;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class ReportAttendanceService {
+	/**
+	 * @author fadli_m
+	 * handle report service
+	 * @param status (status report : "before","adjustment","after")
+	 * @param date : (yyyy-mm-dd)
+	 * @return
+	 */
 	public String handleRequestReportAttendance(final String status, final String date){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleReport = ApplicationConstant.MODULE_REPORT;

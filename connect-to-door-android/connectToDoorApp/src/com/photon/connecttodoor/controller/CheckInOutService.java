@@ -6,6 +6,13 @@ import org.json.JSONObject;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class CheckInOutService {
+	/**
+	 * @author febrianto_s
+	 * handle request for check in/out
+	 * @param employeeId
+	 * @param status : "checkIn","checkOut","check-status"
+	 * @return
+	 */
 	public String handleCheckInRequest(final String employeeId, final String status){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleCheckinOut = ApplicationConstant.MODULE_CHECK_IN_OUT;

@@ -6,6 +6,13 @@ import org.json.JSONObject;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class DeleteAccountService {
+	/**
+	 * @author febrianto_s
+	 * handle service for delete account
+	 * @param status
+	 * @param employeeID
+	 * @return
+	 */
 	public String handleDeleteAccountRequest(final String status, final String employeeID){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleDeleteAccount = ApplicationConstant.MODULE_CREATE_EDIT_DELETE_ACCOUNT;

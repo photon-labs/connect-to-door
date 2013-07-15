@@ -14,6 +14,14 @@ public class HttpAdapter {
 	private static final int STATUS_CODE_ERROR = 400;
 	private static final String APIHOST = "172.17.10.165";
 	private static final String PORT = "8080";
+	/***
+	 * @author febrianto_s
+	 * connected web service and application
+	 * send request to service and receive response
+	 * @param data : post body
+	 * @param module : module each service
+	 * @return
+	 */
 	public String sendPostRequest(String data, String module){
 		String response = "";
 		final String urlService = "http://" + APIHOST + ":" + PORT + "/AttendanceWebService/api";
