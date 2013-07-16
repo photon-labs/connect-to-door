@@ -43,6 +43,15 @@
 #define STATUS_KEY @"status"
 #define ISADMIN_KEY @"isAdmin"
 
+#define CHECK_IN_KEY @"checkIn"
+#define CHECK_OUT_KEY @"checkOut"
+
+#define CHECK_OUT_STATUS_KEY @"check_out"
+#define CHECK_IN_STATUS_KEY @"check_in"
+
+#define PRESENCE_ID_KEY @"presence_id"
+#define EMPLOYEE_ID_KEY @"employee_id"
+
 #define MATERNITY_KEY @"maternity"
 #define C_OFF_KEY @"c_off"
 #define ANNUAL_KEY @"annual"

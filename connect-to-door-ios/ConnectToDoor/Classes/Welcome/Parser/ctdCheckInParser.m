@@ -8,6 +8,7 @@
 
 #import "ctdCheckInParser.h"
 #import "JSONKit.h"
+#import "ctdConstants.h"
 
 
 @implementation ctdCheckInParser
@@ -20,14 +21,14 @@
 -(ctdResponseCheckInModel*)parseResponse:(NSString*)response{
     NSDictionary *objResponse = [response objectFromJSONString];
     ctdResponseCheckInModel *model = [[ctdResponseCheckInModel alloc]initWithDefault];
-    if([objResponse objectForKey:@"message"]){
-        model.message =  [objResponse objectForKey:@"message"];
+    if([objResponse objectForKey:MESSAGE_KEY]){
+        model.message =  [objResponse objectForKey:MESSAGE_KEY];
     }
-    if([objResponse objectForKey:@"checkIn"]){
-        model.checkIn =  [objResponse objectForKey:@"checkIn"];
+    if([objResponse objectForKey:CHECK_IN_KEY]){
+        model.checkIn =  [objResponse objectForKey:CHECK_IN_KEY];
     }
-    if([objResponse objectForKey:@"status"]){
-        model.status =  [objResponse objectForKey:@"status"];
+    if([objResponse objectForKey:STATUS_KEY]){
+        model.status =  [objResponse objectForKey:STATUS_KEY];
     }
 
     return model;

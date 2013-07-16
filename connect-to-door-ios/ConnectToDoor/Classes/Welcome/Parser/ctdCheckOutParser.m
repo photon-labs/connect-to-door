@@ -8,7 +8,7 @@
 
 #import "ctdCheckOutParser.h"
 #import "JSONKit.h"
-
+#import "ctdConstants.h"
 
 @implementation ctdCheckOutParser
 
@@ -19,14 +19,14 @@
 -(ctdResponseCheckOutModel*)parseResponse:(NSString*)response{
     NSDictionary *objResponse = [response objectFromJSONString];
     ctdResponseCheckOutModel *model = [[ctdResponseCheckOutModel alloc]initWithDefault];
-    if([objResponse objectForKey:@"message"]){
-        model.message =  [objResponse objectForKey:@"message"];
+    if([objResponse objectForKey:MESSAGE_KEY]){
+        model.message =  [objResponse objectForKey:MESSAGE_KEY];
     }
-    if([objResponse objectForKey:@"checkOut"]){
-        model.checkOut =  [objResponse objectForKey:@"checkOut"];
+    if([objResponse objectForKey:CHECK_OUT_KEY]){
+        model.checkOut =  [objResponse objectForKey:CHECK_OUT_KEY];
     }
-    if([objResponse objectForKey:@"status"]){
-        model.status =  [objResponse objectForKey:@"status"];
+    if([objResponse objectForKey:STATUS_KEY]){
+        model.status =  [objResponse objectForKey:STATUS_KEY];
     }
     
     return model;
