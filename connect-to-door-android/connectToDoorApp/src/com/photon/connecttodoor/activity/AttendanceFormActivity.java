@@ -155,7 +155,13 @@ public class AttendanceFormActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				status = ApplicationConstant.DELETE;
-				new CallServiceDeleteAccount().execute();
+
+				/**check internet connection before delete form */
+				if(connectionAvailable()){
+					new CallServiceDeleteAccount().execute();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
+				}
 			}
 		});
 		/**
@@ -175,8 +181,13 @@ public class AttendanceFormActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLoginPage();
+				/**check internet connection before sign out application */
+				if(connectionAvailable()){
+					LoginActivity.onClickLogout();
+					goToLoginPage();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
+				}
 			}
 		});
 		/**
@@ -186,7 +197,12 @@ public class AttendanceFormActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				new CallServiceCreateandEditAccount().execute();
+				/**check internet connection before save attendance form */
+				if(connectionAvailable()){
+					new CallServiceCreateandEditAccount().execute();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
+				}
 			}
 		});
 		/**
@@ -196,10 +212,14 @@ public class AttendanceFormActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				clearValue();
-				setFormActive();
-				new CallServiceSearchAccount().execute();
-				// TODO Auto-generated method stub
+				/**check internet connection before search attendance form */
+				if(connectionAvailable()){
+					clearValue();
+					setFormActive();
+					new CallServiceSearchAccount().execute();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
+				}
 
 			}
 		});
