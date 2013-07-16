@@ -24,6 +24,7 @@ import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.ReportAttendanceService;
 import com.photon.connecttodoor.datamodel.ReportAttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedReportArrayAdapter;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class ReportActivity extends MainActivity {
 
@@ -56,7 +57,7 @@ public class ReportActivity extends MainActivity {
 		createDropdownCategory(this, category, dropDownCategory);
 		attendanceAdminReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 	}
-	
+
 	private void actionButton(){
 		dropDownCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -85,8 +86,14 @@ public class ReportActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLoginPage();
+				
+				/**check internet connection before sign out application */
+				if(connectionAvailable()){
+					LoginActivity.onClickLogout();
+					goToLoginPage();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, ReportActivity.this);
+				}
 
 			}
 		});
@@ -109,12 +116,17 @@ public class ReportActivity extends MainActivity {
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
-		
+
 		searchButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				new CallServiceAttendanceReportTask().execute();
+				/**check internet connection before call report service */
+				if(connectionAvailable()){
+					new CallServiceAttendanceReportTask().execute();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, ReportActivity.this);
+				}
 			}
 		});
 	}
