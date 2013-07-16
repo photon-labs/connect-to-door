@@ -1,6 +1,7 @@
 package com.photon.connecttodoor.activity;
 
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class VoucherActivity extends Activity {
+public class VoucherActivity extends MainActivity {
 
 	private Button signOutButton,backButton, reimburseButton;
 	@Override
@@ -23,7 +24,7 @@ public class VoucherActivity extends Activity {
 	}
 
 	private void actionButton(){
-	/*	reimburseButton.setOnClickListener(new OnClickListener() {
+		/*	reimburseButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -34,9 +35,13 @@ public class VoucherActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLoginPage();
-
+				/**check internet connection before sign out application */
+				if(connectionAvailable()){
+					LoginActivity.onClickLogout();
+					goToLoginPage();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, VoucherActivity.this);
+				}
 			}
 		});
 		backButton.setOnClickListener(new OnClickListener() {

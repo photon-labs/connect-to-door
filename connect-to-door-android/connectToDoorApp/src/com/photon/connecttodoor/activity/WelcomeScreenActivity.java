@@ -150,8 +150,13 @@ public class WelcomeScreenActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLoginPage();
+				/**check internet connection before sign out application */
+				if(connectionAvailable()){
+					LoginActivity.onClickLogout();
+					goToLoginPage();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, WelcomeScreenActivity.this);
+				}
 			}
 		});
 	}

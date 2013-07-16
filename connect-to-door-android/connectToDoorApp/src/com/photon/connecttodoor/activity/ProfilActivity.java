@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.facebook.widget.ProfilePictureView;
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.datamodel.ProfileModel;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class ProfilActivity extends MainActivity {
 
@@ -80,9 +81,13 @@ public class ProfilActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLoginPage();
-
+				/**check internet connection before sign out application */
+				if(connectionAvailable()){
+					LoginActivity.onClickLogout();
+					goToLoginPage();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, ProfilActivity.this);
+				}
 			}
 		});
 	}

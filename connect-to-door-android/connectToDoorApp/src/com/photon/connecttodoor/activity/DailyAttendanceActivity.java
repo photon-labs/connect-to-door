@@ -73,8 +73,13 @@ public class DailyAttendanceActivity extends MainActivity{
 		signOutButton.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLoginPage();
+				/**check internet connection before sign out application */
+				if(connectionAvailable()){
+					LoginActivity.onClickLogout();
+					goToLoginPage();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, DailyAttendanceActivity.this);
+				}
 			}
 		});
 		/**
@@ -101,7 +106,7 @@ public class DailyAttendanceActivity extends MainActivity{
 			pMonth = monthOfYear;
 			pDay = dayOfMonth;
 			startFromDateTxt.setText(getDateEditText());
-			
+
 			/**check internet connection before request for attendance list */
 			if(connectionAvailable()){
 				new CallServiceAttendanceListTask().execute(getDateEditText().toString());

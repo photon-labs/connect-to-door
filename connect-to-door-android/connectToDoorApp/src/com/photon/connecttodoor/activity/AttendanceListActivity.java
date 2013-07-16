@@ -223,8 +223,13 @@ public class AttendanceListActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				LoginActivity.onClickLogout();
-				goToLogin();
+				/**check internet connection before sign out application */
+				if(connectionAvailable()){
+					LoginActivity.onClickLogout();
+					goToLogin();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceListActivity.this);
+				}
 			}
 		});
 		/**
