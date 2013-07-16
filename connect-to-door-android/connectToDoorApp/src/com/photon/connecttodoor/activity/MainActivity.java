@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -64,11 +65,16 @@ public abstract class MainActivity extends Activity{
 	 * @return
 	 */
 	public String changeFormatDate(String date){
-		String [] formatDate = date.split(STRIP);
-		String day = formatDate[0];
-		String month = formatDate[1];
-		String year = formatDate[2];
-		return year+STRIP+month+STRIP+day;
+		String fullDate = "";
+		if(!date.matches("")){
+			Log.i("","=====lalala=====");
+			String [] formatDate = date.split(STRIP);
+			String day = formatDate[0];
+			String month = formatDate[1];
+			String year = formatDate[2];
+			fullDate = year+STRIP+month+STRIP+day;
+		}
+		return fullDate;
 	}
 
 	/**

@@ -83,7 +83,8 @@ public class AttendanceFormActivity extends MainActivity {
 		deleteButtonAcc =(Button)findViewById(R.id.button_deleteacc);
 		searchButton =(Button)findViewById(R.id.button_search);
 		editSearchCategory =(EditText)findViewById(R.id.category_id);
-
+		imageCalendar.setEnabled(false);
+		saveButton.setEnabled(false);
 		setDropdownSearchCategory();
 		setDropdownRoleCategory();
 		setDropdownGenderCategory();
@@ -131,6 +132,7 @@ public class AttendanceFormActivity extends MainActivity {
 				status = ApplicationConstant.UPDATE;
 				deleteButtonAcc.setVisibility(View.INVISIBLE);
 				setFormInactive();
+				clearValue();
 			}
 		});
 		/**
@@ -142,6 +144,7 @@ public class AttendanceFormActivity extends MainActivity {
 			public void onClick(View v) {
 				deleteButtonAcc.setVisibility(View.VISIBLE);
 				setFormInactive();
+				clearValue();
 			}
 		});
 		/**
@@ -238,6 +241,7 @@ public class AttendanceFormActivity extends MainActivity {
 	 */
 	private void setFormActive(){
 		imageCalendar.setBackgroundResource(R.drawable.icon_calendar_start_working);
+		imageCalendar.setEnabled(true);
 		editTextName.setBackgroundResource(R.drawable.box_add_text_n_e_p_active);
 		editTextName.setEnabled(true);
 		editTextEmployee.setBackgroundResource(R.drawable.box_add_text_n_e_p_active);
@@ -246,6 +250,7 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextProject.setEnabled(true);
 		editTextStartWork.setBackgroundResource(R.drawable.box_add_text_form_start_working_active);
 		editTextStartWork.setEnabled(true);
+		editTextStartWork.setText("");
 		editTextEmail.setBackgroundResource(R.drawable.box_add_text_form_email_active);
 		editTextEmail.setEnabled(true);
 		editTextAnnual.setBackgroundResource(R.drawable.box_add_text_form_small_active);
@@ -276,6 +281,7 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextSignature.setEnabled(true);
 		editTextUserId.setBackgroundResource(R.drawable.box_add_text_n_e_p_active);
 		editTextUserId.setEnabled(true);
+		saveButton.setEnabled(true);
 		imgDropDwnGender.setVisibility(View.VISIBLE);
 		imgDropDwnRole.setVisibility(View.VISIBLE);
 		imgFacebook.setVisibility(View.VISIBLE);
@@ -285,6 +291,7 @@ public class AttendanceFormActivity extends MainActivity {
 	 */
 	private void setFormInactive(){
 		imageCalendar.setBackgroundResource(R.drawable.icon_calendar_in_active);
+		imageCalendar.setEnabled(false);
 		editTextName.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
 		editTextName.setEnabled(false);
 		editTextEmployee.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
@@ -323,6 +330,7 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextSignature.setEnabled(false);
 		editTextUserId.setBackgroundResource(R.drawable.box_add_text_n_e_p_in_active);
 		editTextUserId.setEnabled(false);
+		saveButton.setEnabled(false);
 		imgDropDwnGender.setVisibility(View.INVISIBLE);
 		imgDropDwnRole.setVisibility(View.INVISIBLE);
 		imgFacebook.setVisibility(View.INVISIBLE);
@@ -457,6 +465,21 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextEmail.setText("");
 		editTextSignature.setText("");
 	}
+	/***
+	 * check all input field
+	 */
+	private Boolean checkInputField(String statusAccount,String employeeID,String username,String projectID,String name,String emailPhoton,
+			String facebookId,String startWork,String jobRole,String annual,String coff,String condolences,String married,String maternity,
+			String paternity,String onsite,String sick,String dataURLSignature,String gender)
+	{
+		if(!statusAccount.matches("")&&!employeeID.matches("")&&!username.matches("")&&!projectID.matches("")&&!name.matches("")&&!emailPhoton.matches("")
+				&&!facebookId.matches("")&&!startWork.matches("")&&!jobRole.matches("")&&!annual.matches("")&&!coff.matches("")&&!condolences.matches("")&&
+				!married.matches("")&&!maternity.matches("")&&!paternity.matches("")&&!onsite.matches("")&&!sick.matches("")&&!dataURLSignature.matches("")&&
+				!gender.matches("")){
+			return true;
+		}
+		return false;
+	}
 	/**
 	 * request all about service account (create and edit)
 	 * each service difference by status
@@ -493,12 +516,20 @@ public class AttendanceFormActivity extends MainActivity {
 			String sick = editTextSick.getText().toString();
 			String dataURLSignature = editTextSignature.getText().toString();
 			String gender = selectGender;
-			String response = createAndEditAccountService.handleCreateandEditAccountRequest(statusAccount, employeeID, username, projectID, name, emailPhoton, facebookId, 
-					startWork, jobRole, annual, coff, condolences, married, maternity, paternity, onsite, sick, dataURLSignature, gender);
+			String response = "" ;
+			if(checkInputField(statusAccount, employeeID, username, projectID, name, emailPhoton, facebookId, startWork, jobRole, annual, coff, condolences, married, maternity, paternity, onsite, sick, dataURLSignature, gender) == true)
+			{
+				response = createAndEditAccountService.handleCreateandEditAccountRequest(statusAccount, employeeID, username, projectID, name, emailPhoton, facebookId, 
+						startWork, jobRole, annual, coff, condolences, married, maternity, paternity, onsite, sick, dataURLSignature, gender);
+			}
 			return response;
 		}
 
 		protected void onPostExecute(String result) {
+			String response = result;
+			if(response == null || response == ""){
+				alertMessage("Please fill all field", AttendanceFormActivity.this);
+			}
 			this.dialog.dismiss();
 		}
 	}
