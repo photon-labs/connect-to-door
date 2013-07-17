@@ -53,7 +53,8 @@
         </activity>
         <activity
             android:name="com.photon.connecttodoor.activity.AttendanceFormActivity"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape" 
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name="com.photon.connecttodoor.activity.ReportActivity"
