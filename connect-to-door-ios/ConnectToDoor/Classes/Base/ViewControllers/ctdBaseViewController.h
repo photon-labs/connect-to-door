@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ctdBaseViewController : UIViewController
+@interface ctdBaseViewController : UIViewController{
+    UIButton *signoutButton;
+}
+
+@property (nonatomic) BOOL hasSignoutButton;
 
 @end

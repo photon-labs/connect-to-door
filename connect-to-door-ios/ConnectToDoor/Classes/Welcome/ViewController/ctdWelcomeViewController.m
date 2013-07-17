@@ -66,9 +66,6 @@
     return [localStorage getNameUserFacebook];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
 
 - (void)didReceiveMemoryWarning
 {

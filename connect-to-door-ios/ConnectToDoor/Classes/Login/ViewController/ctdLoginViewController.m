@@ -18,38 +18,43 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.hasSignoutButton = NO;
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    NSLog(@"masuk viewDIdLoad");
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.title = @"Login";
-    
-    [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
     //[self updateView];
     
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
    if (!appDelegate.session.isOpen) {
+       NSLog(@"masuk !appDelegate.session.isOpen");
         // create a fresh session object
         appDelegate.session = [[FBSession alloc] init];
-        
+       NSLog(@"session state : %i", appDelegate.session.state);
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
         // we check here to make sure we have a token before calling open
         if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            NSLog(@"masuk appDelegate.session.state == FBSessionStateCreatedTokenLoaded");
             // even though we had a cached token, we need to login to make the session usable
             [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                              FBSessionState status,
                                                              NSError *error) {
+                
+                NSLog(@"masuk openWithCompletionHandler");
                 // we recurse here, in order to update buttons and labels
                 [self goToWelcome];
             }];
@@ -58,9 +63,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
+
 
 /*
  *aldi_p
@@ -144,7 +147,7 @@
  */
 -(void) goToWelcome{
     ctdSignInViewController *signInViewController = [[ctdSignInViewController alloc]initWithNibName:@"ctdSignInViewController" bundle:nil];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    signInViewController.hasSignoutButton = NO;
     [self.navigationController pushViewController:signInViewController animated:YES];
 }
 
