@@ -85,6 +85,8 @@ public class AttendanceFormActivity extends MainActivity {
 		editSearchCategory =(EditText)findViewById(R.id.category_id);
 		imageCalendar.setEnabled(false);
 		saveButton.setEnabled(false);
+		dropDownRole.setEnabled(false);
+		dropDownGender.setEnabled(false);
 		setDropdownSearchCategory();
 		setDropdownRoleCategory();
 		setDropdownGenderCategory();
