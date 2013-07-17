@@ -155,7 +155,10 @@
                         android:layout_height="40dp"
                         android:layout_marginBottom="3dp"
                         android:background="@drawable/box_add_text_n_e_p_in_active"
+                        android:digits="qwertzuiopasdfghjklyxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
                         android:enabled="false"
+                        android:inputType="textCapWords"
+                        android:maxLength="25"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true" />
@@ -174,7 +177,10 @@
                         android:layout_height="40dp"
                         android:layout_marginBottom="3dp"
                         android:background="@drawable/box_add_text_n_e_p_in_active"
+                        android:digits="qwertzuiopasdfghjklyxcvbnm WERTYUIOPASDFGHJKLZXCVBNM_"
                         android:enabled="false"
+                        android:inputType="text"
+                        android:maxLength="13"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true" />
@@ -194,6 +200,7 @@
                         android:layout_marginBottom="3dp"
                         android:background="@drawable/box_add_text_n_e_p_in_active"
                         android:enabled="false"
+                        android:maxLength="5"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true" />
@@ -213,6 +220,8 @@
                         android:layout_marginBottom="3dp"
                         android:background="@drawable/box_add_text_n_e_p_in_active"
                         android:enabled="false"
+                        android:inputType="number"
+                        android:maxLength="5"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true" />
