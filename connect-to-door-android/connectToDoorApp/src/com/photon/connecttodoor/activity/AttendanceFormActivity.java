@@ -118,6 +118,7 @@ public class AttendanceFormActivity extends MainActivity {
 			public void onClick(View v) {
 				status = ApplicationConstant.CREATE;
 				editSection.setVisibility(View.INVISIBLE);
+				editSearchCategory.setText("");
 				setFormActive();
 				clearValue();
 			}
@@ -158,7 +159,11 @@ public class AttendanceFormActivity extends MainActivity {
 
 				/**check internet connection before delete form */
 				if(connectionAvailable()){
-					new CallServiceDeleteAccount().execute();
+					if(editSearchCategory.getText().toString().length() > 0){
+						new CallServiceDeleteAccount().execute();
+					}else{
+						alertMessage(ApplicationConstant.ERR_CATEGORY_BLANK, AttendanceFormActivity.this);
+					}
 				}else{
 					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
 				}
@@ -214,15 +219,24 @@ public class AttendanceFormActivity extends MainActivity {
 			public void onClick(View v) {
 				/**check internet connection before search attendance form */
 				if(connectionAvailable()){
-					clearValue();
-					setFormActive();
-					new CallServiceSearchAccount().execute();
+					onRequestSearchAccount();
 				}else{
 					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
 				}
-
 			}
 		});
+	}
+	/**
+	 * call request for edit account
+	 */
+	private void onRequestSearchAccount(){
+		if(editSearchCategory.getText().toString().length() > 0){
+			new CallServiceSearchAccount().execute();
+			clearValue();
+			setFormActive();
+		}else{
+			alertMessage(ApplicationConstant.ERR_CATEGORY_BLANK, AttendanceFormActivity.this);
+		}
 	}
 	/**
 	 * launch menu attendance
