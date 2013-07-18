@@ -63,7 +63,6 @@
 		DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */; };
 		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
 		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
-		DD996E661793F094000F5A4B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD996E651793F094000F5A4B /* FacebookSDK.framework */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
 		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
 		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
@@ -74,6 +73,7 @@
 		DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */; };
 		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
 		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
+		DDA977A71797A77000AA3760 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA977A61797A77000AA3760 /* FacebookSDK.framework */; };
 		DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -203,7 +203,6 @@
 		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
 		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
 		DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseCheckStatusModel.m; sourceTree = "<group>"; };
-		DD996E651793F094000F5A4B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ConnectToDoor/FacebookSDK.framework; sourceTree = "<group>"; };
 		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
 		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
 		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
@@ -214,6 +213,7 @@
 		DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_voucher.png"; sourceTree = "<group>"; };
 		DDA08B401738F602002882B4 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_sign-out.png"; sourceTree = "<group>"; };
 		DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_sign-in.png"; sourceTree = "<group>"; };
+		DDA977A61797A77000AA3760 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ThirdParty/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		DDAD6C23178FEAA500D0FDBE /* ctdCheckStatusService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusService.h; sourceTree = "<group>"; };
 		DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusService.m; sourceTree = "<group>"; };
 		DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceParser.h; sourceTree = "<group>"; };
@@ -241,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA977A71797A77000AA3760 /* FacebookSDK.framework in Frameworks */,
 				DDD91761178ED1CA00750702 /* SystemConfiguration.framework in Frameworks */,
 				DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */,
 				DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */,
@@ -251,7 +252,6 @@
 				713342F11737C9B700057FE6 /* UIKit.framework in Frameworks */,
 				713342F31737C9B700057FE6 /* Foundation.framework in Frameworks */,
 				713342F51737C9B700057FE6 /* CoreGraphics.framework in Frameworks */,
-				DD996E661793F094000F5A4B /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +291,7 @@
 		713342EF1737C9B700057FE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD996E651793F094000F5A4B /* FacebookSDK.framework */,
+				DDA977A61797A77000AA3760 /* FacebookSDK.framework */,
 				DDD9175E178ED0D000750702 /* MobileCoreServices.framework */,
 				DDD91760178ED1CA00750702 /* SystemConfiguration.framework */,
 				DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */,
@@ -1082,8 +1082,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/ThirdParty/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
@@ -1099,8 +1099,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/ThirdParty/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
