@@ -49,10 +49,11 @@ public class AttendanceListActivity extends MainActivity {
 	String selectCategory;
 	String searchParameters;
 	String searchValues;
-	private String category[] = {ApplicationConstant.CAT_DATE,ApplicationConstant.CAT_NAME,ApplicationConstant.CAT_PROJECT_ID,ApplicationConstant.CAT_EMPLOYEE_ID};
+	private String category[] = {"",ApplicationConstant.CAT_DATE,ApplicationConstant.CAT_NAME,ApplicationConstant.CAT_PROJECT_ID,ApplicationConstant.CAT_EMPLOYEE_ID};
 	private static final String USERNAME = "username";
 	private static final String PROJECT_ID = "projectID";
 	private static final String EMPLOYEE_ID = "employeeID";
+	public static final int EMPTY = 0;
 	Spinner spinnerCategory;
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,67 +111,46 @@ public class AttendanceListActivity extends MainActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				int empty = 0;
 				int inputCategoryLength = inputCategory.getText().length();
 
 				/**check internet connection before request for attendance list */
 				if(connectionAvailable()){
 					if(inputCategory.isShown()){
-						if(inputCategoryLength == empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() == empty){
+						if(inputCategoryLength == EMPTY && startFromDateTxt.getText().length() == EMPTY && untilFromDateTxt.getText().length() == EMPTY){
 							alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 
 						}
-						else if(inputCategoryLength == empty  && ((startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty )
-								|| (startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ))){
+						else if(inputCategoryLength == EMPTY  && ((startFromDateTxt.getText().length() == EMPTY && untilFromDateTxt.getText().length() != EMPTY )
+								|| (startFromDateTxt.getText().length() != EMPTY && untilFromDateTxt.getText().length() == EMPTY ))){
 							alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
 						}
-						else if(startFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && untilFromDateTxt.getText().length() != empty)
-								|| (inputCategoryLength != empty && untilFromDateTxt.getText().length() == empty))){
+						else if(startFromDateTxt.getText().length() == EMPTY && ((inputCategoryLength == EMPTY && untilFromDateTxt.getText().length() != EMPTY)
+								|| (inputCategoryLength != EMPTY && untilFromDateTxt.getText().length() == EMPTY))){
 							alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
 						}
-						else if(untilFromDateTxt.getText().length() == empty && ((inputCategoryLength == empty && startFromDateTxt.getText().length() != empty)
-								|| (inputCategoryLength != empty && startFromDateTxt.getText().length() == empty))){
+						else if(untilFromDateTxt.getText().length() == EMPTY && ((inputCategoryLength == EMPTY && startFromDateTxt.getText().length() != EMPTY)
+								|| (inputCategoryLength != EMPTY && startFromDateTxt.getText().length() == EMPTY))){
 							alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
 						}
-						else if(inputCategoryLength == empty  && startFromDateTxt.getText().length() != empty  && untilFromDateTxt.getText().length() != empty){
+						else if(inputCategoryLength == EMPTY  && startFromDateTxt.getText().length() != EMPTY  && untilFromDateTxt.getText().length() != EMPTY){
 							alertMessage(ApplicationConstant.ERR_INPUT_BLANK,AttendanceListActivity.this);
 						}
-						else if(inputCategoryLength != empty && startFromDateTxt.getText().length() == empty && untilFromDateTxt.getText().length() != empty){
+						else if(inputCategoryLength != EMPTY && startFromDateTxt.getText().length() == EMPTY && untilFromDateTxt.getText().length() != EMPTY){
 							alertMessage(ApplicationConstant.ERR_FILL_START_DATE,AttendanceListActivity.this);
 						}
-						else if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() == empty ){
+						else if(inputCategoryLength != EMPTY && startFromDateTxt.getText().length() != EMPTY && untilFromDateTxt.getText().length() == EMPTY ){
 							alertMessage(ApplicationConstant.ERR_FILL_UNTIL_DATE,AttendanceListActivity.this);
 						}
 						else{
 
-							if(inputCategoryLength != empty && startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
-
-								boolean isDateValidated = validateDateSection();
-
-								if(isDateValidated){
-									new CallServiceAttendanceListTask().execute();
-									headerList.setVisibility(View.VISIBLE);
-								}else{
-									alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
-								}
-
+							if(inputCategoryLength != EMPTY && startFromDateTxt.getText().length() != EMPTY && untilFromDateTxt.getText().length() != EMPTY){
+								onLoadResult();
 							}
-							else if(inputCategoryLength!= empty){
-
+							else if(inputCategoryLength!= EMPTY){
 								alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
-
 							}
-							else if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
-
-								boolean isDateValidated = validateDateSection();
-
-								if(isDateValidated){
-									new CallServiceAttendanceListTask().execute();
-									headerList.setVisibility(View.VISIBLE);
-								}else{
-									alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
-								}
-
+							else if(startFromDateTxt.getText().length() != EMPTY && untilFromDateTxt.getText().length() != EMPTY){
+								onLoadResult();
 							}
 							else{
 								alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
@@ -178,26 +158,14 @@ public class AttendanceListActivity extends MainActivity {
 						}
 
 					}else{
-						if(startFromDateTxt.getText().length() == empty || untilFromDateTxt.getText().length() == empty ){
+						if(startFromDateTxt.getText().length() == EMPTY || untilFromDateTxt.getText().length() == EMPTY ){
 							alertMessage(ApplicationConstant.ERR_FILL_DATE,AttendanceListActivity.this);
 						}else{
-
-							if(startFromDateTxt.getText().length() != empty && untilFromDateTxt.getText().length() != empty){
-
-								boolean isDateValidated = validateDateSection();
-
-								if(isDateValidated){
-									new CallServiceAttendanceListTask().execute();
-									headerList.setVisibility(View.VISIBLE);
-								}else{
-									alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
-								}
-
-							}
-							else{
+							if(startFromDateTxt.getText().length() != EMPTY && untilFromDateTxt.getText().length() != EMPTY){
+								onLoadResult();
+							}else{
 								alertMessage(ApplicationConstant.ERROR,AttendanceListActivity.this);
 							}
-
 						}
 					}
 				}else{
@@ -247,8 +215,11 @@ public class AttendanceListActivity extends MainActivity {
 						setValeuForSelectedProjectId();
 					}else if(selectCategory.equals(ApplicationConstant.CAT_EMPLOYEE_ID)){
 						setValeuForSelectedEmployeeId();
-					}else{
+					}else if(selectCategory.equals(ApplicationConstant.CAT_DATE)){
 						setValeuForSelectedDate();
+					}else{
+						searchParameters = "";
+						inputCategory.setVisibility(View.GONE);	
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);
@@ -259,6 +230,23 @@ public class AttendanceListActivity extends MainActivity {
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
+	}
+	/**
+	 * Load result attendance list
+	 */
+	private void onLoadResult(){
+		boolean isDateValidated = validateDateSection();
+		if(isDateValidated){
+			if( !searchParameters.equals("")){
+				new CallServiceAttendanceListTask().execute();
+				headerList.setVisibility(View.VISIBLE);
+			}else{
+				alertMessage("Please Choose Category ", AttendanceListActivity.this);
+			}
+		}else{
+			alertMessage(ApplicationConstant.ERR_LAST_DATE_LESS_THAN_START_DATE,AttendanceListActivity.this);
+		}
+
 	}
 	/**
 	 * set data and ui for date
