@@ -9,6 +9,7 @@
 #import "ctdBaseViewController.h"
 #import "ctdLoginViewController.h"
 #import "ctdAppDelegate.h"
+#import "UIViewController+MJPopupViewController.h"
 
 @interface ctdBaseViewController ()
 
@@ -70,15 +71,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
     // Do any additional setup after loading the view from its nib.
 }
 
-
+- (void)showAlert:(typeAlert)type{
+    
+    alertView = [[ctdAlertViewController alloc]initViewController:type andDelegate:self];
+    [self presentPopupViewController:alertView animationType:MJPopupViewAnimationFade isBackgroundClickable:NO];
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma Alert View Delegate
+
+- (void)dismissAlert{
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+    
+    [self invalidateAlertView];
+}
+
+- (void)invalidateAlertView{
+    if(alertView){
+        alertView.delegate = nil;
+        [alertView invalidate];
+        alertView  = nil;
+    }
 }
 
 @end

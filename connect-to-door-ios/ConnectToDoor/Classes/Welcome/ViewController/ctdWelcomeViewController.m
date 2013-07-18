@@ -162,12 +162,7 @@
         NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", model.checkIn];
         statusCheck.text = timeCheckIn;
     }else{
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                          message:model.message
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self showAlert:kAlertErrorAlreadyCheckIn];
     }
     
 }
@@ -184,12 +179,7 @@
         NSString* timeCheckOut = [NSString stringWithFormat:@"You have checked out at %@", model.checkOut];
         statusCheck.text = timeCheckOut;
     }else{
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                          message:model.message
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self showAlert:kAlertErrorAlreadyCheckOut];
     }
 }
 

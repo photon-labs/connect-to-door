@@ -108,12 +108,7 @@
  *this method for show alert
  */
 -(void)showAlert:(NSString *)messageText :(NSString *)titleText :(NSString *)buttonText{
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:titleText
-                                                      message:messageText
-                                                     delegate:nil
-                                            cancelButtonTitle:buttonText
-                                            otherButtonTitles:nil];
-    [message show];
+    [self showAlert:kAlertForException];
 }
 
 /*

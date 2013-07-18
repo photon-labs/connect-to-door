@@ -74,6 +74,12 @@
 		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
 		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
 		DDA977A71797A77000AA3760 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA977A61797A77000AA3760 /* FacebookSDK.framework */; };
+		DDA977AC1797B57900AA3760 /* ctdAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA977AA1797B57900AA3760 /* ctdAlertViewController.m */; };
+		DDA977AD1797B57900AA3760 /* ctdAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDA977AB1797B57900AA3760 /* ctdAlertViewController.xib */; };
+		DDA977B01797B7B100AA3760 /* box_alert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA977AE1797B7B100AA3760 /* box_alert_white.png */; };
+		DDA977B11797B7B100AA3760 /* button_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA977AF1797B7B100AA3760 /* button_ok.png */; };
+		DDA977B81797BA4700AA3760 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA977B51797BA4700AA3760 /* MJPopupBackgroundView.m */; };
+		DDA977B91797BA4700AA3760 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA977B71797BA4700AA3760 /* UIViewController+MJPopupViewController.m */; };
 		DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -214,6 +220,16 @@
 		DDA08B401738F602002882B4 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_sign-out.png"; sourceTree = "<group>"; };
 		DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_sign-in.png"; sourceTree = "<group>"; };
 		DDA977A61797A77000AA3760 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ThirdParty/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		DDA977A91797B57900AA3760 /* ctdAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdAlertViewController.h; path = AlertViewController/ctdAlertViewController.h; sourceTree = "<group>"; };
+		DDA977AA1797B57900AA3760 /* ctdAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdAlertViewController.m; path = AlertViewController/ctdAlertViewController.m; sourceTree = "<group>"; };
+		DDA977AB1797B57900AA3760 /* ctdAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ctdAlertViewController.xib; path = AlertViewController/ctdAlertViewController.xib; sourceTree = "<group>"; };
+		DDA977AE1797B7B100AA3760 /* box_alert_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_alert_white.png; sourceTree = "<group>"; };
+		DDA977AF1797B7B100AA3760 /* button_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_ok.png; sourceTree = "<group>"; };
+		DDA977B21797B95B00AA3760 /* ctdConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdConstant.h; sourceTree = "<group>"; };
+		DDA977B41797BA4600AA3760 /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
+		DDA977B51797BA4700AA3760 /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
+		DDA977B61797BA4700AA3760 /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
+		DDA977B71797BA4700AA3760 /* UIViewController+MJPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MJPopupViewController.m"; sourceTree = "<group>"; };
 		DDAD6C23178FEAA500D0FDBE /* ctdCheckStatusService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusService.h; sourceTree = "<group>"; };
 		DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusService.m; sourceTree = "<group>"; };
 		DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceParser.h; sourceTree = "<group>"; };
@@ -356,6 +372,7 @@
 			children = (
 				7133432D1737CB8500057FE6 /* ctdAppDelegate.h */,
 				7133432E1737CB8500057FE6 /* ctdAppDelegate.m */,
+				DDA977B21797B95B00AA3760 /* ctdConstant.h */,
 				71DFF0201738C9C800EF1491 /* Profile */,
 				71DFF01F1738C9B900EF1491 /* Voucher */,
 				71DFF01E1738C9AB00EF1491 /* DailyAttendance */,
@@ -458,6 +475,8 @@
 		713343541737EF5F00057FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DDA977B31797BA4600AA3760 /* MJPopUpViewController */,
+				DDA977A81797B53300AA3760 /* AlertViewController */,
 				DDD9175A178EBEDB00750702 /* Reachability */,
 				DDAF29B8178C1A0400597570 /* LocalStorage */,
 				DDAF29B4178BB58300597570 /* JSONKit */,
@@ -755,6 +774,8 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DDA977AE1797B7B100AA3760 /* box_alert_white.png */,
+				DDA977AF1797B7B100AA3760 /* button_ok.png */,
 				DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */,
 				71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */,
 				71DFF04A1739304E00EF1491 /* box_transparent_profile.png */,
@@ -770,6 +791,27 @@
 				DDA08B401738F602002882B4 /* button_sign-out.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		DDA977A81797B53300AA3760 /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDA977A91797B57900AA3760 /* ctdAlertViewController.h */,
+				DDA977AA1797B57900AA3760 /* ctdAlertViewController.m */,
+				DDA977AB1797B57900AA3760 /* ctdAlertViewController.xib */,
+			);
+			name = AlertViewController;
+			sourceTree = "<group>";
+		};
+		DDA977B31797BA4600AA3760 /* MJPopUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDA977B41797BA4600AA3760 /* MJPopupBackgroundView.h */,
+				DDA977B51797BA4700AA3760 /* MJPopupBackgroundView.m */,
+				DDA977B61797BA4700AA3760 /* UIViewController+MJPopupViewController.h */,
+				DDA977B71797BA4700AA3760 /* UIViewController+MJPopupViewController.m */,
+			);
+			path = MJPopUpViewController;
 			sourceTree = "<group>";
 		};
 		DDAF29B4178BB58300597570 /* JSONKit */ = {
@@ -903,6 +945,9 @@
 				71DFF04B1739304E00EF1491 /* box_transparent_profile.png in Resources */,
 				71DFF04D1739331D00EF1491 /* button_main-menu_attendance.png in Resources */,
 				DDEE3A3D178D4FED00E7F0C1 /* button_signinfacebook.png in Resources */,
+				DDA977AD1797B57900AA3760 /* ctdAlertViewController.xib in Resources */,
+				DDA977B01797B7B100AA3760 /* box_alert_white.png in Resources */,
+				DDA977B11797B7B100AA3760 /* button_ok.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +1023,9 @@
 				DD6CBCB6178ED3A4000E7F44 /* ctdProfileService.m in Sources */,
 				DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */,
 				DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */,
+				DDA977AC1797B57900AA3760 /* ctdAlertViewController.m in Sources */,
+				DDA977B81797BA4700AA3760 /* MJPopupBackgroundView.m in Sources */,
+				DDA977B91797BA4700AA3760 /* UIViewController+MJPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
