@@ -97,8 +97,8 @@ NSString *test;
 
 -(void)goToWelcome {
     ctdWelcomeViewController *welcomeViewController = [[ctdWelcomeViewController alloc]initWithNibName:@"ctdWelcomeViewController" bundle:nil];
-    
     [self.navigationController pushViewController:welcomeViewController animated:YES];
+    [self removeFromParentViewController];
 }
 
 

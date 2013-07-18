@@ -38,7 +38,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    [self setRootController];
+    self.viewController = [[ctdLoginViewController alloc] initWithNibName:@"ctdLoginViewController" bundle:nil];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     

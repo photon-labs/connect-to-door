@@ -10,6 +10,8 @@
 #import "ctdLoginViewController.h"
 #import "ctdAppDelegate.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "MBProgressHUD.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ctdBaseViewController ()
 
@@ -101,6 +103,16 @@
         [alertView invalidate];
         alertView  = nil;
     }
+}
+
+- (void)showActivityIndicator {
+	MBProgressHUD  *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.layer.zPosition = 1;
+	hud.mode = MBProgressHUDModeIndeterminate;
+}
+
+- (void)hideActivityIndicator {
+	[MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end

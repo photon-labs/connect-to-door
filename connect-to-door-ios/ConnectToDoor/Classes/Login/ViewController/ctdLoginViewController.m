@@ -10,6 +10,7 @@
 #import "ctdSignInViewController.h"
 #import "ctdAppDelegate.h"
 #import "ctdLocalStorage.h"
+#import "MBProgressHUD.h"
 
 @implementation ctdLoginViewController
 
@@ -34,10 +35,36 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.title = @"Login";
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self checkSessionFacebook];
+    });
 	 // Do any additional setup after loading the view from its nib.
 }
 
-
+- (void)checkSessionFacebook{
+    ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (!appDelegate.session.isOpen) {
+        NSLog(@"masuk !appDelegate.session.isOpen");
+        // create a fresh session object
+        appDelegate.session = [[FBSession alloc] init];
+        NSLog(@"session state : %i", appDelegate.session.state);
+        // if we don't have a cached token, a call to open here would cause UX for login to
+        // occur; we don't want that to happen unless the user clicks the login button, and so
+        // we check here to make sure we have a token before calling open
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            NSLog(@"masuk appDelegate.session.state == FBSessionStateCreatedTokenLoaded");
+            // even though we had a cached token, we need to login to make the session usable
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+                
+                NSLog(@"masuk openWithCompletionHandler");
+                // we recurse here, in order to update buttons and labels
+                [self goToSignInPage];
+            }];
+        }
+    }
+}
 
 /*
  *aldi_p
@@ -45,7 +72,7 @@
  *this method for action click button login facebook
  */
 - (IBAction)didLoginButtonClicked:(id)sender{
-    NSLog(@"didLoginButtonClicked");
+    NSLog(@"masuk didLoginButtonClicked");
     // get the app delegate so that we can access the session property
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     
@@ -70,11 +97,13 @@
             // and here we make sure to update our UX according to the new session state
             NSLog(@"SESSION TOKEN == %@",appDelegate.session.accessTokenData.accessToken);
             
+            [self showActivityIndicator];
             //get User id and name
             [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:
              ^(FBRequestConnection *connection,
                NSDictionary<FBGraphUser> *user,
                NSError *error) {
+                 [self hideActivityIndicator];
                  if (!error) {
                      NSString *fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                      NSLog(@"id %@", user.id);
@@ -82,7 +111,7 @@
                      [self saveLocalStoreValue:fullName :user.id];
                      [self goToSignInPage];
                  }else {
-                     [self showAlert:@"server error" :@"alert" :@"OK"];
+                     [self showAlert:kAlertForException];
                      NSLog(@"Error: %@",error);
                  }
              }];
@@ -105,21 +134,12 @@
 
 /*
  *aldi_p
- *this method for show alert
- */
--(void)showAlert:(NSString *)messageText :(NSString *)titleText :(NSString *)buttonText{
-    [self showAlert:kAlertForException];
-}
-
-/*
- *aldi_p
  *this method for show page enter employee id
  */
 - (void)goToSignInPage{
-    NSLog(@"masuk goToSignInPage");
     ctdSignInViewController *signInViewController = [[ctdSignInViewController alloc]initWithNibName:@"ctdSignInViewController" bundle:nil];
     [self.navigationController pushViewController:signInViewController animated:YES];
-    NSLog(@"after goToSignInPage");
+    [self removeFromParentViewController];
 }
 
 - (void)didReceiveMemoryWarning

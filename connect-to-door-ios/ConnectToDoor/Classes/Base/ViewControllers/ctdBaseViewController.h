@@ -17,5 +17,7 @@
 @property (nonatomic) BOOL hasSignoutButton;
 
 - (void)showAlert:(typeAlert)type;
+- (void)showActivityIndicator;
+- (void)hideActivityIndicator;
 
 @end
