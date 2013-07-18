@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============== November 26 , 2012 ============== -->
+<project name="AttendanceWebService" default="war">
+	<property file="build.properties" />
+
+	<path id="classpath">
+		<fileset dir="./WebContent/WEB-INF/lib" includes="*.jar" />
+		<pathelement location="./classes" />
+		<fileset dir="${attendance_web_service}/lib" includes="*.jar" />
+	</path>
+
+	<target name="build">
+		<mkdir dir="classes" />
+		<javac classpathref="classpath" srcdir="./src;${attendance_web_service}/src" destdir="./classes" debug="off" source="1.5" />
+	</target>
+	        
+	<!-- ================================= target: war ================================= -->
+	<target name="war" depends="build" description="description">
+		<war destfile="${ant.project.name}.war" webxml="./WebContent/WEB-INF/web.xml">
+			<fileset dir="./WebContent/" />
+			<classes dir="./classes" />
+		</war>
+	</target>
+</project>
