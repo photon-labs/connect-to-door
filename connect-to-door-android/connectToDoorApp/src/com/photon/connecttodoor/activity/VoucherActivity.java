@@ -1,14 +1,13 @@
 package com.photon.connecttodoor.activity;
 
-import com.photon.connecttodoor.R;
-import com.photon.connecttodoor.utils.ApplicationConstant;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class VoucherActivity extends MainActivity {
 
@@ -57,15 +56,24 @@ public class VoucherActivity extends MainActivity {
 	private void goToReimbursePage(){
 		Intent reimbursePage = new Intent(VoucherActivity.this,ReimburseActivity.class);
 		startActivity(reimbursePage);
+		finish();
 	}
 
 	public void goToLoginPage(){
 		Intent logInPage = new Intent(VoucherActivity.this, LoginActivity.class);
 		startActivity(logInPage);
+		finish();
 	}
 
 	public void goToAttandace(){
 		Intent attandancePage = new Intent(VoucherActivity.this, WelcomeScreenActivity.class);
 		startActivity(attandancePage);
+		finish();
+	}
+	@Override
+	public void onBackPressed() {
+		Intent attandancePage = new Intent(VoucherActivity.this, WelcomeScreenActivity.class);
+		startActivity(attandancePage);
+		finish();
 	}
 }

@@ -173,6 +173,7 @@ public class DailyAttendanceActivity extends MainActivity{
 	private void goToWelcomePage(){
 		Intent intentWelcomeScreen = new Intent(DailyAttendanceActivity.this, WelcomeScreenActivity.class);
 		startActivity(intentWelcomeScreen);
+		finish();
 	}
 
 	/**
@@ -181,5 +182,12 @@ public class DailyAttendanceActivity extends MainActivity{
 	private void goToLoginPage(){
 		Intent intentLoginPage = new Intent(DailyAttendanceActivity.this, LoginActivity.class);
 		startActivity(intentLoginPage);
+		finish();
+	}
+	@Override
+	public void onBackPressed() {
+		Intent intentWelcomeScreen = new Intent(DailyAttendanceActivity.this, WelcomeScreenActivity.class);
+		startActivity(intentWelcomeScreen);
+		finish();
 	}
 }

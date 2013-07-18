@@ -140,6 +140,7 @@ public class ReimburseActivity extends MainActivity{
 	private void goToVoucherPage(){
 		Intent voucherPage = new Intent(ReimburseActivity.this, VoucherActivity.class);
 		startActivity(voucherPage);
+		finish();
 	}
 
 	private void getResponseFromProfileModel(){

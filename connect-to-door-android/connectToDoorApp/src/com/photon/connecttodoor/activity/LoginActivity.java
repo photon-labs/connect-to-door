@@ -81,7 +81,7 @@ public class LoginActivity extends MainActivity {
 						if (user != null) {
 							savePreference("facebookId", user.getId(), getApplicationContext());
 						}   
-						
+
 					}   
 				}   
 			}); 
@@ -116,6 +116,7 @@ public class LoginActivity extends MainActivity {
 	public void goToSignInPage(){
 		Intent signInPage = new Intent(LoginActivity.this, SignInActivity.class);
 		startActivity(signInPage);
+		finish();
 	}
 	private class SessionStatusCallback implements Session.StatusCallback {
 		@Override
@@ -123,5 +124,4 @@ public class LoginActivity extends MainActivity {
 			updateView();
 		}
 	}
-
 }

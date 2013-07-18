@@ -62,6 +62,7 @@ public class SignInActivity extends MainActivity {
 	public void goToWelcomePage(){
 		Intent welcomePage = new Intent(SignInActivity.this, WelcomeScreenActivity.class);
 		startActivity(welcomePage);
+		finish();
 	}
 
 	/**

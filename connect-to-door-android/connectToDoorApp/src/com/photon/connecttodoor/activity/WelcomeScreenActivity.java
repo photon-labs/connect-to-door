@@ -291,29 +291,39 @@ public class WelcomeScreenActivity extends MainActivity {
 	private void goToAttendancePage(){
 		Intent intentAttandanceList = new Intent(WelcomeScreenActivity.this, AttendanceListActivity.class);
 		startActivity(intentAttandanceList);
+		finish();
 	}
 	private void goToDailyAttandancePage(){
 		Intent intentDailyAttandance = new Intent(WelcomeScreenActivity.this, DailyAttendanceActivity.class);
 		startActivity(intentDailyAttandance);
+		finish();
 	}
 	private void goToProfilPage(){
 		Intent intentProfilPage = new Intent(WelcomeScreenActivity.this, ProfilActivity.class);
 		startActivity(intentProfilPage);
+		finish();
 	}
 	private void goToVoucherPage(){
 		Intent intentVoucherPage = new Intent(WelcomeScreenActivity.this, VoucherActivity.class);
 		startActivity(intentVoucherPage);
+		finish();
 	}
 	private void goToReportPage(){
 		Intent intentReportPage = new Intent(WelcomeScreenActivity.this, ReportActivity.class);
 		startActivity(intentReportPage);
+		finish();
 	}
 	private void goToFormPage(){
 		Intent intentFormPage = new Intent(WelcomeScreenActivity.this,AttendanceFormActivity.class);
 		startActivity(intentFormPage);
+		finish();
 	}
 	private void goToLoginPage(){
 		Intent loginPage = new Intent(WelcomeScreenActivity.this,LoginActivity.class);
 		startActivity(loginPage);
+		finish();
+	}
+	public void onBackPressed() {
+	    // your code.
 	}
 }

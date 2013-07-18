@@ -156,4 +156,8 @@ public abstract class MainActivity extends Activity{
 		}
 		return connected;
 	}
+	@Override
+	public void onBackPressed() {
+		finish();
+	}
 }

@@ -302,6 +302,7 @@ public class AttendanceListActivity extends MainActivity {
 	private void goToWelcomeScreen(){
 		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);
 		startActivity(intentWelcomeScreen);
+		finish();
 	}
 	/**
 	 * launch login page
@@ -309,8 +310,15 @@ public class AttendanceListActivity extends MainActivity {
 	private void goToLogin(){
 		Intent intentLoginPage = new Intent(AttendanceListActivity.this, LoginActivity.class);
 		startActivity(intentLoginPage);
+		finish();
 	}
 
+	@Override
+	public void onBackPressed() {
+		Intent intentWelcomeScreen = new Intent(AttendanceListActivity.this, WelcomeScreenActivity.class);
+		startActivity(intentWelcomeScreen);
+		finish();
+	}
 	/**
 	 * Validate if startDate is less than endDate in Date section
 	 * @return isValidated as boolean
