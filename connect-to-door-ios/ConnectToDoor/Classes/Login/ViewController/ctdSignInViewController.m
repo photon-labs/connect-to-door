@@ -19,9 +19,6 @@
 
 @implementation ctdSignInViewController
 
-@synthesize employeeID = employeeID;
-@synthesize continueButton = continueButton;
-
 NSString *test;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,7 +50,7 @@ NSString *test;
 
 - (IBAction)didContinueClicked:(id)sender{
     [self hideKeyboard];
-    NSString *employeeIDText = self.employeeID.text;
+    NSString *employeeIDText = employeeID.text;
     [self checkEmployeeID:employeeIDText];
 }
 

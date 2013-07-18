@@ -11,10 +11,7 @@
 #import "ctdBaseViewController.h"
 @interface ctdSignInViewController : ctdBaseViewController<LoginServiceDelegate>{
     IBOutlet UITextField *employeeID;
-    IBOutlet UIButton *continueButton;
 }
-@property (nonatomic, strong) IBOutlet UITextField *employeeID;
-@property (nonatomic, strong) IBOutlet UIButton *continueButton;
 
 - (IBAction)didContinueClicked:(id)sender;
 
