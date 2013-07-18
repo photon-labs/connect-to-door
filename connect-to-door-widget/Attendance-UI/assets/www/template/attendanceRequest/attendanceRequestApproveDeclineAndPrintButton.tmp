@@ -1,0 +1,20 @@
+<div class="request-approve-decline-and-print-button">
+	{{#if-status-build}}
+		<div class="request-back-button"></div>
+		<div class="request-submit-button"></div>
+	{{else}}
+	{{/if-status-build}}
+	
+	{{#if-status-approve}}
+		<div class="request-decline-button"></div>
+		<div class="request-approve-button"></div>
+	{{else}}
+	{{/if-status-approve}}
+	
+	{{#if-status-finish}}
+		<div class="request-title-text"></div>
+		<div class="request-print-button"></div>
+	{{else}}
+	{{/if-status-finish}}
+	
+</div>

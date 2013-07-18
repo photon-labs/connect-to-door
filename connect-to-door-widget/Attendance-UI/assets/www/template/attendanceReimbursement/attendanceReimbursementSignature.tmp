@@ -1,0 +1,144 @@
+
+{{#if-build}}
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Submitted by</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-admin">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+		<attendance:reimbursement-signature-button></attendance:reimbursement-signature-button>
+	</div>
+	<div class="attendance-reimbursement-submitted-approval">
+		<div class="attendance-reimbursement-submitted-approval-title">Submit approval to </div>
+		<div class="attendance-reimbursement-submitted-approval-quote">:</div>
+		<attendance:reimbursement-signature-dropdown></attendance:reimbursement-signature-dropdown>
+	</div>
+{{/if-build}}
+{{#if-build-apm}}
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Submitted by </span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-apm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+		<attendance:reimbursement-signature-button></attendance:reimbursement-signature-button>
+	</div>
+	<div class="attendance-reimbursement-submitted-approval">
+		<div class="attendance-reimbursement-submitted-approval-title">Submit approval to Director/GM</div>
+		<div class="attendance-reimbursement-submitted-approval-quote">:</div>
+		<attendance:reimbursement-signature-dropdown></attendance:reimbursement-signature-dropdown>
+	</div>
+{{/if-build-apm}}
+{{#if-apm}}
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Submitted by</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-admin">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+	</div>
+	<div class="attendance-reimbursement-submitted-approval-title-approve">
+			This request need your approval. Please attach your signature to complete this request.
+	</div>
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Approved by APM</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-apm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+		<attendance:reimbursement-signature-button></attendance:reimbursement-signature-button>
+	</div>
+	<div class="attendance-reimbursement-submitted-approval">
+		<div class="attendance-reimbursement-submitted-approval-title">Submit approval </div>
+		<div class="attendance-reimbursement-submitted-approval-quote">:</div>
+		<attendance:reimbursement-signature-dropdown></attendance:reimbursement-signature-dropdown>
+	</div>
+{{/if-apm}}
+{{#if-gm}}
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Submitted by</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-admin">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+	</div>
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Approved by APM</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-apm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+	</div>
+	<div class="attendance-reimbursement-submitted-approval-title-approve">
+			This request need your approval. Please attach your signature to complete this request.
+	</div>
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>&nbsp</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>&nbsp</span></div>
+		<div class="attendance-reimbursement-submited-gm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+		<attendance:reimbursement-signature-button></attendance:reimbursement-signature-button>
+	</div>
+{{/if-gm}}
+{{#if-gm-apm}}
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Submitted by </span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-apm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+	</div>
+	<div class="attendance-reimbursement-submitted-approval-title-approve">
+			This request need your approval. Please attach your signature to complete this request.
+	</div>
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>&nbsp</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>&nbsp</span></div>
+		<div class="attendance-reimbursement-submited-gm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+		<attendance:reimbursement-signature-button></attendance:reimbursement-signature-button>
+	</div>
+{{/if-gm-apm}}
+{{#if-complete}}
+	<div class="attendance-reimbursement-submitted-by">
+		<div class="attendance-reimbursement-submitted-by-title"><span>Submitted by</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-admin">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+	</div>
+	<div class="attendance-reimbursement-submitted-by">	
+		<div class="attendance-reimbursement-submitted-by-title"><span>Approved by APM</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-apm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+	</div>
+	<div class="attendance-reimbursement-submitted-by">	
+		<div class="attendance-reimbursement-submitted-by-title"><span>Approved by Director/GM</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-gm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>		
+	</div>
+	<div class="attendance-reimbursement-complete-comment"></div>
+{{/if-complete}}
+{{#if-complete-apm}}
+	<div class="attendance-reimbursement-submitted-by">	
+		<div class="attendance-reimbursement-submitted-by-title"><span>Submitted by</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-apm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>
+	</div>
+	<div class="attendance-reimbursement-submitted-by">	
+		<div class="attendance-reimbursement-submitted-by-title"><span>Approved by Director/GM</span></div>
+		<div class="attendance-reimbursement-submitted-by-quote"><span>:</span></div>
+		<div class="attendance-reimbursement-submited-gm">
+			<attendance:reimbursement-signature-insert></attendance:reimbursement-signature-insert>
+		</div>		
+	</div>
+	<div class="attendance-reimbursement-complete-comment"></div>
+{{/if-complete-apm}}

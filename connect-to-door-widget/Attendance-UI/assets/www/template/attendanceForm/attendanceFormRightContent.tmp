@@ -1,0 +1,143 @@
+<div class="attendance-form-body-right">
+	<div class="attendance-form-background-right">
+		<div class="attendance-form-content-right-top">
+			<div class="attendance-form-content-right-top-left">
+				<div class="attendance-form-text-fullname">Full Name:</div>
+				<div class="attendance-form-input-fullname">
+					<div class ="form-text-only-fullname"></div>
+					<input type="text" class="attendance-form-background-input-fullname" maxlength="25"></input>
+				</div>						
+			</div>
+			<div class="attendance-form-content-username">
+				<div class="attendance-form-text-username">Username:</div>
+				<div class="attendance-form-input-username">
+					<div class ="form-text-only-username"></div>
+					<input type="text" class="attendance-form-background-input-username" maxlength="13"></input>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-top-mid">
+				<div class="attendance-form-text-employeeid">Employee ID:</div>
+				<div class="attendance-form-input-employeeid">
+					<div class ="form-text-only-employee-id"></div>
+					<input type="text" class="attendance-form-background-input-employeeid" maxlength="5"></input>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-top-right">
+				<div class="attendance-form-text-projectid">Project ID:</div>
+				<div class="attendance-form-input-projectid">
+					<div class ="form-text-only-project-id"></div>
+					<input type="text" class="attendance-form-background-input-projectid" maxlength="5"></input>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-bottom-right-text">
+				<div class="attendance-form-submitted-approval-title">Role:</div>
+				<div class="attendance-form-submitted-approval-bg">
+					<div class ="form-text-only-role"></div>
+					<div class="attendance-form-submitted-approval-dropdown"></div><div class="form-arrow-box"></div>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-mid-left">
+				<div class="attendance-form-content-right-mid-left-left">
+					<div class="attendance-form-text-start-working">Start Working:</div>
+					<div class="attendance-form-input-start-working">
+						<div class ="form-text-only-start-working"></div>
+						<input type="text" class="attendance-form-bg-input-start-working"></input><div class="attendance-form-calendar-inactive"></div>						
+					</div>
+				</div>						
+			</div>
+		</div>				
+		<div class="attendance-form-content-right-bottom">
+			<div class="attendance-form-content-right-bottom-left-text">
+				<div class="attendance-form-text-annual">Annual:</div>	
+				<div class="attendance-form-text-coff">C-off:</div>	
+				<div class="attendance-form-text-condolences">Condolences:</div>
+				<div class="attendance-form-text-married">Married:</div>											
+			</div>					
+			<div class="attendance-form-content-right-bottom-left-input">
+				<div class="attendance-form-input-annual">
+					<div class ="form-text-only-annual"></div>
+					<input type="text" class="attendance-form-bg-input-annual"></input>
+				</div>
+				<div class="attendance-form-input-coff">
+					<div class ="form-text-only-c-off"></div>
+					<input type="text" class="attendance-form-bg-input-coff"></input>
+				</div>
+				<div class="attendance-form-input-condolences">
+					<div class ="form-text-only-condolences"></div>
+					<input type="text" class="attendance-form-bg-input-condolences"></input>
+				</div>
+				<div class="attendance-form-input-married">
+					<div class ="form-text-only-married"></div>
+					<input type="text" class="attendance-form-bg-input-married"></input>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-bottom-mid-text">
+				<div class="attendance-form-text-maternity">Maternity:</div>	
+				<div class="attendance-form-text-onsite">Onsite:</div>
+				<div class="attendance-form-text-paternity">Paternity:</div>	
+				<div class="attendance-form-text-sick">Sick:</div>											
+			</div>
+			<div class="attendance-form-content-right-bottom-mid-input">
+				<div class="attendance-form-input-maternity">
+					<div class ="form-text-only-maternity"></div>
+					<input type="text" class="attendance-form-input-bg-maternity"></input>
+				</div>
+				<div class="attendance-form-input-onsite">
+					<div class ="form-text-only-onsite"></div>
+					<input type="text" class="attendance-form-input-bg-onsite"></input>
+				</div>
+				<div class="attendance-form-input-paternity">
+					<div class ="form-text-only-paternity"></div>
+					<input type="text" class="attendance-form-bg-input-paternity"></input>
+				</div>
+				<div class="attendance-form-input-sick">
+					<div class ="form-text-only-sick"></div>
+					<input type="text" class="attendance-form-bg-input-sick"></input>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-mail-right">
+				<div class="attendance-form-text-email-facebook">Facebook Id:</div>
+				<div class="attendance-form-input-email-facebook">
+					<div class ="form-text-only-facebook"></div>
+					<input type="text" class="attendance-form-bg-input-email-facebook" maxlength="45"></input>
+				</div>
+			</div>
+			<div class="facebook-id-search"></div>
+			<div class="attendance-form-content-right-gender">
+				<div class="attendance-form-text-gender">Gender:</div>
+				<div class="attendance-form-input-gender">
+					<div class ="form-text-only-gender"></div>
+					<div class="attendance-form-gender-dropdown"></div><div class="form-arrow-box-gender"></div>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-mid-right">
+				<div class="attendance-form-text-email">Photon Email Address:</div>
+				<div class="attendance-form-input-email">
+					<div class ="form-text-only-photon"></div>
+					<input type="text" class="attendance-form-bg-input-email" maxlength="45"></input>
+				</div>
+			</div>
+			<div class="attendance-form-content-right-signature">
+				<div class="attendance-form-signature-text">Signature:</div>
+					<div class="attendance-form-signature">
+					<div class ="form-text-only-signature"></div>
+					<input type="text" class="form-signature-input"></input>
+				</div>
+			</div>
+		</div>
+		<div class="attendance-form-content-right-footer">
+			<div class="form-status-message"></div>
+			<div class="attendance-form-button-save"></div>
+		</div>
+</div>
+<div class="form-approval-dropdown-content">
+	<div class="form-approval-dropdown-item">General Manager</div>
+	<div class="form-approval-dropdown-item">Finance</div>
+	<div class="form-approval-dropdown-item">Admin</div>
+	<div class="form-approval-dropdown-item">Project Manager</div>
+	<div class="form-approval-dropdown-item">Employee</div>
+</div>
+<div class="form-dropdown-gender">
+	<div class="form-dropdown-gender-item">Male</div>
+	<div class="form-dropdown-gender-item">Female</div>
+</div>

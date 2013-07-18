@@ -1,0 +1,35 @@
+<div class="attendance-reimbursement-itemized">
+	<div class="attendance-reimbursement-itemized-text-itemized">Itemized Reimbursement</div>
+	<div class="attendance-reimbursement-itemized-left">		
+		<div class="attendance-reimbursement-itemized-text-left">Date</div>
+		<div class="attendance-reimbursement-itemized-text-left">Description</div>
+		<div class="attendance-reimbursement-itemized-text-left">Quantity</div>
+		<div class="attendance-reimbursement-itemized-text-left">Cost</div>
+		<div class="attendance-reimbursement-itemized-text-left">Cash Advance</div>
+	</div>
+	<div class="attendance-reimbursement-itemized-midle">
+		<div class="attendance-reimbursement-itemized-text-midle">:</div>
+		<div class="attendance-reimbursement-itemized-text-midle">:</div>
+		<div class="attendance-reimbursement-itemized-text-midle">:</div>
+		<div class="attendance-reimbursement-itemized-text-midle">:</div>
+		<div class="attendance-reimbursement-itemized-text-midle">:</div>
+	</div>
+	<div class="attendance-reimbursement-itemized-right">
+		<div class="attendance-reimbursement-itemized-input-text">
+			<input type="text" class="attendance-reimbursement-itemized-input-date"></input>
+		</div>
+		<div class="attendance-reimbursement-itemized-input-text">
+			<input type="text" class="attendance-reimbursement-itemized-input-description"></input>
+		</div>
+		<div class="attendance-reimbursement-itemized-input-text">
+			<input type="text" class="attendance-reimbursement-itemized-input-quantity"></input>
+		</div>
+		<div class="attendance-reimbursement-itemized-input-text">
+			<input type="text" class="attendance-reimbursement-itemized-input-cost"></input>
+		</div>	
+		<div class="attendance-reimbursement-itemized-input-text">
+			<input type="text" class="attendance-reimbursement-itemized-input-cash-advance"></input>
+		</div>		
+	</div>
+	<div class="attendance-reimbursement-button-save"></div>
+</div>

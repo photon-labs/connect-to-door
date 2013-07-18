@@ -1,0 +1,10 @@
+<div class="attendance-dom">
+	<div class="attendance-voucher-body">
+		<div class="attendance-voucher-body-left">
+		</div>
+		<div class="attendance-voucher-body-right">
+			<attendance:voucher-menu></attendance:voucher-menu>
+		</div>
+	</div>
+	<attendance:common-footer></attendance:common-footer>
+</div>

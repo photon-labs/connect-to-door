@@ -1,0 +1,32 @@
+<div class="attendance-reimbursement-footer">
+	{{#if-build}}
+	<div class="attendance-reimbursement-back"></div>
+	<div class="attendance-reimbursement-submit-build"></div>
+	{{/if-build}}
+	
+	{{#if-build-apm}}
+	<div class="attendance-reimbursement-back"></div>
+	<div class="attendance-reimbursement-submit-build-apm"></div>
+	{{/if-build-apm}}
+	
+	{{#if-apm}}
+	<div class="attendance-reimbursement-decline-apm"></div>
+	<div class="attendance-reimbursement-submit-apm"></div>
+	{{/if-apm}}
+	
+	{{#if-gm}}
+	<div class="attendance-reimbursement-decline-gm"></div>
+	<div class="attendance-reimbursement-approve"></div>
+	{{/if-gm}}
+	
+	{{#if-gm-apm}}
+	<div class="attendance-reimbursement-decline-gm"></div>
+	<div class="attendance-reimbursement-approve"></div>
+	{{/if-gm-apm}}
+</div>
+	{{#if-complete}}
+	<div class="attendance-reimbursement-print"></div>
+	{{/if-complete}}
+	{{#if-complete-apm}}
+	<div class="attendance-reimbursement-print"></div>
+	{{/if-complete-apm}}

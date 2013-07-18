@@ -1,0 +1,36 @@
+<div class="attendance-report-content-right">
+	<div class="main-content-attendance-report">	
+		<div class = "attendance-content-header">
+			<div class="attendance-left">
+				<div class="attendance-left-top">
+					<div class="attendance-content-header-left">Month/Year: </div>
+					<div class="attendance-content-header-left">					
+							<input type="text" class="input-month-year" id = "dpMonthYear"  title="Enter search keywords..."></input>
+							<div class = "attendance-report-month-year-picker"></div>										
+					</div> 						
+				</div>					
+			</div>			
+			<div class="attendance-right">
+				<div class="attendance-right-top">
+					<div class="attendance-content-header-right-text">Filter by:</div>
+					<div class="attendance-content-header-right">
+							<div class="input-filter-by"></div>
+							<div class="attendance-report-image-arrow"></div>
+					</div>
+				</div>
+				<div class="attendance-right-bottom">
+					<div class="drop-master-filter">
+						<div class="content-drop-filter">Before Adjustment</div>
+						<div class="content-drop-filter">Adjustment</div>
+						<div class="content-drop-filter">After Adjustment</div>
+					</div>	
+				</div>
+			</div>
+		</div>		
+		<div class="attendance-content-table">
+			<div class="attendance-header-report"></div>
+			<div class="image-print"></div>	
+			<div class="attendance-report-button-view"></div>
+		</div>		
+	</div>
+</div>

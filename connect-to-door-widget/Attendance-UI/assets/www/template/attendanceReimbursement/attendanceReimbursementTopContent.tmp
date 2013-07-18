@@ -1,0 +1,19 @@
+<div class="attendance-reimbursement-top-content">
+	<div class="attendance-reimbursement-userinfo">
+		<attendance:reimbursement-userinfo></attendance:reimbursement-userinfo>
+	</div>
+	<div class="attendance-reimbursement-dropdown-dom">
+		<attendance:reimbursement-dropdown></attendance:reimbursement-dropdown>		
+	</div>
+	
+	{{#if-build}}
+	<div class="attendance-reimbursement-itemized-dom">
+		<attendance:reimbursement-itemized></attendance:reimbursement-itemized>
+	</div>	
+	{{/if-build}}
+	{{#if-build-apm}}
+	<div class="attendance-reimbursement-itemized-dom">
+		<attendance:reimbursement-itemized></attendance:reimbursement-itemized>
+	</div>	
+	{{/if-build-apm}}
+</div>

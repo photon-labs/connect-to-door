@@ -1,0 +1,120 @@
+﻿#CalendarControlIFrame {
+  display: none;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  height: 250px;
+  width: 250px;
+  z-index: 99;
+}
+#CalendarControl {
+  position:absolute;
+  background-color: #ffffff;
+  margin:0;
+  padding:0;
+  display:none;
+  z-index: 100;
+  border-right:1px solid #999;
+  border-bottom:1px solid #999;
+}
+#CalendarControl table {
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size: 11pt;
+  margin : 5px;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+#CalendarControl th {
+  font-weight: normal;
+}
+
+#CalendarControl th a {
+  font-weight: normal;
+  text-decoration: none;
+  color: #000;
+  padding: 1px;
+}
+
+#CalendarControl td {
+  text-align: center;
+}
+
+#CalendarControl .cal_header {
+  background-color: #cecece;
+  color:White;
+  height:30px;
+}
+
+#CalendarControl .weekday {
+  background-color: #ebebeb;
+  color: #000;
+}
+
+#CalendarControl .weekend {
+  background-color: #f5f5e0;
+  color: #000;
+}
+
+#CalendarControl .current {
+  background-color: #fcfaf1;
+  border: 1px solid #fcefa1;
+  color: black;
+}
+
+#CalendarControl .weekday,
+#CalendarControl .weekend,
+#CalendarControl .current {
+  display: block;
+  text-decoration: none;
+  border: 1px solid black;
+  width: 85px;
+  padding:2px;
+  margin: 1px;
+}
+
+#CalendarControl .weekday:hover,
+#CalendarControl .weekend:hover,
+#CalendarControl .current:hover {
+  background-color: #fcfaf1;
+  border: 1px solid #fcefa1;
+}
+
+#CalendarControl .previous {
+  text-align: left;
+}
+
+#CalendarControl .next {
+  text-align: right;
+}
+
+#CalendarControl .previous,
+#CalendarControl .next {
+  padding: 1px 3px 1px 3px;
+  font-size: 1.4em;
+}
+
+#CalendarControl .previous a,
+#CalendarControl .next a {
+  color:black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size:14px;
+}
+
+#CalendarControl .title {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  font-size:14px;
+}
+#CalendarControl .empty {
+  background-color: #d1e3f9;
+  border: 1px solid #FFF;
+}
+.CalenderButton
+{
+	margin-top:0px;
+}

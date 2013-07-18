@@ -1,0 +1,6 @@
+<div class="attendance-menu-button">
+	<div class="attendace-menu-button-attendance"></div>
+	<div class="attendace-menu-button-list"></div>
+	<div class="attendance-menu-button-report"></div>
+	<div class="attendance-menu-button-form"></div>
+</div>

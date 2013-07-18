@@ -1,0 +1,23 @@
+<div class="attendance-request-submitted-approval">
+	{{#build}}
+		<div class="attendance-request-submitted-approval-title">Submit approval to Director/GM</div>
+		<div class="attendance-request-submitted-approval-quote">:</div>
+		<div class="attendance-request-submitted-approval-dropdown"></div><div class="request-arrow-box"></div>
+	{{/build}}
+	{{#approve}}
+		<div class="attendance-request-submitted-approval-title-approve">
+			This request need your approval. Please attach your signature to complete this request.
+		</div>
+		<div class="attendance-request-submitted-approval-signature-approve"></div>
+		<div class="attendance-request-submittend-approval-insert-button-approve"></div>
+	{{/approve}}
+	{{#finish}}
+		<div class="attendance-request-submitted-approval-title-finish">Approved by Director/GM</div>
+		<div class="attendance-request-submitted-approval-quote-finish">:</div>
+		<div class="attendance-request-submitted-approval-signature-finish"></div>
+	{{/finish}}
+	
+</div>
+<div class="attendance-request-approve-by-alert">*Please insert the signature</div>
+<div class="request-approval-dropdown-content">
+</div>

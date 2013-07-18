@@ -1,0 +1,76 @@
+<div class="attendance-list-header-attendance">
+	<div class="attendance-list-header">
+		<div class="attendance-list-header-no">
+			<div class="header-text-one-line">No
+			</div>
+		</div>
+		<div class="attendance-list-header-name">
+			<div class="header-text-one-line"><div class="list-text-name">Name</div>
+			</div>
+			<div class="header-button">
+				<div class="header-button-desc"></div>
+				<div class="header-button-asc"></div>
+			</div>
+		</div>
+		<div class="attendance-list-header-employee-id">
+			<div class="header-text-one-line">
+				<div >Employee ID</div> 
+			</div>
+			<div class="header-button">
+				<div class="header-button-desc"></div>
+				<div class="header-button-asc"></div>
+			</div>
+		</div>
+		<div class="attendance-list-header-project-id">
+			<div class="header-text-one-line">
+				<div>Project ID</div> 
+			</div>
+			
+			<div class="header-button">
+				<div class="header-button-desc"></div>
+				<div class="header-button-asc"></div>
+			</div>
+		</div>
+		<div class="attendance-list-header-total-attendance">
+			<div class="header-text-two-line">
+				<div>Total</div> 
+				<div>Attendance</div>
+			</div>
+		</div>
+		<div class="attendance-list-header-total-working">
+			<div class="header-text-two-line">
+				<div>Total</div> 
+				<div>Working</div>
+			</div>
+		</div>
+		<div class="attendance-list-header-total-leave">
+			<div class="header-text-two-line">
+				<div>Total</div> 
+				<div>Leave</div>
+			</div>
+		</div>
+		<div class="attendance-list-header-average-working-hour">
+			<div class="header-text-two-line">
+				<div>Average</div>
+				<div>Working Hour</div>
+			</div>
+		</div>
+	</div>
+	<div class="attendance-list-item">
+	<div class="scroll-pane">
+		 {{#each person}}
+                       <ul class="attendance-ul">
+                               <li class="li-no"><div class="item-text"></div></li>
+                               <li class="li-name"><div class="item-text-name">{{employee_name}}</div></li>
+                               <li class="li-employee"><div class="item-text">{{employee_id}}</div></li>
+                               <li class="li-project"><div class="item-text">{{project_id}}</li>
+                               <li class="li-total-attendance"><div class="item-text">{{total_attendance}}</div></li>
+                               <li class="li-total-working"><div class="item-text">{{total_working}}</div></li>
+                               <li class="li-total-leave"><div class="item-text">{{total_leave}}</div></li>
+                               <li class="li-average-working"><div class="item-text">{{average_working_hour}}</div></li>
+                       </ul>
+        {{/each}}
+	 </div>
+	</div>
+	<div class="attendance-list-print"></div>
+</div>

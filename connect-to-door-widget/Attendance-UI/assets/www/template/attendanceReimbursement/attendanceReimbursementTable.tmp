@@ -1,0 +1,66 @@
+<div class="attendance-reimbursement-detail-table">
+	<div class="attendance-reimbursement-table">
+		<div class="attendance-reimbursement-header">
+			<div class="attendance-reimbursement-header-no">
+				<div class="attendance-reimbursement-text-header">No</div>
+			</div>
+			<div class="attendance-reimbursement-header-Date">
+				<div class="attendance-reimbursement-text-header">Date</div>
+			</div>	
+			<div class="attendance-reimbursement-header-description">
+				<div class="attendance-reimbursement-text-header">Description</div>
+			</div>
+			<div class="attendance-reimbursement-header-quantity">
+				<div class="attendance-reimbursement-text-header">Quantity</div>
+			</div>
+			<div class="attendance-reimbursement-header-cost">
+				<div class="attendance-reimbursement-text-header">Cost</div>
+			</div>
+		</div>
+	
+		<div class="attendance-reimbursement-content-table">
+			<div class="scroll-pane">			
+			{{#each itemReimbuse}}
+				<ul class="attendance-reimbursement-ul">
+					<li class="attendance-reimbursement-content-no"><div class="attendance-reimbursement-detail-content-text"></div></li>
+					<li class="attendance-reimbursement-content-date"><div class="attendance-reimbursement-detail-content-text">{{date}}</div></li>
+					<li class="attendance-reimbursement-content-description"><div class="attendance-reimbursement-detail-content-text">{{description}}</div></li>
+					<li class="attendance-reimbursement-content-quantity"><div class="attendance-reimbursement-detail-content-text">{{quantity}}</div></li>
+					<li class="attendance-reimbursement-content-cost"><div class="reimbursement-rp">Rp.</div><div class="attendance-reimbursement-detail-content-text">{{cost}}</div><div class="reimbursement-dec">.-</div></li>
+				</ul>		
+			{{/each}}	
+			</div>
+		</div>	
+		<div class="attendance-reimbursement-sub-content">
+			<div class="attendance-reimbursement-sub-content-table">
+				<ul class="attendance-reimbursement-sub-content-table-ul">
+					<li class="attendance-reimbursement-sub-content-text"><div class="attendance-reimbursement-sub-content-text-detail">Sub Total</div></li>
+					<li class="attendance-reimbursement-sub-content-detail">
+						<div class="reimbursement-detail-rp">Rp.</div>
+						<div class="attendance-reimbursement-sub-content-detail-sub">0</div>
+						<div class="reimbursement-detail-dec">.-</div>
+					</li>
+				</ul>
+				<ul class="attendance-reimbursement-sub-content-table-ul">
+					<li class="attendance-reimbursement-sub-content-text"><div class="attendance-reimbursement-sub-content-text-detail">Cash Advance</div></li>
+					<li class="attendance-reimbursement-sub-content-detail">
+						<div class="reimbursement-detail-rp">Rp.</div>
+						<div class="attendance-reimbursement-sub-content-detail-cash">0</div>
+						<div class="reimbursement-detail-dec">.-</div>
+					</li>
+				</ul>
+				<ul class="attendance-reimbursement-sub-content-table-ul">
+					<li class="attendance-reimbursement-sub-content-text"><div class="attendance-reimbursement-sub-content-text-detail-total">Total Reimbursement</div></li>
+					<li class="attendance-reimbursement-sub-content-detail">
+						<div class="reimbursement-detail-rp">Rp.</div>
+						<div class="attendance-reimbursement-sub-content-detail-total">0</div>
+						<div class="reimbursement-detail-dec">.-</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="attendance-reimbursement-footnote">
+			<div class="reimbursement-footnote-text">*Don't forget to attach receipts!</div>
+		</div>	
+	</div>
+</div>

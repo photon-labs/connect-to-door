@@ -1,0 +1,14 @@
+<div class="attendance-request-submitted-by">
+	<div class="attendance-request-submitted-by-title">Submitted by</div>
+	
+	<div class="attendance-request-submitted-by-quote">:</div>
+	
+	<div class="attendance-request-submitted-by-signature"></div>
+	
+	{{#if-status-build}}
+		<div class="attendance-request-submitted-by-insert-button"></div>
+	{{else}}
+	{{/if-status-build}}
+	
+	<div class="attendance-request-submitted-by-alert">*Please insert the signature</div>
+</div>

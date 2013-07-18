@@ -1,0 +1,15 @@
+<div class="attendance-request-by">
+	<div class="attendance-request-name">
+		<div class="attendance-request-by-name"><div class="request-text-white">Employee's Name</div></div>
+		<div class="attendance-request-by-dot"><div class="request-text-white">:</div></div>
+		<div class="attendance-request-by-name-value"><div class="request-by-value-finish">{{employeeName}}</div></div>
+
+		
+	</div>
+	<div class="attendance-request-id">
+		<div class="attendance-request-by-employee"><div class="request-text-white">Employee's ID</div></div>
+		<div class="attendance-request-by-dot"><div class="request-text-white">:</div></div>
+		<div class="attendance-request-by-name-value"><div class="request-by-value-finish">{{employeeID}}</div></div>
+	</div>
+	
+</div>

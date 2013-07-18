@@ -1,0 +1,37 @@
+<div class="attendance-daily-list-header">
+	<div class="attendance-daily-header">
+		<div class="attendance-daily-header-no">
+			<div class="daily-text-line">No
+			</div>
+		</div>
+		<div class="attendance-daily-header-name">
+			<div class="daily-text-one-line"><div class="daily-header-name-text">Name</div>
+			</div>
+		</div>
+		<div class="attendance-daily-header-check-in">
+			<div class="daily-text-line">
+				<div >Check In</div> 
+			</div>
+		</div>
+		<div class="attendance-daily-header-check-out">
+			<div class="daily-text-line">
+				<div>Check Out</div> 
+			</div>
+		</div>
+		<div class="attendance-daily-header-edited-by">
+			<div class="daily-text-line">
+				<div>Edited By</div> 
+			</div>
+		</div>
+	</div>
+	<div class="attendance-daily-item">
+	<div class="scroll-pane">
+		
+	 </div>
+	</div>
+</div>
+
+		<div class="attendance-daily-input-text-dbl-click">
+			<input type="text" class="attendance-daily-input-text"></input>
+		</div>
+<div class="attendance-daily-mask"></div>

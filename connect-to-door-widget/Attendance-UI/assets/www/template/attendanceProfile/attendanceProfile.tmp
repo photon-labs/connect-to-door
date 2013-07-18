@@ -1,0 +1,13 @@
+<div class="attendance-dom">
+	<div class="attendance-profile-content">
+		<div class="attendance-body">	
+			<div class="attendance-profile-body-left">
+				<attendance:attendance-and-voucher-button></attendance:attendance-and-voucher-button>
+			</div>
+			<div class="attendance-profile-body-right">
+				<attendance:person-information></attendance:person-information>				
+			</div>
+		</div>
+		<attendance:menu-footer></attendance:menu-footer>
+	</div>
+</div>

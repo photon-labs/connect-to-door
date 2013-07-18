@@ -1,0 +1,17 @@
+<div class="attendance-reimbursement-top-content">
+	<div class="attendance-reimbursement-top-left">
+		<div class="attendance-reimbursement-top-text-left">Employee's Name</div>
+		<div class="attendance-reimbursement-top-text-left">Employee's ID</div>
+		<div class="attendance-reimbursement-top-text-left">Project ID</div>
+	</div>
+	<div class="attendance-reimbursement-top-midle">
+		<div class="attendacne-reimbursement-top-text-midle">:</div>
+		<div class="attendacne-reimbursement-top-text-midle">:</div>
+		<div class="attendacne-reimbursement-top-text-midle">:</div>
+	</div>
+	<div class="attendance-reimbursement-top-right">
+		<div class="attendance-reimbursement-top-text-right"><div class="attendance-reimbursement-top-text-employee-name">-</div></div>
+		<div class="attendance-reimbursement-top-text-right"><div class="attendance-reimbursement-top-text-employee-id">-</div></div>
+		<div class="attendance-reimbursement-top-text-right"><div class="attendance-reimbursement-top-text-project-id">-</div></div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="date-from-content">Date  <input class="attendance-list-date-start" readonly></input><div class="mask-date-start"></div></div>
+<div class="date-until-content">Until <input class="attendance-list-date-until" readonly></input><div class="mask-date-until"></div></div>
+<div class="attendance-list-search-text">Search by :</div>
+<div class="search-button"><div class="button-dd"></div><div class="search-button-text"></div></div>
+	<div class="content-dd">
+		<div class="content-li">Date</div>
+		<div class="content-li">Name</div>
+		<div class="content-li">Project ID</div>
+		<div class="content-li">Employee ID</div>
+	</div>
+<div class="input-search-content"><input class="attendance-search-input-text" maxlength="18"></input></div>
+<div class="attendance-list-button-search"></div>
