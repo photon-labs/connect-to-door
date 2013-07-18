@@ -22,7 +22,6 @@
 		713343221737C9B800057FE6 /* ConnectToDoorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343211737C9B800057FE6 /* ConnectToDoorTests.m */; };
 		713343311737CB8500057FE6 /* ctdAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133432E1737CB8500057FE6 /* ctdAppDelegate.m */; };
 		7133433C1737CC2900057FE6 /* ctdBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133433A1737CC2900057FE6 /* ctdBaseViewController.m */; };
-		7133433D1737CC2900057FE6 /* ctdBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */; };
 		713343521737E01C00057FE6 /* ctdLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343501737E01C00057FE6 /* ctdLoginViewController.m */; };
 		713343531737E01C00057FE6 /* ctdLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713343511737E01C00057FE6 /* ctdLoginViewController.xib */; };
 		713343581737EF5F00057FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343571737EF5F00057FE6 /* MBProgressHUD.m */; };
@@ -123,7 +122,6 @@
 		7133432E1737CB8500057FE6 /* ctdAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAppDelegate.m; sourceTree = "<group>"; };
 		713343391737CC2900057FE6 /* ctdBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdBaseViewController.h; sourceTree = "<group>"; };
 		7133433A1737CC2900057FE6 /* ctdBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdBaseViewController.m; sourceTree = "<group>"; };
-		7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdBaseViewController.xib; sourceTree = "<group>"; };
 		713343411737D16000057FE6 /* ctdConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdConstants.h; sourceTree = "<group>"; };
 		7133434F1737E01C00057FE6 /* ctdLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdLoginViewController.h; sourceTree = "<group>"; };
 		713343501737E01C00057FE6 /* ctdLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdLoginViewController.m; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 			children = (
 				713343391737CC2900057FE6 /* ctdBaseViewController.h */,
 				7133433A1737CC2900057FE6 /* ctdBaseViewController.m */,
-				7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -887,7 +884,6 @@
 				713343031737C9B700057FE6 /* Default.png in Resources */,
 				713343051737C9B700057FE6 /* Default@2x.png in Resources */,
 				713343071737C9B700057FE6 /* Default-568h@2x.png in Resources */,
-				7133433D1737CC2900057FE6 /* ctdBaseViewController.xib in Resources */,
 				713343531737E01C00057FE6 /* ctdLoginViewController.xib in Resources */,
 				71DFF02B1738CCAF00EF1491 /* ctdWelcomeViewController.xib in Resources */,
 				71DFF0301738D56B00EF1491 /* ctdDailyAttendaceViewController.xib in Resources */,
