@@ -36,6 +36,7 @@ NSString *test;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.hasSignoutButton = NO;
     // Do any additional setup after loading the view from its nib.
 }
 
