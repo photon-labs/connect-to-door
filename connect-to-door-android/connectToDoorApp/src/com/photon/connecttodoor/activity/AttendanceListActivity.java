@@ -73,7 +73,6 @@ public class AttendanceListActivity extends MainActivity {
 
 		createDropdownCategory(this, category, spinnerCategory);
 		attendanceListReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
-		this.getCurrentDate();
 		this.actionButton();
 	}
 
@@ -100,8 +99,8 @@ public class AttendanceListActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				isSetStartDateText = false;
-				getCurrentDate();
-				showDialog(DATE_DIALOG_ID);
+				getUntilCurrentDate();
+				showDialog(DATE_UNTIL_DIALOG_ID);
 			}
 		});
 		/**
@@ -346,13 +345,26 @@ public class AttendanceListActivity extends MainActivity {
 		}
 	};
 
+	private DatePickerDialog.OnDateSetListener untilDateSetListener =
+			new DatePickerDialog.OnDateSetListener() {
+
+		@Override
+		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+			untilYear = year;
+			untilMonth = monthOfYear;
+			untilDay = dayOfMonth;
+
+			updateDisplay();
+		}
+	};
+
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 		case DATE_DIALOG_ID:
-			return new DatePickerDialog(this,
-					pDateSetListener,
-					pYear, pMonth, pDay);
+			return new DatePickerDialog(this, pDateSetListener, pYear, pMonth, pDay);
+		case DATE_UNTIL_DIALOG_ID:
+			return new DatePickerDialog(this, untilDateSetListener, untilYear, untilMonth, untilDay);
 		}
 
 		return null;
@@ -364,7 +376,7 @@ public class AttendanceListActivity extends MainActivity {
 		if(isSetStartDateText){
 			startFromDateTxt.setText(getDateEditText());
 		}else{
-			untilFromDateTxt.setText(getDateEditText());
+			untilFromDateTxt.setText(getUntilDateEditText());
 		}
 	}
 	/**
