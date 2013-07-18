@@ -10,8 +10,9 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ctdProfileService.h"
+#import "ctdBaseViewController.h"
 
-@interface ctdProfileViewController : UIViewController <FBUserSettingsDelegate, ProfileServiceDelegate>
+@interface ctdProfileViewController : ctdBaseViewController <FBUserSettingsDelegate, ProfileServiceDelegate>
 
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
 @property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -33,5 +34,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *onsiteLabel;
 @property (strong, nonatomic) IBOutlet UILabel *paternityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sickLabel;
+
+- (IBAction)backToWelcomePage:(id)sender;
 
 @end

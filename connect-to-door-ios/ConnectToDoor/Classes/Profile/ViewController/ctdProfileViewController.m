@@ -44,7 +44,7 @@ NSString *employeeId;
 
 - (void)didReceiveProfileResponse:(ctdProfileModel*)profileModel
 {
-    self.userNameLabel.text = profileModel.userName;
+    self.userNameLabel.text = profileModel.employeeName;
     self.employeeIdLabel.text = profileModel.employeeId;
     self.employeeNameLabel.text = profileModel.employeeName;
     self.genderLabel.text = profileModel.gender;
@@ -72,7 +72,10 @@ NSString *employeeId;
 
 -(void)viewWillAppear:(BOOL)animated{
     [self populateUserDetails];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (IBAction)backToWelcomePage:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

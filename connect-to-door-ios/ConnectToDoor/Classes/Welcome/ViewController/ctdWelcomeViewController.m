@@ -115,6 +115,7 @@
 
 -(void) goToProfile{
     ctdProfileViewController *profileViewController = [[ctdProfileViewController alloc]initWithNibName:@"ctdProfileViewController" bundle:nil];
+    profileViewController.hasSignoutButton = YES;
     [self.navigationController pushViewController:profileViewController animated:YES];
 }
 
