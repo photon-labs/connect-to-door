@@ -95,11 +95,11 @@ $(document).ready(function(){
 				*/
 				FB.init({
 //					FOR QA TO TESTING APPLICATION
-//					appId      : '381573458591835', // App ID
+					appId      : '213283962160675', // App ID
 
 
 //					FOR DEVELOPER TO TESTING APPLICATION
-					appId      : '200507243432067', // App ID
+//					appId      : '200507243432067', // App ID
 
 					channelUrl : '', // Channel File
 					status     : true, // check login status
