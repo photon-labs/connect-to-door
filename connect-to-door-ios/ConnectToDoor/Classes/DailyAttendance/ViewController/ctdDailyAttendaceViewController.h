@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ctdBaseViewController.h"
 
-@interface ctdDailyAttendaceViewController : UIViewController
+@interface ctdDailyAttendaceViewController : ctdBaseViewController
 
 @end

@@ -19,6 +19,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.hasBackButton = YES;
+        self.hasSignoutButton = YES;
         // Custom initialization
     }
     return self;
@@ -27,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -40,10 +43,6 @@
 -(void) goToReimbursement{
     ctdReimbursement *ctdReimbursementPage = [[ctdReimbursement alloc]initWithNibName:@"ctdReimbursement" bundle:nil];
     [self.navigationController pushViewController:ctdReimbursementPage animated:YES];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

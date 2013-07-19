@@ -11,10 +11,12 @@
 
 @interface ctdBaseViewController : UIViewController<AlertViewDelegate>{
     UIButton *signoutButton;
+    UIButton *backButton;
     ctdAlertViewController *alertView;
 }
 
 @property (nonatomic) BOOL hasSignoutButton;
+@property (nonatomic) BOOL hasBackButton;
 
 - (void)showAlert:(typeAlert)type;
 - (void)showActivityIndicator;

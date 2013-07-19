@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ctdBaseViewController.h"
 
-@interface ctdVoucherViewController : UIViewController
+@interface ctdVoucherViewController : ctdBaseViewController
+
 @property (nonatomic, strong) IBOutlet UIButton *requestButton;
 @property (nonatomic, strong) IBOutlet UIButton *reimbursement;
 

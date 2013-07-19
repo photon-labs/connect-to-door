@@ -20,6 +20,7 @@
 @implementation ctdBaseViewController
 
 @synthesize hasSignoutButton = _hasSignoutButton;
+@synthesize hasBackButton = _hasBackButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,15 @@
                    action:@selector(signOut)
          forControlEvents:UIControlEventTouchDown];
         [self.view addSubview:signoutButton];
+        
+        UIImage *backButtonImage = [UIImage imageNamed:@"button_back.png"];
+        backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backButton setImage:backButtonImage forState:UIControlStateNormal];
+        backButton.frame = CGRectMake(40, 624, backButtonImage.size.width, backButtonImage.size.height);
+        [backButton addTarget:self
+                          action:@selector(goBack)
+                forControlEvents:UIControlEventTouchDown];
+        [self.view addSubview:backButton];
     }
     return self;
 }
@@ -64,6 +74,15 @@
 - (void)setHasSignoutButton:(BOOL)hasSignoutButton {
 	_hasSignoutButton = hasSignoutButton;
 	signoutButton.alpha = (_hasSignoutButton == YES) ? 1.0 :0.0;
+}
+
+- (void)setHasBackButton:(BOOL)hasBackButton {
+	_hasBackButton = hasBackButton;
+	backButton.alpha = (_hasBackButton == YES) ? 1.0 :0.0;
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

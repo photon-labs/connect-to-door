@@ -24,6 +24,7 @@
     if (self) {
         // Custom initialization
         self.hasSignoutButton = NO;
+        self.hasBackButton = NO;
     }
     return self;
 }

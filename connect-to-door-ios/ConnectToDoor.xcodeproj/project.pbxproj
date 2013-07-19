@@ -96,6 +96,7 @@
 		DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */; };
 		DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */; };
 		DDA977BA1798F0A300AA3760 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */; };
+		DDA977BC17991C8600AA3760 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA977BB17991C8600AA3760 /* button_back.png */; };
 		DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -262,6 +263,7 @@
 		DDA389041798ECC900CB7BD4 /* button_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_ok.png; sourceTree = "<group>"; };
 		DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_voucher_Reimbursement.png; sourceTree = "<group>"; };
 		DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_voucher_Request.png; sourceTree = "<group>"; };
+		DDA977BB17991C8600AA3760 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_back.png; sourceTree = "<group>"; };
 		DDAD6C23178FEAA500D0FDBE /* ctdCheckStatusService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusService.h; sourceTree = "<group>"; };
 		DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusService.m; sourceTree = "<group>"; };
 		DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceParser.h; sourceTree = "<group>"; };
@@ -808,6 +810,7 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DDA977BB17991C8600AA3760 /* button_back.png */,
 				DDA389021798ECC900CB7BD4 /* box_alert_white.png */,
 				DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */,
 				DDA389041798ECC900CB7BD4 /* button_ok.png */,
@@ -1011,6 +1014,7 @@
 				DDA389091798ECC900CB7BD4 /* button_ok.png in Resources */,
 				DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */,
 				DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */,
+				DDA977BC17991C8600AA3760 /* button_back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

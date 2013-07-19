@@ -20,6 +20,7 @@ NSString *employeeId;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.hasBackButton = NO;
         // Custom initialization
     }
     return self;
@@ -28,6 +29,7 @@ NSString *employeeId;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 // Displays the user's name and profile picture so they are aware of the Facebook

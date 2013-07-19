@@ -28,6 +28,7 @@ NSString *test;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.hasBackButton = NO;
         // Custom initialization
     }
     return self;
@@ -37,12 +38,10 @@ NSString *test;
 {
     [super viewDidLoad];
     [self configureComponent];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
 
 - (void)didReceiveMemoryWarning
 {
