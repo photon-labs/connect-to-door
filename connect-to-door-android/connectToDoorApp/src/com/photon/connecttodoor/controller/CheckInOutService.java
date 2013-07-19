@@ -16,7 +16,7 @@ public class CheckInOutService {
 	public String handleCheckInRequest(final String employeeId, final String status){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleCheckinOut = ApplicationConstant.MODULE_CHECK_IN_OUT;
-		String responseString ;
+		String responseString = null ;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
 		try {	
@@ -29,7 +29,9 @@ public class CheckInOutService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }

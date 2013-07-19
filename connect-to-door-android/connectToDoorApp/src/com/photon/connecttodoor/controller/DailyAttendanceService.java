@@ -16,7 +16,7 @@ public class DailyAttendanceService {
 	public String handleRequestDailyAttendance(final String employeeId, final String date){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleDailyAttendance = ApplicationConstant.MODULE_DAILY_ATT;
-		String responseString ;
+		String responseString = null;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
 		try {	
@@ -29,7 +29,9 @@ public class DailyAttendanceService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }

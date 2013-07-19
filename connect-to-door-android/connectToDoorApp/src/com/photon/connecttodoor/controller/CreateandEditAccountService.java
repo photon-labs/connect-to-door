@@ -36,7 +36,7 @@ public class CreateandEditAccountService {
 			final String dataURLSignature, final String gender){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleCreateEditAccount = ApplicationConstant.MODULE_CREATE_EDIT_DELETE_ACCOUNT;
-		String responseString ;
+		String responseString = null;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
 		try {	
@@ -66,7 +66,9 @@ public class CreateandEditAccountService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }

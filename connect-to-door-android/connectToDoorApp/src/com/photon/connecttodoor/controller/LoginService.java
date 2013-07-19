@@ -16,7 +16,7 @@ public class LoginService {
 	public String handleLoginRequest(final String employeeId, final String fbId){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleLogin = ApplicationConstant.MODULE_LOGIN;
-		String responseString ;
+		String responseString = null;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
 		try {	
@@ -29,7 +29,9 @@ public class LoginService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }

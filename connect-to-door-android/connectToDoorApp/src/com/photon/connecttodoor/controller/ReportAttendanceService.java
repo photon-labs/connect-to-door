@@ -16,7 +16,7 @@ public class ReportAttendanceService {
 	public String handleRequestReportAttendance(final String status, final String date){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleReport = ApplicationConstant.MODULE_REPORT;
-		String responseString ;
+		String responseString = null;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
 		try {	
@@ -29,7 +29,9 @@ public class ReportAttendanceService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }

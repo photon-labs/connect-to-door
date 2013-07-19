@@ -16,7 +16,7 @@ public class DeleteAccountService {
 	public String handleDeleteAccountRequest(final String status, final String employeeID){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleDeleteAccount = ApplicationConstant.MODULE_CREATE_EDIT_DELETE_ACCOUNT;
-		String responseString ;
+		String responseString = null;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
 		try {	
@@ -29,7 +29,9 @@ public class DeleteAccountService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }

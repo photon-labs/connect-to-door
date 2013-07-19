@@ -21,7 +21,7 @@ public class AttendanceListService {
 	public String handleRequestAttendanceList (final String searchParameter, final String searchingValue, final String dateStart, final String dateEnd){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleAttendanceList = ApplicationConstant.MODULE_ATT_LIST;
-		String responseString ;
+		String responseString = null;
 		JSONObject response = null ;
 		JSONObject postBody = new JSONObject();
 		try {	
@@ -47,7 +47,9 @@ public class AttendanceListService {
 		}catch (JSONException e) {
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }

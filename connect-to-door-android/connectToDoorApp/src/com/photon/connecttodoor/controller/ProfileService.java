@@ -17,8 +17,8 @@ public class ProfileService {
 	public String handleProfileRequest(final String searchParameter, final String value){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleProfile = ApplicationConstant.MODULE_PROFILE;
-		String responseString ;
-		JSONObject response = null ;
+		String responseString = null;
+		JSONObject response = null;
 		JSONObject postBody = new JSONObject();
 		try {	
 			if(searchParameter.equalsIgnoreCase(EMPLOYEE_ID)){
@@ -36,7 +36,9 @@ public class ProfileService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 
 	}

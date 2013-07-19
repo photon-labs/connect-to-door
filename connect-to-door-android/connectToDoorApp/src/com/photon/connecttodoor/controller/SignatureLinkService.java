@@ -15,8 +15,8 @@ public class SignatureLinkService {
 	public String handleSignatureLinkService (final String employeeId){
 		final HttpAdapter httpAdapter = new HttpAdapter();
 		String moduleSignature = ApplicationConstant.MODULE_SIGNATURE_LINK;
-		String responseString ;
-		JSONObject response = null ;
+		String responseString = null;
+		JSONObject response = null;
 		JSONObject postBody = new JSONObject();
 		try {	
 			postBody.put("employee_id", employeeId);
@@ -27,7 +27,9 @@ public class SignatureLinkService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		responseString = response.toString();
+		if(response != null){
+			responseString = response.toString();
+		}
 		return responseString;
 	}
 }
