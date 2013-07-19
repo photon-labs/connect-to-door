@@ -58,7 +58,7 @@
                 android:layout_marginLeft="20dp"
                 android:text="@string/checkInText"
                 android:textColor="#ffffff"
-                android:textSize="18sp" 
+                android:textSize="22sp" 
                 android:visibility="gone"/>
 
             <TextView
@@ -68,16 +68,16 @@
                 android:layout_marginLeft="20dp"
                 android:text="@string/checkOutText"
                 android:textColor="#ffffff"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:visibility="gone" />
 
             <TextView
                 android:id="@+id/currentTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
+                android:layout_marginLeft="10dp"
                 android:textColor="#ffffff"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:visibility="gone" />
         </LinearLayout>
 

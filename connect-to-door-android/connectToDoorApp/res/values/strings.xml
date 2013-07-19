@@ -5,8 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="welcome">Welcome,</string>
-    <string name="checkInText">You have checked in at,</string>
-    <string name="checkOutText">You have checked out at,</string>
+    <string name="checkInText">You have checked in at</string>
+    <string name="checkOutText">You have checked out at</string>
     <string name="name_profile">Name </string>
     <string name="employeeId_profile">Employee ID</string>
     <string name="projectId_profile">Project ID</string>

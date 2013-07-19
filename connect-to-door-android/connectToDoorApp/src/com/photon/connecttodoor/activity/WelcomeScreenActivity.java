@@ -1,7 +1,12 @@
 package com.photon.connecttodoor.activity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.json.JSONException;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,6 +22,7 @@ import com.photon.connecttodoor.datamodel.CheckPresentModel;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
+@SuppressLint("SimpleDateFormat")
 public class WelcomeScreenActivity extends MainActivity {
 
 	private ImageButton profilButton;
@@ -168,20 +174,42 @@ public class WelcomeScreenActivity extends MainActivity {
 	 */
 	private void checkPresentstatus(){
 		String currentdate = null;
+		String time = null;
 		if (!checkPresentModel.getCheckoutPresent().equals("") && checkPresentModel.getCheckoutPresent() != null){
-			currentdate = checkPresentModel.getCheckoutPresent();
+			currentdate = checkPresentModel.getCheckoutPresent(); 
+			time = changeTimeAMPM(currentdate);
 			checkOutText.setVisibility(View.VISIBLE);
-			currentTime.setText(currentdate);
+			currentTime.setText(time);
 			currentTime.setVisibility(View.VISIBLE);
 			checkInText.setVisibility(View.GONE);
 		}else{
 			currentdate = checkPresentModel.getCheckinPresent();
+			time = changeTimeAMPM(currentdate);
 			checkInText.setVisibility(View.VISIBLE);
-			currentTime.setText(currentdate);
+			currentTime.setText(time);
 			currentTime.setVisibility(View.VISIBLE);
 			checkOutText.setVisibility(View.GONE);
 		}
 
+	}
+	/**
+	 * change format time to AM/PM
+	 * @param time
+	 * @return
+	 */
+	private String changeTimeAMPM(String time){
+		Date d = null;
+		try {
+			//change time from string to format date
+			 d = new SimpleDateFormat("HH:mm").parse(time);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//change time to am pm
+		SimpleDateFormat df = new SimpleDateFormat("hh:mm aaa");
+		df.format(d);
+		return df.format(d);
 	}
 	/**
 	 * set ui if employee not yet check in
