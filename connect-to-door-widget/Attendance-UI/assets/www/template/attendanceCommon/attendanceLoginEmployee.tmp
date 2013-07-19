@@ -1,0 +1,12 @@
+<div class="attendance-dom">	
+	<div class="sign-in-body">
+		<div class="sign-in-box">
+				<div class="employee-id-content">
+					<div class="employee-id">Employee ID :</div>
+					<div class="employee-id-input"><input type="text" class="employee-id-input-bg" maxlength="5"></input></div>
+					<input type="text" class="employee-id-input-focus-out"></input>
+				</div>
+				<div class="continue-button"></div>
+		</div>
+	</div>
+</div>

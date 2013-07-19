@@ -62,6 +62,7 @@ public class SignInActivity extends MainActivity {
 	public void goToWelcomePage(){
 		Intent welcomePage = new Intent(SignInActivity.this, WelcomeScreenActivity.class);
 		startActivity(welcomePage);
+		finish();
 	}
 
 	/**
@@ -96,11 +97,16 @@ public class SignInActivity extends MainActivity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			if(loginDataModel.getStatus().equalsIgnoreCase("success")){
-				goToWelcomePage();
+			if(response != null){
+				if(loginDataModel.getStatus().equalsIgnoreCase("success")){
+					goToWelcomePage();
+				}else{
+					alertMessage(ApplicationConstant.ERR_LOGIN_FAIL,SignInActivity.this);
+				}
 			}else{
-				alertMessage(ApplicationConstant.ERR_LOGIN_FAIL,SignInActivity.this);
+				alertMessage("service not found",SignInActivity.this);
 			}
+			
 			this.dialog.dismiss();
 		}
 	}

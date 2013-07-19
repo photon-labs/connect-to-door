@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ctdAlertViewController.h"
 
-@interface ctdBaseViewController : UIViewController
+@interface ctdBaseViewController : UIViewController<AlertViewDelegate>{
+    UIButton *signoutButton;
+    ctdAlertViewController *alertView;
+}
+
+@property (nonatomic) BOOL hasSignoutButton;
+
+- (void)showAlert:(typeAlert)type;
+- (void)showActivityIndicator;
+- (void)hideActivityIndicator;
 
 @end

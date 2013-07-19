@@ -1,0 +1,10 @@
+<div class="attendance-dom">
+	<div class="attendance-menu-body">	
+		<attendance:menu-body-left></attendance:menu-body-left>
+		<div class="attendance-menu-body-right">
+			<attendance:menu-box></attendance:menu-box>
+			<attendance:menu-button></attendance:menu-button>
+		</div>
+	</div>
+	<attendance:menu-footer></attendance:menu-footer>
+</div>

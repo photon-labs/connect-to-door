@@ -66,9 +66,6 @@
     return [localStorage getNameUserFacebook];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -118,6 +115,7 @@
 
 -(void) goToProfile{
     ctdProfileViewController *profileViewController = [[ctdProfileViewController alloc]initWithNibName:@"ctdProfileViewController" bundle:nil];
+    profileViewController.hasSignoutButton = YES;
     [self.navigationController pushViewController:profileViewController animated:YES];
 }
 
@@ -164,12 +162,7 @@
         NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", model.checkIn];
         statusCheck.text = timeCheckIn;
     }else{
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                          message:model.message
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self showAlert:kAlertErrorAlreadyCheckIn];
     }
     
 }
@@ -186,12 +179,7 @@
         NSString* timeCheckOut = [NSString stringWithFormat:@"You have checked out at %@", model.checkOut];
         statusCheck.text = timeCheckOut;
     }else{
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                          message:model.message
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self showAlert:kAlertErrorAlreadyCheckOut];
     }
 }
 

@@ -1,0 +1,11 @@
+<div class="attendance-dom">
+	<div class ="dropdown-dom">
+		<div class="attendance-form-body">
+			<attendance:form-left-content></attendance:form-left-content>
+			<attendance:form-right-content></attendance:form-right-content>
+		</div>
+		<div class="attendance-form-footer">
+			<attendance:common-footer></attendance:common-footer>	
+		</div>
+	</div>
+</div>

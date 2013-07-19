@@ -1,0 +1,46 @@
+<div class="attendance-request-item-input">
+	<div class="attendance-request-item-input-title"><div class="item-input-title">Itemized Request</div></div>
+	
+	<div class="attendance-request-item-input-request">
+		<div class="attendance-request-item-input-request-content"><div class="request-text-white">Request</div></div>
+		<div class="attendance-request-item-input-dot"><div class="request-text-white">:</div></div>
+		<div class="attendance-request-item-input-request-value"><div class="type-text-value"></div><div class="type-down-arrow"></div></div>
+	</div>
+	
+		<div class="attendance-request-item-input-description">
+		<div class="attendance-request-item-input-description-content"><div class="request-text-white">Description</div></div>
+		<div class="attendance-request-item-input-dot"><div class="request-text-white">:</div></div>
+		<div class="attendance-request-item-input-description-value"><input class="request-by-value" maxlength="30"></input></div>
+	</div>
+	
+	<div class="attendance-request-item-input-quantity">
+		<div class="attendance-request-item-input-quantity-content"><div class="request-text-white">Quantity</div></div>
+		<div class="attendance-request-item-input-dot"><div class="request-text-white">:</div></div>
+		<div class="attendance-request-item-input-quantity-value"><input class="request-by-value" maxlength="5"></input></div>
+	</div>
+	
+	<div class="attendance-request-item-input-currency">
+		<div class="attendance-request-item-input-currency-content"><div class="request-text-white">Currency</div></div>
+		<div class="attendance-request-item-input-dot"><div class="request-text-white">:</div></div>
+		<div class="attendance-request-item-input-currency-value"><div class="request-currency-by-value"></div><div class="type-currency-arrow"></div></div>
+		<div class="request-currency-mask"></div>
+	</div>
+	
+	<div class="attendance-request-item-input-cost">
+		<div class="attendance-request-item-input-cost-content"><div class="request-text-white">Cost</div></div>
+		<div class="attendance-request-item-input-dot"><div class="request-text-white">:</div></div>
+		<div class="attendance-request-item-input-cost-value"><input class="request-by-value" maxlength="10"></input></div>
+	</div>
+	
+	<div class="attendance-request-item-input-save-button"></div>
+</div>
+
+<div class="attendance-request-dd-item-input">
+	{{#each itemList}}
+		<div class="dd-type-content"><div class="dd-type-list-item-text">{{item}}</div></div>
+	{{/each}}
+</div>
+<div class="request-approval-dropdown-currency">
+	<div class="request-approval-dropdown-currency-item">Dollar (USD)</div>
+	<div class="request-approval-dropdown-currency-item">Rupiah (IDR)</div>
+</div>

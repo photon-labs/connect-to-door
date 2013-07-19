@@ -1,0 +1,19 @@
+<div class="attendance-dom">
+	<div class ="dropdown-dom">
+		<div class="attendance-body">
+			<div class="attendance-body-list-left">
+				<attendance:detail-navigation-left></attendance:detail-navigation-left>
+			</div>
+			
+			<div class="attendance-body-list-right">
+				<attendance:detail-calendar></attendance:detail-calendar>
+			</div>
+		</div>
+		
+		<div class="attendance-footer">
+			<attendance:common-footer></attendance:common-footer>	
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,81 @@
+<div class="attendance-profile-header">
+	<div class="attendance-image-profile"></div>	
+	<div class="attendance-profile-header-top">
+		<div class="attendance-profile-title-name">
+			<div class="attendance-font-14-white-title">Name</div>
+			<div class="attendance-font-14-white-quote">:</div> 
+			<div class ="attendance-font-14-white-value"></div>
+		</div>
+		<div class="attendance-profile-title-employee-id">
+			<div class="attendance-font-14-white-title">Employee ID</div>
+			<div class="attendance-font-14-white-quote">:</div>
+			<div class ="attendance-font-14-white-value"></div>
+		</div>
+		<div class="attendance-profile-title-project-id">
+			<div class="attendance-font-14-white-title">Project ID</div> 
+			<div class="attendance-font-14-white-quote">:</div>
+			<div class ="attendance-font-14-white-value"></div>
+		</div>
+		<div class="attendance-profile-title-position">
+			<div class="attendance-font-14-white-title">Role</div> 
+			<div class="attendance-font-14-white-quote">:</div>
+			<div class ="attendance-font-14-white-value"></div>
+		</div>
+		<div class="attendance-profile-title-start-working">
+			<div class="attendance-font-14-white-title">Start Working</div> 
+			<div class="attendance-font-14-white-quote">:</div>
+			<div class ="attendance-font-14-white-value"></div>
+		</div>
+		<div class="attendance-profile-title-email-address">
+			<div class="attendance-font-14-white-title">Email Address</div> 
+			<div class="attendance-font-14-white-quote">:</div>
+			<div class ="attendance-font-14-white-value"></div>
+		</div>
+	</div>	
+	<div class="attendance-profile-header-bottom">
+		<div class="attendance-profile-header-bottom-left">
+			<div class="attendance-line-text-annual-leave">
+				<div class="attendance-font-20-black-title">Annual Leave</div> 
+				<div class="attendance-font-20-black-quote">:</div> 
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>
+			<div class="attendance-line-text-coff">
+				<div class="attendance-font-20-black-title">C-Off</div> 
+				<div class="attendance-font-20-black-quote">:</div> 
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>	
+			<div class="attendance-line-text-condolences">
+				<div class="attendance-font-20-black-title">Condolences Leave</div> 
+				<div class="attendance-font-20-black-quote">:</div> 
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>	
+			<div class="attendance-line-text-married">
+				<div class="attendance-font-20-black-title">Married Leave</div> 
+				<div class="attendance-font-20-black-quote">:</div> 
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>
+		</div>
+		<div class="attendance-profile-header-bottom-right">
+			<div class="attendance-line-text-maternity">
+				<div class="attendance-font-20-black-title">Maternity Leave</div> 
+				<div class="attendance-font-20-black-quote">:</div> 
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>
+			<div class="attendance-line-text-paternity">
+				<div class="attendance-font-20-black-title">Paternity Leave</div> 
+				<div class="attendance-font-20-black-quote">:</div>
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>	
+			<div class="attendance-line-text-onsite">
+				<div class="attendance-font-20-black-title">Onsite</div> 
+				<div class="attendance-font-20-black-quote">:</div> 
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>																											
+			<div class="attendance-line-text-sick">
+				<div class="attendance-font-20-black-title">Sick Leave</div> 
+				<div class="attendance-font-20-black-quote">:</div> 
+				<div class="attendance-font-20-black-value">-</div><div class="days-text">days</div>
+			</div>
+		</div>	
+	</div>
+</div>	

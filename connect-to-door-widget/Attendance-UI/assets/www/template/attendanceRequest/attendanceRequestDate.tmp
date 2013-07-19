@@ -1,0 +1,8 @@
+<div class="attendance-request-input-date-content">
+	<div class="attendance-request-input-date">
+		<div class="request-date-month"></div>
+		<div class="request-date-number"></div>
+		<div class="request-date-coma">,</div>
+		<div class="request-date-year"></div>
+	</div>
+</div>

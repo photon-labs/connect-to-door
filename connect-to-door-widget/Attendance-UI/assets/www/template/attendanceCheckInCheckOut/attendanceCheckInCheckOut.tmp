@@ -1,0 +1,31 @@
+<div class="attendance-dom">
+		<div class="header-checkinout-container">
+			<div class="header-checkinout-text">Form Edit Check In and Check Out Employees</div>
+			<div class="body-checkinout-container">
+				<div class="date-from-content">
+					<div class="title-checkinout-text">Date & Time Check In:</div>
+					<input class="attendance-list-date-start checkin "></input>
+					 <input class="attendance-list-time-start"></input>
+				</div>
+
+				<div class="date-from-content">
+					<div class="title-checkinout-text">Date & Time Check Out:</div>
+					<input class="attendance-list-date-until checkout" disabled ></input>
+					 <input class="attendance-list-time-end"></input>
+				</div>
+
+				<div class="name-checkinout-from-content">
+					<div class="title-checkinout-text">Name :</div>
+					<div class="input-search-content checkinout">
+						<input class="attendance-search-input-text-checkinout" maxlength="20"></input>
+					</div>
+				</div>
+				
+				<div class ="save-button-checkinout-content">
+				<div class =" attendance-form-button-save checkincheckout"></div>
+				</div>
+				
+
+			</div>
+		</div>
+	</div>

@@ -133,6 +133,13 @@ public class ProfilActivity extends MainActivity {
 	private void goToAttendancePage(){
 		Intent attendancePage = new Intent(ProfilActivity.this,WelcomeScreenActivity.class);
 		startActivity(attendancePage);
+		finish();
+	}
+	@Override
+	public void onBackPressed() {
+		Intent attendancePage = new Intent(ProfilActivity.this,WelcomeScreenActivity.class);
+		startActivity(attendancePage);
+		finish();
 	}
 	/**
 	 * launch voucher page
@@ -140,6 +147,7 @@ public class ProfilActivity extends MainActivity {
 	private void goToVoucherPage(){
 		Intent voucherPage = new Intent(ProfilActivity.this,VoucherActivity.class);
 		startActivity(voucherPage);
+		finish();
 	}
 	/**
 	 * launch login page
@@ -147,6 +155,7 @@ public class ProfilActivity extends MainActivity {
 	private void goToLoginPage(){
 		Intent loginPage = new Intent(ProfilActivity.this,LoginActivity.class);
 		startActivity(loginPage);
+		finish();
 	}
 
 

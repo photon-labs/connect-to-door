@@ -1,0 +1,18 @@
+<div class="attendance-reimbursement-dropdown">
+	<div class="attendance-reimbursement-dropdown-reimbursement">
+		<div class="attendance-reimbursement-dropdown-text-left">Reimbursement</div>
+		<div class="attendance-reimbursement-dropdown-text-midle">:</div>
+		<div class="attendance-reimbursement-dropdown-text-right"></div>
+		<div class="attendance-reimbursement-dropdown-right">
+			<input type="text" class="attendance-reimbursement-input-dropdown"></input>
+			<div class="attendance-reimbursement-arrow-dropdown"></div>
+		</div>
+		<div class="attendance-reimbursement-dropdown-master-content">
+			<div class="attendance-reimbursement-dropdown-content">Meal</div>
+			<div class="attendance-reimbursement-dropdown-content">Transportation</div>
+			<div class="attendance-reimbursement-dropdown-content">Utility</div>
+		</div>		
+	</div>
+</div>
+
+<div class="attendance-reimbursement-dropdown-mask"></div>

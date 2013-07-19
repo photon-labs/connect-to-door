@@ -10,8 +10,9 @@
 #import "ctdCheckInService.h"
 #import "ctdCheckStatusService.h"
 #import "ctdCheckOutService.h"
+#import "ctdBaseViewController.h"
 
-@interface ctdWelcomeViewController : UIViewController<CheckInServiceDelegate,CheckStatusServiceDelegate,CheckOutServiceDelegate>{
+@interface ctdWelcomeViewController : ctdBaseViewController<CheckInServiceDelegate,CheckStatusServiceDelegate,CheckOutServiceDelegate>{
     
 }
 

@@ -190,11 +190,19 @@ public class ReportActivity extends MainActivity {
 	private void goToAttendancePage(){
 		Intent attendancePage = new Intent(ReportActivity.this,WelcomeScreenActivity.class);
 		startActivity(attendancePage);
+		finish();
 	}
 
 	private void goToLoginPage(){
 		Intent loginPage = new Intent(ReportActivity.this,LoginActivity.class);
 		startActivity(loginPage);
+		finish();
+	}
+	@Override
+	public void onBackPressed() {
+		Intent attendancePage = new Intent(ReportActivity.this,WelcomeScreenActivity.class);
+		startActivity(attendancePage);
+		finish();
 	}
 
 }

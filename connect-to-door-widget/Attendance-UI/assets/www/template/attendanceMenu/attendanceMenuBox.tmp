@@ -1,0 +1,8 @@
+<div class="attendance-menu-box">
+	<div class="attendance-menu-welcome"></div>
+	<div class="attendance-menu-time"></div>
+	<div class="attendance-menu-check">
+		<div class="attendance-menu-button-checkin"></div>
+		<div class="attendance-menu-button-checkout"></div>
+	</div>
+</div>

@@ -22,8 +22,6 @@ public class WelcomeScreenActivity extends MainActivity {
 	private ImageButton profilButton;
 	private ImageButton voucherButton;
 	private ImageButton dailyButton;
-	private ImageButton checkInButton;
-	private ImageButton checkOutButton;
 	private ImageButton attendanceListButton;
 	private ImageButton attendanceReportButton;
 	private ImageButton attendanceFormButton;
@@ -35,6 +33,7 @@ public class WelcomeScreenActivity extends MainActivity {
 	LoginDataModel loginDataModel;
 	private static final String ADMIN = "Admin";
 	private static final String EMPLOYEE_ID = "employeeId";
+	private static final String CHECK_STATUS = "check-status";
 	CheckPresentModel checkPresentModel;
 	String status;
 	@Override
@@ -45,8 +44,6 @@ public class WelcomeScreenActivity extends MainActivity {
 		dailyButton = (ImageButton)findViewById(R.id.dailyAttandanceButton);
 		profilButton = (ImageButton) findViewById(R.id.profileButton);
 		voucherButton = (ImageButton) findViewById(R.id.voucherButton);
-		checkInButton = (ImageButton) findViewById(R.id.checkInButton);
-		checkOutButton = (ImageButton) findViewById(R.id.checkOutButton);
 		attendanceReportButton = (ImageButton) findViewById(R.id.attandanceReportButton);
 		attendanceFormButton = (ImageButton) findViewById(R.id.attandanceFormButton);
 		signOutButton = (ImageButton)findViewById(R.id.signOutButton);
@@ -54,7 +51,7 @@ public class WelcomeScreenActivity extends MainActivity {
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
 		username = (TextView) findViewById(R.id.username);
-		status = "check-status";
+		status = CHECK_STATUS;
 
 		checkPresentModel = new CheckPresentModel();
 
@@ -69,34 +66,13 @@ public class WelcomeScreenActivity extends MainActivity {
 
 		actionButton();
 	}
-
+	/**
+	 * registered action all button
+	 */
 	private void actionButton(){
-		checkInButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				if(connectionAvailable()){
-					status = "checkIn";
-					new CallServiceCheckInOut().execute();
-				}else{
-					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, WelcomeScreenActivity.this);
-				}
-			}
-		});
-
-		checkOutButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				if(connectionAvailable()){
-					status = "checkOut";
-					new CallServiceCheckInOut().execute();
-				}else{
-					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, WelcomeScreenActivity.this);
-				}
-			}
-		});
-
+		/**
+		 * on click to daily attendance page
+		 */
 		dailyButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -104,16 +80,19 @@ public class WelcomeScreenActivity extends MainActivity {
 				goToDailyAttandancePage();
 			}
 		});
-
+		/**
+		 * on click to voucher page
+		 */
 		voucherButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				goToVoucherPage();
-
 			}
 		});
-
+		/**
+		 * on click to profile page
+		 */
 		profilButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -121,6 +100,9 @@ public class WelcomeScreenActivity extends MainActivity {
 				goToProfilPage();
 			}
 		});
+		/**
+		 * on click to list attendance page
+		 */
 		attendanceListButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -129,23 +111,29 @@ public class WelcomeScreenActivity extends MainActivity {
 
 			}
 		});
+		/**
+		 * on click to report page
+		 */
 		attendanceReportButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				goToReportPage();
-
 			}
 		});
+		/**
+		 * on click to form account page
+		 */
 		attendanceFormButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				goToFormPage();
-
 			}
 		});
-
+		/**
+		 * on click to sign out page
+		 */
 		signOutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -160,7 +148,9 @@ public class WelcomeScreenActivity extends MainActivity {
 			}
 		});
 	}
-
+	/**
+	 * set login data model
+	 */
 	private void setDataLogin(){
 		String datalogin = loadStringPreferences("responseLogin", getApplicationContext());
 		if(!datalogin.equalsIgnoreCase("")){
@@ -173,34 +163,9 @@ public class WelcomeScreenActivity extends MainActivity {
 			}
 		}
 	}
-	private void updateViewCheckInSucces(){
-		String currentdate = checkPresentModel.getCheck_in();
-		if(checkPresentModel.getStatus().equals("success")){
-			checkInText.setVisibility(View.VISIBLE);
-			String checkInTime = splitCurrentTime(currentdate);
-			currentTime.setText(checkInTime);
-			currentTime.setVisibility(View.VISIBLE);
-			checkOutText.setVisibility(View.GONE);
-		}else{
-			String message = checkPresentModel.getMessage();
-			alertMessage(message, WelcomeScreenActivity.this);
-		}
-	}
-
-	private void updateViewCheckOutSucces(){
-		String currentdate = checkPresentModel.getCheck_out();
-		if(checkPresentModel.getStatus().equals("success")){
-			checkOutText.setVisibility(View.VISIBLE);
-			String checkOutTime = splitCurrentTime(currentdate);
-			currentTime.setText(checkOutTime);
-			currentTime.setVisibility(View.VISIBLE);
-			checkInText.setVisibility(View.GONE);
-		}else{
-			String message = checkPresentModel.getMessage();
-			alertMessage(message, WelcomeScreenActivity.this);
-		}
-	}
-
+	/**
+	 * set ui for check present status
+	 */
 	private void checkPresentstatus(){
 		String currentdate = null;
 		if (!checkPresentModel.getCheckoutPresent().equals("") && checkPresentModel.getCheckoutPresent() != null){
@@ -218,23 +183,30 @@ public class WelcomeScreenActivity extends MainActivity {
 		}
 
 	}
+	/**
+	 * set ui if employee not yet check in
+	 */
 	private void setUIDefaultStatus(){
 		checkInText.setVisibility(View.INVISIBLE);
 		checkOutText.setVisibility(View.INVISIBLE);
 		currentTime.setVisibility(View.INVISIBLE);
 	}
-
-	private String splitCurrentTime(String currentTime){
-		String [] formatTime = currentTime.split(" ");
-		String time = formatTime[1];
-		String [] checkInTime = time.split(":");
-		String hours = checkInTime[0];
-		String minutes = checkInTime[1];
-		String currentTimes = hours+":"+minutes;
-		return currentTimes;
+	/**
+	 * set first name from username
+	 * @param username
+	 * @return
+	 */
+	private String setFirstName(String username){
+		String formatName [] = username.split(" ");
+		String firstName = formatName[0];
+		return firstName;
 	}
+	/**
+	 * set ui for welcome screen page 
+	 */
 	private void setUIWelcomeScreen(){
-		username.setText(loginDataModel.getUsername());
+		String firstname = setFirstName(loginDataModel.getUsername().toString());
+		username.setText(firstname);
 		String previlage = loginDataModel.getPrevilage();
 		if(previlage.equals(ADMIN)){
 			attendanceReportButton.setVisibility(View.VISIBLE);
@@ -244,7 +216,11 @@ public class WelcomeScreenActivity extends MainActivity {
 			attendanceFormButton.setVisibility(View.GONE);
 		}
 	}
-
+	/**
+	 * 
+	 * call service for check status 
+	 *
+	 */
 	private class CallServiceCheckInOut extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
@@ -269,13 +245,7 @@ public class WelcomeScreenActivity extends MainActivity {
 				if(!response.equals("{}")){
 					try {
 						checkPresentModel.parseSource(response);
-						if(status == "checkIn"){
-							updateViewCheckInSucces();
-						}else if(status == "checkOut"){
-							updateViewCheckOutSucces();
-						}else{
-							checkPresentstatus();
-						}
+						checkPresentstatus();
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -291,29 +261,39 @@ public class WelcomeScreenActivity extends MainActivity {
 	private void goToAttendancePage(){
 		Intent intentAttandanceList = new Intent(WelcomeScreenActivity.this, AttendanceListActivity.class);
 		startActivity(intentAttandanceList);
+		finish();
 	}
 	private void goToDailyAttandancePage(){
 		Intent intentDailyAttandance = new Intent(WelcomeScreenActivity.this, DailyAttendanceActivity.class);
 		startActivity(intentDailyAttandance);
+		finish();
 	}
 	private void goToProfilPage(){
 		Intent intentProfilPage = new Intent(WelcomeScreenActivity.this, ProfilActivity.class);
 		startActivity(intentProfilPage);
+		finish();
 	}
 	private void goToVoucherPage(){
 		Intent intentVoucherPage = new Intent(WelcomeScreenActivity.this, VoucherActivity.class);
 		startActivity(intentVoucherPage);
+		finish();
 	}
 	private void goToReportPage(){
 		Intent intentReportPage = new Intent(WelcomeScreenActivity.this, ReportActivity.class);
 		startActivity(intentReportPage);
+		finish();
 	}
 	private void goToFormPage(){
 		Intent intentFormPage = new Intent(WelcomeScreenActivity.this,AttendanceFormActivity.class);
 		startActivity(intentFormPage);
+		finish();
 	}
 	private void goToLoginPage(){
 		Intent loginPage = new Intent(WelcomeScreenActivity.this,LoginActivity.class);
 		startActivity(loginPage);
+		finish();
+	}
+	public void onBackPressed() {
+		// your code.
 	}
 }

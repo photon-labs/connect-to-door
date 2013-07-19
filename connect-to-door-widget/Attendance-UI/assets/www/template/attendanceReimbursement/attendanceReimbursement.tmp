@@ -1,0 +1,26 @@
+<div class="attendance-dom">
+	<div class ="dropdown-dom">
+		<div class="attendance-dom-reimburse">
+			<div id="reimbursementprint" class="attendance-reimbursment-content-box">
+				<div class="attendance-reimbursement-box-top"></div>
+				<div class="attendance-reimbursement-box-midle">
+					<request:date></request:date>
+					<attendance:reimbursement-top-content></attendance:reimbursement-top-content>
+					<div class="reimbursement-table-dom">
+						<attendance:reimbursement-table></attendance:reimbursement-table>
+					</div>
+					<div class="attendance-reimbursement-button-table-dom">
+						<attendance:reimbursement-button-table></attendance:reimbursement-button-table>
+					</div>
+					<div class="reimbursement-signature-dom">
+						<reimbursement:signature></reimbursement:signature>
+					</div>
+					<div class="attendance-reimbursement-bottom-content-dom">
+						<reimbursement:footer></reimbursement:footer>				
+					</div>
+				</div>			
+				<div class="attendance-reimbursement-box-bottom"></div>	
+			</div>	
+		</div>
+	</div>
+</div>

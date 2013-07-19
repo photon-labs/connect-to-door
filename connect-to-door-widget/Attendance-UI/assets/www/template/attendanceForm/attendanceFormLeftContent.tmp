@@ -1,0 +1,24 @@
+<div class="attendance-form-body-left">
+		<div class="attendance-form-bofy-left-top">
+			<div class="attendance-form-button-create-account"></div>
+			<div class="attendance-form-button-edit-account"></div>
+			<div class="attendance-form-button-delete-account"></div>
+		</div>
+		<div class="attendance-form-body-left-bottom">
+			<div class="attendance-form-text-search-by">Search by:</div>
+			<div class="attendance-form-content-input">
+				<div class="attendance-form-drop-name"></div>
+				<div class="attendance-form-image-arrow"></div>
+			</div>				
+			<div class="attendance-form-content-drop-master">
+				<div class="attendance-form-content-drop-text">Username</div>
+				<div class="attendance-form-content-drop-text">Employee ID</div>
+			</div>				
+			<div class="attendance-form-input-name">
+				<input type="text" class="attendance-form-background-input-name" maxlength="15"></input>
+			</div>
+			<div class="attendance-form-button-search"></div>
+			<div class="attendance-form-button-delete"></div>
+		</div>
+		
+</div>

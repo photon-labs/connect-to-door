@@ -1,0 +1,25 @@
+<div class="attendance-dom">
+<div class="dom-in-daily">
+	<div class="attendance-daily-dom">
+		<div class="attendance-daily-top"></div>
+		<div class="attendance-daily-midle">
+			<div class="attendance-daily-body">	
+				<div class="attendance-daily-box">
+					<div class="attendance-daily-box-input">
+						<div class="daily-date-picker-dom"><input class="daily-date-picker" readonly></input></div>
+					</div>
+					<div class="attendance-daily-detail">
+						<attendance:daily-detail></attendance:daily-detail>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<div class="attendance-daily-bottom">
+			<div class="attendance-daily-print"></div>
+		</div>		
+	</div>
+	<div class="attendance-daily-common-footer">
+			<attendance:daily-footer></attendance:daily-footer>
+	</div>
+</div>
+</div>

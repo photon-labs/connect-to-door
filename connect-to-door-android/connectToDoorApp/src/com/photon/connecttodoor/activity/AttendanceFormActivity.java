@@ -246,6 +246,7 @@ public class AttendanceFormActivity extends MainActivity {
 	private void goToWelcomePage(){
 		Intent intentWelcomeScreen = new Intent(AttendanceFormActivity.this, WelcomeScreenActivity.class);
 		startActivity(intentWelcomeScreen);
+		finish();
 	}
 	/**
 	 * launch login page
@@ -253,6 +254,13 @@ public class AttendanceFormActivity extends MainActivity {
 	private void goToLoginPage(){
 		Intent intentLoginPage = new Intent(AttendanceFormActivity.this, LoginActivity.class);
 		startActivity(intentLoginPage);
+		finish();
+	}
+	@Override
+	public void onBackPressed() {
+		Intent intentWelcomeScreen = new Intent(AttendanceFormActivity.this, WelcomeScreenActivity.class);
+		startActivity(intentWelcomeScreen);
+		finish();
 	}
 	/**
 	 * show drop down search category

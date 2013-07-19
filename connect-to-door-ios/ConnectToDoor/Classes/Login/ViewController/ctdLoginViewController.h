@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "ctdBaseViewController.h"
 
-@interface ctdLoginViewController : UIViewController<UITextFieldDelegate>{
+@interface ctdLoginViewController : ctdBaseViewController<UITextFieldDelegate>{
     IBOutlet UIButton *loginButton;
 }
 

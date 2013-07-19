@@ -1,0 +1,53 @@
+<div class="attendance-Detail-header">
+	<div class="attendance-detail-box">
+	<div class="attendance-detail-day-header">
+		<div class="attendance-detail-day"><div class="detail-header-text"></div></div>
+		<div class="attendance-detail-day"><div class="detail-header-text"></div></div>
+		<div class="attendance-detail-day"><div class="detail-header-text"></div></div>
+		<div class="attendance-detail-day"><div class="detail-header-text"></div></div>
+		<div class="attendance-detail-day"><div class="detail-header-text"></div></div>
+		<div class="attendance-detail-day"><div class="detail-header-text"></div></div>
+		<div class="attendance-detail-day"><div class="detail-header-text"></div></div>
+	</div>
+		<div class="detail-masking-scroll-pane"></div>
+		<div class="bind-detail-scroll-pane">
+			<div class="scroll-pane">
+				<div class="attendance-detail-calendar-box">
+					
+				</div>
+			</div>
+		</div>
+		<div class="attendance-detail-box-footer">
+			<div class="attendance-detail-footer-leave">
+				<div class="attendance-detail-footer-leave-box"></div>
+				<div class="attendance-detail-footer-leave-equals">=</div>
+				<div class="attendance-detail-footer-leave-text">Leave</div>
+			</div>
+			<div class="attendance-detail-footer-present">
+				<div class="attendance-detail-footer-present-box"></div>
+				<div class="attendance-detail-footer-present-equals">=</div>
+				<div class="attendance-detail-footer-present-text">Present</div>
+			</div>
+			<div class="attendance-detail-footer-holiday">
+				<div class="attendance-detail-footer-holiday-box"></div>
+				<div class="attendance-detail-footer-holiday-equals">=</div>
+				<div class="attendance-detail-footer-holiday-text">Holiday</div>					
+			</div>
+			<div class="attendance-detail-footer-save"></div>
+			<div class="attendance-detail-footer-save-text"></div>
+			<div class="attendance-detail-footer-print"></div>
+		</div>
+	</div>
+</div>
+
+<div class="attendance-detail-absolute-dropdown">
+	<div class="attendance-detail-list-item">Condolences</div>
+	<div class="attendance-detail-list-item">C-off</div>
+	<div class="attendance-detail-list-item">Sick</div>
+	<div class="attendance-detail-list-item">Annual</div>
+	<div class="attendance-detail-list-item">Maternity</div>
+	<div class="attendance-detail-list-item">Paternity</div>
+	<div class="attendance-detail-list-item">Married</div>
+	<div class="attendance-detail-list-item">Onsite</div>
+	<div class="attendance-detail-list-item">Holiday</div>
+</div>

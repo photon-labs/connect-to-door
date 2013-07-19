@@ -1,0 +1,34 @@
+<div class="request-list-detail">
+	<div class="request-list-detail-header">
+		<div class="request-list-detail-header-no"><div class="attendance-list-detail-header-text">No</div></div>
+		<div class="request-list-detail-header-request"><div class="attendance-list-detail-header-text">Request</div></div>
+		<div class="request-list-detail-header-description"><div class="attendance-list-detail-header-text">Description</div></div>
+		<div class="request-list-detail-header-quantity"><div class="attendance-list-detail-header-text">Quantity</div></div>
+		<div class="request-list-detail-header-cost"><div class="attendance-list-detail-header-text">Cost</div></div>
+	</div>
+	<div class="request-list-detail-content">
+		<div class="scroll-pane">
+			{{#each item}}
+				<ul class="attendance-ul-request">
+					<li class="request-list-detail-content-no"><div class="attendance-list-detail-content-text"></div></li>
+					<li class="request-list-detail-content-request"><div class="attendance-list-detail-content-text">{{request_type}}</div></li>
+					<li class="request-list-detail-content-description"><div class="attendance-list-detail-content-text">{{description}}</div></li>
+					<li class="request-list-detail-content-quantity"><div class="attendance-list-detail-content-text">{{quantity}}</div></li>
+					<li class="request-list-detail-content-cost"><div class="text-rp">{{currency}}</div><div class="attendance-list-detail-content-text"> {{cost}}</div><div class="text-dot-minus">.-</div></li>
+				</ul>
+			{{/each}}
+		</div>
+	</div>
+	<div class="request-list-detail-footer">
+		<div class="request-list-detail-footer-title"><div class="attendance-list-detail-footer-text">TOTAL</div></div>		
+		<div class="request-list-detail-footer-sum"><div class="text-rp"></div><div class="attendance-list-detail-footer-text">0</div><div class="text-dot-minus">.-</div></div>
+	</div>
+	
+	<div class="request-list-detail-footnote"><div class="request-list-detail-footnote-text">*Don't forget to attach receipts!</div></div>
+	{{#build}}
+		<div class="attendance-request-remove-edit-button">
+			<div class="attendance-request-remove-button"></div>
+			<div class="attendance-request-edit-button"></div>
+		</div>
+	{{/build}}
+</div>

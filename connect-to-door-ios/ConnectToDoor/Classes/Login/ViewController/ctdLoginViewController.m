@@ -10,6 +10,7 @@
 #import "ctdSignInViewController.h"
 #import "ctdAppDelegate.h"
 #import "ctdLocalStorage.h"
+#import "MBProgressHUD.h"
 
 @implementation ctdLoginViewController
 
@@ -18,48 +19,51 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.hasSignoutButton = NO;
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    NSLog(@"masuk viewDIdLoad");
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.title = @"Login";
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    //[self updateView];
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self checkSessionFacebook];
+    });
+	 // Do any additional setup after loading the view from its nib.
+}
+
+- (void)checkSessionFacebook{
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-   if (!appDelegate.session.isOpen) {
+    if (!appDelegate.session.isOpen) {
+        NSLog(@"masuk !appDelegate.session.isOpen");
         // create a fresh session object
         appDelegate.session = [[FBSession alloc] init];
-        
+        NSLog(@"session state : %i", appDelegate.session.state);
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
         // we check here to make sure we have a token before calling open
         if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            NSLog(@"masuk appDelegate.session.state == FBSessionStateCreatedTokenLoaded");
             // even though we had a cached token, we need to login to make the session usable
             [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                              FBSessionState status,
                                                              NSError *error) {
+                
+                NSLog(@"masuk openWithCompletionHandler");
                 // we recurse here, in order to update buttons and labels
-                [self goToWelcome];
+                [self goToSignInPage];
             }];
         }
     }
-    // Do any additional setup after loading the view from its nib.
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 /*
@@ -68,6 +72,7 @@
  *this method for action click button login facebook
  */
 - (IBAction)didLoginButtonClicked:(id)sender{
+    NSLog(@"masuk didLoginButtonClicked");
     // get the app delegate so that we can access the session property
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     
@@ -92,19 +97,21 @@
             // and here we make sure to update our UX according to the new session state
             NSLog(@"SESSION TOKEN == %@",appDelegate.session.accessTokenData.accessToken);
             
+            [self showActivityIndicator];
             //get User id and name
             [[[FBRequest alloc] initWithSession:appDelegate.session graphPath:@"me"] startWithCompletionHandler:
              ^(FBRequestConnection *connection,
                NSDictionary<FBGraphUser> *user,
                NSError *error) {
+                 [self hideActivityIndicator];
                  if (!error) {
                      NSString *fullName = [NSString stringWithFormat:@"%@ %@", user.first_name, user.last_name];
                      NSLog(@"id %@", user.id);
                      NSLog(@"name %@", fullName);
                      [self saveLocalStoreValue:fullName :user.id];
-                     [self goToWelcome];
+                     [self goToSignInPage];
                  }else {
-                     [self showAlert:@"server error" :@"alert" :@"OK"];
+                     [self showAlert:kAlertForException];
                      NSLog(@"Error: %@",error);
                  }
              }];
@@ -112,7 +119,7 @@
     }
     
     
- 
+    
 }
 
 /*
@@ -127,25 +134,12 @@
 
 /*
  *aldi_p
- *this method for show alert
+ *this method for show page enter employee id
  */
--(void)showAlert:(NSString *)messageText :(NSString *)titleText :(NSString *)buttonText{
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:titleText
-                                                      message:messageText
-                                                     delegate:nil
-                                            cancelButtonTitle:buttonText
-                                            otherButtonTitles:nil];
-    [message show];
-}
-
-/*
- *aldi_p
- *this method for show welcome view
- */
--(void) goToWelcome{
+- (void)goToSignInPage{
     ctdSignInViewController *signInViewController = [[ctdSignInViewController alloc]initWithNibName:@"ctdSignInViewController" bundle:nil];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self.navigationController pushViewController:signInViewController animated:YES];
+    [self removeFromParentViewController];
 }
 
 - (void)didReceiveMemoryWarning

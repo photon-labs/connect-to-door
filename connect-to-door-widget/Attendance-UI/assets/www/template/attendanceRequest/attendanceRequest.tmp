@@ -1,0 +1,20 @@
+<div class="attendance-dom">	
+	<div class ="dropdown-dom">
+		<div class="attendance-request-body">
+			<div class="attendance-request-content">
+				<div class="attendance-request-content-top"></div>
+				<div class="attendance-request-content-middle">
+					<request:date></request:date>
+					<request:by></request:by>
+					<request:type></request:type>
+					<request:item-input></request:item-input>
+					<request:item-list></request:item-list>
+					<request:submitted-by></request:submitted-by>
+					<request:submitted-approval></request:submitted-approval>
+					<request:approve-decline-print-button></request:approve-decline-print-button>
+				</div>
+				<div class="attendance-request-content-bottom"></div>
+			</div>
+		</div>
+	</div>
+</div>

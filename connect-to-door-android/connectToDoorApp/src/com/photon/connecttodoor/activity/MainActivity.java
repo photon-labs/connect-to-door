@@ -9,16 +9,16 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public abstract class MainActivity extends Activity{
 
-	public int pYear;
-	public int pMonth;
-	public int pDay;
+	public int pYear, untilYear;
+	public int pMonth, untilMonth;
+	public int pDay, untilDay;
 	public static final int DATE_DIALOG_ID = 0;
+	public static final int DATE_UNTIL_DIALOG_ID = 1;
 	public static final String STRIP = "-";
 	public static final String NUMBER_DATE = "0";
 	public static final String SLASH = "/";
@@ -32,6 +32,13 @@ public abstract class MainActivity extends Activity{
 		pYear = cal.get(Calendar.YEAR);
 		pMonth = cal.get(Calendar.MONTH);
 		pDay = cal.get(Calendar.DAY_OF_MONTH);
+	}
+
+	public void getUntilCurrentDate(){
+		final Calendar cal = Calendar.getInstance();
+		untilYear = cal.get(Calendar.YEAR);
+		untilMonth = cal.get(Calendar.MONTH);
+		untilDay = cal.get(Calendar.DAY_OF_MONTH);
 	}
 
 	/**
@@ -58,6 +65,26 @@ public abstract class MainActivity extends Activity{
 		.append(pYearString).append("");
 	}
 
+	public StringBuilder getUntilDateEditText(){
+		// Month is 0 based so add 1
+		String untilMonthString = String.valueOf((untilMonth+1)).trim().toString();
+		String untilDayString = String.valueOf(untilDay).trim().toString();
+		String untilYearString = String.valueOf(untilYear).trim().toString();
+
+		if(untilMonthString.length() < 2){
+			untilMonthString = NUMBER_DATE+untilMonthString;
+		}
+
+		if(untilDayString.length() < 2){
+			untilDayString = NUMBER_DATE+untilDayString;
+		}
+
+		return new StringBuilder()
+		.append(untilDayString).append(STRIP)
+		.append(untilMonthString).append(STRIP)
+		.append(untilYearString).append("");
+	}
+
 	/**
 	 * change format date 
 	 * use to send date to service
@@ -67,7 +94,6 @@ public abstract class MainActivity extends Activity{
 	public String changeFormatDate(String date){
 		String fullDate = "";
 		if(!date.matches("")){
-			Log.i("","=====lalala=====");
 			String [] formatDate = date.split(STRIP);
 			String day = formatDate[0];
 			String month = formatDate[1];
@@ -155,5 +181,9 @@ public abstract class MainActivity extends Activity{
 			connected = true;
 		}
 		return connected;
+	}
+	@Override
+	public void onBackPressed() {
+		finish();
 	}
 }

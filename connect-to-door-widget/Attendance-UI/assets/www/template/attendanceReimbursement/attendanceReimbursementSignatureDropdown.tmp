@@ -1,0 +1,17 @@
+<div class="attendance-reimbursement-drop-down">
+	{{#if-build}}
+			<div class="attendance-reimbursement-submitted-approval-dropdown"></div><div class="reimbursement-arrow-box"></div>
+			<div class="reimbursement-approval-dropdown-content-build">
+			</div>
+	{{/if-build}}
+	{{#if-apm}}
+			<div class="attendance-reimbursement-submitted-approval-dropdown"></div><div class="reimbursement-arrow-box"></div>
+			<div class="reimbursement-approval-dropdown-content-apm">
+			</div>
+	{{/if-apm}}
+	{{#if-build-apm}}
+			<div class="attendance-reimbursement-submitted-approval-dropdown"></div><div class="reimbursement-arrow-box"></div>
+			<div class="reimbursement-approval-dropdown-content-build-apm">
+			</div>
+	{{/if-build-apm}}
+</div>

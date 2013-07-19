@@ -8,7 +8,7 @@
 
 #import "ctdAppDelegate.h"
 #import "Reachability.h"
-
+#import "ctdSignInViewController.h"
 
 @implementation ctdAppDelegate
 @synthesize window;
@@ -37,6 +37,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
     self.viewController = [[ctdLoginViewController alloc] initWithNibName:@"ctdLoginViewController" bundle:nil];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
@@ -127,6 +128,35 @@
     {
         NSLog(@"down");
         _globals.isOffline = YES;
+    }
+}
+
+- (void)setRootController{
+    ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (!appDelegate.session.isOpen) {
+        NSLog(@"masuk !appDelegate.session.isOpen");
+        // create a fresh session object
+        appDelegate.session = [[FBSession alloc] init];
+        NSLog(@"session state : %i", appDelegate.session.state);
+        // if we don't have a cached token, a call to open here would cause UX for login to
+        // occur; we don't want that to happen unless the user clicks the login button, and so
+        // we check here to make sure we have a token before calling open
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            NSLog(@"masuk appDelegate.session.state == FBSessionStateCreatedTokenLoaded");
+            // even though we had a cached token, we need to login to make the session usable
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+                
+                NSLog(@"masuk openWithCompletionHandler");
+                // we recurse here, in order to update buttons and labels
+                self.viewController = [[ctdSignInViewController alloc] initWithNibName:@"ctdSignInViewController" bundle:nil];
+            }];
+        }else{
+            self.viewController = [[ctdLoginViewController alloc] initWithNibName:@"ctdLoginViewController" bundle:nil];
+        }
+    }else{
+        self.viewController = [[ctdLoginViewController alloc] initWithNibName:@"ctdLoginViewController" bundle:nil];
     }
 }
 
