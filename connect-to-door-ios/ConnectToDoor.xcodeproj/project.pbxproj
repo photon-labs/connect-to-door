@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A10F3BF17967A34000DF6E3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A10F3BE17967A34000DF6E3 /* FacebookSDK.framework */; };
 		6A10F3C217968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */; };
 		6A10F3C317968A18000DF6E3 /* box_transparent_reimbursement-form_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */; };
 		6A10F3C817968B65000DF6E3 /* ctdReimbursement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A10F3C617968B65000DF6E3 /* ctdReimbursement.m */; };
@@ -36,7 +35,6 @@
 		713343221737C9B800057FE6 /* ConnectToDoorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343211737C9B800057FE6 /* ConnectToDoorTests.m */; };
 		713343311737CB8500057FE6 /* ctdAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133432E1737CB8500057FE6 /* ctdAppDelegate.m */; };
 		7133433C1737CC2900057FE6 /* ctdBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7133433A1737CC2900057FE6 /* ctdBaseViewController.m */; };
-		7133433D1737CC2900057FE6 /* ctdBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */; };
 		713343521737E01C00057FE6 /* ctdLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343501737E01C00057FE6 /* ctdLoginViewController.m */; };
 		713343531737E01C00057FE6 /* ctdLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713343511737E01C00057FE6 /* ctdLoginViewController.xib */; };
 		713343581737EF5F00057FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 713343571737EF5F00057FE6 /* MBProgressHUD.m */; };
@@ -88,6 +86,16 @@
 		DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */; };
 		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
 		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
+		DDA388F11798E46F00CB7BD4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */; };
+		DDA388F81798E4FB00CB7BD4 /* ctdAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388F61798E4FB00CB7BD4 /* ctdAlertViewController.m */; };
+		DDA388F91798E4FB00CB7BD4 /* ctdAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDA388F71798E4FB00CB7BD4 /* ctdAlertViewController.xib */; };
+		DDA388FF1798E52200CB7BD4 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388FC1798E52200CB7BD4 /* MJPopupBackgroundView.m */; };
+		DDA389001798E52200CB7BD4 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388FE1798E52200CB7BD4 /* UIViewController+MJPopupViewController.m */; };
+		DDA389071798ECC900CB7BD4 /* box_alert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389021798ECC900CB7BD4 /* box_alert_white.png */; };
+		DDA389081798ECC900CB7BD4 /* box_transparent_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */; };
+		DDA389091798ECC900CB7BD4 /* button_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389041798ECC900CB7BD4 /* button_ok.png */; };
+		DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */; };
+		DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */; };
 		DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -115,7 +123,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6A10F3BE17967A34000DF6E3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ConnectToDoor/FacebookSDK.framework; sourceTree = "<group>"; };
 		6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_middle.png"; sourceTree = "<group>"; };
 		6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_top.png"; sourceTree = "<group>"; };
 		6A10F3C517968B65000DF6E3 /* ctdReimbursement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdReimbursement.h; sourceTree = "<group>"; };
@@ -151,7 +158,6 @@
 		7133432E1737CB8500057FE6 /* ctdAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAppDelegate.m; sourceTree = "<group>"; };
 		713343391737CC2900057FE6 /* ctdBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdBaseViewController.h; sourceTree = "<group>"; };
 		7133433A1737CC2900057FE6 /* ctdBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdBaseViewController.m; sourceTree = "<group>"; };
-		7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdBaseViewController.xib; sourceTree = "<group>"; };
 		713343411737D16000057FE6 /* ctdConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdConstants.h; sourceTree = "<group>"; };
 		7133434F1737E01C00057FE6 /* ctdLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdLoginViewController.h; sourceTree = "<group>"; };
 		713343501737E01C00057FE6 /* ctdLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdLoginViewController.m; sourceTree = "<group>"; };
@@ -243,6 +249,19 @@
 		DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_voucher.png"; sourceTree = "<group>"; };
 		DDA08B401738F602002882B4 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_sign-out.png"; sourceTree = "<group>"; };
 		DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_sign-in.png"; sourceTree = "<group>"; };
+		DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ThirdParty/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		DDA388F51798E4FB00CB7BD4 /* ctdAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdAlertViewController.h; path = AlertViewController/ctdAlertViewController.h; sourceTree = "<group>"; };
+		DDA388F61798E4FB00CB7BD4 /* ctdAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdAlertViewController.m; path = AlertViewController/ctdAlertViewController.m; sourceTree = "<group>"; };
+		DDA388F71798E4FB00CB7BD4 /* ctdAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ctdAlertViewController.xib; path = AlertViewController/ctdAlertViewController.xib; sourceTree = "<group>"; };
+		DDA388FB1798E52200CB7BD4 /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJPopupBackgroundView.h; path = MJPopUpViewController/MJPopupBackgroundView.h; sourceTree = "<group>"; };
+		DDA388FC1798E52200CB7BD4 /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJPopupBackgroundView.m; path = MJPopUpViewController/MJPopupBackgroundView.m; sourceTree = "<group>"; };
+		DDA388FD1798E52200CB7BD4 /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MJPopupViewController.h"; path = "MJPopUpViewController/UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
+		DDA388FE1798E52200CB7BD4 /* UIViewController+MJPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MJPopupViewController.m"; path = "MJPopUpViewController/UIViewController+MJPopupViewController.m"; sourceTree = "<group>"; };
+		DDA389021798ECC900CB7BD4 /* box_alert_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_alert_white.png; sourceTree = "<group>"; };
+		DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_voucher.png; sourceTree = "<group>"; };
+		DDA389041798ECC900CB7BD4 /* button_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_ok.png; sourceTree = "<group>"; };
+		DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_voucher_Reimbursement.png; sourceTree = "<group>"; };
+		DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_voucher_Request.png; sourceTree = "<group>"; };
 		DDAD6C23178FEAA500D0FDBE /* ctdCheckStatusService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusService.h; sourceTree = "<group>"; };
 		DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusService.m; sourceTree = "<group>"; };
 		DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceParser.h; sourceTree = "<group>"; };
@@ -280,7 +299,7 @@
 				713342F11737C9B700057FE6 /* UIKit.framework in Frameworks */,
 				713342F31737C9B700057FE6 /* Foundation.framework in Frameworks */,
 				713342F51737C9B700057FE6 /* CoreGraphics.framework in Frameworks */,
-				6A10F3BF17967A34000DF6E3 /* FacebookSDK.framework in Frameworks */,
+				DDA388F11798E46F00CB7BD4 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +339,7 @@
 		713342EF1737C9B700057FE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A10F3BE17967A34000DF6E3 /* FacebookSDK.framework */,
+				DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */,
 				DDD9175E178ED0D000750702 /* MobileCoreServices.framework */,
 				DDD91760178ED1CA00750702 /* SystemConfiguration.framework */,
 				DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */,
@@ -411,7 +430,6 @@
 			children = (
 				713343391737CC2900057FE6 /* ctdBaseViewController.h */,
 				7133433A1737CC2900057FE6 /* ctdBaseViewController.m */,
-				7133433B1737CC2900057FE6 /* ctdBaseViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -488,6 +506,8 @@
 		713343541737EF5F00057FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DDA388FA1798E51300CB7BD4 /* MJPopUpViewController */,
+				DDA388F41798E4EA00CB7BD4 /* AlertViewController */,
 				DDD9175A178EBEDB00750702 /* Reachability */,
 				DDAF29B8178C1A0400597570 /* LocalStorage */,
 				DDAF29B4178BB58300597570 /* JSONKit */,
@@ -788,6 +808,11 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DDA389021798ECC900CB7BD4 /* box_alert_white.png */,
+				DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */,
+				DDA389041798ECC900CB7BD4 /* button_ok.png */,
+				DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */,
+				DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */,
 				6AEEE6C81797F2AF00CD4219 /* button_continue-on-sign-in.png */,
 				6AEEE6C61797F27700CD4219 /* box_add-text-on-sign-in_employee-ID.png */,
 				6AEEE6C41797A1E900CD4219 /* button_small_save.png */,
@@ -814,6 +839,27 @@
 				DDA08B401738F602002882B4 /* button_sign-out.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		DDA388F41798E4EA00CB7BD4 /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDA388F51798E4FB00CB7BD4 /* ctdAlertViewController.h */,
+				DDA388F61798E4FB00CB7BD4 /* ctdAlertViewController.m */,
+				DDA388F71798E4FB00CB7BD4 /* ctdAlertViewController.xib */,
+			);
+			name = AlertViewController;
+			sourceTree = "<group>";
+		};
+		DDA388FA1798E51300CB7BD4 /* MJPopUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDA388FB1798E52200CB7BD4 /* MJPopupBackgroundView.h */,
+				DDA388FC1798E52200CB7BD4 /* MJPopupBackgroundView.m */,
+				DDA388FD1798E52200CB7BD4 /* UIViewController+MJPopupViewController.h */,
+				DDA388FE1798E52200CB7BD4 /* UIViewController+MJPopupViewController.m */,
+			);
+			name = MJPopUpViewController;
 			sourceTree = "<group>";
 		};
 		DDAF29B4178BB58300597570 /* JSONKit */ = {
@@ -928,7 +974,6 @@
 				713343031737C9B700057FE6 /* Default.png in Resources */,
 				713343051737C9B700057FE6 /* Default@2x.png in Resources */,
 				713343071737C9B700057FE6 /* Default-568h@2x.png in Resources */,
-				7133433D1737CC2900057FE6 /* ctdBaseViewController.xib in Resources */,
 				713343531737E01C00057FE6 /* ctdLoginViewController.xib in Resources */,
 				71DFF02B1738CCAF00EF1491 /* ctdWelcomeViewController.xib in Resources */,
 				71DFF0301738D56B00EF1491 /* ctdDailyAttendaceViewController.xib in Resources */,
@@ -960,6 +1005,12 @@
 				6AEEE6C51797A1E900CD4219 /* button_small_save.png in Resources */,
 				6AEEE6C71797F27700CD4219 /* box_add-text-on-sign-in_employee-ID.png in Resources */,
 				6AEEE6C91797F2AF00CD4219 /* button_continue-on-sign-in.png in Resources */,
+				DDA388F91798E4FB00CB7BD4 /* ctdAlertViewController.xib in Resources */,
+				DDA389071798ECC900CB7BD4 /* box_alert_white.png in Resources */,
+				DDA389081798ECC900CB7BD4 /* box_transparent_voucher.png in Resources */,
+				DDA389091798ECC900CB7BD4 /* button_ok.png in Resources */,
+				DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */,
+				DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1036,6 +1087,9 @@
 				DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */,
 				DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */,
 				6A10F3C817968B65000DF6E3 /* ctdReimbursement.m in Sources */,
+				DDA388F81798E4FB00CB7BD4 /* ctdAlertViewController.m in Sources */,
+				DDA388FF1798E52200CB7BD4 /* MJPopupBackgroundView.m in Sources */,
+				DDA389001798E52200CB7BD4 /* UIViewController+MJPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,12 +1197,14 @@
 					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
 					"\"$(SRCROOT)\"",
 					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/Android/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
+					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ThirdParty/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1161,12 +1217,14 @@
 					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
 					"\"$(SRCROOT)\"",
 					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/Android/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
+					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ThirdParty/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

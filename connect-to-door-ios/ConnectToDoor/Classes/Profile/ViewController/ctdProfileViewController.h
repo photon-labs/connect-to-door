@@ -34,7 +34,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *onsiteLabel;
 @property (strong, nonatomic) IBOutlet UILabel *paternityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sickLabel;
+@property (nonatomic, strong) IBOutlet UIButton *attendanceButton;
+@property (nonatomic, strong) IBOutlet UIButton *voucherButton;
 
 - (IBAction)backToWelcomePage:(id)sender;
-
+- (IBAction)didClickVoucher:(id)sender;
 @end

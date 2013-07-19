@@ -7,7 +7,7 @@
 //
 
 #import "ctdAlertViewController.h"
-#import "ctdConstant.h"
+#import "ctdConstants.h"
 
 @interface ctdAlertViewController ()
 

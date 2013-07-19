@@ -9,6 +9,8 @@
 #import "ctdProfileViewController.h"
 #import "ctdLocalStorage.h"
 #import "ctdConstants.h"
+#import "ctdVoucherViewController.h"
+
 
 @implementation ctdProfileViewController
 
@@ -75,7 +77,20 @@ NSString *employeeId;
 }
 
 - (IBAction)backToWelcomePage:(id)sender{
+    [self goToWelcomePage];
+}
+
+- (IBAction)didClickVoucher:(id)sender{
+    [self goToVoucher];
+}
+
+-(void)goToWelcomePage{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void) goToVoucher{
+    ctdVoucherViewController *voucherViewController = [[ctdVoucherViewController alloc]initWithNibName:@"ctdVoucherViewController" bundle:nil];
+    [self.navigationController pushViewController:voucherViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
