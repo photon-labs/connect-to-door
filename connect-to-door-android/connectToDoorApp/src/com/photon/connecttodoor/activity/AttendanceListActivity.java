@@ -13,6 +13,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -55,6 +57,7 @@ public class AttendanceListActivity extends MainActivity {
 	private static final String EMPLOYEE_ID = "employeeID";
 	public static final int EMPTY = 0;
 	Spinner spinnerCategory;
+	char[] acceptedNumberOrChar;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -74,6 +77,9 @@ public class AttendanceListActivity extends MainActivity {
 		createDropdownCategory(this, category, spinnerCategory);
 		attendanceListReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 		this.actionButton();
+		acceptedNumberOrChar = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
+				'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+				' ','0','1','2','3','4','5','6','7','8','9'};
 	}
 
 	private void actionButton(){
@@ -219,6 +225,7 @@ public class AttendanceListActivity extends MainActivity {
 					}else{
 						searchParameters = "";
 						inputCategory.setVisibility(View.GONE);	
+						setCharacter(inputCategory, acceptedNumberOrChar);
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);
@@ -255,6 +262,7 @@ public class AttendanceListActivity extends MainActivity {
 		inputCategory.setText("");
 		searchParameters = selectCategory;
 		inputCategory.getText().toString();
+		setCharacter(inputCategory, acceptedNumberOrChar);
 	}
 	/**
 	 * set data and ui for name
@@ -264,6 +272,10 @@ public class AttendanceListActivity extends MainActivity {
 		inputCategory.setText("");
 		searchParameters = USERNAME;
 		inputCategory.getText().toString();
+		char[] acceptedChars = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
+				'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+		' '};
+		setCharacter(inputCategory,acceptedChars);
 	}
 	/**
 	 * set data and ui for project id
@@ -273,6 +285,10 @@ public class AttendanceListActivity extends MainActivity {
 		inputCategory.setText("");
 		searchParameters = PROJECT_ID;
 		inputCategory.getText().toString();
+		char[] numberOnly = new char[]{
+				'0','1','2','3','4','5','6','7','8','9'
+		};
+		setCharacter(inputCategory, numberOnly);
 	}
 	/**
 	 * set data and ui for employee id
@@ -282,6 +298,26 @@ public class AttendanceListActivity extends MainActivity {
 		inputCategory.setText("");
 		searchParameters = EMPLOYEE_ID;
 		inputCategory.getText().toString();
+		setCharacter(inputCategory, acceptedNumberOrChar);
+	}
+	private void setCharacter(EditText input,final char[] value){
+		InputFilter[] filters = new InputFilter[1];
+		filters[0] = new InputFilter(){
+			@Override
+			public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+				if (end > start) {					
+					for (int index = start; index < end; index++) {                                         
+						if (!new String(value).contains(String.valueOf(source.charAt(index)))) { 
+						
+							return ""; 
+						}    
+					}
+				}
+				return null;
+			}
+
+		};
+		input.setFilters(filters);
 	}
 	/**
 	 * launch attendance menu
