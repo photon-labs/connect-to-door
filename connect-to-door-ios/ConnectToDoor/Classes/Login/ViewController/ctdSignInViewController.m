@@ -51,6 +51,7 @@ NSString *test;
 }
 
 - (IBAction)didContinueClicked:(id)sender{
+    [self hideKeyboard];
     NSString *employeeIDText = self.employeeID.text;
     [self checkEmployeeID:employeeIDText];
 }
@@ -72,12 +73,7 @@ NSString *test;
         NSLog(@"FACEBOOK ID == %@",[self getFacebookId]);
         [loginService loginToServer:employeeId facebookID:[self getFacebookId]];
     }else{
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                          message:@"Please input Employee ID."
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self showAlert:kAlertEmptyFieldEmployeeId];
     }
 }
 -(NSString*)getFacebookId{
@@ -103,19 +99,26 @@ NSString *test;
     ctdLoginParser *parse = [[ctdLoginParser alloc]init];
     ctdReponseLoginModel *model = [parse parseResponse:response];
     if([model.message isEqualToString:@"Login failed"]){
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Alert!"
-                                                          message:response
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        [self showAlert:kAlertInvalidEmployeeId];
     }else{
         [self goToWelcome];
     }
 }
 
+
 -(void)didReceiveLoginErrorResponse:(NSError *)error{
     // error response
+}
+
+// Close keyboard if the Background is touched
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[self.view endEditing:YES];
+	[super touchesBegan:touches withEvent:event];
+	[self hideKeyboard];
+}
+
+- (void)hideKeyboard{
+    [employeeID resignFirstResponder];
 }
 
 @end

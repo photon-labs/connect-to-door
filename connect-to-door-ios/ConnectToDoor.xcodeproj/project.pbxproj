@@ -86,7 +86,6 @@
 		DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */; };
 		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
 		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
-		DDA388F11798E46F00CB7BD4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */; };
 		DDA388F81798E4FB00CB7BD4 /* ctdAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388F61798E4FB00CB7BD4 /* ctdAlertViewController.m */; };
 		DDA388F91798E4FB00CB7BD4 /* ctdAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDA388F71798E4FB00CB7BD4 /* ctdAlertViewController.xib */; };
 		DDA388FF1798E52200CB7BD4 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388FC1798E52200CB7BD4 /* MJPopupBackgroundView.m */; };
@@ -96,6 +95,7 @@
 		DDA389091798ECC900CB7BD4 /* button_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389041798ECC900CB7BD4 /* button_ok.png */; };
 		DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */; };
 		DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */; };
+		DDA977BA1798F0A300AA3760 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */; };
 		DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -289,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA977BA1798F0A300AA3760 /* FacebookSDK.framework in Frameworks */,
 				DDD91761178ED1CA00750702 /* SystemConfiguration.framework in Frameworks */,
 				DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */,
 				DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */,
@@ -299,7 +300,6 @@
 				713342F11737C9B700057FE6 /* UIKit.framework in Frameworks */,
 				713342F31737C9B700057FE6 /* Foundation.framework in Frameworks */,
 				713342F51737C9B700057FE6 /* CoreGraphics.framework in Frameworks */,
-				DDA388F11798E46F00CB7BD4 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1156,7 +1156,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1181,7 +1181,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1194,15 +1194,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
 					"\"$(SRCROOT)\"",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/Android/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ThirdParty/FacebookSDK\"",
+					"\"$(SRCROOT)/ThirdParty/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -1214,15 +1212,13 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
 					"\"$(SRCROOT)\"",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/Android/connect-to-door/connect-to-door-ios/ConnectToDoor\"",
-					"\"$(LOCAL_LIBRARY_DIR)/WebServer/Documents/workspace/CONNECT_TO_DOOR/connect-to-door/connect-to-door-ios/ThirdParty/FacebookSDK\"",
+					"\"$(SRCROOT)/ThirdParty/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConnectToDoor/ConnectToDoor-Prefix.pch";
 				INFOPLIST_FILE = "ConnectToDoor/ConnectToDoor-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
