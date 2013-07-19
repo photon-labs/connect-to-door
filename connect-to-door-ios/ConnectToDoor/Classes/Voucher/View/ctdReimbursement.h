@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ctdProfileService.h"
 
-@interface ctdReimbursement : UIViewController
+@interface ctdReimbursement : UIViewController<ProfileServiceDelegate>
+
 @property (nonatomic, strong) IBOutlet UILabel *employeeName;
 @property (nonatomic, strong) IBOutlet UILabel *employeeID;
 @property (nonatomic, strong) IBOutlet UILabel *projectID;

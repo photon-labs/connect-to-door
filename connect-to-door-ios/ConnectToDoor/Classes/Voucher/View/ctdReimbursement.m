@@ -16,6 +16,34 @@
 @end
 
 @implementation ctdReimbursement
+
+@synthesize employeeName;
+@synthesize employeeID;
+@synthesize projectID;
+@synthesize dateTodayTxt;
+
+@synthesize toolbarDatePicker;
+
+@synthesize saveBtnDatePicker;
+@synthesize cancelBtnDatePicker;
+
+@synthesize datePickerCtrl;
+
+@synthesize datePicker;
+@synthesize reimbursementPicker;
+
+@synthesize reimbursementBtn;
+@synthesize dateBtn;
+
+@synthesize dateTxt;
+@synthesize reimbursementTxt;
+@synthesize descriptionTxt;
+@synthesize quantityTxt;
+@synthesize costTxt;
+
+
+
+
 NSString *employeeId;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,12 +72,7 @@ NSString *employeeId;
     profileService.delegate = self;
 }
 
-- (void)didReceiveProfileResponse:(ctdProfileModel*)profileModel
-{
-    self.employeeName.text = profileModel.employeeName;
-    self.employeeID.text = profileModel.employeeId;
-    self.projectID.text = profileModel.projectId;
-}
+
 
 - (void)configureAllComponent{
     NSDate *today = [NSDate date];
@@ -128,6 +151,19 @@ NSString *employeeId;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma service Profile
+- (void)didReceiveProfileResponse:(ctdProfileModel*)profileModel
+{
+    self.employeeName.text = profileModel.employeeName;
+    self.employeeID.text = profileModel.employeeId;
+    self.projectID.text = profileModel.projectId;
+}
+
+- (void)didReceiveProfileErrorResponse:(NSError*)error{
+    
+}
+
 
 #pragma mark - UIPickerViewDelegate
 

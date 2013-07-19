@@ -24,6 +24,8 @@
     _checkOut = @"";
     _previlage = @"";
     _presentId = @"";
+    
+    return self;
 }
 
 @end
