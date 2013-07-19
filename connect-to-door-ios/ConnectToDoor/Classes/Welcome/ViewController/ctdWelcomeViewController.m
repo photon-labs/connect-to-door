@@ -194,10 +194,10 @@
     ctdResponseCheckStatusModel *model = [parse parseResponse:response];
     NSLog(@"======= changeFormatTime ======= %@", [self changeFormatTime:model.checkIn]);
     if(![model.checkIn isEqualToString:@""]){
-        NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", model.checkIn];
+        NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", [self changeFormatTime:model.checkIn]];
         statusCheck.text = timeCheckIn;
     }else if(![model.checkOut isEqualToString:@""]){
-        NSString* timeCheckOut = [NSString stringWithFormat:@"You have checked out at %@", model.checkOut];
+        NSString* timeCheckOut = [NSString stringWithFormat:@"You have checked out at %@", [self changeFormatTime:model.checkOut]];
         statusCheck.text = timeCheckOut;
     }else{
         //do any thing
