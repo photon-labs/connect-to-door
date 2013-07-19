@@ -508,6 +508,7 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextFacebookId.setText("");
 		editTextEmail.setText("");
 		editTextSignature.setText("");
+		editTextUserId.setText("");
 	}
 	/***
 	 * check all input field
