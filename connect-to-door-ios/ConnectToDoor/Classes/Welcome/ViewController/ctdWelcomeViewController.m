@@ -192,6 +192,7 @@
 - (void)didReceivedCheckStatusResponse:(NSString*)response{
     ctdCheckStatusParser *parse = [[ctdCheckStatusParser alloc]init];
     ctdResponseCheckStatusModel *model = [parse parseResponse:response];
+    NSLog(@"======= changeFormatTime ======= %@", [self changeFormatTime:model.checkIn]);
     if(![model.checkIn isEqualToString:@""]){
         NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", model.checkIn];
         statusCheck.text = timeCheckIn;
@@ -204,6 +205,20 @@
 }
 
 - (void)didReceiveCheckStatusErrorResponse:(NSError*)error{
+    
+}
+
+- (NSString*)changeFormatTime:(NSString*)time{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    
+    NSDate *date = [dateFormatter dateFromString:time];
+    
+    [dateFormatter setDateFormat:@"hh:mm a"];
+    
+    NSString *formattedDate = [dateFormatter stringFromDate:date];
+    
+   return formattedDate;
     
 }
 
