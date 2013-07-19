@@ -7,6 +7,7 @@
 //
 
 #import "ctdVoucherViewController.h"
+#import "ctdReimbursement.h"
 
 @interface ctdVoucherViewController ()
 
@@ -27,6 +28,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (IBAction)didRequestClicked:(id)sender{
+}
+
+- (IBAction)didReimbursementClicked:(id)sender{
+    [self goToReimbursement];
+}
+
+-(void) goToReimbursement{
+    ctdReimbursement *ctdReimbursementPage = [[ctdReimbursement alloc]initWithNibName:@"ctdReimbursement" bundle:nil];
+    [self.navigationController pushViewController:ctdReimbursementPage animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

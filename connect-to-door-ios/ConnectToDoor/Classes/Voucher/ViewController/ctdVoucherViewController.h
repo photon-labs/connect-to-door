@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ctdVoucherViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIButton *requestButton;
+@property (nonatomic, strong) IBOutlet UIButton *reimbursement;
 
+- (IBAction)didRequestClicked:(id)sender;
+- (IBAction)didReimbursementClicked:(id)sender;
 @end

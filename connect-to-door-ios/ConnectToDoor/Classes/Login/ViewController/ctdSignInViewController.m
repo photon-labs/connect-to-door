@@ -36,6 +36,7 @@ NSString *test;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configureComponent];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -52,6 +53,12 @@ NSString *test;
 - (IBAction)didContinueClicked:(id)sender{
     NSString *employeeIDText = self.employeeID.text;
     [self checkEmployeeID:employeeIDText];
+}
+
+- (void)configureComponent{
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    self.employeeID.leftView = paddingView;
+    self.employeeID.leftViewMode = UITextFieldViewModeAlways;
 }
 
 
