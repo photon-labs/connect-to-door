@@ -186,7 +186,12 @@ public class AttendanceListActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				goToWelcomeScreen();
+				/**check internet connection before tap back button */
+				if(connectionAvailable()){
+					goToWelcomeScreen();
+				}else{
+					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceListActivity.this);
+				}
 			}
 		});
 		/**
@@ -308,7 +313,7 @@ public class AttendanceListActivity extends MainActivity {
 				if (end > start) {					
 					for (int index = start; index < end; index++) {                                         
 						if (!new String(value).contains(String.valueOf(source.charAt(index)))) { 
-						
+
 							return ""; 
 						}    
 					}

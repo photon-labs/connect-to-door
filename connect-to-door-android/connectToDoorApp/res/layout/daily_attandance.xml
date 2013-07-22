@@ -161,7 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:orientation="horizontal"
-        android:layout_weight="0.2" >
+        android:layout_weight="0" >
 
         <ImageButton
             android:id="@+id/backButton"
