@@ -25,6 +25,7 @@ public class ApplicationConstant {
 	public static final String MODULE_PROFILE = "/profile";
 	public static final String MODULE_REPORT = "/report";
 	public static final String MODULE_SIGNATURE_LINK = "/signature";
+	public static final String MODULE_UPDATE_CHECKIN_OUT = "/update-check-in-out";
 	//status account
 	public static final String CREATE = "create";
 	public static final String UPDATE = "update";
