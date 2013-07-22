@@ -1,21 +1,23 @@
 //
-//  ctdReimbursement.m
+//  ctdReimbursementViewController.m
 //  ConnectToDoor
 //
-//  Created by photon infotech on 7/17/13.
+//  Created by Photon Infotech on 7/22/13.
 //  Copyright (c) 2013 aldi cita putra. All rights reserved.
 //
 
-#import "ctdReimbursement.h"
+#import "ctdReimbursementViewController.h"
 #import "ctdLocalStorage.h"
 #import "ctdProfileService.h"
 #import "ctdConstants.h"
 
-@interface ctdReimbursement ()<UIPickerViewDelegate, UIPickerViewDataSource>
+
+@interface ctdReimbursementViewController ()<UIPickerViewDelegate, UIPickerViewDataSource>
 @property (nonatomic, strong) NSArray *pickerViewArray;
 @end
 
-@implementation ctdReimbursement
+
+@implementation ctdReimbursementViewController
 
 @synthesize employeeName;
 @synthesize employeeID;
@@ -45,11 +47,14 @@
 
 
 NSString *employeeId;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.hasSignoutButton = NO;
+        self.hasBackButton = NO;
     }
     return self;
 }
@@ -57,10 +62,19 @@ NSString *employeeId;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self createPicker];
     [self configureAllComponent];
     [self setUserDetail];
     // Do any additional setup after loading the view from its nib.
+    scrollView.frame = CGRectMake(0, 0, 891, 586);
+    [scrollView setContentSize:CGSizeMake(891, 954)];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)setUserDetail
@@ -146,11 +160,6 @@ NSString *employeeId;
     self.toolbarDatePicker.hidden = TRUE;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma service Profile
 - (void)didReceiveProfileResponse:(ctdProfileModel*)profileModel
@@ -173,7 +182,7 @@ NSString *employeeId;
         self.reimbursementTxt.text = [self.pickerViewArray objectAtIndex:row];
         self.reimbursementPicker.hidden = TRUE;
     }
-
+    
 }
 
 
@@ -203,6 +212,7 @@ NSString *employeeId;
 {
 	return 1;
 }
+
 
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "ctdVoucherViewController.h"
-#import "ctdReimbursement.h"
+#import "ctdReimbursementViewController.h"
 
 @interface ctdVoucherViewController ()
 
@@ -41,7 +41,7 @@
 }
 
 -(void) goToReimbursement{
-    ctdReimbursement *ctdReimbursementPage = [[ctdReimbursement alloc]initWithNibName:@"ctdReimbursement" bundle:nil];
+    ctdReimbursementViewController *ctdReimbursementPage = [[ctdReimbursementViewController alloc]initWithNibName:@"ctdReimbursementViewController" bundle:nil];
     [self.navigationController pushViewController:ctdReimbursementPage animated:YES];
 }
 

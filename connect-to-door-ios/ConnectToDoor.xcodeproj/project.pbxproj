@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		6A10F3C217968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */; };
 		6A10F3C317968A18000DF6E3 /* box_transparent_reimbursement-form_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */; };
-		6A10F3C817968B65000DF6E3 /* ctdReimbursement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A10F3C617968B65000DF6E3 /* ctdReimbursement.m */; };
-		6A10F3C917968B65000DF6E3 /* ctdReimbursement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A10F3C717968B65000DF6E3 /* ctdReimbursement.xib */; };
 		6AEEE6B91797966B00CD4219 /* box_add-text_long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6B81797966B00CD4219 /* box_add-text_long.png */; };
 		6AEEE6BB179796A000CD4219 /* date_box_add-date.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6BA179796A000CD4219 /* date_box_add-date.png */; };
 		6AEEE6BD17979C5000CD4219 /* icon_calendar_start-working.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6BC17979C5000CD4219 /* icon_calendar_start-working.png */; };
@@ -74,6 +72,9 @@
 		DD6CBCB6178ED3A4000E7F44 /* ctdProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */; };
 		DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB8178ED3B8000E7F44 /* ctdProfileModel.m */; };
 		DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */; };
+		DD742866179D19F00015E9B2 /* ctdReimbursementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */; };
+		DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */; };
+		DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */; };
 		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
 		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
@@ -126,9 +127,6 @@
 /* Begin PBXFileReference section */
 		6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_middle.png"; sourceTree = "<group>"; };
 		6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_top.png"; sourceTree = "<group>"; };
-		6A10F3C517968B65000DF6E3 /* ctdReimbursement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdReimbursement.h; sourceTree = "<group>"; };
-		6A10F3C617968B65000DF6E3 /* ctdReimbursement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdReimbursement.m; sourceTree = "<group>"; };
-		6A10F3C717968B65000DF6E3 /* ctdReimbursement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdReimbursement.xib; sourceTree = "<group>"; };
 		6AEEE6B81797966B00CD4219 /* box_add-text_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_add-text_long.png"; sourceTree = "<group>"; };
 		6AEEE6BA179796A000CD4219 /* date_box_add-date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date_box_add-date.png"; sourceTree = "<group>"; };
 		6AEEE6BC17979C5000CD4219 /* icon_calendar_start-working.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar_start-working.png"; sourceTree = "<group>"; };
@@ -236,6 +234,10 @@
 		DD6CBCB8178ED3B8000E7F44 /* ctdProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileModel.m; sourceTree = "<group>"; };
 		DD6CBCBA178ED3D7000E7F44 /* ctdProfileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileParser.h; sourceTree = "<group>"; };
 		DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileParser.m; sourceTree = "<group>"; };
+		DD742863179D19EF0015E9B2 /* ctdReimbursementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdReimbursementViewController.h; sourceTree = "<group>"; };
+		DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdReimbursementViewController.m; sourceTree = "<group>"; };
+		DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdReimbursementViewController.xib; sourceTree = "<group>"; };
+		DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_bottom.png"; sourceTree = "<group>"; };
 		DD996E5F1793D5FF000F5A4B /* ctdCheckStatusParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusParser.h; sourceTree = "<group>"; };
 		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
 		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
@@ -747,9 +749,6 @@
 		71DFF0231738CA1D00EF1491 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6A10F3C517968B65000DF6E3 /* ctdReimbursement.h */,
-				6A10F3C617968B65000DF6E3 /* ctdReimbursement.m */,
-				6A10F3C717968B65000DF6E3 /* ctdReimbursement.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -760,6 +759,9 @@
 				71DFF0311738D58400EF1491 /* ctdVoucherViewController.h */,
 				71DFF0321738D58400EF1491 /* ctdVoucherViewController.m */,
 				71DFF0331738D58400EF1491 /* ctdVoucherViewController.xib */,
+				DD742863179D19EF0015E9B2 /* ctdReimbursementViewController.h */,
+				DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */,
+				DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -810,6 +812,7 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */,
 				DDA977BB17991C8600AA3760 /* button_back.png */,
 				DDA389021798ECC900CB7BD4 /* box_alert_white.png */,
 				DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */,
@@ -998,7 +1001,6 @@
 				DDEE3A3D178D4FED00E7F0C1 /* button_signinfacebook.png in Resources */,
 				6A10F3C217968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png in Resources */,
 				6A10F3C317968A18000DF6E3 /* box_transparent_reimbursement-form_top.png in Resources */,
-				6A10F3C917968B65000DF6E3 /* ctdReimbursement.xib in Resources */,
 				6AEEE6B91797966B00CD4219 /* box_add-text_long.png in Resources */,
 				6AEEE6BB179796A000CD4219 /* date_box_add-date.png in Resources */,
 				6AEEE6BD17979C5000CD4219 /* icon_calendar_start-working.png in Resources */,
@@ -1015,6 +1017,8 @@
 				DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */,
 				DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */,
 				DDA977BC17991C8600AA3760 /* button_back.png in Resources */,
+				DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */,
+				DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,10 +1094,10 @@
 				DD6CBCB6178ED3A4000E7F44 /* ctdProfileService.m in Sources */,
 				DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */,
 				DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */,
-				6A10F3C817968B65000DF6E3 /* ctdReimbursement.m in Sources */,
 				DDA388F81798E4FB00CB7BD4 /* ctdAlertViewController.m in Sources */,
 				DDA388FF1798E52200CB7BD4 /* MJPopupBackgroundView.m in Sources */,
 				DDA389001798E52200CB7BD4 /* UIViewController+MJPopupViewController.m in Sources */,
+				DD742866179D19F00015E9B2 /* ctdReimbursementViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

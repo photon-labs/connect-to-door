@@ -1,15 +1,19 @@
 //
-//  ctdReimbursement.h
+//  ctdReimbursementViewController.h
 //  ConnectToDoor
 //
-//  Created by photon infotech on 7/17/13.
+//  Created by Photon Infotech on 7/22/13.
 //  Copyright (c) 2013 aldi cita putra. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "ctdBaseViewController.h"
 #import "ctdProfileService.h"
 
-@interface ctdReimbursement : UIViewController<ProfileServiceDelegate>
+@interface ctdReimbursementViewController : ctdBaseViewController<ProfileServiceDelegate>{
+    IBOutlet UIScrollView *scrollView;
+}
+
 
 @property (nonatomic, strong) IBOutlet UILabel *employeeName;
 @property (nonatomic, strong) IBOutlet UILabel *employeeID;
@@ -41,4 +45,5 @@
 
 - (IBAction)didDatePickerSaveBtnTypeClicked:(id)sender;
 - (IBAction)didDatePickerCancelBtnTypeClicked:(id)sender;
+
 @end
