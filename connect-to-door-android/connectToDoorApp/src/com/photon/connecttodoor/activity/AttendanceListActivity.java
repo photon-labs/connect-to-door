@@ -441,15 +441,17 @@ public class AttendanceListActivity extends MainActivity {
 		}
 
 		protected void onPostExecute(String result) {
-			AttendanceModel attendance = new AttendanceModel(result);
-			try {
-				attendance.parseSource();
-			} catch (JSONException e) {
-				e.printStackTrace();
+			if(result != null){
+				AttendanceModel attendance = new AttendanceModel(result);
+				try {
+					attendance.parseSource();
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());
+				attendanceListReport.setAdapter(tableReport);
+				tableReport.notifyDataSetChanged();
 			}
-			ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());
-			attendanceListReport.setAdapter(tableReport);
-			tableReport.notifyDataSetChanged();
 			this.dialog.dismiss();
 		}
 	}
