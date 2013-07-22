@@ -572,8 +572,14 @@ public class AttendanceFormActivity extends MainActivity {
 
 		protected void onPostExecute(String result) {
 			String response = result;
-			if(response == null || response == ""){
+			if(response == ""){
 				alertMessage("Please fill all field", AttendanceFormActivity.this);
+			}else{
+				if(response != null){
+					alertMessage("Create Account Success", AttendanceFormActivity.this);
+				}else{
+					alertMessage("Create Account Failed", AttendanceFormActivity.this);
+				}
 			}
 			this.dialog.dismiss();
 		}
@@ -600,6 +606,16 @@ public class AttendanceFormActivity extends MainActivity {
 		}
 
 		protected void onPostExecute(String result) {
+			String response = result;
+			if(response == ""){
+				alertMessage("Please fill all field", AttendanceFormActivity.this);
+			}else{
+				if(response != null){
+					alertMessage("Edit Account Success", AttendanceFormActivity.this);
+				}else{
+					alertMessage("Edit Account Failed", AttendanceFormActivity.this);
+				}
+			}
 			this.dialog.dismiss();
 		}
 	}

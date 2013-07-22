@@ -86,7 +86,7 @@ public class ReportActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				
+
 				/**check internet connection before sign out application */
 				if(connectionAvailable()){
 					LoginActivity.onClickLogout();
@@ -174,15 +174,17 @@ public class ReportActivity extends MainActivity {
 		}
 
 		protected void onPostExecute(String result) {
-			ReportAttendanceModel reportModel = new ReportAttendanceModel(result);
-			try {
-				reportModel.parseSource();
-			} catch (JSONException e) {
-				e.printStackTrace();
+			if(result != null){
+				ReportAttendanceModel reportModel = new ReportAttendanceModel(result);
+				try {
+					reportModel.parseSource();
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				ListGeneratedReportArrayAdapter tableReport = new ListGeneratedReportArrayAdapter(ReportActivity.this,reportModel.getReportAttendanceList());
+				attendanceAdminReport.setAdapter(tableReport);
+				tableReport.notifyDataSetChanged();
 			}
-			ListGeneratedReportArrayAdapter tableReport = new ListGeneratedReportArrayAdapter(ReportActivity.this,reportModel.getReportAttendanceList());
-			attendanceAdminReport.setAdapter(tableReport);
-			tableReport.notifyDataSetChanged();
 			this.dialog.dismiss();
 		}
 	}

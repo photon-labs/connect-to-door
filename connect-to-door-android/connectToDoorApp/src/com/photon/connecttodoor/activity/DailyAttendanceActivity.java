@@ -153,16 +153,18 @@ public class DailyAttendanceActivity extends MainActivity{
 		}
 
 		protected void onPostExecute(String result) {
-			DailyAttendanceModel dailyModel = new DailyAttendanceModel(result);
-			try {
-				dailyModel.parseSource();
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if(result != null){
+				DailyAttendanceModel dailyModel = new DailyAttendanceModel(result);
+				try {
+					dailyModel.parseSource();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ListGeneratedDailyArrayAdapter tableReport = new ListGeneratedDailyArrayAdapter(DailyAttendanceActivity.this,dailyModel.getDailyAttendanceListModels());
+				dailyReport.setAdapter(tableReport);
+				tableReport.notifyDataSetChanged();
 			}
-			ListGeneratedDailyArrayAdapter tableReport = new ListGeneratedDailyArrayAdapter(DailyAttendanceActivity.this,dailyModel.getDailyAttendanceListModels());
-			dailyReport.setAdapter(tableReport);
-			tableReport.notifyDataSetChanged();
 			this.dialog.dismiss();
 		}
 	}

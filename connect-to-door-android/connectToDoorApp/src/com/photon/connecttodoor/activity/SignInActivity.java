@@ -89,24 +89,22 @@ public class SignInActivity extends MainActivity {
 		}
 
 		protected void onPostExecute(String result) {
-			savePreference("responseLogin", result, getApplicationContext());
-			String response = result;
-			LoginDataModel loginDataModel = new LoginDataModel();
-			try {
-				loginDataModel.parseJSON(response);
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			if(response != null){
+			if (result != null){
+				savePreference("responseLogin", result, getApplicationContext());
+				String response = result;
+				LoginDataModel loginDataModel = new LoginDataModel();
+				try {
+					loginDataModel.parseJSON(response);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+
 				if(loginDataModel.getStatus().equalsIgnoreCase("success")){
 					goToWelcomePage();
 				}else{
 					alertMessage(ApplicationConstant.ERR_LOGIN_FAIL,SignInActivity.this);
 				}
-			}else{
-				alertMessage("service not found",SignInActivity.this);
 			}
-			
 			this.dialog.dismiss();
 		}
 	}
@@ -130,7 +128,9 @@ public class SignInActivity extends MainActivity {
 		}
 
 		protected void onPostExecute(String result) {
-			savePreference("responseProfile", result, getApplicationContext());
+			if(result != null){
+				savePreference("responseProfile", result, getApplicationContext());
+			}
 		}
 	}
 
