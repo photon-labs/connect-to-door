@@ -186,12 +186,7 @@ public class AttendanceListActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				/**check internet connection before tap back button */
-				if(connectionAvailable()){
-					goToWelcomeScreen();
-				}else{
-					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceListActivity.this);
-				}
+				goToWelcomeScreen();
 			}
 		});
 		/**
