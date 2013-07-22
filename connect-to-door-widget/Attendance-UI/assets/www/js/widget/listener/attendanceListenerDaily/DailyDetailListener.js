@@ -71,7 +71,7 @@ Clazz.com.attendance.widget.listener.DetailDailyListener = Clazz.extend(Clazz.Wi
 				var timeValue = $('.attendance-daily-input-text').val();
 				var timeValueLen = $('.attendance-daily-input-text').val().length;
 				var lastValue = $('.daily-text-check-in').eq(self.columnClicked).text();
-				if (timeValue != "" && timeValueLen == 5 && timeValue != lastValue  && timeRegex.test(timeValue)){
+				if (lastValue != "" && timeValue != "" && timeValueLen == 5 && timeValue != lastValue  && timeRegex.test(timeValue)){
 					$('.daily-text-check-in').eq(self.columnClicked).text(timeValue);
 					$('.attendance-daily-input-text-dbl-click').hide();
 					$('.attendance-daily-mask').hide();
@@ -95,7 +95,7 @@ Clazz.com.attendance.widget.listener.DetailDailyListener = Clazz.extend(Clazz.Wi
 				var timeValue = $('.attendance-daily-input-text').val();
 				var timeValueLen = $('.attendance-daily-input-text').val().length;
 				var lastValue = $('.daily-text-check-out').eq(self.columnClicked).text();
-				if (timeValue != ""  && timeValueLen == 5 && timeValue != lastValue  && timeRegex.test(timeValue)){
+				if (lastValue != "" && timeValue != ""  && timeValueLen == 5 && timeValue != lastValue  && timeRegex.test(timeValue)){
 					$('.daily-text-check-out').eq(self.columnClicked).text(timeValue);
 					$('.attendance-daily-input-text-dbl-click').hide();
 					$('.attendance-daily-mask').hide();
