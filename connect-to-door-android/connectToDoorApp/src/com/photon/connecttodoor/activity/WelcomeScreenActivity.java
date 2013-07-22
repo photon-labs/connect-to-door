@@ -62,14 +62,9 @@ public class WelcomeScreenActivity extends MainActivity {
 		checkPresentModel = new CheckPresentModel();
 
 		/**check internet connection before check attendance status */
-		if(connectionAvailable()){
-			setDataLogin();
-			setUIWelcomeScreen();
-			new CallServiceCheckInOut().execute();
-		}else{
-			alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, WelcomeScreenActivity.this);
-		}
-
+		new CallServiceCheckInOut().execute();
+		setDataLogin();
+		setUIWelcomeScreen();
 		actionButton();
 	}
 	/**
