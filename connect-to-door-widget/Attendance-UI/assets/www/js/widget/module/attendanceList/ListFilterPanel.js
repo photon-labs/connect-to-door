@@ -237,7 +237,6 @@ Clazz.com.attendance.widget.list.ListFilterPanel = Clazz.extend(Clazz.WidgetWith
 			var dropdownValue = $(".search-button-text").text();
 			var backspace = 08;
 			var deleteButton = 46;
-			var leftArrow = 37;
 			var tab = 09;
 			var zero = 48;
 			var nine = 57;
@@ -247,7 +246,7 @@ Clazz.com.attendance.widget.list.ListFilterPanel = Clazz.extend(Clazz.WidgetWith
 
 			var charcode = event ? event.which : event.keyCode;
 			if(dropdownValue == "Employee ID"){
-				if(charcode == backspace || charcode == deleteButton || charcode == leftArrow || charcode == tab || charcode == i || charcode == I){
+				if(charcode == backspace || charcode == deleteButton || charcode == tab || charcode == i || charcode == I){
 					return true;
 				}
 				else if(charcode < zero || charcode > nine){
@@ -266,7 +265,7 @@ Clazz.com.attendance.widget.list.ListFilterPanel = Clazz.extend(Clazz.WidgetWith
 				}
 			}
 			else {
-				if(charcode == backspace || charcode == deleteButton || charcode == leftArrow || charcode == tab){
+				if(charcode == backspace || charcode == deleteButton || charcode == tab){
 					return true;
 				}
 				else if(charcode < zero || charcode > nine){
