@@ -10,6 +10,7 @@
 #import "ctdProfileViewController.h"
 #import "ctdVoucherViewController.h"
 #import "ctdDailyAttendaceViewController.h"
+#import "ctdAttendanceListViewController.h"
 #import "ctdLoginViewController.h"
 #import "ctdLocalStorage.h"
 #import "ctdLocalStorage.h"
@@ -22,12 +23,8 @@
 #import "ctdResponseCheckStatusModel.h"
 #import "ctdResponseCheckOutModel.h"
 
-@interface ctdWelcomeViewController ()
-
-@end
 
 @implementation ctdWelcomeViewController
-
 
 @synthesize welcome;
 @synthesize statusCheck;
@@ -131,9 +128,8 @@
 }
 
 -(void) goToAttendanceList{
-    ///
-    ///
-    ///
+    ctdAttendanceListViewController *attendanceListViewController = [[ctdAttendanceListViewController alloc]initWithNibName:@"ctdAttendanceListViewController" bundle:nil];
+    [self.navigationController pushViewController:attendanceListViewController animated:YES];
 }
 
 -(NSString*) getCurrentDate {

@@ -75,6 +75,7 @@
 		DD742866179D19F00015E9B2 /* ctdReimbursementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */; };
 		DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */; };
 		DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */; };
+		DD99570F17965BA100EEF97E /* GridTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD99570E17965BA100EEF97E /* GridTableViewCell.m */; };
 		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
 		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
@@ -106,6 +107,13 @@
 		DDD9175D178EBEF200750702 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD9175C178EBEF200750702 /* Reachability.m */; };
 		DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD9175E178ED0D000750702 /* MobileCoreServices.framework */; };
 		DDD91761178ED1CA00750702 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD91760178ED1CA00750702 /* SystemConfiguration.framework */; };
+		DDDAEF8C179528D3008E8482 /* ctdAttendanceListService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF83179528D3008E8482 /* ctdAttendanceListService.m */; };
+		DDDAEF8D179528D3008E8482 /* ctdSummaryAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF86179528D3008E8482 /* ctdSummaryAttendanceModel.m */; };
+		DDDAEF8E179528D3008E8482 /* ctdAttendanceListParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF89179528D3008E8482 /* ctdAttendanceListParser.m */; };
+		DDDAEF9217952F3F008E8482 /* ctdAttendanceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */; };
+		DDDAEF9317952F3F008E8482 /* ctdAttendanceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */; };
+		DDDAEF9517953784008E8482 /* box_transparent_att_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF9417953784008E8482 /* box_transparent_att_list.png */; };
+		DDDAEF97179547DC008E8482 /* nuicon_datealt.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF96179547DC008E8482 /* nuicon_datealt.png */; };
 		DDEE3A33178D359800E7F0C1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */; };
 		DDEE3A35178D35F400E7F0C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A34178D35F400E7F0C1 /* Social.framework */; };
 		DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A36178D360000E7F0C1 /* Accounts.framework */; };
@@ -238,6 +246,8 @@
 		DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdReimbursementViewController.m; sourceTree = "<group>"; };
 		DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdReimbursementViewController.xib; sourceTree = "<group>"; };
 		DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_bottom.png"; sourceTree = "<group>"; };
+		DD99570D17965BA100EEF97E /* GridTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridTableViewCell.h; sourceTree = "<group>"; };
+		DD99570E17965BA100EEF97E /* GridTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridTableViewCell.m; sourceTree = "<group>"; };
 		DD996E5F1793D5FF000F5A4B /* ctdCheckStatusParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusParser.h; sourceTree = "<group>"; };
 		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
 		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
@@ -280,6 +290,17 @@
 		DDD9175C178EBEF200750702 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
 		DDD9175E178ED0D000750702 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DDD91760178ED1CA00750702 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DDDAEF82179528D3008E8482 /* ctdAttendanceListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListService.h; sourceTree = "<group>"; };
+		DDDAEF83179528D3008E8482 /* ctdAttendanceListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListService.m; sourceTree = "<group>"; };
+		DDDAEF85179528D3008E8482 /* ctdSummaryAttendanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSummaryAttendanceModel.h; sourceTree = "<group>"; };
+		DDDAEF86179528D3008E8482 /* ctdSummaryAttendanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSummaryAttendanceModel.m; sourceTree = "<group>"; };
+		DDDAEF88179528D3008E8482 /* ctdAttendanceListParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListParser.h; sourceTree = "<group>"; };
+		DDDAEF89179528D3008E8482 /* ctdAttendanceListParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListParser.m; sourceTree = "<group>"; };
+		DDDAEF8F17952F3F008E8482 /* ctdAttendanceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListViewController.h; sourceTree = "<group>"; };
+		DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListViewController.m; sourceTree = "<group>"; };
+		DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceListViewController.xib; sourceTree = "<group>"; };
+		DDDAEF9417953784008E8482 /* box_transparent_att_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_att_list.png; sourceTree = "<group>"; };
+		DDDAEF96179547DC008E8482 /* nuicon_datealt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuicon_datealt.png; sourceTree = "<group>"; };
 		DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		DDEE3A34178D35F400E7F0C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		DDEE3A36178D360000E7F0C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -408,6 +429,7 @@
 			children = (
 				7133432D1737CB8500057FE6 /* ctdAppDelegate.h */,
 				7133432E1737CB8500057FE6 /* ctdAppDelegate.m */,
+				DDDAEF80179528D3008E8482 /* AttendanceList */,
 				71DFF0201738C9C800EF1491 /* Profile */,
 				71DFF01F1738C9B900EF1491 /* Voucher */,
 				71DFF01E1738C9AB00EF1491 /* DailyAttendance */,
@@ -512,6 +534,7 @@
 			children = (
 				DDA388FA1798E51300CB7BD4 /* MJPopUpViewController */,
 				DDA388F41798E4EA00CB7BD4 /* AlertViewController */,
+				DD99570C17965BA100EEF97E /* GridTableView */,
 				DDD9175A178EBEDB00750702 /* Reachability */,
 				DDAF29B8178C1A0400597570 /* LocalStorage */,
 				DDAF29B4178BB58300597570 /* JSONKit */,
@@ -809,6 +832,15 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
+		DD99570C17965BA100EEF97E /* GridTableView */ = {
+			isa = PBXGroup;
+			children = (
+				DD99570D17965BA100EEF97E /* GridTableViewCell.h */,
+				DD99570E17965BA100EEF97E /* GridTableViewCell.m */,
+			);
+			path = GridTableView;
+			sourceTree = "<group>";
+		};
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +862,8 @@
 				6AEEE6B81797966B00CD4219 /* box_add-text_long.png */,
 				6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */,
 				6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */,
+				DDDAEF96179547DC008E8482 /* nuicon_datealt.png */,
+				DDDAEF9417953784008E8482 /* box_transparent_att_list.png */,
 				DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */,
 				71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */,
 				71DFF04A1739304E00EF1491 /* box_transparent_profile.png */,
@@ -902,6 +936,62 @@
 				DDD9175C178EBEF200750702 /* Reachability.m */,
 			);
 			name = Reachability;
+			sourceTree = "<group>";
+		};
+		DDDAEF80179528D3008E8482 /* AttendanceList */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAEF81179528D3008E8482 /* DAL */,
+				DDDAEF84179528D3008E8482 /* Model */,
+				DDDAEF87179528D3008E8482 /* Parser */,
+				DDDAEF8A179528D3008E8482 /* View */,
+				DDDAEF8B179528D3008E8482 /* ViewController */,
+			);
+			path = AttendanceList;
+			sourceTree = "<group>";
+		};
+		DDDAEF81179528D3008E8482 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAEF82179528D3008E8482 /* ctdAttendanceListService.h */,
+				DDDAEF83179528D3008E8482 /* ctdAttendanceListService.m */,
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		DDDAEF84179528D3008E8482 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAEF85179528D3008E8482 /* ctdSummaryAttendanceModel.h */,
+				DDDAEF86179528D3008E8482 /* ctdSummaryAttendanceModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDDAEF87179528D3008E8482 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAEF88179528D3008E8482 /* ctdAttendanceListParser.h */,
+				DDDAEF89179528D3008E8482 /* ctdAttendanceListParser.m */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		DDDAEF8A179528D3008E8482 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDDAEF8B179528D3008E8482 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAEF8F17952F3F008E8482 /* ctdAttendanceListViewController.h */,
+				DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */,
+				DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1019,6 +1109,9 @@
 				DDA977BC17991C8600AA3760 /* button_back.png in Resources */,
 				DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */,
 				DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */,
+				DDDAEF9317952F3F008E8482 /* ctdAttendanceListViewController.xib in Resources */,
+				DDDAEF9517953784008E8482 /* box_transparent_att_list.png in Resources */,
+				DDDAEF97179547DC008E8482 /* nuicon_datealt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,6 +1191,11 @@
 				DDA388FF1798E52200CB7BD4 /* MJPopupBackgroundView.m in Sources */,
 				DDA389001798E52200CB7BD4 /* UIViewController+MJPopupViewController.m in Sources */,
 				DD742866179D19F00015E9B2 /* ctdReimbursementViewController.m in Sources */,
+				DDDAEF8C179528D3008E8482 /* ctdAttendanceListService.m in Sources */,
+				DDDAEF8D179528D3008E8482 /* ctdSummaryAttendanceModel.m in Sources */,
+				DDDAEF8E179528D3008E8482 /* ctdAttendanceListParser.m in Sources */,
+				DDDAEF9217952F3F008E8482 /* ctdAttendanceListViewController.m in Sources */,
+				DD99570F17965BA100EEF97E /* GridTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
