@@ -12,6 +12,7 @@
 
 @interface ctdReimbursementViewController : ctdBaseViewController<ProfileServiceDelegate>{
     IBOutlet UIScrollView *scrollView;
+    IBOutlet UIView *formView;
 }
 
 
@@ -33,6 +34,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *reimbursementBtn;
 @property (nonatomic, strong) IBOutlet UIButton *dateBtn;
 
+@property (nonatomic, strong) IBOutlet UIButton *backBtn;
+
 @property (nonatomic, strong) IBOutlet UITextField *dateTxt;
 @property (nonatomic, strong) IBOutlet UITextField *reimbursementTxt;
 @property (nonatomic, strong) IBOutlet UITextField *descriptionTxt;
@@ -42,6 +45,8 @@
 
 - (IBAction)didDatePickerClicked:(id)sender;
 - (IBAction)didReimbursementTypeClicked:(id)sender;
+
+- (IBAction)didBackClicked:(id)sender;
 
 - (IBAction)didDatePickerSaveBtnTypeClicked:(id)sender;
 - (IBAction)didDatePickerCancelBtnTypeClicked:(id)sender;
