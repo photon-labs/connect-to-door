@@ -55,6 +55,7 @@
 		DD3035F9179FAD9200BA679C /* dropdown_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035F8179FAD9200BA679C /* dropdown_arrowdown.png */; };
 		DD3035FB179FADFA00BA679C /* button_search.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035FA179FADFA00BA679C /* button_search.png */; };
 		DD303600179FC37800BA679C /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035FF179FC37800BA679C /* CKCalendarView.m */; };
+		DD303602179FDF1E00BA679C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303601179FDF1E00BA679C /* QuartzCore.framework */; };
 		DD3487CC178A706F0070702C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487C9178A706F0070702C /* AFHTTPClient.m */; };
 		DD3487CD178A706F0070702C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487CB178A706F0070702C /* AFHTTPRequestOperation.m */; };
 		DD3487E1178A7F330070702C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487D3178A7F320070702C /* AFImageRequestOperation.m */; };
@@ -212,6 +213,7 @@
 		DD3035FA179FADFA00BA679C /* button_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_search.png; sourceTree = "<group>"; };
 		DD3035FE179FC37800BA679C /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
 		DD3035FF179FC37800BA679C /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
+		DD303601179FDF1E00BA679C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DD3487C8178A706F0070702C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		DD3487C9178A706F0070702C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		DD3487CA178A706F0070702C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD303602179FDF1E00BA679C /* QuartzCore.framework in Frameworks */,
 				DDA977BA1798F0A300AA3760 /* FacebookSDK.framework in Frameworks */,
 				DDD91761178ED1CA00750702 /* SystemConfiguration.framework in Frameworks */,
 				DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */,
@@ -364,6 +367,7 @@
 		713342E41737C9B700057FE6 = {
 			isa = PBXGroup;
 			children = (
+				DD303601179FDF1E00BA679C /* QuartzCore.framework */,
 				713342F61737C9B700057FE6 /* ConnectToDoor */,
 				7133431A1737C9B800057FE6 /* ConnectToDoorTests */,
 				713342EF1737C9B700057FE6 /* Frameworks */,
