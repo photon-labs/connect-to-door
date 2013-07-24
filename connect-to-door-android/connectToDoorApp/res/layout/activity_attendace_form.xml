@@ -280,7 +280,8 @@
                             android:background="@drawable/box_add_text_form_start_working_in_active"
                             android:enabled="false"
                             android:paddingLeft="10dp"
-                            android:paddingRight="10dp" />
+                            android:paddingRight="10dp"
+                            android:editable="false" />
 
                         <ImageView
                             android:id="@+id/image_button_calendar"
