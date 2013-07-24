@@ -93,12 +93,20 @@ public abstract class MainActivity extends Activity{
 	 */
 	public String changeFormatDate(String date){
 		String fullDate = "";
-		if(!date.matches("")){
-			String [] formatDate = date.split(STRIP);
+		if(date.contains(SLASH)){
+			String [] formatDate = date.split(SLASH);
 			String day = formatDate[0];
 			String month = formatDate[1];
 			String year = formatDate[2];
 			fullDate = year+STRIP+month+STRIP+day;
+		}else{
+			if(!date.matches("")){
+				String [] formatDate = date.split(STRIP);
+				String day = formatDate[0];
+				String month = formatDate[1];
+				String year = formatDate[2];
+				fullDate = year+STRIP+month+STRIP+day;
+			}
 		}
 		return fullDate;
 	}
