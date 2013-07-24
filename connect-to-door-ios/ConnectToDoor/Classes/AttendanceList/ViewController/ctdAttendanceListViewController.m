@@ -96,7 +96,7 @@
     numberLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:numberLabel];
     
-    UIImageView *separator = [[UIImageView alloc] initWithFrame:CGRectMake(33.0, 0, 3.0,tableView.rowHeight)];
+    UIImageView *separator = [[UIImageView alloc] initWithFrame:CGRectMake(34.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:60];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
@@ -110,7 +110,7 @@
     nameLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:nameLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(181.0, 0, 3.0,tableView.rowHeight)];
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(181.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:80];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
@@ -124,7 +124,7 @@
     employeeIdLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:employeeIdLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(271.0, 0, 3.0,tableView.rowHeight)];
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(272.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:100];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
@@ -140,7 +140,7 @@
     projectIdLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:projectIdLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(362.0, 0, 3.0,tableView.rowHeight)];
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(362.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:120];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
@@ -154,7 +154,7 @@
     totalAttendanceLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:totalAttendanceLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(451.0, 0, 3.0,tableView.rowHeight)];
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(452.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:140];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
@@ -168,7 +168,7 @@
     totalWorkingLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:totalWorkingLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(542.0, 0, 3.0,tableView.rowHeight)];
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(543.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:160];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
@@ -182,7 +182,7 @@
     totalLeaveLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:totalLeaveLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(632.0, 0, 3.0,tableView.rowHeight)];
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(633.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:180];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
