@@ -42,7 +42,7 @@ typedef enum {
 	
 	UIView *refView;
 	
-	id<DropDownViewDelegate> *delegate;
+	id<DropDownViewDelegate> delegate;
 	
 	NSInteger animationType;
 	
@@ -52,7 +52,7 @@ typedef enum {
 	
 }
 
-@property (nonatomic,assign) id<DropDownViewDelegate> delegate;
+@property (nonatomic,strong) id<DropDownViewDelegate> delegate;
 
 @property (nonatomic,retain)UITableView *uiTableView;
 

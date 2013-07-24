@@ -138,7 +138,7 @@
 	
 	if (cell == nil) {
         
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		
     }
     
@@ -194,9 +194,9 @@
 	
 	self.view.hidden = NO;
 	
-	NSValue *contextPoint = [[NSValue valueWithCGPoint:self.view.center] retain];
+	NSValue *contextPoint = [NSValue valueWithCGPoint:self.view.center];
 	
-	[UIView beginAnimations:nil context:contextPoint];
+	[UIView beginAnimations:nil context:(__bridge void *)(contextPoint)];
 	
 	[UIView setAnimationDuration:open];
 	
@@ -222,9 +222,9 @@
 
 -(void)closeAnimation{
 	
-	NSValue *contextPoint = [[NSValue valueWithCGPoint:self.view.center] retain];
+	NSValue *contextPoint = [NSValue valueWithCGPoint:self.view.center];
 	
-	[UIView beginAnimations:nil context:contextPoint];
+	[UIView beginAnimations:nil context:(__bridge void *)(contextPoint)];
 	
 	[UIView setAnimationDuration:close];
 	
