@@ -102,6 +102,13 @@
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */; };
+		DDD5EB20179F91D1006230D8 /* box_transparent_att_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDD5EB1E179F91D1006230D8 /* box_transparent_att_list.png */; };
+		DDD5EB21179F91D1006230D8 /* nuicon_datealt.png in Resources */ = {isa = PBXBuildFile; fileRef = DDD5EB1F179F91D1006230D8 /* nuicon_datealt.png */; };
+		DDD5EB30179F9364006230D8 /* ctdAttendanceListService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD5EB25179F9364006230D8 /* ctdAttendanceListService.m */; };
+		DDD5EB31179F9364006230D8 /* ctdSummaryAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD5EB28179F9364006230D8 /* ctdSummaryAttendanceModel.m */; };
+		DDD5EB32179F9364006230D8 /* ctdAttendanceListParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD5EB2B179F9364006230D8 /* ctdAttendanceListParser.m */; };
+		DDD5EB33179F9364006230D8 /* ctdAttendanceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD5EB2E179F9364006230D8 /* ctdAttendanceListViewController.m */; };
+		DDD5EB34179F9364006230D8 /* ctdAttendanceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD5EB2F179F9364006230D8 /* ctdAttendanceListViewController.xib */; };
 		DDD91759178EBA1600750702 /* ctdGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD91758178EBA1600750702 /* ctdGlobal.m */; };
 		DDD9175D178EBEF200750702 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD9175C178EBEF200750702 /* Reachability.m */; };
 		DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD9175E178ED0D000750702 /* MobileCoreServices.framework */; };
@@ -279,6 +286,17 @@
 		DDAF29B6178BB5A200597570 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		DDAF29B9178C1A6200597570 /* ctdLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdLocalStorage.h; path = LocalStorage/ctdLocalStorage.h; sourceTree = "<group>"; };
 		DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdLocalStorage.m; path = LocalStorage/ctdLocalStorage.m; sourceTree = "<group>"; };
+		DDD5EB1E179F91D1006230D8 /* box_transparent_att_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_att_list.png; sourceTree = "<group>"; };
+		DDD5EB1F179F91D1006230D8 /* nuicon_datealt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuicon_datealt.png; sourceTree = "<group>"; };
+		DDD5EB24179F9364006230D8 /* ctdAttendanceListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListService.h; sourceTree = "<group>"; };
+		DDD5EB25179F9364006230D8 /* ctdAttendanceListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListService.m; sourceTree = "<group>"; };
+		DDD5EB27179F9364006230D8 /* ctdSummaryAttendanceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSummaryAttendanceModel.h; sourceTree = "<group>"; };
+		DDD5EB28179F9364006230D8 /* ctdSummaryAttendanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSummaryAttendanceModel.m; sourceTree = "<group>"; };
+		DDD5EB2A179F9364006230D8 /* ctdAttendanceListParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListParser.h; sourceTree = "<group>"; };
+		DDD5EB2B179F9364006230D8 /* ctdAttendanceListParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListParser.m; sourceTree = "<group>"; };
+		DDD5EB2D179F9364006230D8 /* ctdAttendanceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListViewController.h; sourceTree = "<group>"; };
+		DDD5EB2E179F9364006230D8 /* ctdAttendanceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListViewController.m; sourceTree = "<group>"; };
+		DDD5EB2F179F9364006230D8 /* ctdAttendanceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceListViewController.xib; sourceTree = "<group>"; };
 		DDD91757178EBA1600750702 /* ctdGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdGlobal.h; path = Model/ctdGlobal.h; sourceTree = "<group>"; };
 		DDD91758178EBA1600750702 /* ctdGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdGlobal.m; path = Model/ctdGlobal.m; sourceTree = "<group>"; };
 		DDD9175B178EBEF200750702 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
@@ -416,6 +434,7 @@
 		7133432B1737CB8500057FE6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DDD5EB22179F9343006230D8 /* AttendanceList */,
 				7133432D1737CB8500057FE6 /* ctdAppDelegate.h */,
 				7133432E1737CB8500057FE6 /* ctdAppDelegate.m */,
 				71DFF0201738C9C800EF1491 /* Profile */,
@@ -822,6 +841,8 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DDD5EB1E179F91D1006230D8 /* box_transparent_att_list.png */,
+				DDD5EB1F179F91D1006230D8 /* nuicon_datealt.png */,
 				DDF2DBDB179EAC9B00DFD2C3 /* button_bottom_back.png */,
 				DDF2DBDC179EAC9B00DFD2C3 /* button_bottom_submit.png */,
 				DDF2DBDD179EAC9B00DFD2C3 /* button_remove.png */,
@@ -899,6 +920,58 @@
 				DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */,
 			);
 			name = LocalStorage;
+			sourceTree = "<group>";
+		};
+		DDD5EB22179F9343006230D8 /* AttendanceList */ = {
+			isa = PBXGroup;
+			children = (
+				DDD5EB23179F9364006230D8 /* DAL */,
+				DDD5EB26179F9364006230D8 /* Model */,
+				DDD5EB29179F9364006230D8 /* Parser */,
+				DDD5EB2C179F9364006230D8 /* ViewController */,
+			);
+			name = AttendanceList;
+			sourceTree = "<group>";
+		};
+		DDD5EB23179F9364006230D8 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				DDD5EB24179F9364006230D8 /* ctdAttendanceListService.h */,
+				DDD5EB25179F9364006230D8 /* ctdAttendanceListService.m */,
+			);
+			name = DAL;
+			path = AttendanceList/DAL;
+			sourceTree = "<group>";
+		};
+		DDD5EB26179F9364006230D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDD5EB27179F9364006230D8 /* ctdSummaryAttendanceModel.h */,
+				DDD5EB28179F9364006230D8 /* ctdSummaryAttendanceModel.m */,
+			);
+			name = Model;
+			path = AttendanceList/Model;
+			sourceTree = "<group>";
+		};
+		DDD5EB29179F9364006230D8 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				DDD5EB2A179F9364006230D8 /* ctdAttendanceListParser.h */,
+				DDD5EB2B179F9364006230D8 /* ctdAttendanceListParser.m */,
+			);
+			name = Parser;
+			path = AttendanceList/Parser;
+			sourceTree = "<group>";
+		};
+		DDD5EB2C179F9364006230D8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDD5EB2D179F9364006230D8 /* ctdAttendanceListViewController.h */,
+				DDD5EB2E179F9364006230D8 /* ctdAttendanceListViewController.m */,
+				DDD5EB2F179F9364006230D8 /* ctdAttendanceListViewController.xib */,
+			);
+			name = ViewController;
+			path = AttendanceList/ViewController;
 			sourceTree = "<group>";
 		};
 		DDD91756178EB96800750702 /* Model */ = {
@@ -1039,6 +1112,9 @@
 				DDF2DBE2179EAC9B00DFD2C3 /* button_remove.png in Resources */,
 				DDF2DBE3179EAC9B00DFD2C3 /* button_small_edit.png in Resources */,
 				DDF2DBE4179EAC9B00DFD2C3 /* button_small_insert.png in Resources */,
+				DDD5EB20179F91D1006230D8 /* box_transparent_att_list.png in Resources */,
+				DDD5EB21179F91D1006230D8 /* nuicon_datealt.png in Resources */,
+				DDD5EB34179F9364006230D8 /* ctdAttendanceListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,6 +1194,10 @@
 				DDA388FF1798E52200CB7BD4 /* MJPopupBackgroundView.m in Sources */,
 				DDA389001798E52200CB7BD4 /* UIViewController+MJPopupViewController.m in Sources */,
 				DD742866179D19F00015E9B2 /* ctdReimbursementViewController.m in Sources */,
+				DDD5EB30179F9364006230D8 /* ctdAttendanceListService.m in Sources */,
+				DDD5EB31179F9364006230D8 /* ctdSummaryAttendanceModel.m in Sources */,
+				DDD5EB32179F9364006230D8 /* ctdAttendanceListParser.m in Sources */,
+				DDD5EB33179F9364006230D8 /* ctdAttendanceListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
