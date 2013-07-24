@@ -112,6 +112,11 @@
 		DDEE3A39178D361000E7F0C1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A38178D361000E7F0C1 /* AdSupport.framework */; };
 		DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A3A178D36B400E7F0C1 /* Security.framework */; };
 		DDEE3A3D178D4FED00E7F0C1 /* button_signinfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */; };
+		DDF2DBE0179EAC9B00DFD2C3 /* button_bottom_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF2DBDB179EAC9B00DFD2C3 /* button_bottom_back.png */; };
+		DDF2DBE1179EAC9B00DFD2C3 /* button_bottom_submit.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF2DBDC179EAC9B00DFD2C3 /* button_bottom_submit.png */; };
+		DDF2DBE2179EAC9B00DFD2C3 /* button_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF2DBDD179EAC9B00DFD2C3 /* button_remove.png */; };
+		DDF2DBE3179EAC9B00DFD2C3 /* button_small_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF2DBDE179EAC9B00DFD2C3 /* button_small_edit.png */; };
+		DDF2DBE4179EAC9B00DFD2C3 /* button_small_insert.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF2DBDF179EAC9B00DFD2C3 /* button_small_insert.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +291,11 @@
 		DDEE3A38178D361000E7F0C1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		DDEE3A3A178D36B400E7F0C1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_signinfacebook.png; sourceTree = "<group>"; };
+		DDF2DBDB179EAC9B00DFD2C3 /* button_bottom_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bottom_back.png; sourceTree = "<group>"; };
+		DDF2DBDC179EAC9B00DFD2C3 /* button_bottom_submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bottom_submit.png; sourceTree = "<group>"; };
+		DDF2DBDD179EAC9B00DFD2C3 /* button_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_remove.png; sourceTree = "<group>"; };
+		DDF2DBDE179EAC9B00DFD2C3 /* button_small_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_small_edit.png; sourceTree = "<group>"; };
+		DDF2DBDF179EAC9B00DFD2C3 /* button_small_insert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_small_insert.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -812,6 +822,11 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DDF2DBDB179EAC9B00DFD2C3 /* button_bottom_back.png */,
+				DDF2DBDC179EAC9B00DFD2C3 /* button_bottom_submit.png */,
+				DDF2DBDD179EAC9B00DFD2C3 /* button_remove.png */,
+				DDF2DBDE179EAC9B00DFD2C3 /* button_small_edit.png */,
+				DDF2DBDF179EAC9B00DFD2C3 /* button_small_insert.png */,
 				DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */,
 				DDA977BB17991C8600AA3760 /* button_back.png */,
 				DDA389021798ECC900CB7BD4 /* box_alert_white.png */,
@@ -1019,6 +1034,11 @@
 				DDA977BC17991C8600AA3760 /* button_back.png in Resources */,
 				DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */,
 				DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */,
+				DDF2DBE0179EAC9B00DFD2C3 /* button_bottom_back.png in Resources */,
+				DDF2DBE1179EAC9B00DFD2C3 /* button_bottom_submit.png in Resources */,
+				DDF2DBE2179EAC9B00DFD2C3 /* button_remove.png in Resources */,
+				DDF2DBE3179EAC9B00DFD2C3 /* button_small_edit.png in Resources */,
+				DDF2DBE4179EAC9B00DFD2C3 /* button_small_insert.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

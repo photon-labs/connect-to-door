@@ -36,7 +36,7 @@
 
 @synthesize reimbursementBtn;
 @synthesize dateBtn;
-
+@synthesize backBtn;
 @synthesize dateTxt;
 @synthesize reimbursementTxt;
 @synthesize descriptionTxt;
@@ -62,13 +62,14 @@ NSString *employeeId;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    formView.frame = CGRectMake(100, 85, formView.frame.size.width, formView.frame.size.height);
+    [self.view addSubview:formView];
     [self createPicker];
     [self configureAllComponent];
     [self setUserDetail];
     // Do any additional setup after loading the view from its nib.
     scrollView.frame = CGRectMake(0, 0, 891, 586);
-    [scrollView setContentSize:CGSizeMake(891, 954)];
+    [scrollView setContentSize:CGSizeMake(891, 1269)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -158,6 +159,10 @@ NSString *employeeId;
 - (IBAction)didDatePickerCancelBtnTypeClicked:(id)sender{
     self.datePicker.hidden = TRUE;
     self.toolbarDatePicker.hidden = TRUE;
+}
+
+- (IBAction)didBackClicked:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
