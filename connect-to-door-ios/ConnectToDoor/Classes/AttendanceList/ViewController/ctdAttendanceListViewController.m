@@ -14,6 +14,17 @@
 
 @implementation ctdAttendanceListViewController
 
+@synthesize searchOptionLabel;
+@synthesize dateStartText;
+@synthesize dateEndText;
+@synthesize searchKeyText;
+
+CKCalendarView *calendar;
+NSDateFormatter *dateFormatter;
+ctdAttendanceListService *attendanceListService;
+NSString *maxDate;
+NSString *datePickerActive;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,10 +37,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self showActivityIndicator];
-    ctdAttendanceListService *attendanceListService = [[ctdAttendanceListService alloc] init];
-    [attendanceListService handleAttendanceListRequest:nil :nil :@"01-07-2013" :@"15-07-2013"];
+    attendanceListService = [[ctdAttendanceListService alloc] init];
     attendanceListService.delegate = self;
+    
+    dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    maxDate = [dateFormatter stringFromDate:[NSDate date]];
+    datePickerActive = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -197,10 +211,72 @@
     [cell.contentView addSubview:averageWorkingLabel];
     
     return cell;
-    
+}
+
+- (IBAction)didDateStartClicked:(id)sender
+{
+    datePickerActive = DATE_START;
+    CGFloat dateStartX = CGRectGetMaxX(self.dateStartButton.frame);
+    CGFloat dateStartY = CGRectGetMaxY(self.dateStartButton.frame);
+    [self createPopUpCalendarWithValidation:dateStartX :dateStartY];
+}
+
+- (IBAction)didDateEndClicked:(id)sender
+{
+    datePickerActive = DATE_END;
+    CGFloat dateEndX = CGRectGetMaxX(self.dateEndButton.frame);
+    CGFloat dateEndY = CGRectGetMaxY(self.dateEndButton.frame);
+    [self createPopUpCalendarWithValidation:dateEndX :dateEndY];
+}
+
+- (IBAction)didSearchOptionClicked:(id)sender
+{
     
 }
 
+- (IBAction)didSearchClicked:(id)sender
+{
+    [self showActivityIndicator];
+    [attendanceListService handleAttendanceListRequest:nil :nil :self.dateStartText.text :self.dateEndText.text];
+}
 
+- (void) createPopUpCalendar :(CGFloat)positionX :(CGFloat)positionY
+{
+    calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
+    calendar.delegate = self;
+    
+    calendar.onlyShowCurrentMonth = NO;
+    calendar.adaptHeightToNumberOfWeeksInMonth = YES;
+    
+    calendar.frame = CGRectMake(positionX, positionY, 300, 320);
+}
+
+- (void) createPopUpCalendarWithValidation :(CGFloat)positionX :(CGFloat)positionY
+{
+    if([calendar isDescendantOfView:self.view]){
+        [self removePopUp];
+    } else {
+        [self createPopUpCalendar:positionX :positionY];
+        [self.view addSubview:calendar];
+    }
+}
+
+- (void) removePopUp
+{
+    datePickerActive = @"";
+    [calendar removeFromSuperview];
+    calendar = nil;
+}
+
+#pragma mark - CKCalendarDelegate
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date
+{
+    if([datePickerActive isEqualToString:DATE_START]) {
+        self.dateStartText.text = [dateFormatter stringFromDate:date];
+    } else if([datePickerActive isEqualToString:DATE_END]) {
+        self.dateEndText.text = [dateFormatter stringFromDate:date];
+    }
+    [self removePopUp];
+}
 
 @end

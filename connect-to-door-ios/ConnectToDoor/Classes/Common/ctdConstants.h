@@ -46,6 +46,9 @@
 #define CHECKOUT @"checkOut"
 #define CHECKSTATUS @"check-status"
 
+#define DATE_START @"dateStart"
+#define DATE_END @"dateEnd"
+
 //facebook key on local storage/nsuserdefaults & response object key
 #define kUserFaceBookId @"facebookID"
 #define kNameUserFaceBook @"nameUserFacebook"

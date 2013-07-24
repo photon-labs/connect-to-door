@@ -10,8 +10,9 @@
 #import "ctdBaseViewController.h"
 #import "ctdAttendanceListService.h"
 #import "DropDownView.h"
+#import "CKCalendarView.h"
 
-@interface ctdAttendanceListViewController : ctdBaseViewController <AttendanceListServiceDelegate, DropDownViewDelegate> {
+@interface ctdAttendanceListViewController : ctdBaseViewController <AttendanceListServiceDelegate, DropDownViewDelegate, CKCalendarDelegate> {
     
 	DropDownView *dropDownView;
 	IBOutlet UITableView *attendanceTableView;
