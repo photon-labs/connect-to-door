@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -40,6 +41,7 @@ public class AttendanceFormActivity extends MainActivity {
 	editTextUsername, editTextFacebookId, editTextSignature, editTextUserId, editSearchCategory;
 	private ImageView imgFacebook, imgDropDwnRole, imgDropDwnGender,imageCalendar;
 	private LinearLayout editSection;
+	private static final int EMPTY_SELECTION = 0;
 	String selectSearchCategory, selectRole,selectGender;
 	String status,searchBy;
 	ProfileModel profileDataModel;
@@ -487,7 +489,21 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextFacebookId.setText(profileDataModel.getFacebookId());
 		editTextEmail.setText(profileDataModel.getEmployeeEmail());
 		editTextSignature.setText(profileDataModel.getSignature());
+		setSpinnerSelection();
 	}
+	
+	private void setSpinnerSelection(){
+		@SuppressWarnings("unchecked")
+		ArrayAdapter<CharSequence> adapterGender = (ArrayAdapter<CharSequence>) dropDownGender.getAdapter();
+		int positionGender = adapterGender.getPosition(profileDataModel.getGender());
+		dropDownGender.setSelection(positionGender);
+		
+		@SuppressWarnings("unchecked")
+		ArrayAdapter<CharSequence> adapterRole = (ArrayAdapter<CharSequence>) dropDownRole.getAdapter();
+		int positionRole = adapterRole.getPosition(profileDataModel.getAuthority());
+		dropDownRole.setSelection(positionRole);
+	}
+	
 	/**
 	 * clear all value account
 	 */
@@ -509,6 +525,8 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextEmail.setText("");
 		editTextSignature.setText("");
 		editTextUserId.setText("");
+		dropDownGender.setSelection(EMPTY_SELECTION);
+		dropDownRole.setSelection(EMPTY_SELECTION);
 	}
 	/***
 	 * check all input field

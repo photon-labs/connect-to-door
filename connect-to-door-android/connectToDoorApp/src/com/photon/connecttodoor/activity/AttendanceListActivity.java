@@ -51,6 +51,7 @@ public class AttendanceListActivity extends MainActivity {
 	String selectCategory;
 	String searchParameters;
 	String searchValues;
+	String categoryName;
 	private String category[] = {"",ApplicationConstant.CAT_DATE,ApplicationConstant.CAT_NAME,ApplicationConstant.CAT_PROJECT_ID,ApplicationConstant.CAT_EMPLOYEE_ID};
 	private static final String USERNAME = "username";
 	private static final String PROJECT_ID = "projectID";
@@ -272,6 +273,7 @@ public class AttendanceListActivity extends MainActivity {
 		inputCategory.setText("");
 		searchParameters = USERNAME;
 		inputCategory.getText().toString();
+		categoryName = ApplicationConstant.CAT_NAME;
 		char[] acceptedChars = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
 				'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
 		' '};
@@ -288,6 +290,7 @@ public class AttendanceListActivity extends MainActivity {
 		char[] numberOnly = new char[]{
 				'0','1','2','3','4','5','6','7','8','9'
 		};
+		categoryName = ApplicationConstant.CAT_PROJECT_ID;
 		setCharacter(inputCategory, numberOnly);
 	}
 	/**
@@ -298,6 +301,7 @@ public class AttendanceListActivity extends MainActivity {
 		inputCategory.setText("");
 		searchParameters = EMPLOYEE_ID;
 		inputCategory.getText().toString();
+		categoryName = ApplicationConstant.CAT_EMPLOYEE_ID;
 		setCharacter(inputCategory, acceptedNumberOrChar);
 	}
 	private void setCharacter(EditText input,final char[] value){
@@ -448,9 +452,14 @@ public class AttendanceListActivity extends MainActivity {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());
-				attendanceListReport.setAdapter(tableReport);
-				tableReport.notifyDataSetChanged();
+				if(attendance.getAttendanceListModels().size() != 0){
+					ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());
+					attendanceListReport.setAdapter(tableReport);
+					tableReport.notifyDataSetChanged();
+				}else{
+					alertMessage("Incorrect "+ categoryName, AttendanceListActivity.this);
+				}
+				
 			}
 			this.dialog.dismiss();
 		}
