@@ -10,6 +10,9 @@
 #import "ctdBaseViewController.h"
 #import "ctdAttendanceListService.h"
 
-@interface ctdAttendanceListViewController : ctdBaseViewController <AttendanceListServiceDelegate>
+@interface ctdAttendanceListViewController : ctdBaseViewController <AttendanceListServiceDelegate>{
+    IBOutlet UITableView *attendanceTableView;
+    NSMutableArray *attendanceContentArray;
+}
 
 @end

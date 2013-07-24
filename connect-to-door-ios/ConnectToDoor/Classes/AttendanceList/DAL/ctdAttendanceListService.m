@@ -55,6 +55,7 @@
  * @param String response
  */
 -(void)didReceivedResponse:(NSString*)response{
+    NSLog(@"didReceivedResponse = %@", response);
     if(response != NULL || response.length > 0){
         ctdAttendanceListParser *parse = [[ctdAttendanceListParser alloc]init];
         NSMutableArray *attendanceList = [parse parseResponseToArray:response];

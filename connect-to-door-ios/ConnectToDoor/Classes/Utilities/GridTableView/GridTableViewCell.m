@@ -20,6 +20,7 @@
     if (self) {
         topCell = NO;
         
+        /*
 		// Add labels for the eight cells
 		jobCodeCell = [[UILabel alloc] initWithFrame:CGRectMake(CELL_CGFLOAT_X, CELL_CGFLOAT_Y, CELL1WIDTH_HOME, CELLHEIGHT_HOME)];
 		jobCodeCell.textAlignment = NSTextAlignmentCenter;
@@ -69,7 +70,7 @@
         nextStepCell.font = [UIFont fontWithName:@"Helvetica" size:14];
 		nextStepCell.backgroundColor = [UIColor clearColor];
         [self addSubview:nextStepCell];
-
+         */
     }
     return self;
 }
@@ -85,7 +86,7 @@
 {
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetStrokeColorWithColor(context, lineColor.CGColor);
-    
+    /*
 	// CGContextSetLineWidth: The default line width is 1 unit. When stroked, the line straddles the path, with half of the total width on either side.
 	// Therefore, a 1 pixel vertical line will not draw crisply unless it is offest by 0.5. This problem does not seem to affect horizontal lines.
 	CGContextSetLineWidth(context, CONTEXT_WIDTH);
@@ -128,6 +129,7 @@
 	
 	// Draw the lines
 	CGContextStrokePath(context);
+     */
 }
 
 - (void)setTopCell:(BOOL)newTopCell

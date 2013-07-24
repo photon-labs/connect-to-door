@@ -114,6 +114,10 @@
 		DDDAEF9317952F3F008E8482 /* ctdAttendanceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */; };
 		DDDAEF9517953784008E8482 /* box_transparent_att_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF9417953784008E8482 /* box_transparent_att_list.png */; };
 		DDDAEF97179547DC008E8482 /* nuicon_datealt.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF96179547DC008E8482 /* nuicon_datealt.png */; };
+		DDEB6D02179F82B300D5B1DC /* ctdAttendanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB6D01179F82B300D5B1DC /* ctdAttendanceTableViewCell.m */; };
+		DDEB6D06179F8EE300D5B1DC /* ctdAttendanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEB6D05179F8EE200D5B1DC /* ctdAttendanceTableViewCell.xib */; };
+		DDEB6D08179F95C000D5B1DC /* header_attendance_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEB6D07179F95C000D5B1DC /* header_attendance_list.png */; };
+		DDEB6D0C179FAE9600D5B1DC /* ctdColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB6D0B179FAE9600D5B1DC /* ctdColorUtilities.m */; };
 		DDEE3A33178D359800E7F0C1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */; };
 		DDEE3A35178D35F400E7F0C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A34178D35F400E7F0C1 /* Social.framework */; };
 		DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A36178D360000E7F0C1 /* Accounts.framework */; };
@@ -301,6 +305,12 @@
 		DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceListViewController.xib; sourceTree = "<group>"; };
 		DDDAEF9417953784008E8482 /* box_transparent_att_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_att_list.png; sourceTree = "<group>"; };
 		DDDAEF96179547DC008E8482 /* nuicon_datealt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuicon_datealt.png; sourceTree = "<group>"; };
+		DDEB6D00179F82B300D5B1DC /* ctdAttendanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceTableViewCell.h; sourceTree = "<group>"; };
+		DDEB6D01179F82B300D5B1DC /* ctdAttendanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceTableViewCell.m; sourceTree = "<group>"; };
+		DDEB6D05179F8EE200D5B1DC /* ctdAttendanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceTableViewCell.xib; sourceTree = "<group>"; };
+		DDEB6D07179F95C000D5B1DC /* header_attendance_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_attendance_list.png; sourceTree = "<group>"; };
+		DDEB6D0A179FAE9600D5B1DC /* ctdColorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdColorUtilities.h; path = ColorUtilities/ctdColorUtilities.h; sourceTree = "<group>"; };
+		DDEB6D0B179FAE9600D5B1DC /* ctdColorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdColorUtilities.m; path = ColorUtilities/ctdColorUtilities.m; sourceTree = "<group>"; };
 		DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		DDEE3A34178D35F400E7F0C1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		DDEE3A36178D360000E7F0C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -532,6 +542,7 @@
 		713343541737EF5F00057FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DDEB6D09179FAE4D00D5B1DC /* ColorUtilities */,
 				DDA388FA1798E51300CB7BD4 /* MJPopUpViewController */,
 				DDA388F41798E4EA00CB7BD4 /* AlertViewController */,
 				DD99570C17965BA100EEF97E /* GridTableView */,
@@ -844,6 +855,7 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DDEB6D07179F95C000D5B1DC /* header_attendance_list.png */,
 				DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */,
 				DDA977BB17991C8600AA3760 /* button_back.png */,
 				DDA389021798ECC900CB7BD4 /* box_alert_white.png */,
@@ -980,6 +992,9 @@
 		DDDAEF8A179528D3008E8482 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDEB6D00179F82B300D5B1DC /* ctdAttendanceTableViewCell.h */,
+				DDEB6D01179F82B300D5B1DC /* ctdAttendanceTableViewCell.m */,
+				DDEB6D05179F8EE200D5B1DC /* ctdAttendanceTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -992,6 +1007,15 @@
 				DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DDEB6D09179FAE4D00D5B1DC /* ColorUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				DDEB6D0A179FAE9600D5B1DC /* ctdColorUtilities.h */,
+				DDEB6D0B179FAE9600D5B1DC /* ctdColorUtilities.m */,
+			);
+			name = ColorUtilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1112,6 +1136,8 @@
 				DDDAEF9317952F3F008E8482 /* ctdAttendanceListViewController.xib in Resources */,
 				DDDAEF9517953784008E8482 /* box_transparent_att_list.png in Resources */,
 				DDDAEF97179547DC008E8482 /* nuicon_datealt.png in Resources */,
+				DDEB6D06179F8EE300D5B1DC /* ctdAttendanceTableViewCell.xib in Resources */,
+				DDEB6D08179F95C000D5B1DC /* header_attendance_list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1196,6 +1222,8 @@
 				DDDAEF8E179528D3008E8482 /* ctdAttendanceListParser.m in Sources */,
 				DDDAEF9217952F3F008E8482 /* ctdAttendanceListViewController.m in Sources */,
 				DD99570F17965BA100EEF97E /* GridTableViewCell.m in Sources */,
+				DDEB6D02179F82B300D5B1DC /* ctdAttendanceTableViewCell.m in Sources */,
+				DDEB6D0C179FAE9600D5B1DC /* ctdColorUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
