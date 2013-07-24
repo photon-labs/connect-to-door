@@ -50,6 +50,11 @@
 		71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0471739080500EF1491 /* ctdSignInViewController.xib */; };
 		71DFF04B1739304E00EF1491 /* box_transparent_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF04A1739304E00EF1491 /* box_transparent_profile.png */; };
 		71DFF04D1739331D00EF1491 /* button_main-menu_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */; };
+		DD3035F5179FA7CA00BA679C /* DropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035F4179FA7CA00BA679C /* DropDownView.m */; };
+		DD3035F7179FACF100BA679C /* nubox_finddate.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035F6179FACF100BA679C /* nubox_finddate.png */; };
+		DD3035F9179FAD9200BA679C /* dropdown_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035F8179FAD9200BA679C /* dropdown_arrowdown.png */; };
+		DD3035FB179FADFA00BA679C /* button_search.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035FA179FADFA00BA679C /* button_search.png */; };
+		DD303600179FC37800BA679C /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035FF179FC37800BA679C /* CKCalendarView.m */; };
 		DD3487CC178A706F0070702C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487C9178A706F0070702C /* AFHTTPClient.m */; };
 		DD3487CD178A706F0070702C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487CB178A706F0070702C /* AFHTTPRequestOperation.m */; };
 		DD3487E1178A7F330070702C /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487D3178A7F320070702C /* AFImageRequestOperation.m */; };
@@ -75,7 +80,6 @@
 		DD742866179D19F00015E9B2 /* ctdReimbursementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */; };
 		DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */; };
 		DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */; };
-		DD99570F17965BA100EEF97E /* GridTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD99570E17965BA100EEF97E /* GridTableViewCell.m */; };
 		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
 		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
@@ -201,6 +205,13 @@
 		71DFF0471739080500EF1491 /* ctdSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSignInViewController.xib; sourceTree = "<group>"; };
 		71DFF04A1739304E00EF1491 /* box_transparent_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_profile.png; sourceTree = "<group>"; };
 		71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_attendance.png"; sourceTree = "<group>"; };
+		DD3035F3179FA7CA00BA679C /* DropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownView.h; sourceTree = "<group>"; };
+		DD3035F4179FA7CA00BA679C /* DropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownView.m; sourceTree = "<group>"; };
+		DD3035F6179FACF100BA679C /* nubox_finddate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nubox_finddate.png; sourceTree = "<group>"; };
+		DD3035F8179FAD9200BA679C /* dropdown_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown_arrowdown.png; sourceTree = "<group>"; };
+		DD3035FA179FADFA00BA679C /* button_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_search.png; sourceTree = "<group>"; };
+		DD3035FE179FC37800BA679C /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
+		DD3035FF179FC37800BA679C /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
 		DD3487C8178A706F0070702C /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		DD3487C9178A706F0070702C /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		DD3487CA178A706F0070702C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -250,8 +261,6 @@
 		DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdReimbursementViewController.m; sourceTree = "<group>"; };
 		DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdReimbursementViewController.xib; sourceTree = "<group>"; };
 		DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_bottom.png"; sourceTree = "<group>"; };
-		DD99570D17965BA100EEF97E /* GridTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridTableViewCell.h; sourceTree = "<group>"; };
-		DD99570E17965BA100EEF97E /* GridTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridTableViewCell.m; sourceTree = "<group>"; };
 		DD996E5F1793D5FF000F5A4B /* ctdCheckStatusParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusParser.h; sourceTree = "<group>"; };
 		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
 		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
@@ -542,10 +551,11 @@
 		713343541737EF5F00057FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DD3035FD179FC37800BA679C /* CKCalendar */,
 				DDEB6D09179FAE4D00D5B1DC /* ColorUtilities */,
+				DD3035F2179FA7C900BA679C /* DropDownView */,
 				DDA388FA1798E51300CB7BD4 /* MJPopUpViewController */,
 				DDA388F41798E4EA00CB7BD4 /* AlertViewController */,
-				DD99570C17965BA100EEF97E /* GridTableView */,
 				DDD9175A178EBEDB00750702 /* Reachability */,
 				DDAF29B8178C1A0400597570 /* LocalStorage */,
 				DDAF29B4178BB58300597570 /* JSONKit */,
@@ -817,6 +827,24 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		DD3035F2179FA7C900BA679C /* DropDownView */ = {
+			isa = PBXGroup;
+			children = (
+				DD3035F3179FA7CA00BA679C /* DropDownView.h */,
+				DD3035F4179FA7CA00BA679C /* DropDownView.m */,
+			);
+			path = DropDownView;
+			sourceTree = "<group>";
+		};
+		DD3035FD179FC37800BA679C /* CKCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				DD3035FE179FC37800BA679C /* CKCalendarView.h */,
+				DD3035FF179FC37800BA679C /* CKCalendarView.m */,
+			);
+			path = CKCalendar;
+			sourceTree = "<group>";
+		};
 		DD3487C7178A704F0070702C /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,15 +869,6 @@
 				DD3487CB178A706F0070702C /* AFHTTPRequestOperation.m */,
 			);
 			name = AFNetworking;
-			sourceTree = "<group>";
-		};
-		DD99570C17965BA100EEF97E /* GridTableView */ = {
-			isa = PBXGroup;
-			children = (
-				DD99570D17965BA100EEF97E /* GridTableViewCell.h */,
-				DD99570E17965BA100EEF97E /* GridTableViewCell.m */,
-			);
-			path = GridTableView;
 			sourceTree = "<group>";
 		};
 		DDA08B371738F602002882B4 /* images */ = {
@@ -882,8 +901,11 @@
 				DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */,
 				DDA08B381738F602002882B4 /* background_allpages.png */,
 				DDA08B391738F602002882B4 /* box_transparent_attendance.png */,
+				DD3035F6179FACF100BA679C /* nubox_finddate.png */,
 				DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */,
 				DDA08B3B1738F602002882B4 /* button_attendance_check-in.png */,
+				DD3035F8179FAD9200BA679C /* dropdown_arrowdown.png */,
+				DD3035FA179FADFA00BA679C /* button_search.png */,
 				DDA08B3C1738F602002882B4 /* button_attendance_check-out.png */,
 				DDA08B3D1738F602002882B4 /* button_daily_attendance.png */,
 				DDA08B3E1738F602002882B4 /* button_main-menu_profile.png */,
@@ -1138,6 +1160,9 @@
 				DDDAEF97179547DC008E8482 /* nuicon_datealt.png in Resources */,
 				DDEB6D06179F8EE300D5B1DC /* ctdAttendanceTableViewCell.xib in Resources */,
 				DDEB6D08179F95C000D5B1DC /* header_attendance_list.png in Resources */,
+				DD3035F7179FACF100BA679C /* nubox_finddate.png in Resources */,
+				DD3035F9179FAD9200BA679C /* dropdown_arrowdown.png in Resources */,
+				DD3035FB179FADFA00BA679C /* button_search.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,9 +1246,10 @@
 				DDDAEF8D179528D3008E8482 /* ctdSummaryAttendanceModel.m in Sources */,
 				DDDAEF8E179528D3008E8482 /* ctdAttendanceListParser.m in Sources */,
 				DDDAEF9217952F3F008E8482 /* ctdAttendanceListViewController.m in Sources */,
-				DD99570F17965BA100EEF97E /* GridTableViewCell.m in Sources */,
 				DDEB6D02179F82B300D5B1DC /* ctdAttendanceTableViewCell.m in Sources */,
 				DDEB6D0C179FAE9600D5B1DC /* ctdColorUtilities.m in Sources */,
+				DD3035F5179FA7CA00BA679C /* DropDownView.m in Sources */,
+				DD303600179FC37800BA679C /* CKCalendarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
