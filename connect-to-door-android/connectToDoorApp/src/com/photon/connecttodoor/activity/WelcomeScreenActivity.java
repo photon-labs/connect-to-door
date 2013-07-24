@@ -35,7 +35,6 @@ public class WelcomeScreenActivity extends MainActivity {
 	private TextView checkInText;
 	private TextView checkOutText;
 	private TextView currentTime;
-	private TextView username;
 	LoginDataModel loginDataModel;
 	private static final String ADMIN = "Admin";
 	private static final String EMPLOYEE_ID = "employeeId";
@@ -56,7 +55,6 @@ public class WelcomeScreenActivity extends MainActivity {
 		checkInText = (TextView) findViewById(R.id.checkInText);
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
-		username = (TextView) findViewById(R.id.username);
 		status = CHECK_STATUS;
 
 		checkPresentModel = new CheckPresentModel();
@@ -214,22 +212,11 @@ public class WelcomeScreenActivity extends MainActivity {
 		checkOutText.setVisibility(View.INVISIBLE);
 		currentTime.setVisibility(View.INVISIBLE);
 	}
-	/**
-	 * set first name from username
-	 * @param username
-	 * @return
-	 */
-	private String setFirstName(String username){
-		String formatName [] = username.split(" ");
-		String firstName = formatName[0];
-		return firstName;
-	}
+
 	/**
 	 * set ui for welcome screen page 
 	 */
 	private void setUIWelcomeScreen(){
-		String firstname = setFirstName(loginDataModel.getUsername().toString());
-		username.setText(firstname);
 		String previlage = loginDataModel.getPrevilage();
 		if(previlage.equals(ADMIN)){
 			attendanceReportButton.setVisibility(View.VISIBLE);

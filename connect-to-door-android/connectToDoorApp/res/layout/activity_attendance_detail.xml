@@ -1,0 +1,268 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_allpages"
+    android:gravity="right"
+    android:orientation="vertical"
+    tools:context=".AttendanceDetailActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="170dp"
+                android:layout_weight="0.7"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/NameLabelsDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingBottom="10dp"
+                    android:text="Name :"
+                    android:textColor="#0000"
+                    android:textSize="20sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/NameDynamicsDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingBottom="10dp"
+                    android:text="Qa Testing"
+                    android:textColor="#0000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/employeeIdLabelsDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingBottom="10dp"
+                    android:text="Employee ID :"
+                    android:textColor="#0000"
+                    android:textSize="20sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/employeeIdDynamicsDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingBottom="10dp"
+                    android:text="I0000"
+                    android:textColor="#0000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/projectIdLabelsDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingBottom="10dp"
+                    android:text="Project ID :"
+                    android:textColor="#0000"
+                    android:textSize="20sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/projectIdDynamicsDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:paddingBottom="10dp"
+                    android:text="-"
+                    android:textColor="#0000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" >
+                </TextView>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/box_transparent_att_detail"
+            android:gravity="center_horizontal"
+            android:paddingBottom="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="120dp" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/attendance_detail_background"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_weight="0.01"
+                    android:orientation="horizontal" >
+
+                    <include
+                        android:id="@+id/headerList"
+                        layout="@layout/list_attendance_detail" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="0.01"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="0.01"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:id="@+id/leaveInfo"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/sq_pur" >
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/leaveLabelsDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:text=" =  Leave"
+                            android:textColor="#0000"
+                            android:layout_marginTop="5dp"
+                            android:textSize="12sp" >
+                        </TextView>
+
+                        <ImageView
+                            android:id="@+id/presentInfo"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/sq_brown" >
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/presentlabelsDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:text=" =  Present"
+                            android:textColor="#0000"
+                            android:layout_marginTop="5dp"
+                            android:textSize="12sp" >
+                        </TextView>
+
+                        <ImageView
+                            android:id="@+id/holidayInfo"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/sq_yelo" >
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/holidayLabelsDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:text=" =  Holiday"
+                            android:textColor="#0000"
+                            android:layout_marginTop="5dp"
+                            android:textSize="12sp" >
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="0.01"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="0.01"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/print_button"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/button_print"
+                             />
+
+                        <Button
+                            android:id="@+id/save_button"
+                            android:layout_width="100dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/button_save" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="20dp"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/back_buttonattdetail"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="45dp"
+            android:layout_weight="0.01"
+            android:background="@drawable/button_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1" >
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/signout_buttonattdetail"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="45dp"
+            android:layout_weight="0.01"
+            android:background="@drawable/button_signout" />
+    </LinearLayout>
+
+</LinearLayout>

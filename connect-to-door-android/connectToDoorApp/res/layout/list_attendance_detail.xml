@@ -1,0 +1,138 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="30dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_table_attendance_detail" >
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Monday"
+                android:textColor="#ffffff" >
+            </TextView>
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="#86AA8E" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="Tuesday"
+                android:textColor="#ffffff" >
+            </TextView>
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="#86AA8E" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Wednesday"
+                android:textColor="#ffffff" >
+            </TextView>
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="#86AA8E" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Thursday"
+                android:textColor="#ffffff" >
+            </TextView>
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="#86AA8E" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Friday"
+                android:textColor="#ffffff" >
+            </TextView>
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="#86AA8E" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Saturday"
+                android:textColor="#ffffff" >
+            </TextView>
+
+            <ImageView
+                android:layout_width="2dp"
+                android:layout_height="40dp"
+                android:background="#86AA8E" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="Sunday"
+                android:textColor="#ffffff" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/table_report_attendancelist"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:columnWidth="50dp"
+                android:gravity="center"
+                android:numColumns="auto_fit"
+                android:stretchMode="columnWidth" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

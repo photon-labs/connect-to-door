@@ -26,4 +26,5 @@
     <string name="filter_report">Filter by:</string>
     <string name="empID">Employee ID :</string>
     <string name="applicationId">409503292496385</string>
+    <string name="attendance">Attendance</string>
 </resources>
