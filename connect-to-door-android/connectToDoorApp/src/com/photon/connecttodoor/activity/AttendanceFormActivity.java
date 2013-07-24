@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -236,8 +237,6 @@ public class AttendanceFormActivity extends MainActivity {
 	private void onRequestSearchAccount(){
 		if(editSearchCategory.getText().toString().length() > 0){
 			new CallServiceSearchAccount().execute();
-			clearValue();
-			setFormActive();
 		}else{
 			alertMessage(ApplicationConstant.ERR_CATEGORY_BLANK, AttendanceFormActivity.this);
 		}
@@ -491,19 +490,19 @@ public class AttendanceFormActivity extends MainActivity {
 		editTextSignature.setText(profileDataModel.getSignature());
 		setSpinnerSelection();
 	}
-	
+
 	private void setSpinnerSelection(){
 		@SuppressWarnings("unchecked")
 		ArrayAdapter<CharSequence> adapterGender = (ArrayAdapter<CharSequence>) dropDownGender.getAdapter();
 		int positionGender = adapterGender.getPosition(profileDataModel.getGender());
 		dropDownGender.setSelection(positionGender);
-		
+
 		@SuppressWarnings("unchecked")
 		ArrayAdapter<CharSequence> adapterRole = (ArrayAdapter<CharSequence>) dropDownRole.getAdapter();
 		int positionRole = adapterRole.getPosition(profileDataModel.getAuthority());
 		dropDownRole.setSelection(positionRole);
 	}
-	
+
 	/**
 	 * clear all value account
 	 */
@@ -666,7 +665,20 @@ public class AttendanceFormActivity extends MainActivity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			getValueForEditAccount();
+
+			/**
+			 * check 
+			 */
+			if(profileDataModel.getUsername() == null){
+				setFormInactive();
+				clearValue();
+				alertMessage("Incorrect Username or Employee ID", AttendanceFormActivity.this);
+			}else{
+				clearValue();
+				setFormActive();
+				getValueForEditAccount();
+			}
+
 			this.dialog.dismiss();
 		}
 	}
