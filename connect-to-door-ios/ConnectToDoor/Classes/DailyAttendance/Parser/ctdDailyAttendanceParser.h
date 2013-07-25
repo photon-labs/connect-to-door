@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ctdResponseDailyAttendanceModel.h"
 
 @interface ctdDailyAttendanceParser : NSObject
+
+-(ctdResponseDailyAttendanceModel*)parseResponse:(NSString*)response;
 
 @end

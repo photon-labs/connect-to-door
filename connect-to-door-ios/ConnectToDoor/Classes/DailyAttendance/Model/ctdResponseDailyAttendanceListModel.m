@@ -10,20 +10,20 @@
 
 @implementation ctdResponseDailyAttendanceListModel
 
-@synthesize number = _number;
-@synthesize name = _name;
-@synthesize checkIn = _checkIn;
 @synthesize checkOut = _checkOut;
+@synthesize checkIn = _checkIn;
+@synthesize presenceId = _presenceId;
 @synthesize previlage = _previlage;
-@synthesize presentId = _presentId;
+@synthesize employeeName = _employeeName;
+
+
 
 - (ctdResponseDailyAttendanceListModel *)initWithDefault{
-    _number = @"";
-    _name = @"";
-    _checkIn = @"";
     _checkOut = @"";
+    _checkIn = @"";
+    _presenceId = @"";
     _previlage = @"";
-    _presentId = @"";
+    _employeeName = @"";
     
     return self;
 }

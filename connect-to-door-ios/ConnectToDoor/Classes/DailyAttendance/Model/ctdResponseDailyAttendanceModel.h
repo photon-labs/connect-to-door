@@ -13,4 +13,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayDailyAttendance;
 
 - (ctdResponseDailyAttendanceModel *)initWithDefault;
+
+-(NSMutableArray*)getDailyAttendanceListModels;
+-(void)setDailyAttendanceListModels:(NSMutableArray*) arrayDailyAttendance;
 @end

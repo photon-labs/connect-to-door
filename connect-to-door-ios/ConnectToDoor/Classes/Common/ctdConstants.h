@@ -97,3 +97,6 @@
 #define TOTAL_LEAVE @"total_leave"
 #define DATE_START_KEY @"date_start"
 #define DATE_END_KEY @"date_end"
+
+#define EMPLOYEE_DATA_KEY @"employee_data"
+#define ADMIN_KEY @"admin"
