@@ -213,11 +213,6 @@
 		self.view.alpha = 1;
 	
 	[UIView commitAnimations];
-	
-	
-	
-	
-	
 }
 
 -(void)closeAnimation{
@@ -243,16 +238,11 @@
 	[UIView commitAnimations];
 	
 	[self performSelector:@selector(hideView) withObject:nil afterDelay:close];
-	
-	
-		
 }
 
 	 
 -(void)hideView{
-	
 	self.view.hidden = YES;
-
 }	 
 
 

@@ -14,16 +14,10 @@
 
 @implementation ctdAttendanceListViewController
 
-@synthesize searchOptionLabel;
+@synthesize searchOptionTextButton;
 @synthesize dateStartText;
 @synthesize dateEndText;
 @synthesize searchKeyText;
-
-CKCalendarView *calendar;
-NSDateFormatter *dateFormatter;
-ctdAttendanceListService *attendanceListService;
-NSString *maxDate;
-NSString *datePickerActive;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,15 +38,21 @@ NSString *datePickerActive;
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     maxDate = [dateFormatter stringFromDate:[NSDate date]];
     datePickerActive = @"";
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+    
+    optionData = [[NSMutableArray alloc] initWithArray:[NSMutableArray arrayWithObjects:DATE_STRING,NAME_STRING,PROJECT_ID_STRING,EMPLOYEE_ID_STRING, nil]];
+	dropDownView = [[DropDownView alloc] initWithArrayData:optionData cellHeight:30 heightTableView:200 paddingTop:-8 paddingLeft:-5 paddingRight:-10 refView:searchOptionTextButton animation:BOTH openAnimationDuration:0 closeAnimationDuration:0];
+	dropDownView.delegate = self;
+	[self.view addSubview:dropDownView.view];
+	
+	[searchOptionTextButton setTitle:[optionData objectAtIndex:0] forState:UIControlStateNormal];
+    [searchKeyText setHidden:TRUE];
+    [searchKeyText setText:@""];
+    
+    searcOptionMap = [[NSMutableDictionary alloc] init];
+    [searcOptionMap setObject:DATE_KEY forKey:DATE_STRING];
+    [searcOptionMap setObject:PROFILE_USERNAME_KEY forKey:NAME_STRING];
+    [searcOptionMap setObject:PROJECT_ID_KEY forKey:PROJECT_ID_STRING];
+    [searcOptionMap setObject:EMPLOYEE_ID_KEY forKey:EMPLOYEE_ID_STRING];
 }
 
 -(void)didReceiveAttendanceListResponse:(NSMutableArray *)attendanceListArray
@@ -231,7 +231,8 @@ NSString *datePickerActive;
 
 - (IBAction)didSearchOptionClicked:(id)sender
 {
-    
+    [self removePopUp];
+    [dropDownView openAnimation];
 }
 
 - (IBAction)didSearchClicked:(id)sender
@@ -240,11 +241,10 @@ NSString *datePickerActive;
     NSString *dateEnd = self.dateEndText.text;
     if(dateStart.length > 0 || dateEnd.length > 0 ){
         [self showActivityIndicator];
-        [attendanceListService handleAttendanceListRequest:nil :nil :dateStart :dateEnd];
+        [attendanceListService handleAttendanceListRequest:searchOptionKey :searchKeyText.text :dateStart :dateEnd];
     }else{
         [self showAlert:kAlertErrorEmptyDate];
     }
-    
 }
 
 - (void) createPopUpCalendar :(CGFloat)positionX :(CGFloat)positionY
@@ -260,6 +260,7 @@ NSString *datePickerActive;
 
 - (void) createPopUpCalendarWithValidation :(CGFloat)positionX :(CGFloat)positionY
 {
+    [dropDownView closeAnimation];
     if([calendar isDescendantOfView:self.view]){
         [self removePopUp];
     } else {
@@ -274,7 +275,6 @@ NSString *datePickerActive;
     calendar.delegate = nil;
     [calendar removeFromSuperview];
     calendar = nil;
-    
 }
 
 #pragma mark - CKCalendarDelegate
@@ -289,10 +289,16 @@ NSString *datePickerActive;
 }
 
 #pragma mark - Dropdown View Delegate
-
 -(void)dropDownCellSelected:(NSInteger)returnIndex{
-    
-
+    NSString *searchOption = [optionData objectAtIndex:returnIndex];
+    [searchKeyText setText:@""];
+    searchOptionKey = [searcOptionMap valueForKey:searchOption];
+    if(![searchOptionKey isEqualToString:DATE_KEY]){
+        [searchKeyText setHidden:FALSE];
+    } else {
+        [searchKeyText setHidden:TRUE];
+    }
+    [searchOptionTextButton setTitle:searchOption forState:UIControlStateNormal];
 }
 
 // Close popup if the Background is touched
@@ -302,6 +308,9 @@ NSString *datePickerActive;
     UITouch *touch = [[event allTouches] anyObject];
 	if ([touch view] != calendar) {
         [self removePopUp];
+    }
+    if ([touch view]!= dropDownView) {
+        [dropDownView closeAnimation];
     }
     
     [searchKeyText resignFirstResponder];

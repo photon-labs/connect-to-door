@@ -28,7 +28,7 @@ import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class ReportActivity extends MainActivity {
 
-	private String category[] = {"Before Adjustment", "Adjustment", "After Adjustment" };
+	private String category[] = {"","Before Adjustment", "Adjustment", "After Adjustment" };
 	Spinner dropDownCategory;
 	String selectCategory;
 	private String attendanceStatus = "before";
@@ -121,11 +121,17 @@ public class ReportActivity extends MainActivity {
 
 			@Override
 			public void onClick(View v) {
-				/**check internet connection before call report service */
-				if(connectionAvailable()){
-					new CallServiceAttendanceReportTask().execute();
+				String date = startFromDateTxt.getText().toString();
+				String empty = "";
+				if(date.equalsIgnoreCase(empty)){
+					alertMessage("Please Input Date", ReportActivity.this);
 				}else{
-					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, ReportActivity.this);
+					/**check internet connection before call report service */
+					if(connectionAvailable()){
+						new CallServiceAttendanceReportTask().execute();
+					}else{
+						alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, ReportActivity.this);
+					}
 				}
 			}
 		});

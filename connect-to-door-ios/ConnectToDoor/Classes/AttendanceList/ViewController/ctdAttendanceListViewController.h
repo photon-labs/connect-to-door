@@ -15,11 +15,20 @@
 @interface ctdAttendanceListViewController : ctdBaseViewController <AttendanceListServiceDelegate, DropDownViewDelegate, CKCalendarDelegate> {
     
 	DropDownView *dropDownView;
+    CKCalendarView *calendar;
+    ctdAttendanceListService *attendanceListService;
+    
 	IBOutlet UITableView *attendanceTableView;
+    
     NSMutableArray *attendanceContentArray;
+	NSMutableArray *optionData;
+    NSMutableDictionary *searcOptionMap;
+    NSDateFormatter *dateFormatter;
+    NSString *maxDate;
+    NSString *datePickerActive;
+    NSString *searchOptionKey;
 }
 
-@property (nonatomic, strong) IBOutlet UILabel *searchOptionLabel;
 @property (nonatomic, strong) IBOutlet UITextField *dateStartText;
 @property (nonatomic, strong) IBOutlet UITextField *dateEndText;
 @property (nonatomic, strong) IBOutlet UITextField *searchKeyText;
@@ -27,6 +36,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *dateStartButton;
 @property (nonatomic, strong) IBOutlet UIButton *dateEndButton;
 @property (nonatomic, strong) IBOutlet UIButton *searchButton;
+@property (nonatomic, strong) IBOutlet UIButton *searchOptionTextButton;
 
 - (IBAction)didDateStartClicked:(id)sender;
 - (IBAction)didDateEndClicked:(id)sender;
