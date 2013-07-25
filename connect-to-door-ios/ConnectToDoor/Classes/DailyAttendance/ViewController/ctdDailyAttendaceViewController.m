@@ -13,6 +13,7 @@
 #import "ctdDailyAttendanceParser.h"
 #import "ctdResponseDailyAttendanceModel.h"
 #import "ctdResponseDailyAttendanceListModel.h"
+#import "ctdColorUtilities.h"
 
 @interface ctdDailyAttendaceViewController ()
 
@@ -106,20 +107,83 @@
         cell = [topLevelObjects objectAtIndex:0];
         
     }
-  //  [listOfItems objectAtIndex:indexPath.row]
+
+    if( [indexPath row] % 2 == 0){
+        [cell.contentView setBackgroundColor:[ctdColorUtilities colorWithHexString:@"FFFFFF"]];
+    }else{
+        [cell.contentView setBackgroundColor:[ctdColorUtilities colorWithHexString:@"cfe9d0"]];
+    }
     NSString *number = [NSString stringWithFormat:@"%d", indexPath.row+1];
     ctdResponseDailyAttendanceListModel *attendanceItem =[model.getDailyAttendanceListModels objectAtIndex:indexPath.row];
-   cell.numberTxt.text = number;
-    cell.nameTxt.text = attendanceItem.employeeName;
-    cell.checkInTxt.text = attendanceItem.checkIn;
-    cell.checkOutTxt.text = attendanceItem.checkOut;
-    cell.editByTxt.text = attendanceItem.previlage;
-
     
-    UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = [UIColor colorWithRed:(0/255.0) green:(128/255.0) blue:(0/255.0) alpha:1];
-    return cell;
-}
+    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0, 33.0,tableView.rowHeight)];
+    [cell addColumn:50];
+    numberLabel.font = [UIFont systemFontOfSize:12.0];
+    numberLabel.text = [NSString stringWithFormat:@"%d.", indexPath.row + 1];
+    numberLabel.textColor = [UIColor blackColor];
+    numberLabel.textAlignment = NSTextAlignmentCenter;
+    numberLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:numberLabel];
+    
+    UIImageView *separator = [[UIImageView alloc] initWithFrame:CGRectMake(34.0, 0, 2.0,tableView.rowHeight)];
+    [cell addColumn:60];
+    [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
+    [cell.contentView addSubview:separator];
+    
+    UILabel *nameLabel =  [[UILabel alloc] initWithFrame:CGRectMake(38, 0, 146.0,tableView.rowHeight)];
+    [cell addColumn:70];
+    nameLabel.font = [UIFont systemFontOfSize:12.0];
+    nameLabel.text = attendanceItem.employeeName;
+    nameLabel.textColor = [UIColor blackColor];
+    nameLabel.textAlignment = NSTextAlignmentLeft;
+    nameLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:nameLabel];
+    
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(210.0, 0, 2.0,tableView.rowHeight)];
+    [cell addColumn:80];
+    [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
+    [cell.contentView addSubview:separator];
+    
+    UILabel *employeeIdLabel =  [[UILabel alloc] initWithFrame:CGRectMake(205.0, 0, 86.0,tableView.rowHeight)];
+    [cell addColumn:90];
+    employeeIdLabel.font = [UIFont systemFontOfSize:12.0];
+    employeeIdLabel.text = attendanceItem.checkIn;
+    employeeIdLabel.textColor = [UIColor blackColor];
+    employeeIdLabel.textAlignment = NSTextAlignmentCenter;
+    employeeIdLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:employeeIdLabel];
+    
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(272.0, 0, 2.0,tableView.rowHeight)];
+    [cell addColumn:100];
+    [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
+    [cell.contentView addSubview:separator];
+    
+    UILabel *projectIdLabel =  [[UILabel alloc] initWithFrame:CGRectMake(274.0, 0, 88.0,tableView.rowHeight)];
+    [cell addColumn:110];
+    //  label.tag = VALUE_TAG;
+    projectIdLabel.font = [UIFont systemFontOfSize:12.0];
+    // add some silly value
+    projectIdLabel.text = attendanceItem.checkOut;
+    projectIdLabel.textColor = [UIColor blackColor];
+    projectIdLabel.textAlignment = NSTextAlignmentCenter;
+    projectIdLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:projectIdLabel];
+    
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(362.0, 0, 2.0,tableView.rowHeight)];
+    [cell addColumn:120];
+    [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
+    [cell.contentView addSubview:separator];
+    
+    UILabel *totalAttendanceLabel =  [[UILabel alloc] initWithFrame:CGRectMake(365.0, 0, 86.0,tableView.rowHeight)];
+    [cell addColumn:130];
+    totalAttendanceLabel.font = [UIFont systemFontOfSize:12.0];
+    totalAttendanceLabel.text = attendanceItem.previlage;
+    totalAttendanceLabel.textColor = [UIColor blackColor];
+    totalAttendanceLabel.textAlignment = NSTextAlignmentCenter;
+    totalAttendanceLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:totalAttendanceLabel];
+    
+    return cell;}
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -140,10 +204,7 @@
     
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 0;

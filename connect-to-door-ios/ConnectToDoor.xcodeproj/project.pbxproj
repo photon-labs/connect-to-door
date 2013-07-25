@@ -83,6 +83,15 @@
 		DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */; };
 		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
 		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
+		DD9B4E5F17A0E147009037D0 /* box_transparent_daily_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5917A0E147009037D0 /* box_transparent_daily_attendance.png */; };
+		DD9B4E6017A0E147009037D0 /* button_bottom_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5A17A0E147009037D0 /* button_bottom_back.png */; };
+		DD9B4E6117A0E147009037D0 /* button_bottom_submit.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5B17A0E147009037D0 /* button_bottom_submit.png */; };
+		DD9B4E6217A0E147009037D0 /* button_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5C17A0E147009037D0 /* button_remove.png */; };
+		DD9B4E6317A0E147009037D0 /* button_small_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5D17A0E147009037D0 /* button_small_edit.png */; };
+		DD9B4E6417A0E147009037D0 /* button_small_insert.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5E17A0E147009037D0 /* button_small_insert.png */; };
+		DD9B4E6717A0E15B009037D0 /* ctdDailyAttendanceService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9B4E6617A0E15B009037D0 /* ctdDailyAttendanceService.m */; };
+		DD9B4E6B17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9B4E6917A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m */; };
+		DD9B4E6C17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E6A17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib */; };
 		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
 		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
 		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
@@ -267,6 +276,17 @@
 		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
 		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
 		DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseCheckStatusModel.m; sourceTree = "<group>"; };
+		DD9B4E5917A0E147009037D0 /* box_transparent_daily_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_daily_attendance.png; sourceTree = "<group>"; };
+		DD9B4E5A17A0E147009037D0 /* button_bottom_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bottom_back.png; sourceTree = "<group>"; };
+		DD9B4E5B17A0E147009037D0 /* button_bottom_submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bottom_submit.png; sourceTree = "<group>"; };
+		DD9B4E5C17A0E147009037D0 /* button_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_remove.png; sourceTree = "<group>"; };
+		DD9B4E5D17A0E147009037D0 /* button_small_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_small_edit.png; sourceTree = "<group>"; };
+		DD9B4E5E17A0E147009037D0 /* button_small_insert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_small_insert.png; sourceTree = "<group>"; };
+		DD9B4E6517A0E15B009037D0 /* ctdDailyAttendanceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceService.h; sourceTree = "<group>"; };
+		DD9B4E6617A0E15B009037D0 /* ctdDailyAttendanceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdDailyAttendanceService.m; sourceTree = "<group>"; };
+		DD9B4E6817A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSelectViewDailyAttendanceCell.h; sourceTree = "<group>"; };
+		DD9B4E6917A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSelectViewDailyAttendanceCell.m; sourceTree = "<group>"; };
+		DD9B4E6A17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSelectViewDailyAttendanceCell.xib; sourceTree = "<group>"; };
 		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
 		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
 		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
@@ -629,6 +649,8 @@
 		713C75EE173A1ECB0026AFBE /* DAL */ = {
 			isa = PBXGroup;
 			children = (
+				DD9B4E6517A0E15B009037D0 /* ctdDailyAttendanceService.h */,
+				DD9B4E6617A0E15B009037D0 /* ctdDailyAttendanceService.m */,
 			);
 			path = DAL;
 			sourceTree = "<group>";
@@ -817,6 +839,9 @@
 		71DFF0251738CA2B00EF1491 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD9B4E6817A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.h */,
+				DD9B4E6917A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m */,
+				DD9B4E6A17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -878,6 +903,12 @@
 		DDA08B371738F602002882B4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DD9B4E5917A0E147009037D0 /* box_transparent_daily_attendance.png */,
+				DD9B4E5A17A0E147009037D0 /* button_bottom_back.png */,
+				DD9B4E5B17A0E147009037D0 /* button_bottom_submit.png */,
+				DD9B4E5C17A0E147009037D0 /* button_remove.png */,
+				DD9B4E5D17A0E147009037D0 /* button_small_edit.png */,
+				DD9B4E5E17A0E147009037D0 /* button_small_insert.png */,
 				DDEB6D07179F95C000D5B1DC /* header_attendance_list.png */,
 				DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */,
 				DDA977BB17991C8600AA3760 /* button_back.png */,
@@ -1167,6 +1198,13 @@
 				DD3035F7179FACF100BA679C /* nubox_finddate.png in Resources */,
 				DD3035F9179FAD9200BA679C /* dropdown_arrowdown.png in Resources */,
 				DD3035FB179FADFA00BA679C /* button_search.png in Resources */,
+				DD9B4E5F17A0E147009037D0 /* box_transparent_daily_attendance.png in Resources */,
+				DD9B4E6017A0E147009037D0 /* button_bottom_back.png in Resources */,
+				DD9B4E6117A0E147009037D0 /* button_bottom_submit.png in Resources */,
+				DD9B4E6217A0E147009037D0 /* button_remove.png in Resources */,
+				DD9B4E6317A0E147009037D0 /* button_small_edit.png in Resources */,
+				DD9B4E6417A0E147009037D0 /* button_small_insert.png in Resources */,
+				DD9B4E6C17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1254,6 +1292,8 @@
 				DDEB6D0C179FAE9600D5B1DC /* ctdColorUtilities.m in Sources */,
 				DD3035F5179FA7CA00BA679C /* DropDownView.m in Sources */,
 				DD303600179FC37800BA679C /* CKCalendarView.m in Sources */,
+				DD9B4E6717A0E15B009037D0 /* ctdDailyAttendanceService.m in Sources */,
+				DD9B4E6B17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

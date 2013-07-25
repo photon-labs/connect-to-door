@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ctdSelectViewDailyAttendanceCell : UITableViewCell
+@interface ctdSelectViewDailyAttendanceCell : UITableViewCell{
+    NSMutableArray *columns;
+}
 
-@property (nonatomic, weak) IBOutlet UILabel *numberTxt;
-@property (nonatomic, weak) IBOutlet UILabel *nameTxt;
-@property (nonatomic, weak) IBOutlet UILabel *checkInTxt;
-@property (nonatomic, weak) IBOutlet UILabel *checkOutTxt;
-@property (nonatomic, weak) IBOutlet UILabel *editByTxt;
+- (void)addColumn:(CGFloat)position;
+
 @end
