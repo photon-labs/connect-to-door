@@ -22,7 +22,7 @@
 #define MESSAGE_INVALID_EMPLOYEE_ID @"Sorry, Your Employee ID is not match with Your Facebook Account"
 #define MESSAGE_ERROR_ALREADY_CHECKIN @"Sorry, You have Already Check-In"
 #define MESSAGE_ERROR_ALREADY_CHECKOUT @"Sorry, You have Already Check-Out"
-
+#define MESSAGE_ERROR_EMPTY_DATE @"Please pick the start date and end date"
 
 //server URL
 #define URLSERVER @"http://172.17.10.165:8080/AttendanceWebService/api/"

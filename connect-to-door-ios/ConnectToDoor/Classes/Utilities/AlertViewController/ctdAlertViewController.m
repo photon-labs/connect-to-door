@@ -64,8 +64,10 @@
         [message setText:MESSAGE_ERROR_ALREADY_CHECKOUT];
     }else if(type == kAlertErrorAlreadyCheckIn){
         [message setText:MESSAGE_ERROR_ALREADY_CHECKIN];
+    }else if(type == kAlertErrorEmptyDate){
+         [message setText:MESSAGE_ERROR_EMPTY_DATE];
     }else{
-         [message setText:MESSAGE_EXCEPTION];
+        [message setText:MESSAGE_EXCEPTION];
     }
     message.numberOfLines = 0;
     message.textAlignment = NSTextAlignmentCenter;

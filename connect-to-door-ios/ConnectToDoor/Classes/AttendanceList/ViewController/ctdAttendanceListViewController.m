@@ -236,8 +236,15 @@ NSString *datePickerActive;
 
 - (IBAction)didSearchClicked:(id)sender
 {
-    [self showActivityIndicator];
-    [attendanceListService handleAttendanceListRequest:nil :nil :self.dateStartText.text :self.dateEndText.text];
+    NSString *dateStart = self.dateStartText.text;
+    NSString *dateEnd = self.dateEndText.text;
+    if(dateStart.length > 0 || dateEnd.length > 0 ){
+        [self showActivityIndicator];
+        [attendanceListService handleAttendanceListRequest:nil :nil :dateStart :dateEnd];
+    }else{
+        [self showAlert:kAlertErrorEmptyDate];
+    }
+    
 }
 
 - (void) createPopUpCalendar :(CGFloat)positionX :(CGFloat)positionY
