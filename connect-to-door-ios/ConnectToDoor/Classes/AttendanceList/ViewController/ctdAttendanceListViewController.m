@@ -264,8 +264,10 @@ NSString *datePickerActive;
 - (void) removePopUp
 {
     datePickerActive = @"";
+    calendar.delegate = nil;
     [calendar removeFromSuperview];
     calendar = nil;
+    
 }
 
 #pragma mark - CKCalendarDelegate
@@ -277,6 +279,26 @@ NSString *datePickerActive;
         self.dateEndText.text = [dateFormatter stringFromDate:date];
     }
     [self removePopUp];
+}
+
+#pragma mark - Dropdown View Delegate
+
+-(void)dropDownCellSelected:(NSInteger)returnIndex{
+    
+
+}
+
+// Close popup if the Background is touched
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[super touchesBegan:touches withEvent:event];
+    NSLog(@"masuk touchesBegan");
+    UITouch *touch = [[event allTouches] anyObject];
+	if ([touch view] != calendar) {
+        [self removePopUp];
+    }
+    
+    [searchKeyText resignFirstResponder];
+    
 }
 
 @end
