@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -45,6 +46,8 @@ public class AttendanceFormActivity extends MainActivity {
 	String selectSearchCategory, selectRole,selectGender;
 	String status,searchBy;
 	ProfileModel profileDataModel;
+	private static int MAX_LENGTH = 5;
+	private static int LIMIT_LENGTH = 300;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -418,8 +421,10 @@ public class AttendanceFormActivity extends MainActivity {
 				editSearchCategory.setText("");
 				try {
 					if(selectSearchCategory.equals(ApplicationConstant.CAT_USERNAME)){
+						editSearchCategory.setFilters(new InputFilter[] { new InputFilter.LengthFilter(LIMIT_LENGTH) });
 						searchBy = ApplicationConstant.USERNAME;
 					}else{
+						editSearchCategory.setFilters(new InputFilter[] { new InputFilter.LengthFilter(MAX_LENGTH) });
 						searchBy = ApplicationConstant.EMPLOYEE_ID;
 					}
 				}catch(NumberFormatException nfe) {
