@@ -309,7 +309,7 @@
 	if ([touch view] != calendar) {
         [self removePopUp];
     }
-    if ([touch view]!= dropDownView) {
+    if ([touch view] != dropDownView.view) {
         [dropDownView closeAnimation];
     }
     
