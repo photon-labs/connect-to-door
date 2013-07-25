@@ -41,13 +41,18 @@
 #define MODULE_SIGNATURE_LINK @"signature"
 
 
-//this varible
+//this variable for common string
 #define CHECKIN @"checkIn"
 #define CHECKOUT @"checkOut"
 #define CHECKSTATUS @"check-status"
 
 #define DATE_START @"dateStart"
 #define DATE_END @"dateEnd"
+
+#define DATE_STRING @"Date"
+#define NAME_STRING @"Name"
+#define PROJECT_ID_STRING @"Project ID"
+#define EMPLOYEE_ID_STRING @"Employee ID"
 
 //facebook key on local storage/nsuserdefaults & response object key
 #define kUserFaceBookId @"facebookID"
@@ -97,6 +102,7 @@
 #define TOTAL_LEAVE @"total_leave"
 #define DATE_START_KEY @"date_start"
 #define DATE_END_KEY @"date_end"
+#define DATE_KEY @"date"
 
 #define EMPLOYEE_DATA_KEY @"employee_data"
 #define ADMIN_KEY @"admin"
