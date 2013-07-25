@@ -41,12 +41,9 @@
 }
 
 -(void)requestDailyAttendance:(NSString*)employeeID date:(NSString*)date{
+    [self showActivityIndicator];
     ctdDailyAttendanceService *dailyAttendanceService = [[ctdDailyAttendanceService alloc]init];
     dailyAttendanceService.delegate = self;
-    //NSString *employeeId= employeeId;
-    //[self saveEmployeeIdtoLocalStorage:employeeId];
-   // NSLog(@"EMPLOYEE ID == %@",employeeId);
-    //NSLog(@"FACEBOOK ID == %@",[self getFacebookId]);
     [dailyAttendanceService requestDailyAttendanceToServer:employeeID date:date];
 }
 
@@ -80,8 +77,6 @@
     [formatter setDateFormat:@"yyyy-MM-dd"];
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
     NSString *stringFromDate = [formatter stringFromDate:dateRequest];
-    NSLog(@"DATE ===== %@",stringFromDate);
-
     return stringFromDate;
 }
 
@@ -105,17 +100,16 @@
     if (cell == nil) {
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ctdSelectViewDailyAttendanceCell" owner:self options:nil];
         cell = [topLevelObjects objectAtIndex:0];
-        
     }
-
     if( [indexPath row] % 2 == 0){
         [cell.contentView setBackgroundColor:[ctdColorUtilities colorWithHexString:@"FFFFFF"]];
     }else{
         [cell.contentView setBackgroundColor:[ctdColorUtilities colorWithHexString:@"cfe9d0"]];
     }
-    NSString *number = [NSString stringWithFormat:@"%d", indexPath.row+1];
+
     ctdResponseDailyAttendanceListModel *attendanceItem =[model.getDailyAttendanceListModels objectAtIndex:indexPath.row];
     
+    //label Number
     UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0, 33.0,tableView.rowHeight)];
     [cell addColumn:50];
     numberLabel.font = [UIFont systemFontOfSize:12.0];
@@ -125,11 +119,13 @@
     numberLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:numberLabel];
     
+    //Saparator Number
     UIImageView *separator = [[UIImageView alloc] initWithFrame:CGRectMake(34.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:60];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
     
+    //label name employee
     UILabel *nameLabel =  [[UILabel alloc] initWithFrame:CGRectMake(38, 0, 146.0,tableView.rowHeight)];
     [cell addColumn:70];
     nameLabel.font = [UIFont systemFontOfSize:12.0];
@@ -139,49 +135,53 @@
     nameLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:nameLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(210.0, 0, 2.0,tableView.rowHeight)];
+    //saparator name employee
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(310.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:80];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
     
-    UILabel *employeeIdLabel =  [[UILabel alloc] initWithFrame:CGRectMake(205.0, 0, 86.0,tableView.rowHeight)];
+    //label checkin
+    UILabel *checkinLabel =  [[UILabel alloc] initWithFrame:CGRectMake(305.0, 0, 86.0,tableView.rowHeight)];
     [cell addColumn:90];
-    employeeIdLabel.font = [UIFont systemFontOfSize:12.0];
-    employeeIdLabel.text = attendanceItem.checkIn;
-    employeeIdLabel.textColor = [UIColor blackColor];
-    employeeIdLabel.textAlignment = NSTextAlignmentCenter;
-    employeeIdLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:employeeIdLabel];
+    checkinLabel.font = [UIFont systemFontOfSize:12.0];
+    checkinLabel.text = attendanceItem.checkIn;
+    checkinLabel.textColor = [UIColor blackColor];
+    checkinLabel.textAlignment = NSTextAlignmentCenter;
+    checkinLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:checkinLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(272.0, 0, 2.0,tableView.rowHeight)];
+    //saparator checkin
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(382.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:100];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
     
-    UILabel *projectIdLabel =  [[UILabel alloc] initWithFrame:CGRectMake(274.0, 0, 88.0,tableView.rowHeight)];
+    //label checkout
+    UILabel *checkoutLabel =  [[UILabel alloc] initWithFrame:CGRectMake(374.0, 0, 88.0,tableView.rowHeight)];
     [cell addColumn:110];
-    //  label.tag = VALUE_TAG;
-    projectIdLabel.font = [UIFont systemFontOfSize:12.0];
-    // add some silly value
-    projectIdLabel.text = attendanceItem.checkOut;
-    projectIdLabel.textColor = [UIColor blackColor];
-    projectIdLabel.textAlignment = NSTextAlignmentCenter;
-    projectIdLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:projectIdLabel];
+    checkoutLabel.font = [UIFont systemFontOfSize:12.0];
+    checkoutLabel.text = attendanceItem.checkOut;
+    checkoutLabel.textColor = [UIColor blackColor];
+    checkoutLabel.textAlignment = NSTextAlignmentCenter;
+    checkoutLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:checkoutLabel];
     
-    separator = [[UIImageView alloc] initWithFrame:CGRectMake(362.0, 0, 2.0,tableView.rowHeight)];
+    //saparator checkout
+    separator = [[UIImageView alloc] initWithFrame:CGRectMake(455.0, 0, 2.0,tableView.rowHeight)];
     [cell addColumn:120];
     [separator setBackgroundColor:[ctdColorUtilities colorWithHexString:@"86AA8E"]];
     [cell.contentView addSubview:separator];
     
-    UILabel *totalAttendanceLabel =  [[UILabel alloc] initWithFrame:CGRectMake(365.0, 0, 86.0,tableView.rowHeight)];
+    //label edit by
+    UILabel *editByLabel =  [[UILabel alloc] initWithFrame:CGRectMake(465.0, 0, 86.0,tableView.rowHeight)];
     [cell addColumn:130];
-    totalAttendanceLabel.font = [UIFont systemFontOfSize:12.0];
-    totalAttendanceLabel.text = attendanceItem.previlage;
-    totalAttendanceLabel.textColor = [UIColor blackColor];
-    totalAttendanceLabel.textAlignment = NSTextAlignmentCenter;
-    totalAttendanceLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:totalAttendanceLabel];
+    editByLabel.font = [UIFont systemFontOfSize:12.0];
+    editByLabel.text = attendanceItem.previlage;
+    editByLabel.textColor = [UIColor blackColor];
+    editByLabel.textAlignment = NSTextAlignmentCenter;
+    editByLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:editByLabel];
     
     return cell;}
 
@@ -191,35 +191,11 @@
     return indexPath;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-        return nil;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return nil;
-    
-}
-
-
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;
-}
-
-
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.01f;
 }
 
--(UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
-{
-    return nil;
-}
 
 // Override to support conditional editing of the table view.
 // This only needs to be implemented if you are going to be returning NO
@@ -237,14 +213,15 @@
 
 #pragma mark DailyAttendanceService methods
 - (void)didReceivedDailyAttendanceResponse:(NSString*)response{
+    [self hideActivityIndicator];
     ctdDailyAttendanceParser *parser = [[ctdDailyAttendanceParser alloc] init];
     model = [parser parseResponse:response];
-    NSLog(@"JIJIJJIJ == %d",[model.getDailyAttendanceListModels count]);
     [itemAttendacen reloadData];
 }
 
 - (void)didReceiveDailyAttendanceErrorResponse:(NSError*)error{
-    
+    [self hideActivityIndicator];
+    NSLog(@"ERROR RESPONSE : %@", error);
 }
 
 
@@ -272,6 +249,7 @@
     dateView.hidden = TRUE;
     datePicker.hidden = TRUE;
     toolbarDatePicker.hidden = TRUE;
+    [self requestDailyAttendance:[self getEmployeeId] date:dateString];
 }
 
 - (IBAction)didDatePickerCancelBtnTypeClicked:(id)sender{
