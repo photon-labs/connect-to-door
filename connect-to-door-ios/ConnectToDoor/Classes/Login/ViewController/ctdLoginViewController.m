@@ -31,7 +31,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"masuk viewDIdLoad");
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -45,21 +44,17 @@
 - (void)checkSessionFacebook{
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
-        NSLog(@"masuk !appDelegate.session.isOpen");
         // create a fresh session object
         appDelegate.session = [[FBSession alloc] init];
-        NSLog(@"session state : %i", appDelegate.session.state);
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
         // we check here to make sure we have a token before calling open
         if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
-            NSLog(@"masuk appDelegate.session.state == FBSessionStateCreatedTokenLoaded");
             // even though we had a cached token, we need to login to make the session usable
             [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                              FBSessionState status,
                                                              NSError *error) {
                 
-                NSLog(@"masuk openWithCompletionHandler");
                 // we recurse here, in order to update buttons and labels
                 [self goToSignInPage];
             }];
@@ -73,7 +68,6 @@
  *this method for action click button login facebook
  */
 - (IBAction)didLoginButtonClicked:(id)sender{
-    NSLog(@"masuk didLoginButtonClicked");
     // get the app delegate so that we can access the session property
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     
@@ -96,7 +90,6 @@
                                                          FBSessionState status,
                                                          NSError *error) {
             // and here we make sure to update our UX according to the new session state
-            NSLog(@"SESSION TOKEN == %@",appDelegate.session.accessTokenData.accessToken);
             
             [self showActivityIndicator];
             //get User id and name

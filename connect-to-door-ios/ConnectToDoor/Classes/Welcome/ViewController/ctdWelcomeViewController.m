@@ -188,7 +188,6 @@
 - (void)didReceivedCheckStatusResponse:(NSString*)response{
     ctdCheckStatusParser *parse = [[ctdCheckStatusParser alloc]init];
     ctdResponseCheckStatusModel *model = [parse parseResponse:response];
-    NSLog(@"======= changeFormatTime ======= %@", [self changeFormatTime:model.checkIn]);
     if(![model.checkIn isEqualToString:@""]){
         NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", [self changeFormatTime:model.checkIn]];
         statusCheck.text = timeCheckIn;

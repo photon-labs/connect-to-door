@@ -53,7 +53,6 @@
 
 
 - (void)signOut{
-    NSLog(@"sign out button clicked");
     ctdLoginViewController *loginViewController = [[ctdLoginViewController alloc]initWithNibName:@"ctdLoginViewController" bundle:nil];
     loginViewController.hasSignoutButton = NO;
     
