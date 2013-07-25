@@ -104,6 +104,9 @@
 		DD47739D17A11BC90050D327 /* icon_calendar_start-working.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47737017A11BC90050D327 /* icon_calendar_start-working.png */; };
 		DD47739E17A11BC90050D327 /* nubox_finddate.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47737117A11BC90050D327 /* nubox_finddate.png */; };
 		DD47739F17A11BC90050D327 /* nuicon_datealt.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47737217A11BC90050D327 /* nuicon_datealt.png */; };
+		DD4773A517A131820050D327 /* table_header_left.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4773A217A131820050D327 /* table_header_left.png */; };
+		DD4773A617A131820050D327 /* table_header_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4773A317A131820050D327 /* table_header_middle.png */; };
+		DD4773A717A131820050D327 /* table_header_right.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4773A417A131820050D327 /* table_header_right.png */; };
 		DD6CBCB6178ED3A4000E7F44 /* ctdProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */; };
 		DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB8178ED3B8000E7F44 /* ctdProfileModel.m */; };
 		DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */; };
@@ -293,6 +296,9 @@
 		DD47737017A11BC90050D327 /* icon_calendar_start-working.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_calendar_start-working.png"; path = "Resources/Images/icon_calendar_start-working.png"; sourceTree = "<group>"; };
 		DD47737117A11BC90050D327 /* nubox_finddate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nubox_finddate.png; path = Resources/Images/nubox_finddate.png; sourceTree = "<group>"; };
 		DD47737217A11BC90050D327 /* nuicon_datealt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nuicon_datealt.png; path = Resources/Images/nuicon_datealt.png; sourceTree = "<group>"; };
+		DD4773A217A131820050D327 /* table_header_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_header_left.png; path = Resources/Images/table_header_left.png; sourceTree = "<group>"; };
+		DD4773A317A131820050D327 /* table_header_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_header_middle.png; path = Resources/Images/table_header_middle.png; sourceTree = "<group>"; };
+		DD4773A417A131820050D327 /* table_header_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = table_header_right.png; path = Resources/Images/table_header_right.png; sourceTree = "<group>"; };
 		DD6CBCB4178ED3A4000E7F44 /* ctdProfileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileService.h; sourceTree = "<group>"; };
 		DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileService.m; sourceTree = "<group>"; };
 		DD6CBCB7178ED3B8000E7F44 /* ctdProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileModel.h; sourceTree = "<group>"; };
@@ -391,7 +397,6 @@
 		713342E41737C9B700057FE6 = {
 			isa = PBXGroup;
 			children = (
-				DD303601179FDF1E00BA679C /* QuartzCore.framework */,
 				713342F61737C9B700057FE6 /* ConnectToDoor */,
 				7133431A1737C9B800057FE6 /* ConnectToDoorTests */,
 				713342EF1737C9B700057FE6 /* Frameworks */,
@@ -411,6 +416,7 @@
 		713342EF1737C9B700057FE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD303601179FDF1E00BA679C /* QuartzCore.framework */,
 				DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */,
 				DDD9175E178ED0D000750702 /* MobileCoreServices.framework */,
 				DDD91760178ED1CA00750702 /* SystemConfiguration.framework */,
@@ -915,6 +921,9 @@
 		DD47734517A11B660050D327 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DD4773A217A131820050D327 /* table_header_left.png */,
+				DD4773A317A131820050D327 /* table_header_middle.png */,
+				DD4773A417A131820050D327 /* table_header_right.png */,
 				DD47734617A11BC80050D327 /* background_allpages.png */,
 				DD47734717A11BC80050D327 /* box_add-text_long.png */,
 				DD47734817A11BC80050D327 /* box_add-text-on-sign-in_employee-ID.png */,
@@ -1221,6 +1230,9 @@
 				DD47739D17A11BC90050D327 /* icon_calendar_start-working.png in Resources */,
 				DD47739E17A11BC90050D327 /* nubox_finddate.png in Resources */,
 				DD47739F17A11BC90050D327 /* nuicon_datealt.png in Resources */,
+				DD4773A517A131820050D327 /* table_header_left.png in Resources */,
+				DD4773A617A131820050D327 /* table_header_middle.png in Resources */,
+				DD4773A717A131820050D327 /* table_header_right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
