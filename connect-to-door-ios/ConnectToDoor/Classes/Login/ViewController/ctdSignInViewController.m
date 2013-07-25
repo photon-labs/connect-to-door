@@ -38,7 +38,6 @@ NSString *test;
 {
     [super viewDidLoad];
     [self configureComponent];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -97,6 +96,9 @@ NSString *test;
 -(void)didReceivedLoginResponse:(NSString *)response{
     ctdLoginParser *parse = [[ctdLoginParser alloc]init];
     ctdReponseLoginModel *model = [parse parseResponse:response];
+    //save previllage
+    [self savePrevillage:model.previlage];
+    
     if([model.message isEqualToString:@"Login failed"]){
         [self showAlert:kAlertInvalidEmployeeId];
     }else{
@@ -104,6 +106,11 @@ NSString *test;
     }
 }
 
+- (void)savePrevillage:(NSString*)previllage{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:previllage forKey:@"previllage"];
+    [userDefaults synchronize];
+}
 
 -(void)didReceiveLoginErrorResponse:(NSError *)error{
     // error response
@@ -118,6 +125,11 @@ NSString *test;
 
 - (void)hideKeyboard{
     [employeeID resignFirstResponder];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > 5) ? NO : YES;
 }
 
 @end

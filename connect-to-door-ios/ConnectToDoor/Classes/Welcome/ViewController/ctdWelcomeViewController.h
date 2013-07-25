@@ -13,7 +13,7 @@
 #import "ctdBaseViewController.h"
 
 @interface ctdWelcomeViewController : ctdBaseViewController<CheckInServiceDelegate,CheckStatusServiceDelegate,CheckOutServiceDelegate>{
-    
+    BOOL isAdmin;
 }
 
 
@@ -26,6 +26,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *dailyAttendanceButton;
 @property (nonatomic, strong) IBOutlet UIButton *attendanceListButton;
 @property (nonatomic, strong) IBOutlet UIButton *signOutButton;
+@property (nonatomic, strong) IBOutlet UIButton *attendanceReportButton;
+@property (nonatomic, strong) IBOutlet UIButton *attendanceFormButton;
 
 - (IBAction)didCheckInClicked:(id)sender;
 - (IBAction)didCheckOutClicked:(id)sender;
@@ -34,5 +36,7 @@
 - (IBAction)didDailyAttendanceClicked:(id)sender;
 - (IBAction)didAttendanceListClicked:(id)sender;
 - (IBAction)didSignOutClicked:(id)sender;
+- (IBAction)didAttendanceReportClicked:(id)sender;
+- (IBAction)AttendanceFormClicked:(id)sender;
 
 @end

@@ -35,6 +35,9 @@
 @synthesize dailyAttendanceButton;
 @synthesize attendanceListButton;
 @synthesize signOutButton;
+@synthesize attendanceFormButton;
+@synthesize attendanceReportButton;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,11 +55,28 @@
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     welcome.text = [NSString stringWithFormat:@"Welcome, %@",[self getNameUser]];
     self.title = @"Welcome";
+   
+    [self setShowButton];
+    
     ctdCheckStatusService *checkStatusService = [[ctdCheckStatusService alloc]init];
     checkStatusService.delegate = self;
     ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
     NSString *employeeId = [localStorage getEmployeeId];
     [checkStatusService checkStatusToServer:employeeId];
+}
+
+- (void)setShowButton{
+    NSString *previllage = [[NSUserDefaults standardUserDefaults] objectForKey:@"previllage"];
+    NSLog(@"previllage ===== %@", previllage);
+    
+    isAdmin = [previllage isEqualToString:@"Admin"] ? YES: NO;
+    if(isAdmin){
+        attendanceFormButton.alpha = 1.0;
+        attendanceReportButton.alpha = 1.0;
+    }else{
+        attendanceFormButton.alpha = 0.0;
+        attendanceReportButton.alpha = 0.0;
+    }
 }
 
 -(NSString*)getNameUser{
@@ -214,6 +234,14 @@
     NSString *formattedDate = [dateFormatter stringFromDate:date];
     
    return formattedDate;
+    
+}
+
+- (IBAction)didAttendanceReportClicked:(id)sender{
+    
+}
+
+- (IBAction)AttendanceFormClicked:(id)sender{
     
 }
 

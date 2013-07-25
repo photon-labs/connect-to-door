@@ -29,14 +29,15 @@ NSString *employeeId;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+   
 }
 
 // Displays the user's name and profile picture so they are aware of the Facebook
 // identity they are logged in as.
 - (void)populateUserDetails {
     ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
-
+    
+    
     employeeId = localStorage.getEmployeeId;
     self.userProfileImage.profileID = localStorage.getUserFacebookId;
     self.facebookIdLabel.text = localStorage.getUserFacebookId;

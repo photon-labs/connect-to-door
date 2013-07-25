@@ -53,12 +53,9 @@
 
 
 - (void)signOut{
-    ctdLoginViewController *loginViewController = [[ctdLoginViewController alloc]initWithNibName:@"ctdLoginViewController" bundle:nil];
-    loginViewController.hasSignoutButton = NO;
-    
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    [self.navigationController pushViewController:loginViewController animated:YES];
-    [appDelegate.session closeAndClearTokenInformation];
+    [appDelegate releaseAllViewControllers];
+    
 }
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -91,7 +88,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+    
     // Do any additional setup after loading the view from its nib.
 }
 

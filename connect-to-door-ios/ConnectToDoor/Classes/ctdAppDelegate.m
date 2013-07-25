@@ -156,4 +156,20 @@
     }
 }
 
+- (void)releaseAllViewControllers {
+    NSLog(@"before total navigationController.viewControllers = %i", [navigationController.viewControllers count]);
+    for (UIViewController *uiViewController in navigationController.viewControllers) {
+        [uiViewController removeFromParentViewController];
+    }
+    
+    NSLog(@"after navigationController.viewControllers = %i", [navigationController.viewControllers count]);
+    
+    [_session closeAndClearTokenInformation];
+    
+    ctdLoginViewController *loginViewController = [[ctdLoginViewController alloc]initWithNibName:@"ctdLoginViewController" bundle:nil];
+    loginViewController.hasSignoutButton = NO;
+    [self.navigationController pushViewController:loginViewController animated:YES];
+    
+}
+
 @end

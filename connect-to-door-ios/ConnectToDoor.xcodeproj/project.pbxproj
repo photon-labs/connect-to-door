@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A10F3C217968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */; };
-		6A10F3C317968A18000DF6E3 /* box_transparent_reimbursement-form_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */; };
-		6AEEE6B91797966B00CD4219 /* box_add-text_long.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6B81797966B00CD4219 /* box_add-text_long.png */; };
-		6AEEE6BB179796A000CD4219 /* date_box_add-date.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6BA179796A000CD4219 /* date_box_add-date.png */; };
-		6AEEE6BD17979C5000CD4219 /* icon_calendar_start-working.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6BC17979C5000CD4219 /* icon_calendar_start-working.png */; };
-		6AEEE6C117979EA100CD4219 /* dropdown_arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6BE17979EA100CD4219 /* dropdown_arrow-down.png */; };
-		6AEEE6C217979EA100CD4219 /* dropdown_box_3items_reimbursement.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6BF17979EA100CD4219 /* dropdown_box_3items_reimbursement.png */; };
-		6AEEE6C317979EA100CD4219 /* dropdown_box_select-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6C017979EA100CD4219 /* dropdown_box_select-text.png */; };
-		6AEEE6C51797A1E900CD4219 /* button_small_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6C41797A1E900CD4219 /* button_small_save.png */; };
-		6AEEE6C71797F27700CD4219 /* box_add-text-on-sign-in_employee-ID.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6C61797F27700CD4219 /* box_add-text-on-sign-in_employee-ID.png */; };
-		6AEEE6C91797F2AF00CD4219 /* button_continue-on-sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AEEE6C81797F2AF00CD4219 /* button_continue-on-sign-in.png */; };
 		713342F11737C9B700057FE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713342F01737C9B700057FE6 /* UIKit.framework */; };
 		713342F31737C9B700057FE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713342F21737C9B700057FE6 /* Foundation.framework */; };
 		713342F51737C9B700057FE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713342F41737C9B700057FE6 /* CoreGraphics.framework */; };
@@ -48,12 +37,7 @@
 		71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0381738D59B00EF1491 /* ctdProfileViewController.xib */; };
 		71DFF0481739080500EF1491 /* ctdSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0461739080500EF1491 /* ctdSignInViewController.m */; };
 		71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0471739080500EF1491 /* ctdSignInViewController.xib */; };
-		71DFF04B1739304E00EF1491 /* box_transparent_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF04A1739304E00EF1491 /* box_transparent_profile.png */; };
-		71DFF04D1739331D00EF1491 /* button_main-menu_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */; };
 		DD3035F5179FA7CA00BA679C /* DropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035F4179FA7CA00BA679C /* DropDownView.m */; };
-		DD3035F7179FACF100BA679C /* nubox_finddate.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035F6179FACF100BA679C /* nubox_finddate.png */; };
-		DD3035F9179FAD9200BA679C /* dropdown_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035F8179FAD9200BA679C /* dropdown_arrowdown.png */; };
-		DD3035FB179FADFA00BA679C /* button_search.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3035FA179FADFA00BA679C /* button_search.png */; };
 		DD303600179FC37800BA679C /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035FF179FC37800BA679C /* CKCalendarView.m */; };
 		DD303602179FDF1E00BA679C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303601179FDF1E00BA679C /* QuartzCore.framework */; };
 		DD3487CC178A706F0070702C /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487C9178A706F0070702C /* AFHTTPClient.m */; };
@@ -75,44 +59,66 @@
 		DD3487FF178AA6DD0070702C /* ctdResponseCheckOutModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3487FE178AA6DD0070702C /* ctdResponseCheckOutModel.m */; };
 		DD348802178AAB5A0070702C /* ctdResponseDailyAttendanceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD348801178AAB5A0070702C /* ctdResponseDailyAttendanceModel.m */; };
 		DD348805178AB44C0070702C /* ctdResponseDailyAttendanceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD348804178AB44B0070702C /* ctdResponseDailyAttendanceListModel.m */; };
+		DD47737317A11BC90050D327 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734617A11BC80050D327 /* background_allpages.png */; };
+		DD47737417A11BC90050D327 /* box_add-text_long.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734717A11BC80050D327 /* box_add-text_long.png */; };
+		DD47737517A11BC90050D327 /* box_add-text-on-sign-in_employee-ID.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734817A11BC80050D327 /* box_add-text-on-sign-in_employee-ID.png */; };
+		DD47737617A11BC90050D327 /* box_alert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734917A11BC80050D327 /* box_alert_white.png */; };
+		DD47737717A11BC90050D327 /* box_transparent_att_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734A17A11BC80050D327 /* box_transparent_att_list.png */; };
+		DD47737817A11BC90050D327 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734B17A11BC80050D327 /* box_transparent_attendance.png */; };
+		DD47737917A11BC90050D327 /* box_transparent_daily_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734C17A11BC80050D327 /* box_transparent_daily_attendance.png */; };
+		DD47737A17A11BC90050D327 /* box_transparent_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734D17A11BC80050D327 /* box_transparent_profile.png */; };
+		DD47737B17A11BC90050D327 /* box_transparent_reimbursement-form_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734E17A11BC80050D327 /* box_transparent_reimbursement-form_bottom.png */; };
+		DD47737C17A11BC90050D327 /* box_transparent_reimbursement-form_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47734F17A11BC80050D327 /* box_transparent_reimbursement-form_middle.png */; };
+		DD47737D17A11BC90050D327 /* box_transparent_reimbursement-form_top.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735017A11BC80050D327 /* box_transparent_reimbursement-form_top.png */; };
+		DD47737E17A11BC90050D327 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735117A11BC80050D327 /* box_transparent_sign-in.png */; };
+		DD47737F17A11BC90050D327 /* box_transparent_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735217A11BC80050D327 /* box_transparent_voucher.png */; };
+		DD47738017A11BC90050D327 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735317A11BC80050D327 /* button_attendance_attendance-list.png */; };
+		DD47738117A11BC90050D327 /* button_attendance_attendanceform.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735417A11BC80050D327 /* button_attendance_attendanceform.png */; };
+		DD47738217A11BC90050D327 /* button_attendance_attendancereport.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735517A11BC80050D327 /* button_attendance_attendancereport.png */; };
+		DD47738317A11BC90050D327 /* button_attendance_check-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735617A11BC80050D327 /* button_attendance_check-in.png */; };
+		DD47738417A11BC90050D327 /* button_attendance_check-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735717A11BC80050D327 /* button_attendance_check-out.png */; };
+		DD47738517A11BC90050D327 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735817A11BC80050D327 /* button_back.png */; };
+		DD47738617A11BC90050D327 /* button_bottom_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735917A11BC80050D327 /* button_bottom_back.png */; };
+		DD47738717A11BC90050D327 /* button_bottom_submit.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735A17A11BC80050D327 /* button_bottom_submit.png */; };
+		DD47738817A11BC90050D327 /* button_continue-on-sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735B17A11BC80050D327 /* button_continue-on-sign-in.png */; };
+		DD47738917A11BC90050D327 /* button_daily_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735C17A11BC80050D327 /* button_daily_attendance.png */; };
+		DD47738A17A11BC90050D327 /* button_main-menu_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735D17A11BC80050D327 /* button_main-menu_attendance.png */; };
+		DD47738B17A11BC90050D327 /* button_main-menu_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735E17A11BC80050D327 /* button_main-menu_profile.png */; };
+		DD47738C17A11BC90050D327 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47735F17A11BC80050D327 /* button_main-menu_voucher.png */; };
+		DD47738D17A11BC90050D327 /* button_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736017A11BC80050D327 /* button_ok.png */; };
+		DD47738E17A11BC90050D327 /* button_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736117A11BC80050D327 /* button_remove.png */; };
+		DD47738F17A11BC90050D327 /* button_search.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736217A11BC80050D327 /* button_search.png */; };
+		DD47739017A11BC90050D327 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736317A11BC80050D327 /* button_sign-out.png */; };
+		DD47739117A11BC90050D327 /* button_signinfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736417A11BC80050D327 /* button_signinfacebook.png */; };
+		DD47739217A11BC90050D327 /* button_small_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736517A11BC80050D327 /* button_small_edit.png */; };
+		DD47739317A11BC90050D327 /* button_small_insert.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736617A11BC80050D327 /* button_small_insert.png */; };
+		DD47739417A11BC90050D327 /* button_small_save.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736717A11BC90050D327 /* button_small_save.png */; };
+		DD47739517A11BC90050D327 /* button_voucher_Reimbursement.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736817A11BC90050D327 /* button_voucher_Reimbursement.png */; };
+		DD47739617A11BC90050D327 /* button_voucher_Request.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736917A11BC90050D327 /* button_voucher_Request.png */; };
+		DD47739717A11BC90050D327 /* date_box_add-date.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736A17A11BC90050D327 /* date_box_add-date.png */; };
+		DD47739817A11BC90050D327 /* dropdown_arrow-down.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736B17A11BC90050D327 /* dropdown_arrow-down.png */; };
+		DD47739917A11BC90050D327 /* dropdown_arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736C17A11BC90050D327 /* dropdown_arrowdown.png */; };
+		DD47739A17A11BC90050D327 /* dropdown_box_3items_reimbursement.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736D17A11BC90050D327 /* dropdown_box_3items_reimbursement.png */; };
+		DD47739B17A11BC90050D327 /* dropdown_box_select-text.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736E17A11BC90050D327 /* dropdown_box_select-text.png */; };
+		DD47739C17A11BC90050D327 /* header_attendance_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47736F17A11BC90050D327 /* header_attendance_list.png */; };
+		DD47739D17A11BC90050D327 /* icon_calendar_start-working.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47737017A11BC90050D327 /* icon_calendar_start-working.png */; };
+		DD47739E17A11BC90050D327 /* nubox_finddate.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47737117A11BC90050D327 /* nubox_finddate.png */; };
+		DD47739F17A11BC90050D327 /* nuicon_datealt.png in Resources */ = {isa = PBXBuildFile; fileRef = DD47737217A11BC90050D327 /* nuicon_datealt.png */; };
 		DD6CBCB6178ED3A4000E7F44 /* ctdProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */; };
 		DD6CBCB9178ED3B8000E7F44 /* ctdProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCB8178ED3B8000E7F44 /* ctdProfileModel.m */; };
 		DD6CBCBC178ED3D7000E7F44 /* ctdProfileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6CBCBB178ED3D7000E7F44 /* ctdProfileParser.m */; };
 		DD742866179D19F00015E9B2 /* ctdReimbursementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */; };
 		DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */; };
-		DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */; };
 		DD996E611793D5FF000F5A4B /* ctdCheckStatusParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */; };
 		DD996E641793D626000F5A4B /* ctdResponseCheckStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */; };
-		DD9B4E5F17A0E147009037D0 /* box_transparent_daily_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5917A0E147009037D0 /* box_transparent_daily_attendance.png */; };
-		DD9B4E6017A0E147009037D0 /* button_bottom_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5A17A0E147009037D0 /* button_bottom_back.png */; };
-		DD9B4E6117A0E147009037D0 /* button_bottom_submit.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5B17A0E147009037D0 /* button_bottom_submit.png */; };
-		DD9B4E6217A0E147009037D0 /* button_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5C17A0E147009037D0 /* button_remove.png */; };
-		DD9B4E6317A0E147009037D0 /* button_small_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5D17A0E147009037D0 /* button_small_edit.png */; };
-		DD9B4E6417A0E147009037D0 /* button_small_insert.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E5E17A0E147009037D0 /* button_small_insert.png */; };
 		DD9B4E6717A0E15B009037D0 /* ctdDailyAttendanceService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9B4E6617A0E15B009037D0 /* ctdDailyAttendanceService.m */; };
 		DD9B4E6B17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9B4E6917A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m */; };
 		DD9B4E6C17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD9B4E6A17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib */; };
-		DDA08B411738F602002882B4 /* background_allpages.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B381738F602002882B4 /* background_allpages.png */; };
-		DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B391738F602002882B4 /* box_transparent_attendance.png */; };
-		DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */; };
-		DDA08B441738F602002882B4 /* button_attendance_check-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3B1738F602002882B4 /* button_attendance_check-in.png */; };
-		DDA08B451738F602002882B4 /* button_attendance_check-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3C1738F602002882B4 /* button_attendance_check-out.png */; };
-		DDA08B461738F602002882B4 /* button_daily_attendance.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3D1738F602002882B4 /* button_daily_attendance.png */; };
-		DDA08B471738F602002882B4 /* button_main-menu_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3E1738F602002882B4 /* button_main-menu_profile.png */; };
-		DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */; };
-		DDA08B491738F602002882B4 /* button_sign-out.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B401738F602002882B4 /* button_sign-out.png */; };
-		DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */; };
 		DDA388F81798E4FB00CB7BD4 /* ctdAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388F61798E4FB00CB7BD4 /* ctdAlertViewController.m */; };
 		DDA388F91798E4FB00CB7BD4 /* ctdAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDA388F71798E4FB00CB7BD4 /* ctdAlertViewController.xib */; };
 		DDA388FF1798E52200CB7BD4 /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388FC1798E52200CB7BD4 /* MJPopupBackgroundView.m */; };
 		DDA389001798E52200CB7BD4 /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA388FE1798E52200CB7BD4 /* UIViewController+MJPopupViewController.m */; };
-		DDA389071798ECC900CB7BD4 /* box_alert_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389021798ECC900CB7BD4 /* box_alert_white.png */; };
-		DDA389081798ECC900CB7BD4 /* box_transparent_voucher.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */; };
-		DDA389091798ECC900CB7BD4 /* button_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389041798ECC900CB7BD4 /* button_ok.png */; };
-		DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */; };
-		DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */; };
 		DDA977BA1798F0A300AA3760 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */; };
-		DDA977BC17991C8600AA3760 /* button_back.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA977BB17991C8600AA3760 /* button_back.png */; };
 		DDAD6C25178FEAA600D0FDBE /* ctdCheckStatusService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */; };
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -126,18 +132,14 @@
 		DDDAEF8E179528D3008E8482 /* ctdAttendanceListParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF89179528D3008E8482 /* ctdAttendanceListParser.m */; };
 		DDDAEF9217952F3F008E8482 /* ctdAttendanceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */; };
 		DDDAEF9317952F3F008E8482 /* ctdAttendanceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */; };
-		DDDAEF9517953784008E8482 /* box_transparent_att_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF9417953784008E8482 /* box_transparent_att_list.png */; };
-		DDDAEF97179547DC008E8482 /* nuicon_datealt.png in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF96179547DC008E8482 /* nuicon_datealt.png */; };
 		DDEB6D02179F82B300D5B1DC /* ctdAttendanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB6D01179F82B300D5B1DC /* ctdAttendanceTableViewCell.m */; };
 		DDEB6D06179F8EE300D5B1DC /* ctdAttendanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEB6D05179F8EE200D5B1DC /* ctdAttendanceTableViewCell.xib */; };
-		DDEB6D08179F95C000D5B1DC /* header_attendance_list.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEB6D07179F95C000D5B1DC /* header_attendance_list.png */; };
 		DDEB6D0C179FAE9600D5B1DC /* ctdColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB6D0B179FAE9600D5B1DC /* ctdColorUtilities.m */; };
 		DDEE3A33178D359800E7F0C1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */; };
 		DDEE3A35178D35F400E7F0C1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A34178D35F400E7F0C1 /* Social.framework */; };
 		DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A36178D360000E7F0C1 /* Accounts.framework */; };
 		DDEE3A39178D361000E7F0C1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A38178D361000E7F0C1 /* AdSupport.framework */; };
 		DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A3A178D36B400E7F0C1 /* Security.framework */; };
-		DDEE3A3D178D4FED00E7F0C1 /* button_signinfacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,17 +153,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_middle.png"; sourceTree = "<group>"; };
-		6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_top.png"; sourceTree = "<group>"; };
-		6AEEE6B81797966B00CD4219 /* box_add-text_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_add-text_long.png"; sourceTree = "<group>"; };
-		6AEEE6BA179796A000CD4219 /* date_box_add-date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date_box_add-date.png"; sourceTree = "<group>"; };
-		6AEEE6BC17979C5000CD4219 /* icon_calendar_start-working.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar_start-working.png"; sourceTree = "<group>"; };
-		6AEEE6BE17979EA100CD4219 /* dropdown_arrow-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_arrow-down.png"; sourceTree = "<group>"; };
-		6AEEE6BF17979EA100CD4219 /* dropdown_box_3items_reimbursement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown_box_3items_reimbursement.png; sourceTree = "<group>"; };
-		6AEEE6C017979EA100CD4219 /* dropdown_box_select-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_box_select-text.png"; sourceTree = "<group>"; };
-		6AEEE6C41797A1E900CD4219 /* button_small_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_small_save.png; sourceTree = "<group>"; };
-		6AEEE6C61797F27700CD4219 /* box_add-text-on-sign-in_employee-ID.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_add-text-on-sign-in_employee-ID.png"; sourceTree = "<group>"; };
-		6AEEE6C81797F2AF00CD4219 /* button_continue-on-sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_continue-on-sign-in.png"; sourceTree = "<group>"; };
 		713342ED1737C9B700057FE6 /* ConnectToDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectToDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		713342F01737C9B700057FE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		713342F21737C9B700057FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -213,13 +204,8 @@
 		71DFF0451739080400EF1491 /* ctdSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSignInViewController.h; sourceTree = "<group>"; };
 		71DFF0461739080500EF1491 /* ctdSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSignInViewController.m; sourceTree = "<group>"; };
 		71DFF0471739080500EF1491 /* ctdSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSignInViewController.xib; sourceTree = "<group>"; };
-		71DFF04A1739304E00EF1491 /* box_transparent_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_profile.png; sourceTree = "<group>"; };
-		71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_attendance.png"; sourceTree = "<group>"; };
 		DD3035F3179FA7CA00BA679C /* DropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownView.h; sourceTree = "<group>"; };
 		DD3035F4179FA7CA00BA679C /* DropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownView.m; sourceTree = "<group>"; };
-		DD3035F6179FACF100BA679C /* nubox_finddate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nubox_finddate.png; sourceTree = "<group>"; };
-		DD3035F8179FAD9200BA679C /* dropdown_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown_arrowdown.png; sourceTree = "<group>"; };
-		DD3035FA179FADFA00BA679C /* button_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_search.png; sourceTree = "<group>"; };
 		DD3035FE179FC37800BA679C /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
 		DD3035FF179FC37800BA679C /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
 		DD303601179FDF1E00BA679C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -262,6 +248,51 @@
 		DD348801178AAB5A0070702C /* ctdResponseDailyAttendanceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseDailyAttendanceModel.m; sourceTree = "<group>"; };
 		DD348803178AB44B0070702C /* ctdResponseDailyAttendanceListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseDailyAttendanceListModel.h; sourceTree = "<group>"; };
 		DD348804178AB44B0070702C /* ctdResponseDailyAttendanceListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseDailyAttendanceListModel.m; sourceTree = "<group>"; };
+		DD47734617A11BC80050D327 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_allpages.png; path = Resources/Images/background_allpages.png; sourceTree = "<group>"; };
+		DD47734717A11BC80050D327 /* box_add-text_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_add-text_long.png"; path = "Resources/Images/box_add-text_long.png"; sourceTree = "<group>"; };
+		DD47734817A11BC80050D327 /* box_add-text-on-sign-in_employee-ID.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_add-text-on-sign-in_employee-ID.png"; path = "Resources/Images/box_add-text-on-sign-in_employee-ID.png"; sourceTree = "<group>"; };
+		DD47734917A11BC80050D327 /* box_alert_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_alert_white.png; path = Resources/Images/box_alert_white.png; sourceTree = "<group>"; };
+		DD47734A17A11BC80050D327 /* box_transparent_att_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_transparent_att_list.png; path = Resources/Images/box_transparent_att_list.png; sourceTree = "<group>"; };
+		DD47734B17A11BC80050D327 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_transparent_attendance.png; path = Resources/Images/box_transparent_attendance.png; sourceTree = "<group>"; };
+		DD47734C17A11BC80050D327 /* box_transparent_daily_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_transparent_daily_attendance.png; path = Resources/Images/box_transparent_daily_attendance.png; sourceTree = "<group>"; };
+		DD47734D17A11BC80050D327 /* box_transparent_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_transparent_profile.png; path = Resources/Images/box_transparent_profile.png; sourceTree = "<group>"; };
+		DD47734E17A11BC80050D327 /* box_transparent_reimbursement-form_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_transparent_reimbursement-form_bottom.png"; path = "Resources/Images/box_transparent_reimbursement-form_bottom.png"; sourceTree = "<group>"; };
+		DD47734F17A11BC80050D327 /* box_transparent_reimbursement-form_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_transparent_reimbursement-form_middle.png"; path = "Resources/Images/box_transparent_reimbursement-form_middle.png"; sourceTree = "<group>"; };
+		DD47735017A11BC80050D327 /* box_transparent_reimbursement-form_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_transparent_reimbursement-form_top.png"; path = "Resources/Images/box_transparent_reimbursement-form_top.png"; sourceTree = "<group>"; };
+		DD47735117A11BC80050D327 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "box_transparent_sign-in.png"; path = "Resources/Images/box_transparent_sign-in.png"; sourceTree = "<group>"; };
+		DD47735217A11BC80050D327 /* box_transparent_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_transparent_voucher.png; path = Resources/Images/box_transparent_voucher.png; sourceTree = "<group>"; };
+		DD47735317A11BC80050D327 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_attendance_attendance-list.png"; path = "Resources/Images/button_attendance_attendance-list.png"; sourceTree = "<group>"; };
+		DD47735417A11BC80050D327 /* button_attendance_attendanceform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_attendance_attendanceform.png; path = Resources/Images/button_attendance_attendanceform.png; sourceTree = "<group>"; };
+		DD47735517A11BC80050D327 /* button_attendance_attendancereport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_attendance_attendancereport.png; path = Resources/Images/button_attendance_attendancereport.png; sourceTree = "<group>"; };
+		DD47735617A11BC80050D327 /* button_attendance_check-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_attendance_check-in.png"; path = "Resources/Images/button_attendance_check-in.png"; sourceTree = "<group>"; };
+		DD47735717A11BC80050D327 /* button_attendance_check-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_attendance_check-out.png"; path = "Resources/Images/button_attendance_check-out.png"; sourceTree = "<group>"; };
+		DD47735817A11BC80050D327 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_back.png; path = Resources/Images/button_back.png; sourceTree = "<group>"; };
+		DD47735917A11BC80050D327 /* button_bottom_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_bottom_back.png; path = Resources/Images/button_bottom_back.png; sourceTree = "<group>"; };
+		DD47735A17A11BC80050D327 /* button_bottom_submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_bottom_submit.png; path = Resources/Images/button_bottom_submit.png; sourceTree = "<group>"; };
+		DD47735B17A11BC80050D327 /* button_continue-on-sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_continue-on-sign-in.png"; path = "Resources/Images/button_continue-on-sign-in.png"; sourceTree = "<group>"; };
+		DD47735C17A11BC80050D327 /* button_daily_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_daily_attendance.png; path = Resources/Images/button_daily_attendance.png; sourceTree = "<group>"; };
+		DD47735D17A11BC80050D327 /* button_main-menu_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_main-menu_attendance.png"; path = "Resources/Images/button_main-menu_attendance.png"; sourceTree = "<group>"; };
+		DD47735E17A11BC80050D327 /* button_main-menu_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_main-menu_profile.png"; path = "Resources/Images/button_main-menu_profile.png"; sourceTree = "<group>"; };
+		DD47735F17A11BC80050D327 /* button_main-menu_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_main-menu_voucher.png"; path = "Resources/Images/button_main-menu_voucher.png"; sourceTree = "<group>"; };
+		DD47736017A11BC80050D327 /* button_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_ok.png; path = Resources/Images/button_ok.png; sourceTree = "<group>"; };
+		DD47736117A11BC80050D327 /* button_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_remove.png; path = Resources/Images/button_remove.png; sourceTree = "<group>"; };
+		DD47736217A11BC80050D327 /* button_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_search.png; path = Resources/Images/button_search.png; sourceTree = "<group>"; };
+		DD47736317A11BC80050D327 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_sign-out.png"; path = "Resources/Images/button_sign-out.png"; sourceTree = "<group>"; };
+		DD47736417A11BC80050D327 /* button_signinfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_signinfacebook.png; path = Resources/Images/button_signinfacebook.png; sourceTree = "<group>"; };
+		DD47736517A11BC80050D327 /* button_small_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_small_edit.png; path = Resources/Images/button_small_edit.png; sourceTree = "<group>"; };
+		DD47736617A11BC80050D327 /* button_small_insert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_small_insert.png; path = Resources/Images/button_small_insert.png; sourceTree = "<group>"; };
+		DD47736717A11BC90050D327 /* button_small_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_small_save.png; path = Resources/Images/button_small_save.png; sourceTree = "<group>"; };
+		DD47736817A11BC90050D327 /* button_voucher_Reimbursement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_voucher_Reimbursement.png; path = Resources/Images/button_voucher_Reimbursement.png; sourceTree = "<group>"; };
+		DD47736917A11BC90050D327 /* button_voucher_Request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_voucher_Request.png; path = Resources/Images/button_voucher_Request.png; sourceTree = "<group>"; };
+		DD47736A17A11BC90050D327 /* date_box_add-date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "date_box_add-date.png"; path = "Resources/Images/date_box_add-date.png"; sourceTree = "<group>"; };
+		DD47736B17A11BC90050D327 /* dropdown_arrow-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dropdown_arrow-down.png"; path = "Resources/Images/dropdown_arrow-down.png"; sourceTree = "<group>"; };
+		DD47736C17A11BC90050D327 /* dropdown_arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropdown_arrowdown.png; path = Resources/Images/dropdown_arrowdown.png; sourceTree = "<group>"; };
+		DD47736D17A11BC90050D327 /* dropdown_box_3items_reimbursement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropdown_box_3items_reimbursement.png; path = Resources/Images/dropdown_box_3items_reimbursement.png; sourceTree = "<group>"; };
+		DD47736E17A11BC90050D327 /* dropdown_box_select-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dropdown_box_select-text.png"; path = "Resources/Images/dropdown_box_select-text.png"; sourceTree = "<group>"; };
+		DD47736F17A11BC90050D327 /* header_attendance_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_attendance_list.png; path = Resources/Images/header_attendance_list.png; sourceTree = "<group>"; };
+		DD47737017A11BC90050D327 /* icon_calendar_start-working.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_calendar_start-working.png"; path = "Resources/Images/icon_calendar_start-working.png"; sourceTree = "<group>"; };
+		DD47737117A11BC90050D327 /* nubox_finddate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nubox_finddate.png; path = Resources/Images/nubox_finddate.png; sourceTree = "<group>"; };
+		DD47737217A11BC90050D327 /* nuicon_datealt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nuicon_datealt.png; path = Resources/Images/nuicon_datealt.png; sourceTree = "<group>"; };
 		DD6CBCB4178ED3A4000E7F44 /* ctdProfileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileService.h; sourceTree = "<group>"; };
 		DD6CBCB5178ED3A4000E7F44 /* ctdProfileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdProfileService.m; sourceTree = "<group>"; };
 		DD6CBCB7178ED3B8000E7F44 /* ctdProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdProfileModel.h; sourceTree = "<group>"; };
@@ -271,32 +302,15 @@
 		DD742863179D19EF0015E9B2 /* ctdReimbursementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdReimbursementViewController.h; sourceTree = "<group>"; };
 		DD742864179D19EF0015E9B2 /* ctdReimbursementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdReimbursementViewController.m; sourceTree = "<group>"; };
 		DD742865179D19F00015E9B2 /* ctdReimbursementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdReimbursementViewController.xib; sourceTree = "<group>"; };
-		DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_reimbursement-form_bottom.png"; sourceTree = "<group>"; };
 		DD996E5F1793D5FF000F5A4B /* ctdCheckStatusParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusParser.h; sourceTree = "<group>"; };
 		DD996E601793D5FF000F5A4B /* ctdCheckStatusParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusParser.m; sourceTree = "<group>"; };
 		DD996E621793D626000F5A4B /* ctdResponseCheckStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdResponseCheckStatusModel.h; sourceTree = "<group>"; };
 		DD996E631793D626000F5A4B /* ctdResponseCheckStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdResponseCheckStatusModel.m; sourceTree = "<group>"; };
-		DD9B4E5917A0E147009037D0 /* box_transparent_daily_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_daily_attendance.png; sourceTree = "<group>"; };
-		DD9B4E5A17A0E147009037D0 /* button_bottom_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bottom_back.png; sourceTree = "<group>"; };
-		DD9B4E5B17A0E147009037D0 /* button_bottom_submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bottom_submit.png; sourceTree = "<group>"; };
-		DD9B4E5C17A0E147009037D0 /* button_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_remove.png; sourceTree = "<group>"; };
-		DD9B4E5D17A0E147009037D0 /* button_small_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_small_edit.png; sourceTree = "<group>"; };
-		DD9B4E5E17A0E147009037D0 /* button_small_insert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_small_insert.png; sourceTree = "<group>"; };
 		DD9B4E6517A0E15B009037D0 /* ctdDailyAttendanceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceService.h; sourceTree = "<group>"; };
 		DD9B4E6617A0E15B009037D0 /* ctdDailyAttendanceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdDailyAttendanceService.m; sourceTree = "<group>"; };
 		DD9B4E6817A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSelectViewDailyAttendanceCell.h; sourceTree = "<group>"; };
 		DD9B4E6917A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSelectViewDailyAttendanceCell.m; sourceTree = "<group>"; };
 		DD9B4E6A17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSelectViewDailyAttendanceCell.xib; sourceTree = "<group>"; };
-		DDA08B381738F602002882B4 /* background_allpages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_allpages.png; sourceTree = "<group>"; };
-		DDA08B391738F602002882B4 /* box_transparent_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_attendance.png; sourceTree = "<group>"; };
-		DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_attendance-list.png"; sourceTree = "<group>"; };
-		DDA08B3B1738F602002882B4 /* button_attendance_check-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_check-in.png"; sourceTree = "<group>"; };
-		DDA08B3C1738F602002882B4 /* button_attendance_check-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_attendance_check-out.png"; sourceTree = "<group>"; };
-		DDA08B3D1738F602002882B4 /* button_daily_attendance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_daily_attendance.png; sourceTree = "<group>"; };
-		DDA08B3E1738F602002882B4 /* button_main-menu_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_profile.png"; sourceTree = "<group>"; };
-		DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_main-menu_voucher.png"; sourceTree = "<group>"; };
-		DDA08B401738F602002882B4 /* button_sign-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_sign-out.png"; sourceTree = "<group>"; };
-		DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box_transparent_sign-in.png"; sourceTree = "<group>"; };
 		DDA388F01798E46F00CB7BD4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ThirdParty/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		DDA388F51798E4FB00CB7BD4 /* ctdAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdAlertViewController.h; path = AlertViewController/ctdAlertViewController.h; sourceTree = "<group>"; };
 		DDA388F61798E4FB00CB7BD4 /* ctdAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdAlertViewController.m; path = AlertViewController/ctdAlertViewController.m; sourceTree = "<group>"; };
@@ -305,12 +319,6 @@
 		DDA388FC1798E52200CB7BD4 /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJPopupBackgroundView.m; path = MJPopUpViewController/MJPopupBackgroundView.m; sourceTree = "<group>"; };
 		DDA388FD1798E52200CB7BD4 /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MJPopupViewController.h"; path = "MJPopUpViewController/UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
 		DDA388FE1798E52200CB7BD4 /* UIViewController+MJPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MJPopupViewController.m"; path = "MJPopUpViewController/UIViewController+MJPopupViewController.m"; sourceTree = "<group>"; };
-		DDA389021798ECC900CB7BD4 /* box_alert_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_alert_white.png; sourceTree = "<group>"; };
-		DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_voucher.png; sourceTree = "<group>"; };
-		DDA389041798ECC900CB7BD4 /* button_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_ok.png; sourceTree = "<group>"; };
-		DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_voucher_Reimbursement.png; sourceTree = "<group>"; };
-		DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_voucher_Request.png; sourceTree = "<group>"; };
-		DDA977BB17991C8600AA3760 /* button_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_back.png; sourceTree = "<group>"; };
 		DDAD6C23178FEAA500D0FDBE /* ctdCheckStatusService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCheckStatusService.h; sourceTree = "<group>"; };
 		DDAD6C24178FEAA600D0FDBE /* ctdCheckStatusService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCheckStatusService.m; sourceTree = "<group>"; };
 		DDAF29AF178BB31100597570 /* ctdDailyAttendanceParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdDailyAttendanceParser.h; sourceTree = "<group>"; };
@@ -334,12 +342,9 @@
 		DDDAEF8F17952F3F008E8482 /* ctdAttendanceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListViewController.h; sourceTree = "<group>"; };
 		DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListViewController.m; sourceTree = "<group>"; };
 		DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceListViewController.xib; sourceTree = "<group>"; };
-		DDDAEF9417953784008E8482 /* box_transparent_att_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_transparent_att_list.png; sourceTree = "<group>"; };
-		DDDAEF96179547DC008E8482 /* nuicon_datealt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuicon_datealt.png; sourceTree = "<group>"; };
 		DDEB6D00179F82B300D5B1DC /* ctdAttendanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceTableViewCell.h; sourceTree = "<group>"; };
 		DDEB6D01179F82B300D5B1DC /* ctdAttendanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceTableViewCell.m; sourceTree = "<group>"; };
 		DDEB6D05179F8EE200D5B1DC /* ctdAttendanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceTableViewCell.xib; sourceTree = "<group>"; };
-		DDEB6D07179F95C000D5B1DC /* header_attendance_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_attendance_list.png; sourceTree = "<group>"; };
 		DDEB6D0A179FAE9600D5B1DC /* ctdColorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdColorUtilities.h; path = ColorUtilities/ctdColorUtilities.h; sourceTree = "<group>"; };
 		DDEB6D0B179FAE9600D5B1DC /* ctdColorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdColorUtilities.m; path = ColorUtilities/ctdColorUtilities.m; sourceTree = "<group>"; };
 		DDEE3A32178D359800E7F0C1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -347,7 +352,6 @@
 		DDEE3A36178D360000E7F0C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		DDEE3A38178D361000E7F0C1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		DDEE3A3A178D36B400E7F0C1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_signinfacebook.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +433,7 @@
 			children = (
 				7133432B1737CB8500057FE6 /* Classes */,
 				713342F71737C9B700057FE6 /* Supporting Files */,
+				DD47734417A11B2B0050D327 /* Resource */,
 			);
 			path = ConnectToDoor;
 			sourceTree = "<group>";
@@ -436,7 +441,6 @@
 		713342F71737C9B700057FE6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DDA08B371738F602002882B4 /* images */,
 				713342F81737C9B700057FE6 /* ConnectToDoor-Info.plist */,
 				713342F91737C9B700057FE6 /* InfoPlist.strings */,
 				713342FC1737C9B700057FE6 /* main.m */,
@@ -900,54 +904,64 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
-		DDA08B371738F602002882B4 /* images */ = {
+		DD47734417A11B2B0050D327 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				DD9B4E5917A0E147009037D0 /* box_transparent_daily_attendance.png */,
-				DD9B4E5A17A0E147009037D0 /* button_bottom_back.png */,
-				DD9B4E5B17A0E147009037D0 /* button_bottom_submit.png */,
-				DD9B4E5C17A0E147009037D0 /* button_remove.png */,
-				DD9B4E5D17A0E147009037D0 /* button_small_edit.png */,
-				DD9B4E5E17A0E147009037D0 /* button_small_insert.png */,
-				DDEB6D07179F95C000D5B1DC /* header_attendance_list.png */,
-				DD742868179D2E9B0015E9B2 /* box_transparent_reimbursement-form_bottom.png */,
-				DDA977BB17991C8600AA3760 /* button_back.png */,
-				DDA389021798ECC900CB7BD4 /* box_alert_white.png */,
-				DDA389031798ECC900CB7BD4 /* box_transparent_voucher.png */,
-				DDA389041798ECC900CB7BD4 /* button_ok.png */,
-				DDA389051798ECC900CB7BD4 /* button_voucher_Reimbursement.png */,
-				DDA389061798ECC900CB7BD4 /* button_voucher_Request.png */,
-				6AEEE6C81797F2AF00CD4219 /* button_continue-on-sign-in.png */,
-				6AEEE6C61797F27700CD4219 /* box_add-text-on-sign-in_employee-ID.png */,
-				6AEEE6C41797A1E900CD4219 /* button_small_save.png */,
-				6AEEE6BE17979EA100CD4219 /* dropdown_arrow-down.png */,
-				6AEEE6BF17979EA100CD4219 /* dropdown_box_3items_reimbursement.png */,
-				6AEEE6C017979EA100CD4219 /* dropdown_box_select-text.png */,
-				6AEEE6BC17979C5000CD4219 /* icon_calendar_start-working.png */,
-				6AEEE6BA179796A000CD4219 /* date_box_add-date.png */,
-				6AEEE6B81797966B00CD4219 /* box_add-text_long.png */,
-				6A10F3C017968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png */,
-				6A10F3C117968A18000DF6E3 /* box_transparent_reimbursement-form_top.png */,
-				DDDAEF96179547DC008E8482 /* nuicon_datealt.png */,
-				DDDAEF9417953784008E8482 /* box_transparent_att_list.png */,
-				DDEE3A3C178D4FED00E7F0C1 /* button_signinfacebook.png */,
-				71DFF04C1739331D00EF1491 /* button_main-menu_attendance.png */,
-				71DFF04A1739304E00EF1491 /* box_transparent_profile.png */,
-				DDA08B4A1738FA14002882B4 /* box_transparent_sign-in.png */,
-				DDA08B381738F602002882B4 /* background_allpages.png */,
-				DDA08B391738F602002882B4 /* box_transparent_attendance.png */,
-				DD3035F6179FACF100BA679C /* nubox_finddate.png */,
-				DDA08B3A1738F602002882B4 /* button_attendance_attendance-list.png */,
-				DDA08B3B1738F602002882B4 /* button_attendance_check-in.png */,
-				DD3035F8179FAD9200BA679C /* dropdown_arrowdown.png */,
-				DD3035FA179FADFA00BA679C /* button_search.png */,
-				DDA08B3C1738F602002882B4 /* button_attendance_check-out.png */,
-				DDA08B3D1738F602002882B4 /* button_daily_attendance.png */,
-				DDA08B3E1738F602002882B4 /* button_main-menu_profile.png */,
-				DDA08B3F1738F602002882B4 /* button_main-menu_voucher.png */,
-				DDA08B401738F602002882B4 /* button_sign-out.png */,
+				DD47734517A11B660050D327 /* Images */,
 			);
-			path = images;
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		DD47734517A11B660050D327 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DD47734617A11BC80050D327 /* background_allpages.png */,
+				DD47734717A11BC80050D327 /* box_add-text_long.png */,
+				DD47734817A11BC80050D327 /* box_add-text-on-sign-in_employee-ID.png */,
+				DD47734917A11BC80050D327 /* box_alert_white.png */,
+				DD47734A17A11BC80050D327 /* box_transparent_att_list.png */,
+				DD47734B17A11BC80050D327 /* box_transparent_attendance.png */,
+				DD47734C17A11BC80050D327 /* box_transparent_daily_attendance.png */,
+				DD47734D17A11BC80050D327 /* box_transparent_profile.png */,
+				DD47734E17A11BC80050D327 /* box_transparent_reimbursement-form_bottom.png */,
+				DD47734F17A11BC80050D327 /* box_transparent_reimbursement-form_middle.png */,
+				DD47735017A11BC80050D327 /* box_transparent_reimbursement-form_top.png */,
+				DD47735117A11BC80050D327 /* box_transparent_sign-in.png */,
+				DD47735217A11BC80050D327 /* box_transparent_voucher.png */,
+				DD47735317A11BC80050D327 /* button_attendance_attendance-list.png */,
+				DD47735417A11BC80050D327 /* button_attendance_attendanceform.png */,
+				DD47735517A11BC80050D327 /* button_attendance_attendancereport.png */,
+				DD47735617A11BC80050D327 /* button_attendance_check-in.png */,
+				DD47735717A11BC80050D327 /* button_attendance_check-out.png */,
+				DD47735817A11BC80050D327 /* button_back.png */,
+				DD47735917A11BC80050D327 /* button_bottom_back.png */,
+				DD47735A17A11BC80050D327 /* button_bottom_submit.png */,
+				DD47735B17A11BC80050D327 /* button_continue-on-sign-in.png */,
+				DD47735C17A11BC80050D327 /* button_daily_attendance.png */,
+				DD47735D17A11BC80050D327 /* button_main-menu_attendance.png */,
+				DD47735E17A11BC80050D327 /* button_main-menu_profile.png */,
+				DD47735F17A11BC80050D327 /* button_main-menu_voucher.png */,
+				DD47736017A11BC80050D327 /* button_ok.png */,
+				DD47736117A11BC80050D327 /* button_remove.png */,
+				DD47736217A11BC80050D327 /* button_search.png */,
+				DD47736317A11BC80050D327 /* button_sign-out.png */,
+				DD47736417A11BC80050D327 /* button_signinfacebook.png */,
+				DD47736517A11BC80050D327 /* button_small_edit.png */,
+				DD47736617A11BC80050D327 /* button_small_insert.png */,
+				DD47736717A11BC90050D327 /* button_small_save.png */,
+				DD47736817A11BC90050D327 /* button_voucher_Reimbursement.png */,
+				DD47736917A11BC90050D327 /* button_voucher_Request.png */,
+				DD47736A17A11BC90050D327 /* date_box_add-date.png */,
+				DD47736B17A11BC90050D327 /* dropdown_arrow-down.png */,
+				DD47736C17A11BC90050D327 /* dropdown_arrowdown.png */,
+				DD47736D17A11BC90050D327 /* dropdown_box_3items_reimbursement.png */,
+				DD47736E17A11BC90050D327 /* dropdown_box_select-text.png */,
+				DD47736F17A11BC90050D327 /* header_attendance_list.png */,
+				DD47737017A11BC90050D327 /* icon_calendar_start-working.png */,
+				DD47737117A11BC90050D327 /* nubox_finddate.png */,
+				DD47737217A11BC90050D327 /* nuicon_datealt.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		DDA388F41798E4EA00CB7BD4 /* AlertViewController */ = {
@@ -1156,55 +1170,57 @@
 				71DFF0301738D56B00EF1491 /* ctdDailyAttendaceViewController.xib in Resources */,
 				71DFF0351738D58400EF1491 /* ctdVoucherViewController.xib in Resources */,
 				71DFF03A1738D59B00EF1491 /* ctdProfileViewController.xib in Resources */,
-				DDA08B411738F602002882B4 /* background_allpages.png in Resources */,
-				DDA08B421738F602002882B4 /* box_transparent_attendance.png in Resources */,
-				DDA08B431738F602002882B4 /* button_attendance_attendance-list.png in Resources */,
-				DDA08B441738F602002882B4 /* button_attendance_check-in.png in Resources */,
-				DDA08B451738F602002882B4 /* button_attendance_check-out.png in Resources */,
-				DDA08B461738F602002882B4 /* button_daily_attendance.png in Resources */,
-				DDA08B471738F602002882B4 /* button_main-menu_profile.png in Resources */,
-				DDA08B481738F602002882B4 /* button_main-menu_voucher.png in Resources */,
-				DDA08B491738F602002882B4 /* button_sign-out.png in Resources */,
-				DDA08B4B1738FA14002882B4 /* box_transparent_sign-in.png in Resources */,
 				71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */,
-				71DFF04B1739304E00EF1491 /* box_transparent_profile.png in Resources */,
-				71DFF04D1739331D00EF1491 /* button_main-menu_attendance.png in Resources */,
-				DDEE3A3D178D4FED00E7F0C1 /* button_signinfacebook.png in Resources */,
-				6A10F3C217968A18000DF6E3 /* box_transparent_reimbursement-form_middle.png in Resources */,
-				6A10F3C317968A18000DF6E3 /* box_transparent_reimbursement-form_top.png in Resources */,
-				6AEEE6B91797966B00CD4219 /* box_add-text_long.png in Resources */,
-				6AEEE6BB179796A000CD4219 /* date_box_add-date.png in Resources */,
-				6AEEE6BD17979C5000CD4219 /* icon_calendar_start-working.png in Resources */,
-				6AEEE6C117979EA100CD4219 /* dropdown_arrow-down.png in Resources */,
-				6AEEE6C217979EA100CD4219 /* dropdown_box_3items_reimbursement.png in Resources */,
-				6AEEE6C317979EA100CD4219 /* dropdown_box_select-text.png in Resources */,
-				6AEEE6C51797A1E900CD4219 /* button_small_save.png in Resources */,
-				6AEEE6C71797F27700CD4219 /* box_add-text-on-sign-in_employee-ID.png in Resources */,
-				6AEEE6C91797F2AF00CD4219 /* button_continue-on-sign-in.png in Resources */,
 				DDA388F91798E4FB00CB7BD4 /* ctdAlertViewController.xib in Resources */,
-				DDA389071798ECC900CB7BD4 /* box_alert_white.png in Resources */,
-				DDA389081798ECC900CB7BD4 /* box_transparent_voucher.png in Resources */,
-				DDA389091798ECC900CB7BD4 /* button_ok.png in Resources */,
-				DDA3890A1798ECC900CB7BD4 /* button_voucher_Reimbursement.png in Resources */,
-				DDA3890B1798ECC900CB7BD4 /* button_voucher_Request.png in Resources */,
-				DDA977BC17991C8600AA3760 /* button_back.png in Resources */,
 				DD742867179D19F00015E9B2 /* ctdReimbursementViewController.xib in Resources */,
-				DD742869179D2E9C0015E9B2 /* box_transparent_reimbursement-form_bottom.png in Resources */,
 				DDDAEF9317952F3F008E8482 /* ctdAttendanceListViewController.xib in Resources */,
-				DDDAEF9517953784008E8482 /* box_transparent_att_list.png in Resources */,
-				DDDAEF97179547DC008E8482 /* nuicon_datealt.png in Resources */,
 				DDEB6D06179F8EE300D5B1DC /* ctdAttendanceTableViewCell.xib in Resources */,
-				DDEB6D08179F95C000D5B1DC /* header_attendance_list.png in Resources */,
-				DD3035F7179FACF100BA679C /* nubox_finddate.png in Resources */,
-				DD3035F9179FAD9200BA679C /* dropdown_arrowdown.png in Resources */,
-				DD3035FB179FADFA00BA679C /* button_search.png in Resources */,
-				DD9B4E5F17A0E147009037D0 /* box_transparent_daily_attendance.png in Resources */,
-				DD9B4E6017A0E147009037D0 /* button_bottom_back.png in Resources */,
-				DD9B4E6117A0E147009037D0 /* button_bottom_submit.png in Resources */,
-				DD9B4E6217A0E147009037D0 /* button_remove.png in Resources */,
-				DD9B4E6317A0E147009037D0 /* button_small_edit.png in Resources */,
-				DD9B4E6417A0E147009037D0 /* button_small_insert.png in Resources */,
 				DD9B4E6C17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib in Resources */,
+				DD47737317A11BC90050D327 /* background_allpages.png in Resources */,
+				DD47737417A11BC90050D327 /* box_add-text_long.png in Resources */,
+				DD47737517A11BC90050D327 /* box_add-text-on-sign-in_employee-ID.png in Resources */,
+				DD47737617A11BC90050D327 /* box_alert_white.png in Resources */,
+				DD47737717A11BC90050D327 /* box_transparent_att_list.png in Resources */,
+				DD47737817A11BC90050D327 /* box_transparent_attendance.png in Resources */,
+				DD47737917A11BC90050D327 /* box_transparent_daily_attendance.png in Resources */,
+				DD47737A17A11BC90050D327 /* box_transparent_profile.png in Resources */,
+				DD47737B17A11BC90050D327 /* box_transparent_reimbursement-form_bottom.png in Resources */,
+				DD47737C17A11BC90050D327 /* box_transparent_reimbursement-form_middle.png in Resources */,
+				DD47737D17A11BC90050D327 /* box_transparent_reimbursement-form_top.png in Resources */,
+				DD47737E17A11BC90050D327 /* box_transparent_sign-in.png in Resources */,
+				DD47737F17A11BC90050D327 /* box_transparent_voucher.png in Resources */,
+				DD47738017A11BC90050D327 /* button_attendance_attendance-list.png in Resources */,
+				DD47738117A11BC90050D327 /* button_attendance_attendanceform.png in Resources */,
+				DD47738217A11BC90050D327 /* button_attendance_attendancereport.png in Resources */,
+				DD47738317A11BC90050D327 /* button_attendance_check-in.png in Resources */,
+				DD47738417A11BC90050D327 /* button_attendance_check-out.png in Resources */,
+				DD47738517A11BC90050D327 /* button_back.png in Resources */,
+				DD47738617A11BC90050D327 /* button_bottom_back.png in Resources */,
+				DD47738717A11BC90050D327 /* button_bottom_submit.png in Resources */,
+				DD47738817A11BC90050D327 /* button_continue-on-sign-in.png in Resources */,
+				DD47738917A11BC90050D327 /* button_daily_attendance.png in Resources */,
+				DD47738A17A11BC90050D327 /* button_main-menu_attendance.png in Resources */,
+				DD47738B17A11BC90050D327 /* button_main-menu_profile.png in Resources */,
+				DD47738C17A11BC90050D327 /* button_main-menu_voucher.png in Resources */,
+				DD47738D17A11BC90050D327 /* button_ok.png in Resources */,
+				DD47738E17A11BC90050D327 /* button_remove.png in Resources */,
+				DD47738F17A11BC90050D327 /* button_search.png in Resources */,
+				DD47739017A11BC90050D327 /* button_sign-out.png in Resources */,
+				DD47739117A11BC90050D327 /* button_signinfacebook.png in Resources */,
+				DD47739217A11BC90050D327 /* button_small_edit.png in Resources */,
+				DD47739317A11BC90050D327 /* button_small_insert.png in Resources */,
+				DD47739417A11BC90050D327 /* button_small_save.png in Resources */,
+				DD47739517A11BC90050D327 /* button_voucher_Reimbursement.png in Resources */,
+				DD47739617A11BC90050D327 /* button_voucher_Request.png in Resources */,
+				DD47739717A11BC90050D327 /* date_box_add-date.png in Resources */,
+				DD47739817A11BC90050D327 /* dropdown_arrow-down.png in Resources */,
+				DD47739917A11BC90050D327 /* dropdown_arrowdown.png in Resources */,
+				DD47739A17A11BC90050D327 /* dropdown_box_3items_reimbursement.png in Resources */,
+				DD47739B17A11BC90050D327 /* dropdown_box_select-text.png in Resources */,
+				DD47739C17A11BC90050D327 /* header_attendance_list.png in Resources */,
+				DD47739D17A11BC90050D327 /* icon_calendar_start-working.png in Resources */,
+				DD47739E17A11BC90050D327 /* nubox_finddate.png in Resources */,
+				DD47739F17A11BC90050D327 /* nuicon_datealt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

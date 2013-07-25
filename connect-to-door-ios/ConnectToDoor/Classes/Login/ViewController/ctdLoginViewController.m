@@ -35,6 +35,7 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.title = @"Login";
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self checkSessionFacebook];
     });
@@ -43,6 +44,7 @@
 
 - (void)checkSessionFacebook{
     ctdAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    NSLog(@"appDelegate.session.isOpen = %i", appDelegate.session.isOpen);
     if (!appDelegate.session.isOpen) {
         // create a fresh session object
         appDelegate.session = [[FBSession alloc] init];
