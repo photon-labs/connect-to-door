@@ -14,6 +14,12 @@
 
 @synthesize delegate = _delegate;
 
+/*
+ *aldi_p
+ *this method for request daily attendace
+ *@param String employeeId
+ *@param String Date
+ */
 -(void) requestDailyAttendanceToServer:(NSString*)employeeId date:(NSString*)date{
     NSString* urlServer = URLSERVER;
     NSURL *url =[NSURL URLWithString:urlServer];
@@ -40,7 +46,7 @@
 }
 
 /**
- * aldi_p
+ * @author:aldi_p
  * this method for reponse success
  * @param String response
  */

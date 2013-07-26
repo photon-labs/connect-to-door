@@ -15,9 +15,9 @@
 @implementation ctdDailyAttendanceParser
 
 
-/* aldi_p
+/* @author: aldi_p
  * this fucntion for paser string to object class
- * param String
+ * @param String
  */
 -(ctdResponseDailyAttendanceModel*)parseResponse:(NSString*)response{
     ctdResponseDailyAttendanceModel *dailyAttendanceModel = [[ctdResponseDailyAttendanceModel alloc] init];

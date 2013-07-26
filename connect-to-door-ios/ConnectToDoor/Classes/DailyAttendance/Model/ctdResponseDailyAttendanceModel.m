@@ -12,6 +12,10 @@
 
 @synthesize arrayDailyAttendance = _arrayDailyAttendance;
 
+/*
+ *@author:aldi_p
+ *this method for initial model
+ */
 -(ctdResponseDailyAttendanceModel *)initWithDefault{
     if(![_arrayDailyAttendance isKindOfClass:[NSNull class]]){
         [_arrayDailyAttendance removeAllObjects];
@@ -19,10 +23,19 @@
     return self;
 }
 
+/*
+ *@author:aldi_p
+ *this get value array
+ */
 -(NSMutableArray*)getDailyAttendanceListModels{
     return _arrayDailyAttendance;
 }
 
+/*
+ *@author:aldi_p
+ *this set value array
+ *@param NsMutableArray arrayDailyAttendance
+ */
 -(void)setDailyAttendanceListModels:(NSMutableArray*) arrayDailyAttendance{
     _arrayDailyAttendance = arrayDailyAttendance;
 }
