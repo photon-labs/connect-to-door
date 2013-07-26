@@ -9,9 +9,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -235,6 +238,28 @@ public class AttendanceFormActivity extends MainActivity {
 				}
 			}
 		});
+		
+		editSearchCategory.setOnKeyListener(new OnKeyListener() {
+
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                {
+                    if(keyCode == KeyEvent.KEYCODE_ENTER)
+                    {
+                    	hideSoftKeyboard(AttendanceFormActivity.this);
+                        if(connectionAvailable()){
+        					onRequestSearchAccount();
+        				}else{
+        					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
+        				}
+                        return false;
+                    }
+                }
+                return false;
+			}
+        });
+
 	}
 	/**
 	 * setup keyboard,if user tap outside edit text, keyboard will disappear

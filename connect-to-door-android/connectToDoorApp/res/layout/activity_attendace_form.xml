@@ -93,7 +93,8 @@
                     android:background="@drawable/box_white_att_form_long"
                     android:inputType="text"
                     android:paddingLeft="5dp"
-                    android:paddingRight="8dp" />
+                    android:paddingRight="8dp" 
+                    android:imeOptions="actionGo" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
