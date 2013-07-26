@@ -24,8 +24,10 @@
     NSString *maxDate;
     NSString *datePickerActive;
     //NSDateFormatter *dateFormatter;
+    IBOutlet UIButton *printButton;
 }
 
 - (IBAction)didDatePickerClicked:(id)sender;
+- (IBAction)didPrintClicked:(id)sender;
 
 @end

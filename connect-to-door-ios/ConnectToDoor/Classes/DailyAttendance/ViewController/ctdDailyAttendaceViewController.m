@@ -269,6 +269,10 @@
     [self requestDailyAttendance:[self getEmployeeId] date:[self paternDateForRequest:date]];
 }
 
+- (IBAction)didPrintClicked:(id)sender{
+    [self showAlert:kAlertUnderConstruction];
+}
+
 
 
 @end
