@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="10dp"
     android:background="@drawable/background_allpages"
     android:orientation="horizontal"
+    android:paddingTop="10dp"
     tools:context=".Profil_Activity" >
 
     <LinearLayout
@@ -195,11 +195,10 @@
                     android:gravity="right"
                     android:paddingRight="30dp" >
 
-                     <com.facebook.widget.ProfilePictureView
+                    <com.facebook.widget.ProfilePictureView
                         android:id="@+id/photoProfile"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        />
+                        android:layout_height="100dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -302,9 +301,7 @@
                         android:textSize="20sp" >
                     </TextView>
                 </LinearLayout>
-                
-                
-                
+
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
@@ -351,7 +348,7 @@
                         android:textSize="20sp" >
                     </TextView>
                 </LinearLayout>
-                
+
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
@@ -409,7 +406,7 @@
 
             <ImageButton
                 android:id="@+id/signOutButton"
-                android:layout_width="190dp"
+                android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:background="@drawable/button_signout" />
         </LinearLayout>

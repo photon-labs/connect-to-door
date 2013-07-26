@@ -669,7 +669,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:baselineAligned="false"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:layout_marginTop="90dp" >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -681,7 +682,7 @@
 
             <Button
                 android:id="@+id/back_button"
-                android:layout_width="120dp"
+                android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="35dp"
                 android:background="@drawable/button_back" />
@@ -697,7 +698,7 @@
 
             <Button
                 android:id="@+id/signout_button"
-                android:layout_width="120dp"
+                android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_signout" />
