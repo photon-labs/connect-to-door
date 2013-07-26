@@ -19,6 +19,7 @@
 @synthesize dateEndText;
 @synthesize searchKeyText;
 @synthesize printButton;
+@synthesize searchButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -321,10 +322,38 @@
     searchOptionKey = [searcOptionMap valueForKey:searchOption];
     if(![searchOptionKey isEqualToString:DATE_KEY]){
         [searchKeyText setHidden:FALSE];
+        [self moveDownPosition];
     } else {
         [searchKeyText setHidden:TRUE];
+        [self moveUpPosition];
     }
     [searchOptionTextButton setTitle:searchOption forState:UIControlStateNormal];
+}
+
+- (void)moveDownPosition{
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        CGRect frame;
+        
+        // let's move our textField too
+        frame=searchButton.frame;
+        frame.origin.y=searchKeyText.frame.origin.y + searchKeyText.frame.size.height + 17;
+        searchButton.frame=frame;
+        
+    }];
+}
+
+- (void)moveUpPosition{
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        CGRect frame;
+        
+        // let's move our textField too
+        frame=searchButton.frame;
+        frame.origin.y= searchOptionTextButton.frame.origin.y + searchOptionTextButton.frame.size.height + 17;
+        searchButton.frame=frame;
+        
+    }];
 }
 
 // Close popup if the Background is touched
