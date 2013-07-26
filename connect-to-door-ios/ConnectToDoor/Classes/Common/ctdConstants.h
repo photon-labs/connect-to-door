@@ -23,6 +23,7 @@
 #define MESSAGE_ERROR_ALREADY_CHECKIN @"Sorry, You have Already Check-In"
 #define MESSAGE_ERROR_ALREADY_CHECKOUT @"Sorry, You have Already Check-Out"
 #define MESSAGE_ERROR_EMPTY_DATE @"Please pick the start date and end date"
+#define MESSAGE_UNDER_CONSTRUCTION @"Sorry this feature is under development"
 
 //server URL
 #define URLSERVER @"http://172.17.10.165:8080/AttendanceWebService/api/"

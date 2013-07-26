@@ -66,6 +66,8 @@
         [message setText:MESSAGE_ERROR_ALREADY_CHECKIN];
     }else if(type == kAlertErrorEmptyDate){
          [message setText:MESSAGE_ERROR_EMPTY_DATE];
+    }else if(type == kAlertUnderConstruction){
+        [message setText:MESSAGE_UNDER_CONSTRUCTION];
     }else{
         [message setText:MESSAGE_EXCEPTION];
     }

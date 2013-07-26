@@ -18,6 +18,7 @@
 @synthesize dateStartText;
 @synthesize dateEndText;
 @synthesize searchKeyText;
+@synthesize printButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    printButton.alpha = 0.0;
     attendanceListService = [[ctdAttendanceListService alloc] init];
     attendanceListService.delegate = self;
     
@@ -55,11 +57,27 @@
     [searcOptionMap setObject:EMPLOYEE_ID_KEY forKey:EMPLOYEE_ID_STRING];
 }
 
+- (void)setShowButton{
+    NSString *previllage = [[NSUserDefaults standardUserDefaults] objectForKey:@"previllage"];
+    NSLog(@"previllage ===== %@", previllage);
+    
+    BOOL isAdmin = [previllage isEqualToString:@"Admin"] ? YES: NO;
+    if(isAdmin){
+        printButton.alpha = 1.0;
+    }else{
+        printButton.alpha = 0.0;
+    }
+}
+
 -(void)didReceiveAttendanceListResponse:(NSMutableArray *)attendanceListArray
 {
     [self hideActivityIndicator];
     attendanceContentArray = attendanceListArray;
     [attendanceTableView reloadData];
+    
+    if([attendanceContentArray count] > 0){
+        [self setShowButton];
+    }
     
 }
 
@@ -315,6 +333,10 @@
     
     [searchKeyText resignFirstResponder];
     
+}
+
+- (IBAction)didPrintClicked:(id)sender{
+    [self showAlert:kAlertUnderConstruction];
 }
 
 @end

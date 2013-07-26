@@ -37,11 +37,13 @@
 @property (nonatomic, strong) IBOutlet UIButton *dateEndButton;
 @property (nonatomic, strong) IBOutlet UIButton *searchButton;
 @property (nonatomic, strong) IBOutlet UIButton *searchOptionTextButton;
+@property (nonatomic, strong) IBOutlet UIButton *printButton;
 
 - (IBAction)didDateStartClicked:(id)sender;
 - (IBAction)didDateEndClicked:(id)sender;
 - (IBAction)didSearchOptionClicked:(id)sender;
 - (IBAction)didSearchClicked:(id)sender;
+- (IBAction)didPrintClicked:(id)sender;
 
 
 @end
