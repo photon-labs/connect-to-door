@@ -14,6 +14,7 @@
 #import "ctdResponseDailyAttendanceModel.h"
 #import "ctdResponseDailyAttendanceListModel.h"
 #import "ctdColorUtilities.h"
+#import "ctdConstants.h"
 
 @interface ctdDailyAttendaceViewController ()
 
@@ -33,13 +34,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    dateView.frame = CGRectMake(400, 120, dateView.frame.size.width, dateView.frame.size.height);
-    [self.view addSubview:dateView];
     [self configureAllComponent];
     [self requestDailyAttendance:[self getEmployeeId] date:dateString];
     // Do any additional setup after loading the view from its nib.
 }
 
+/*@uathor:aldi_p
+ *this method for handle request service daily attendance
+ *
+ */
 -(void)requestDailyAttendance:(NSString*)employeeID date:(NSString*)date{
     [self showActivityIndicator];
     ctdDailyAttendanceService *dailyAttendanceService = [[ctdDailyAttendanceService alloc]init];
@@ -48,12 +51,9 @@
 }
 
 - (void)configureAllComponent{
-     NSDate *today = [NSDate date];
-     dateString = [self paternDateForRequest:today];
-    dateView.hidden = TRUE;
-    datePicker.hidden = TRUE;
-    toolbarDatePicker.hidden = TRUE;
-
+    NSDate *today = [NSDate date];
+    dateString = [self paternDateForRequest:today];
+    dateTxt.text = dateString;
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
     dateTxt.leftView = paddingView;
     dateTxt.leftViewMode = UITextFieldViewModeAlways;
@@ -84,14 +84,14 @@
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-        return 1;
+    return 1;
 }
 
 -(NSInteger) tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
 {
     
     return [model.getDailyAttendanceListModels count];/*[dataChartTypeArray count]*/;
-
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,7 +106,7 @@
     }else{
         [cell.contentView setBackgroundColor:[ctdColorUtilities colorWithHexString:@"cfe9d0"]];
     }
-
+    
     ctdResponseDailyAttendanceListModel *attendanceItem =[model.getDailyAttendanceListModels objectAtIndex:indexPath.row];
     
     //label Number
@@ -225,37 +225,50 @@
 }
 
 
-
-- (NSDateFormatter *)dateFormatter
-{
-    static NSDateFormatter *dateFormatter = nil;
-    if (dateFormatter == nil) {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    }
-    return dateFormatter;
-}
-
 - (IBAction)didDatePickerClicked:(id)sender{
-    dateView.hidden = FALSE;
-    datePicker.hidden = FALSE;
-    toolbarDatePicker.hidden = FALSE;
+    datePickerActive = DATE_END;
+    CGFloat dateEndX = CGRectGetMaxX(dateBtn.frame);
+    CGFloat dateEndY = CGRectGetMaxY(dateBtn.frame);
+    [self createPopUpCalendarWithValidation:dateEndX :dateEndY];
 }
 
-- (IBAction)didDatePickerSaveBtnTypeClicked:(id)sender{
-    dateString = [self paternDateForRequest:datePicker.date];
-    dateTxt.text = [self.dateFormatter stringFromDate:datePicker.date];
-    dateView.hidden = TRUE;
-    datePicker.hidden = TRUE;
-    toolbarDatePicker.hidden = TRUE;
-    [self requestDailyAttendance:[self getEmployeeId] date:dateString];
+- (void) createPopUpCalendar :(CGFloat)positionX :(CGFloat)positionY
+{
+    calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
+    calendar.delegate = self;
+    
+    calendar.onlyShowCurrentMonth = NO;
+    calendar.adaptHeightToNumberOfWeeksInMonth = YES;
+    
+    calendar.frame = CGRectMake(positionX, positionY, 300, 320);
 }
 
-- (IBAction)didDatePickerCancelBtnTypeClicked:(id)sender{
-    dateView.hidden = TRUE;
-    datePicker.hidden = TRUE;
-    toolbarDatePicker.hidden = TRUE;
+- (void) createPopUpCalendarWithValidation :(CGFloat)positionX :(CGFloat)positionY
+{
+    if([calendar isDescendantOfView:self.view]){
+        [self removePopUp];
+    } else {
+        [self createPopUpCalendar:positionX :positionY];
+        [self.view addSubview:calendar];
+    }
 }
+
+- (void) removePopUp
+{
+    datePickerActive = @"";
+    calendar.delegate = nil;
+    [calendar removeFromSuperview];
+    calendar = nil;
+}
+
+#pragma mark - CKCalendarDelegate
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date
+{
+    dateTxt.text = [self paternDateForRequest:date];
+    [self removePopUp];
+    [self requestDailyAttendance:[self getEmployeeId] date:[self paternDateForRequest:date]];
+}
+
+
 
 @end

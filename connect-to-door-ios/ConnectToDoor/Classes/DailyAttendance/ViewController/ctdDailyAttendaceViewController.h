@@ -10,21 +10,22 @@
 #import "ctdBaseViewController.h"
 #import "ctdDailyAttendanceService.h"
 #import "ctdResponseDailyAttendanceModel.h"
+#import "CKCalendarView.h"
 
-@interface ctdDailyAttendaceViewController : ctdBaseViewController<UITableViewDataSource, UITableViewDelegate,DailyAttendanceServiceDelegate>{
+@interface ctdDailyAttendaceViewController : ctdBaseViewController<UITableViewDataSource, UITableViewDelegate,DailyAttendanceServiceDelegate,CKCalendarDelegate>{
+    
     IBOutlet UITableView *itemAttendacen;
-    IBOutlet UIView *dateView;
+    //IBOutlet UIView *dateView;
     IBOutlet UIButton *dateBtn;
-    IBOutlet UIBarButtonItem *saveBtnDatePicker;
-    IBOutlet UIBarButtonItem *cancelBtnDatePicker;
-    IBOutlet UIDatePicker *datePicker;
     IBOutlet UITextField *dateTxt;
-    IBOutlet UIToolbar *toolbarDatePicker;
     NSString* dateString;
     ctdResponseDailyAttendanceModel *model;
+    CKCalendarView *calendar;
+    NSString *maxDate;
+    NSString *datePickerActive;
+    //NSDateFormatter *dateFormatter;
 }
 
 - (IBAction)didDatePickerClicked:(id)sender;
-- (IBAction)didDatePickerSaveBtnTypeClicked:(id)sender;
-- (IBAction)didDatePickerCancelBtnTypeClicked:(id)sender;
+
 @end

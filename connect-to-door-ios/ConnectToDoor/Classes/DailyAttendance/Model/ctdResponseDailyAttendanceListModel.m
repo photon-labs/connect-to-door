@@ -17,7 +17,10 @@
 @synthesize employeeName = _employeeName;
 
 
-
+/*
+ *@author : aldi_p
+ *this method for initial model
+ */
 - (ctdResponseDailyAttendanceListModel *)initWithDefault{
     _checkOut = @"";
     _checkIn = @"";

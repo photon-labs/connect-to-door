@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -193,5 +194,13 @@ public abstract class MainActivity extends Activity{
 	@Override
 	public void onBackPressed() {
 		finish();
+	}
+	/**
+	 * hide soft keyboard
+	 * @param activity
+	 */
+	public static void hideSoftKeyboard(Activity activity) {
+	    InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+	    inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
 	}
 }
