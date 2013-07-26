@@ -143,6 +143,7 @@
     }
     
 	cell.textLabel.text = [arrayData objectAtIndex:indexPath.row];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
 		
 	return cell;
 	

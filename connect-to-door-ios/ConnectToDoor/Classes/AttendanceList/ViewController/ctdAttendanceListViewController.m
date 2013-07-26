@@ -42,7 +42,7 @@
     datePickerActive = @"";
     
     optionData = [[NSMutableArray alloc] initWithArray:[NSMutableArray arrayWithObjects:DATE_STRING,NAME_STRING,PROJECT_ID_STRING,EMPLOYEE_ID_STRING, nil]];
-	dropDownView = [[DropDownView alloc] initWithArrayData:optionData cellHeight:30 heightTableView:200 paddingTop:-8 paddingLeft:-5 paddingRight:-10 refView:searchOptionTextButton animation:BOTH openAnimationDuration:0 closeAnimationDuration:0];
+	dropDownView = [[DropDownView alloc] initWithArrayData:optionData cellHeight:30 heightTableView:130 paddingTop:-5 paddingLeft:-3 paddingRight:-10 refView:searchOptionTextButton animation:BOTH openAnimationDuration:0 closeAnimationDuration:0];
 	dropDownView.delegate = self;
 	[self.view addSubview:dropDownView.view];
 	
@@ -250,7 +250,13 @@
 - (IBAction)didSearchOptionClicked:(id)sender
 {
     [self removePopUp];
-    [dropDownView openAnimation];
+    if(dropDownView.view.isHidden){
+        [dropDownView openAnimation];
+    }else{
+        [dropDownView closeAnimation];
+    }
+    
+    
 }
 
 - (IBAction)didSearchClicked:(id)sender
@@ -282,6 +288,7 @@
     if([calendar isDescendantOfView:self.view]){
         [self removePopUp];
     } else {
+        attendanceTableView.userInteractionEnabled = NO;
         [self createPopUpCalendar:positionX :positionY];
         [self.view addSubview:calendar];
     }
@@ -289,6 +296,7 @@
 
 - (void) removePopUp
 {
+    attendanceTableView.userInteractionEnabled = YES;
     datePickerActive = @"";
     calendar.delegate = nil;
     [calendar removeFromSuperview];
