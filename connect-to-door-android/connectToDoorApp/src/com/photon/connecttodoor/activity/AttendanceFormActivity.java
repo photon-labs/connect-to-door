@@ -9,8 +9,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -53,7 +56,7 @@ public class AttendanceFormActivity extends MainActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_attendace_form);
-
+		setupUI(findViewById(R.id.parent));
 		backButton = (Button)findViewById(R.id.back_button);
 		signOutButton = (Button)findViewById(R.id.signout_button);
 		createButton = (Button)findViewById(R.id.button_create);
@@ -232,6 +235,29 @@ public class AttendanceFormActivity extends MainActivity {
 				}
 			}
 		});
+	}
+	/**
+	 * setup keyboard,if user tap outside edit text, keyboard will disappear
+	 * @param view
+	 */
+	public void setupUI(View view) {
+
+		//Set up touch listener for non-text box views to hide keyboard.
+		if(!(view instanceof EditText)) {
+			view.setOnTouchListener(new OnTouchListener() {
+				public boolean onTouch(View v, MotionEvent event) {
+					hideSoftKeyboard(AttendanceFormActivity.this);
+					return false;
+				}
+			});
+		}
+		//If a layout container, iterate over children and seed recursion.
+		if (view instanceof ViewGroup) {
+			for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+				View innerView = ((ViewGroup) view).getChildAt(i);
+				setupUI(innerView);
+			}
+		}
 	}
 	/**
 	 * call request for edit account
