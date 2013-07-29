@@ -11,6 +11,7 @@
 #import "ctdVoucherViewController.h"
 #import "ctdDailyAttendaceViewController.h"
 #import "ctdAttendanceListViewController.h"
+#import "ctdAttendanceFormViewController.h"
 #import "ctdLoginViewController.h"
 #import "ctdLocalStorage.h"
 #import "ctdLocalStorage.h"
@@ -241,8 +242,13 @@
     
 }
 
-- (IBAction)AttendanceFormClicked:(id)sender{
-    
+- (IBAction)didAttendanceFormClicked:(id)sender{
+    [self goToAttendanceForm];
+}
+
+-(void) goToAttendanceForm{
+    ctdAttendanceFormViewController *attendanceFormViewController = [[ctdAttendanceFormViewController alloc]initWithNibName:@"ctdAttendanceFormViewController" bundle:nil];
+    [self.navigationController pushViewController:attendanceFormViewController animated:YES];
 }
 
 @end

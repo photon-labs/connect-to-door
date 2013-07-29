@@ -37,6 +37,6 @@
 - (IBAction)didAttendanceListClicked:(id)sender;
 - (IBAction)didSignOutClicked:(id)sender;
 - (IBAction)didAttendanceReportClicked:(id)sender;
-- (IBAction)AttendanceFormClicked:(id)sender;
+- (IBAction)didAttendanceFormClicked:(id)sender;
 
 @end

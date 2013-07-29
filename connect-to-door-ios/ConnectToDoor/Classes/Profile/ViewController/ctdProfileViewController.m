@@ -2,8 +2,8 @@
 //  ctdProfileViewController.m
 //  ConnectToDoor
 //
-//  Created by aldi cita putra on 5/7/13.
-//  Copyright (c) 2013 aldi cita putra. All rights reserved.
+//  Created by muhammad amirul on 7/11/13.
+//  Copyright (c) 2013 Photon Infotech. All rights reserved.
 //
 
 #import "ctdProfileViewController.h"
@@ -40,7 +40,6 @@ NSString *employeeId;
     
     employeeId = localStorage.getEmployeeId;
     self.userProfileImage.profileID = localStorage.getUserFacebookId;
-    self.facebookIdLabel.text = localStorage.getUserFacebookId;
     
     ctdProfileService *profileService = [[ctdProfileService alloc] init];
     [profileService handleProfileRequest:EMPLOYEE_ID_PARAMETER :employeeId];
@@ -51,12 +50,8 @@ NSString *employeeId;
 {
     self.userNameLabel.text = profileModel.employeeName;
     self.employeeIdLabel.text = profileModel.employeeId;
-    self.employeeNameLabel.text = profileModel.employeeName;
-    self.genderLabel.text = profileModel.gender;
     self.employeeEmailPhotonLabel.text = profileModel.employeeEmailPhoton;
     self.employeeStartWorkLabel.text = profileModel.employeeStartWork;
-    self.signatureLabel.text = profileModel.signature;
-    self.statusLabel.text = profileModel.status;
     self.authorityLabel.text = profileModel.authority;
     self.projectIdLabel.text = profileModel.projectId;
    

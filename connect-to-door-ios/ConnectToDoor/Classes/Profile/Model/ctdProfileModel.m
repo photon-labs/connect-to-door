@@ -1,9 +1,9 @@
 //
-//  ctdReponseLoginModel.m
+//  ctdProfileModel.m
 //  ConnectToDoor
 //
-//  Created by Photon Infotech on 7/8/13.
-//  Copyright (c) 2013 muhammad amirul faizin. All rights reserved.
+//  Created by muhammad amirul on 7/11/13.
+//  Copyright (c) 2013 Photon Infotech. All rights reserved.
 //
 
 #import "ctdProfileModel.h"

@@ -1,5 +1,5 @@
 //
-//  ctdLoginParser.m
+//  ctdAttendanceListParser.m
 //  ConnectToDoor
 //
 //  Created by Photon Infotech on 7/16/13.

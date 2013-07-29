@@ -127,6 +127,12 @@
 		DDAF29B1178BB31100597570 /* ctdDailyAttendanceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B0178BB31100597570 /* ctdDailyAttendanceParser.m */; };
 		DDAF29B7178BB5A200597570 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29B6178BB5A200597570 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DDAF29BB178C1A6200597570 /* ctdLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */; };
+		DDB6109F17A66CA2003262B0 /* button_save.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB6109E17A66CA2003262B0 /* button_save.png */; };
+		DDB610A317A66D2A003262B0 /* button_attform_create_account.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB610A017A66D2A003262B0 /* button_attform_create_account.png */; };
+		DDB610A417A66D2A003262B0 /* button_attform_delete_account.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB610A117A66D2A003262B0 /* button_attform_delete_account.png */; };
+		DDB610A517A66D2A003262B0 /* button_attform_edit_account.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB610A217A66D2A003262B0 /* button_attform_edit_account.png */; };
+		DDB610A717A6B1F8003262B0 /* button_deleteacc.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB610A617A6B1F8003262B0 /* button_deleteacc.png */; };
+		DDC6DEA717A6B4770056C6A2 /* button_deleteacc.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC6DEA617A6B4770056C6A2 /* button_deleteacc.png */; };
 		DDD91759178EBA1600750702 /* ctdGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD91758178EBA1600750702 /* ctdGlobal.m */; };
 		DDD9175D178EBEF200750702 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD9175C178EBEF200750702 /* Reachability.m */; };
 		DDD9175F178ED0D000750702 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD9175E178ED0D000750702 /* MobileCoreServices.framework */; };
@@ -136,6 +142,10 @@
 		DDDAEF8E179528D3008E8482 /* ctdAttendanceListParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF89179528D3008E8482 /* ctdAttendanceListParser.m */; };
 		DDDAEF9217952F3F008E8482 /* ctdAttendanceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */; };
 		DDDAEF9317952F3F008E8482 /* ctdAttendanceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */; };
+		DDE8407B17A26953008B71CB /* box_transparent_att_form.png in Resources */ = {isa = PBXBuildFile; fileRef = DDE8407A17A26953008B71CB /* box_transparent_att_form.png */; };
+		DDE8408717A26F7B008B71CB /* ctdAttendanceAccountService.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE8407F17A26F7B008B71CB /* ctdAttendanceAccountService.m */; };
+		DDE8408D17A2785B008B71CB /* ctdAttendanceFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE8408B17A2785B008B71CB /* ctdAttendanceFormViewController.m */; };
+		DDE8408E17A2785B008B71CB /* ctdAttendanceFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDE8408C17A2785B008B71CB /* ctdAttendanceFormViewController.xib */; };
 		DDEB6D02179F82B300D5B1DC /* ctdAttendanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB6D01179F82B300D5B1DC /* ctdAttendanceTableViewCell.m */; };
 		DDEB6D06179F8EE300D5B1DC /* ctdAttendanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEB6D05179F8EE200D5B1DC /* ctdAttendanceTableViewCell.xib */; };
 		DDEB6D0C179FAE9600D5B1DC /* ctdColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEB6D0B179FAE9600D5B1DC /* ctdColorUtilities.m */; };
@@ -337,6 +347,12 @@
 		DDAF29B6178BB5A200597570 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
 		DDAF29B9178C1A6200597570 /* ctdLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdLocalStorage.h; path = LocalStorage/ctdLocalStorage.h; sourceTree = "<group>"; };
 		DDAF29BA178C1A6200597570 /* ctdLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdLocalStorage.m; path = LocalStorage/ctdLocalStorage.m; sourceTree = "<group>"; };
+		DDB6109E17A66CA2003262B0 /* button_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_save.png; path = Resources/Images/button_save.png; sourceTree = "<group>"; };
+		DDB610A017A66D2A003262B0 /* button_attform_create_account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_attform_create_account.png; path = Resources/Images/button_attform_create_account.png; sourceTree = "<group>"; };
+		DDB610A117A66D2A003262B0 /* button_attform_delete_account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_attform_delete_account.png; path = Resources/Images/button_attform_delete_account.png; sourceTree = "<group>"; };
+		DDB610A217A66D2A003262B0 /* button_attform_edit_account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_attform_edit_account.png; path = Resources/Images/button_attform_edit_account.png; sourceTree = "<group>"; };
+		DDB610A617A6B1F8003262B0 /* button_deleteacc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_deleteacc.png; path = Resources/Images/button_deleteacc.png; sourceTree = "<group>"; };
+		DDC6DEA617A6B4770056C6A2 /* button_deleteacc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_deleteacc.png; path = Resources/Images/button_deleteacc.png; sourceTree = "<group>"; };
 		DDD91757178EBA1600750702 /* ctdGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctdGlobal.h; path = Model/ctdGlobal.h; sourceTree = "<group>"; };
 		DDD91758178EBA1600750702 /* ctdGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ctdGlobal.m; path = Model/ctdGlobal.m; sourceTree = "<group>"; };
 		DDD9175B178EBEF200750702 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
@@ -352,6 +368,12 @@
 		DDDAEF8F17952F3F008E8482 /* ctdAttendanceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceListViewController.h; sourceTree = "<group>"; };
 		DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceListViewController.m; sourceTree = "<group>"; };
 		DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceListViewController.xib; sourceTree = "<group>"; };
+		DDE8407A17A26953008B71CB /* box_transparent_att_form.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = box_transparent_att_form.png; path = Resources/Images/box_transparent_att_form.png; sourceTree = "<group>"; };
+		DDE8407E17A26F7B008B71CB /* ctdAttendanceAccountService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceAccountService.h; sourceTree = "<group>"; };
+		DDE8407F17A26F7B008B71CB /* ctdAttendanceAccountService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceAccountService.m; sourceTree = "<group>"; };
+		DDE8408A17A2785B008B71CB /* ctdAttendanceFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceFormViewController.h; sourceTree = "<group>"; };
+		DDE8408B17A2785B008B71CB /* ctdAttendanceFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceFormViewController.m; sourceTree = "<group>"; };
+		DDE8408C17A2785B008B71CB /* ctdAttendanceFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceFormViewController.xib; sourceTree = "<group>"; };
 		DDEB6D00179F82B300D5B1DC /* ctdAttendanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdAttendanceTableViewCell.h; sourceTree = "<group>"; };
 		DDEB6D01179F82B300D5B1DC /* ctdAttendanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdAttendanceTableViewCell.m; sourceTree = "<group>"; };
 		DDEB6D05179F8EE200D5B1DC /* ctdAttendanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdAttendanceTableViewCell.xib; sourceTree = "<group>"; };
@@ -489,6 +511,7 @@
 			children = (
 				7133432D1737CB8500057FE6 /* ctdAppDelegate.h */,
 				7133432E1737CB8500057FE6 /* ctdAppDelegate.m */,
+				DDE8407C17A26F7B008B71CB /* AttendanceForm */,
 				DDDAEF80179528D3008E8482 /* AttendanceList */,
 				71DFF0201738C9C800EF1491 /* Profile */,
 				71DFF01F1738C9B900EF1491 /* Voucher */,
@@ -810,17 +833,9 @@
 				713C75E8173A1EA20026AFBE /* DAL */,
 				713C75E9173A1EA20026AFBE /* Model */,
 				713C75EA173A1EA20026AFBE /* Parser */,
-				71DFF0211738CA1200EF1491 /* View */,
 				71DFF0221738CA1200EF1491 /* ViewController */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		71DFF0211738CA1200EF1491 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		71DFF0221738CA1200EF1491 /* ViewController */ = {
@@ -932,13 +947,19 @@
 			isa = PBXGroup;
 			children = (
 				DD5716F017A253120074B63C /* button_print.png */,
+				DDB6109E17A66CA2003262B0 /* button_save.png */,
+				DDB610A017A66D2A003262B0 /* button_attform_create_account.png */,
+				DDB610A117A66D2A003262B0 /* button_attform_delete_account.png */,
+				DDB610A217A66D2A003262B0 /* button_attform_edit_account.png */,
 				DD4773A217A131820050D327 /* table_header_left.png */,
 				DD4773A317A131820050D327 /* table_header_middle.png */,
+				DDB610A617A6B1F8003262B0 /* button_deleteacc.png */,
 				DD4773A417A131820050D327 /* table_header_right.png */,
 				DD47734617A11BC80050D327 /* background_allpages.png */,
 				DD47734717A11BC80050D327 /* box_add-text_long.png */,
 				DD47734817A11BC80050D327 /* box_add-text-on-sign-in_employee-ID.png */,
 				DD47734917A11BC80050D327 /* box_alert_white.png */,
+				DDE8407A17A26953008B71CB /* box_transparent_att_form.png */,
 				DD47734A17A11BC80050D327 /* box_transparent_att_list.png */,
 				DD47734B17A11BC80050D327 /* box_transparent_attendance.png */,
 				DD47734C17A11BC80050D327 /* box_transparent_daily_attendance.png */,
@@ -967,6 +988,7 @@
 				DD47736317A11BC80050D327 /* button_sign-out.png */,
 				DD47736417A11BC80050D327 /* button_signinfacebook.png */,
 				DD47736517A11BC80050D327 /* button_small_edit.png */,
+				DDC6DEA617A6B4770056C6A2 /* button_deleteacc.png */,
 				DD47736617A11BC80050D327 /* button_small_insert.png */,
 				DD47736717A11BC90050D327 /* button_small_save.png */,
 				DD47736817A11BC90050D327 /* button_voucher_Reimbursement.png */,
@@ -1096,6 +1118,34 @@
 				DDDAEF8F17952F3F008E8482 /* ctdAttendanceListViewController.h */,
 				DDDAEF9017952F3F008E8482 /* ctdAttendanceListViewController.m */,
 				DDDAEF9117952F3F008E8482 /* ctdAttendanceListViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DDE8407C17A26F7B008B71CB /* AttendanceForm */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8407D17A26F7B008B71CB /* DAL */,
+				DDE8408617A26F7B008B71CB /* ViewController */,
+			);
+			path = AttendanceForm;
+			sourceTree = "<group>";
+		};
+		DDE8407D17A26F7B008B71CB /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8407E17A26F7B008B71CB /* ctdAttendanceAccountService.h */,
+				DDE8407F17A26F7B008B71CB /* ctdAttendanceAccountService.m */,
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		DDE8408617A26F7B008B71CB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8408A17A2785B008B71CB /* ctdAttendanceFormViewController.h */,
+				DDE8408B17A2785B008B71CB /* ctdAttendanceFormViewController.m */,
+				DDE8408C17A2785B008B71CB /* ctdAttendanceFormViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1246,6 +1296,14 @@
 				DD4773A717A131820050D327 /* table_header_right.png in Resources */,
 				DD5716F117A253120074B63C /* button_print.png in Resources */,
 				DDEF92D417A64DA800C011D3 /* ctdSelectViewReimbursementCell.xib in Resources */,
+				DDE8407B17A26953008B71CB /* box_transparent_att_form.png in Resources */,
+				DDE8408E17A2785B008B71CB /* ctdAttendanceFormViewController.xib in Resources */,
+				DDB6109F17A66CA2003262B0 /* button_save.png in Resources */,
+				DDB610A317A66D2A003262B0 /* button_attform_create_account.png in Resources */,
+				DDB610A417A66D2A003262B0 /* button_attform_delete_account.png in Resources */,
+				DDB610A517A66D2A003262B0 /* button_attform_edit_account.png in Resources */,
+				DDB610A717A6B1F8003262B0 /* button_deleteacc.png in Resources */,
+				DDC6DEA717A6B4770056C6A2 /* button_deleteacc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1336,6 +1394,8 @@
 				DD9B4E6717A0E15B009037D0 /* ctdDailyAttendanceService.m in Sources */,
 				DD9B4E6B17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m in Sources */,
 				DDEF92D317A64DA800C011D3 /* ctdSelectViewReimbursementCell.m in Sources */,
+				DDE8408717A26F7B008B71CB /* ctdAttendanceAccountService.m in Sources */,
+				DDE8408D17A2785B008B71CB /* ctdAttendanceFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

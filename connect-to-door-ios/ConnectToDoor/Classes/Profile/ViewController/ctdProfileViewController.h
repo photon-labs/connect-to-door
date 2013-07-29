@@ -2,8 +2,8 @@
 //  ctdProfileViewController.h
 //  ConnectToDoor
 //
-//  Created by aldi cita putra on 5/7/13.
-//  Copyright (c) 2013 aldi cita putra. All rights reserved.
+//  Created by muhammad amirul on 7/11/13.
+//  Copyright (c) 2013 Photon Infotech. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,14 +16,9 @@
 
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
 @property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *facebookIdLabel;
 @property (strong, nonatomic) IBOutlet UILabel *employeeIdLabel;
-@property (strong, nonatomic) IBOutlet UILabel *employeeNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *genderLabel;
 @property (strong, nonatomic) IBOutlet UILabel *employeeEmailPhotonLabel;
 @property (strong, nonatomic) IBOutlet UILabel *employeeStartWorkLabel;
-@property (strong, nonatomic) IBOutlet UILabel *signatureLabel;
-@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet UILabel *authorityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *projectIdLabel;
 @property (strong, nonatomic) IBOutlet UILabel *marriedLabel;
