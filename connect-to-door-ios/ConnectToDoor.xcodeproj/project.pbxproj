@@ -144,6 +144,8 @@
 		DDEE3A37178D360100E7F0C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A36178D360000E7F0C1 /* Accounts.framework */; };
 		DDEE3A39178D361000E7F0C1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A38178D361000E7F0C1 /* AdSupport.framework */; };
 		DDEE3A3B178D36B400E7F0C1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE3A3A178D36B400E7F0C1 /* Security.framework */; };
+		DDEF92D317A64DA800C011D3 /* ctdSelectViewReimbursementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEF92D117A64DA800C011D3 /* ctdSelectViewReimbursementCell.m */; };
+		DDEF92D417A64DA800C011D3 /* ctdSelectViewReimbursementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEF92D217A64DA800C011D3 /* ctdSelectViewReimbursementCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -360,6 +362,9 @@
 		DDEE3A36178D360000E7F0C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		DDEE3A38178D361000E7F0C1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		DDEE3A3A178D36B400E7F0C1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DDEF92D017A64DA800C011D3 /* ctdSelectViewReimbursementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdSelectViewReimbursementCell.h; sourceTree = "<group>"; };
+		DDEF92D117A64DA800C011D3 /* ctdSelectViewReimbursementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdSelectViewReimbursementCell.m; sourceTree = "<group>"; };
+		DDEF92D217A64DA800C011D3 /* ctdSelectViewReimbursementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSelectViewReimbursementCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -831,6 +836,9 @@
 		71DFF0231738CA1D00EF1491 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDEF92D017A64DA800C011D3 /* ctdSelectViewReimbursementCell.h */,
+				DDEF92D117A64DA800C011D3 /* ctdSelectViewReimbursementCell.m */,
+				DDEF92D217A64DA800C011D3 /* ctdSelectViewReimbursementCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1237,6 +1245,7 @@
 				DD4773A617A131820050D327 /* table_header_middle.png in Resources */,
 				DD4773A717A131820050D327 /* table_header_right.png in Resources */,
 				DD5716F117A253120074B63C /* button_print.png in Resources */,
+				DDEF92D417A64DA800C011D3 /* ctdSelectViewReimbursementCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1326,6 +1335,7 @@
 				DD303600179FC37800BA679C /* CKCalendarView.m in Sources */,
 				DD9B4E6717A0E15B009037D0 /* ctdDailyAttendanceService.m in Sources */,
 				DD9B4E6B17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m in Sources */,
+				DDEF92D317A64DA800C011D3 /* ctdSelectViewReimbursementCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
