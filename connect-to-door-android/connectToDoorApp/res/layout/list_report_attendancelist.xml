@@ -30,7 +30,7 @@
                 android:background="#86AA8E" />
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:paddingBottom="10dp"
@@ -39,6 +39,25 @@
                 android:text="Name"
                 android:textColor="#ffffff" >
             </TextView>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="5dp"
+                    android:background="@drawable/arrow_up" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/arrow_down" />
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="2dp"
@@ -55,6 +74,25 @@
                 android:textColor="#ffffff" >
             </TextView>
 
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="5dp"
+                    android:background="@drawable/arrow_up" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/arrow_down" />
+            </LinearLayout>
+
             <ImageView
                 android:layout_width="2dp"
                 android:layout_height="56dp"
@@ -69,6 +107,25 @@
                 android:text="Project ID"
                 android:textColor="#ffffff" >
             </TextView>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="5dp"
+                    android:background="@drawable/arrow_up" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/arrow_down" />
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="2dp"
