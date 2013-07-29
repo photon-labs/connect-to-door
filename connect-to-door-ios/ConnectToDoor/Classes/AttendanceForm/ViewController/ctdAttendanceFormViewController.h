@@ -31,22 +31,26 @@
 @property (strong, nonatomic) IBOutlet UILabel *paternityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sickLabel;
 
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
-@property (strong, nonatomic) IBOutlet UIButton *sickLabel;
+@property (strong, nonatomic) IBOutlet UIButton *createAccountButton;
+@property (strong, nonatomic) IBOutlet UIButton *editAccountButton;
+@property (strong, nonatomic) IBOutlet UIButton *deleteAccountButton;
+@property (strong, nonatomic) IBOutlet UIButton *searchAccountButton;
+@property (strong, nonatomic) IBOutlet UIButton *saveAccountButton;
+@property (strong, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) IBOutlet UIButton *searchOptionButton;
+@property (strong, nonatomic) IBOutlet UIButton *roleOptionButton;
+@property (strong, nonatomic) IBOutlet UIButton *genderOptionButton;
+@property (strong, nonatomic) IBOutlet UIButton *startWorkDateButton;
 
-- (IBAction)didDateStartClicked:(id)sender;
-- (IBAction)didDateEndClicked:(id)sender;
-- (IBAction)didSearchOptionClicked:(id)sender;
-- (IBAction)didSearchClicked:(id)sender;
-- (IBAction)didPrintClicked:(id)sender;
+- (IBAction)didCreateAccountButtonClicked:(id)sender;
+- (IBAction)didEditAccountButtonClicked:(id)sender;
+- (IBAction)didDeleteAccountButtonClicked:(id)sender;
+- (IBAction)didSearchAccountButtonClicked:(id)sender;
+- (IBAction)didSaveAccountButtonClicked:(id)sender;
+- (IBAction)didDeleteButtonClicked:(id)sender;
+- (IBAction)didSearchOptionButtonClicked:(id)sender;
+- (IBAction)didRoleOptionButtonClicked:(id)sender;
+- (IBAction)didGenderOptionButtonClicked:(id)sender;
+- (IBAction)didStartWorkDateButtonClicked:(id)sender;
 
 @end

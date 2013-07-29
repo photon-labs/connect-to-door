@@ -35,4 +35,54 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)didCreateAccountButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didEditAccountButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didDeleteAccountButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didSearchAccountButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didSaveAccountButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didDeleteButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didSearchOptionButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didRoleOptionButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didGenderOptionButtonClicked:(id)sender
+{
+    
+}
+
+- (IBAction)didStartWorkDateButtonClicked:(id)sender
+{
+    
+}
+
 @end
