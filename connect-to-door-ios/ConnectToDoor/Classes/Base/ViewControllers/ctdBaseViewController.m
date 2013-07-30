@@ -78,6 +78,8 @@
 }
 
 - (void)goBack{
+    [self releaseDelegates];
+    [self invalidate];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -128,6 +130,14 @@
 
 - (void)hideActivityIndicator {
 	[MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+- (void)invalidate{
+    [self invalidateAlertView];
+}
+
+- (void)releaseDelegates{
+    
 }
 
 @end

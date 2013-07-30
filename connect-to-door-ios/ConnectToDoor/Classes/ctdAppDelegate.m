@@ -159,6 +159,10 @@
 - (void)releaseAllViewControllers {
     NSLog(@"before total navigationController.viewControllers = %i", [navigationController.viewControllers count]);
     for (UIViewController *uiViewController in navigationController.viewControllers) {
+        if ([uiViewController isKindOfClass:[ctdBaseViewController class]]) {
+            [((ctdBaseViewController*)uiViewController) releaseDelegates];
+            [((ctdBaseViewController*)uiViewController) invalidate];
+        }
         [uiViewController removeFromParentViewController];
     }
     

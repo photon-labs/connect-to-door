@@ -11,8 +11,9 @@
 #import "ctdDailyAttendanceService.h"
 #import "ctdResponseDailyAttendanceModel.h"
 #import "CKCalendarView.h"
+#import "ctdUpdateAttendaceService.h"
 
-@interface ctdDailyAttendaceViewController : ctdBaseViewController<UITableViewDataSource, UITableViewDelegate,DailyAttendanceServiceDelegate,CKCalendarDelegate>{
+@interface ctdDailyAttendaceViewController : ctdBaseViewController<UITableViewDataSource, UITableViewDelegate,DailyAttendanceServiceDelegate,CKCalendarDelegate, UpdateAttendanceServiceDelegate>{
     
     IBOutlet UITableView *itemAttendacen;
     //IBOutlet UIView *dateView;
@@ -25,6 +26,9 @@
     NSString *datePickerActive;
     //NSDateFormatter *dateFormatter;
     IBOutlet UIButton *printButton;
+    
+    ctdDailyAttendanceService *dailyAttendanceService;
+    ctdUpdateAttendaceService *updateAttendanceService;
 }
 
 - (IBAction)didDatePickerClicked:(id)sender;

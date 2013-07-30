@@ -14,6 +14,9 @@
 
 @interface ctdWelcomeViewController : ctdBaseViewController<CheckInServiceDelegate,CheckStatusServiceDelegate,CheckOutServiceDelegate>{
     BOOL isAdmin;
+    ctdCheckStatusService *checkStatusService;
+    ctdCheckInService *checkInService;
+    ctdCheckOutService *checkOutService;
 }
 
 

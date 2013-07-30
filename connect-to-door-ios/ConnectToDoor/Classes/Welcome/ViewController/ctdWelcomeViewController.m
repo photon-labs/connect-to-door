@@ -23,7 +23,7 @@
 #import "ctdCheckStatusParser.h"
 #import "ctdResponseCheckStatusModel.h"
 #import "ctdResponseCheckOutModel.h"
-
+#import "ctdConstants.h"
 
 @implementation ctdWelcomeViewController
 
@@ -53,13 +53,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
     welcome.text = [NSString stringWithFormat:@"Welcome, %@",[self getNameUser]];
     self.title = @"Welcome";
    
     [self setShowButton];
     
-    ctdCheckStatusService *checkStatusService = [[ctdCheckStatusService alloc]init];
+    checkStatusService = [[ctdCheckStatusService alloc]init];
     checkStatusService.delegate = self;
     ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
     NSString *employeeId = [localStorage getEmployeeId];
@@ -93,7 +93,7 @@
 }
 
 - (IBAction)didCheckInClicked:(id)sender{
-    ctdCheckInService *checkInService = [[ctdCheckInService alloc]init];
+    checkInService = [[ctdCheckInService alloc]init];
     checkInService.delegate = self;
     ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
     NSString *employeeId = [localStorage getEmployeeId];
@@ -101,7 +101,7 @@
 }
 
 - (IBAction)didCheckOutClicked:(id)sender{
-    ctdCheckOutService *checkOutService = [[ctdCheckOutService alloc]init];
+    checkOutService = [[ctdCheckOutService alloc]init];
     checkOutService.delegate = self;
     ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
     NSString *employeeId = [localStorage getEmployeeId];
@@ -209,6 +209,9 @@
 - (void)didReceivedCheckStatusResponse:(NSString*)response{
     ctdCheckStatusParser *parse = [[ctdCheckStatusParser alloc]init];
     ctdResponseCheckStatusModel *model = [parse parseResponse:response];
+    
+    [self setPresenceId:model.presenceId];
+    
     if(![model.checkIn isEqualToString:@""]){
         NSString* timeCheckIn = [NSString stringWithFormat:@"You have checked in at %@", [self changeFormatTime:model.checkIn]];
         statusCheck.text = timeCheckIn;
@@ -250,5 +253,24 @@
     ctdAttendanceFormViewController *attendanceFormViewController = [[ctdAttendanceFormViewController alloc]initWithNibName:@"ctdAttendanceFormViewController" bundle:nil];
     [self.navigationController pushViewController:attendanceFormViewController animated:YES];
 }
+
+-(void)setPresenceId:(NSString*)value{
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:kPresenceId];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)releaseDelegates{
+    NSLog(@"releaseDelegates welcome view controller");
+    checkInService.delegate = nil;
+    checkOutService.delegate = nil;
+    checkStatusService.delegate = nil;
+    
+    [super releaseDelegates];
+}
+
+- (void)invalidate{
+    
+}
+
 
 @end

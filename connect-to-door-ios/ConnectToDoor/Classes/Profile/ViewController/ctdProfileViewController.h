@@ -12,7 +12,9 @@
 #import "ctdProfileService.h"
 #import "ctdBaseViewController.h"
 
-@interface ctdProfileViewController : ctdBaseViewController <FBUserSettingsDelegate, ProfileServiceDelegate>
+@interface ctdProfileViewController : ctdBaseViewController <ProfileServiceDelegate>{
+    ctdProfileService *profileService
+}
 
 @property (strong, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
 @property (strong, nonatomic) IBOutlet UILabel *userNameLabel;

@@ -35,7 +35,15 @@
 {
     [super viewDidLoad];
     [self configureAllComponent];
+    
+    dailyAttendanceService = [[ctdDailyAttendanceService alloc]init];
+    dailyAttendanceService.delegate = self;
+    
+    updateAttendanceService = [[ctdUpdateAttendaceService alloc]init];
+    updateAttendanceService.delegate = self;
+    
     [self requestDailyAttendance:[self getEmployeeId] date:dateString];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -45,9 +53,13 @@
  */
 -(void)requestDailyAttendance:(NSString*)employeeID date:(NSString*)date{
     [self showActivityIndicator];
-    ctdDailyAttendanceService *dailyAttendanceService = [[ctdDailyAttendanceService alloc]init];
-    dailyAttendanceService.delegate = self;
     [dailyAttendanceService requestDailyAttendanceToServer:employeeID date:date];
+}
+
+
+-(void)updateAttendance:(NSString*)employeeID date:(NSString*)date checkInTime:(NSString*)checkInTime checkOutTime:(NSString*)checkOutTime{
+    [self showActivityIndicator];
+    [updateAttendanceService requestUpdateAttendanceToServer:[self getEmployeeId] date:date checkInTime:checkInTime checkOutTime:checkOutTime];
 }
 
 - (void)configureAllComponent{
@@ -196,20 +208,27 @@
     return 0.01f;
 }
 
-
-// Override to support conditional editing of the table view.
-// This only needs to be implemented if you are going to be returning NO
-// for some items. By default, all items are editable.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return YES if you want the specified item to be editable.
-    return NO;
-}
-
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return @"Edit";
+}
 
 #pragma mark DailyAttendanceService methods
 - (void)didReceivedDailyAttendanceResponse:(NSString*)response{
@@ -273,6 +292,30 @@
     [self showAlert:kAlertUnderConstruction];
 }
 
+#pragma mark - Update Attendance Service Delegate
 
+- (void)didReceivedUpdateAttendanceResponse:(NSString*)response{
+    [self hideActivityIndicator];
+    
+}
+
+- (void)didReceiveUpdateAttendanceErrorResponse:(NSError*)error{
+    [self hideActivityIndicator];
+}
+
+
+- (void)releaseDelegates{
+    NSLog(@"masuk releaseDelegates ");
+    dailyAttendanceService.delegate = nil;
+    updateAttendanceService.delegate = nil;
+    itemAttendacen.delegate = nil;
+    itemAttendacen.dataSource = nil;
+    calendar.delegate = nil;
+    [super releaseDelegates];
+}
+
+- (void)invalidate{
+    
+}
 
 @end

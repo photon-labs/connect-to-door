@@ -21,5 +21,7 @@
 - (void)showAlert:(typeAlert)type;
 - (void)showActivityIndicator;
 - (void)hideActivityIndicator;
+- (void)invalidate;
+- (void)releaseDelegates;
 
 @end

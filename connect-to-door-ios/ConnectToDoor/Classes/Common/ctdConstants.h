@@ -40,7 +40,7 @@
 #define MODULE_PROFILE @"profile"
 #define MODULE_REPORT @"report"
 #define MODULE_SIGNATURE_LINK @"signature"
-
+#define MODULE_UPDATE_CHECKIN_OUT @"update-check-in-out"
 
 //this variable for common string
 #define CHECKIN @"checkIn"
@@ -59,6 +59,7 @@
 #define kUserFaceBookId @"facebookID"
 #define kNameUserFaceBook @"nameUserFacebook"
 #define kEmployeeId @"employeeID"
+#define kPresenceId @"presenceId"
 
 #define EMPLOYEE_ID_PARAMETER @"employee_id"
 #define SEARCH_BY_PARAMTER @"search_by"

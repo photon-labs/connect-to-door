@@ -41,7 +41,7 @@ NSString *employeeId;
     employeeId = localStorage.getEmployeeId;
     self.userProfileImage.profileID = localStorage.getUserFacebookId;
     
-    ctdProfileService *profileService = [[ctdProfileService alloc] init];
+    profileService = [[ctdProfileService alloc] init];
     [profileService handleProfileRequest:EMPLOYEE_ID_PARAMETER :employeeId];
     profileService.delegate = self;
 }
@@ -100,6 +100,15 @@ NSString *employeeId;
 {
     [FBProfilePictureView class];
     return YES;
+}
+
+- (void)invalidate{
+    
+}
+
+- (void)releaseDelegates{
+    profileService.delegate = nil;
+    
 }
 
 @end
