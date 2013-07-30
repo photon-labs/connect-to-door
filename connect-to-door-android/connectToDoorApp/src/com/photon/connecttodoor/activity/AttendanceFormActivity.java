@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,7 +35,7 @@ import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class AttendanceFormActivity extends MainActivity {
 
-	private String searchCategory[] = {ApplicationConstant.CAT_USERNAME, ApplicationConstant.CAT_EMPLOYEE_ID };
+	private String searchCategory[] = {"",ApplicationConstant.CAT_USERNAME, ApplicationConstant.CAT_EMPLOYEE_ID };
 	private String roleCategory[] = {"",ApplicationConstant.CAT_GENERAL_MANAGER, ApplicationConstant.CAT_FINANCE, ApplicationConstant.CAT_ADMIN, 
 			ApplicationConstant.CAT_PROJECT_MANAGER, ApplicationConstant.CAT_EMPLOYEE };
 	private String genderCategory[] = {"",ApplicationConstant.CAT_MALE, ApplicationConstant.CAT_FEMALE};
@@ -132,6 +131,7 @@ public class AttendanceFormActivity extends MainActivity {
 				status = ApplicationConstant.CREATE;
 				editSection.setVisibility(View.INVISIBLE);
 				editSearchCategory.setText("");
+				dropDownCategory.setSelection(EMPTY_SELECTION);
 				setFormActive();
 				clearValue();
 			}
@@ -146,6 +146,8 @@ public class AttendanceFormActivity extends MainActivity {
 				status = ApplicationConstant.UPDATE;
 				deleteButtonAcc.setVisibility(View.INVISIBLE);
 				setFormInactive();
+				editSearchCategory.setText("");
+				dropDownCategory.setSelection(EMPTY_SELECTION);
 				clearValue();
 			}
 		});
@@ -158,6 +160,8 @@ public class AttendanceFormActivity extends MainActivity {
 			public void onClick(View v) {
 				deleteButtonAcc.setVisibility(View.VISIBLE);
 				setFormInactive();
+				editSearchCategory.setText("");
+				dropDownCategory.setSelection(EMPTY_SELECTION);
 				clearValue();
 			}
 		});
@@ -232,7 +236,11 @@ public class AttendanceFormActivity extends MainActivity {
 			public void onClick(View v) {
 				/**check internet connection before search attendance form */
 				if(connectionAvailable()){
-					onRequestSearchAccount();
+					if(!selectSearchCategory.equals("")){
+						onRequestSearchAccount();
+					}else{
+						alertMessage(ApplicationConstant.ERR_CATEGORY_EMPTY, AttendanceFormActivity.this);
+					}
 				}else{
 					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
 				}
@@ -474,9 +482,13 @@ public class AttendanceFormActivity extends MainActivity {
 					if(selectSearchCategory.equals(ApplicationConstant.CAT_USERNAME)){
 						editSearchCategory.setFilters(new InputFilter[] { new InputFilter.LengthFilter(LIMIT_LENGTH) });
 						searchBy = ApplicationConstant.USERNAME;
-					}else{
+						selectSearchCategory = ApplicationConstant.CAT_USERNAME;
+					}else if(selectSearchCategory.equals(ApplicationConstant.CAT_EMPLOYEE_ID)){
 						editSearchCategory.setFilters(new InputFilter[] { new InputFilter.LengthFilter(MAX_LENGTH) });
 						searchBy = ApplicationConstant.EMPLOYEE_ID;
+						selectSearchCategory = ApplicationConstant.CAT_EMPLOYEE_ID;
+					}else{
+						selectSearchCategory = "";
 					}
 				}catch(NumberFormatException nfe) {
 					System.out.println("Could not parse " + nfe);
@@ -720,20 +732,18 @@ public class AttendanceFormActivity extends MainActivity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-
 			/**
-			 * check 
+			 * check error if search result null
 			 */
 			if(profileDataModel.getUsername() == null){
 				setFormInactive();
 				clearValue();
-				alertMessage("Incorrect Username or Employee ID", AttendanceFormActivity.this);
+				alertMessage("Incorrect "+selectSearchCategory, AttendanceFormActivity.this);
 			}else{
 				clearValue();
 				setFormActive();
 				getValueForEditAccount();
 			}
-
 			this.dialog.dismiss();
 		}
 	}
