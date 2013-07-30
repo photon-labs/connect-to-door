@@ -660,9 +660,17 @@ public class AttendanceFormActivity extends MainActivity {
 				alertMessage("Please fill all field", AttendanceFormActivity.this);
 			}else{
 				if(response != null){
-					alertMessage("Create Account Success", AttendanceFormActivity.this);
+					if(status.equals(ApplicationConstant.CREATE)){
+						alertMessage("Create Account Success", AttendanceFormActivity.this);
+					}else{
+						alertMessage("Data have been Changed", AttendanceFormActivity.this);	
+					}
 				}else{
-					alertMessage("Create Account Failed", AttendanceFormActivity.this);
+					if(status.equals(ApplicationConstant.CREATE)){
+						alertMessage("Create Account Failed", AttendanceFormActivity.this);
+					}else{
+						alertMessage("Edit Account Failed", AttendanceFormActivity.this);	
+					}
 				}
 			}
 			this.dialog.dismiss();
@@ -695,9 +703,9 @@ public class AttendanceFormActivity extends MainActivity {
 				alertMessage("Please fill all field", AttendanceFormActivity.this);
 			}else{
 				if(response != null){
-					alertMessage("Edit Account Success", AttendanceFormActivity.this);
+					alertMessage("Delete Account Success", AttendanceFormActivity.this);
 				}else{
-					alertMessage("Edit Account Failed", AttendanceFormActivity.this);
+					alertMessage("Delete Account Failed", AttendanceFormActivity.this);
 				}
 			}
 			this.dialog.dismiss();
