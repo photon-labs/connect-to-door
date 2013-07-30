@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -446,7 +447,7 @@ public class AttendanceListActivity extends MainActivity {
 
 		protected void onPostExecute(String result) {
 			if(result != null){
-				AttendanceModel attendance = new AttendanceModel(result);
+				final AttendanceModel attendance = new AttendanceModel(result);
 				try {
 					attendance.parseSource();
 				} catch (JSONException e) {
@@ -455,24 +456,30 @@ public class AttendanceListActivity extends MainActivity {
 				if(attendance.getAttendanceListModels().size() != 0){
 					ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());
 					attendanceListReport.setAdapter(tableReport);
-					
+
 					attendanceListReport.setOnItemClickListener(new OnItemClickListener() {
 
 						@Override
 						public void onItemClick(AdapterView<?> arg0, View arg1,
 								int arg2, long arg3) {
 							// TODO Auto-generated method stub
+							String name = attendance.getAttendanceListModels().get(arg2).getName();
+							String employeeId = attendance.getAttendanceListModels().get(arg2).getEmployeeId();
+							String projectId = attendance.getAttendanceListModels().get(arg2).getProjectId();
 							Intent listIntent = new Intent(AttendanceListActivity.this,AttendanceDetailActivity.class);
+							listIntent.putExtra("name", name);
+							listIntent.putExtra("employeeId", employeeId);
+							listIntent.putExtra("projectId", projectId);
 							startActivity(listIntent);
 						}
-						
+
 					});
-					
+
 					tableReport.notifyDataSetChanged();
 				}else{
 					alertMessage("Incorrect "+ categoryName, AttendanceListActivity.this);
 				}
-				
+
 			}
 			this.dialog.dismiss();
 		}
