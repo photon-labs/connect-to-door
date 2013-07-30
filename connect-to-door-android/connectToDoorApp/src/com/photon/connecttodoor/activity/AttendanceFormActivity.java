@@ -246,27 +246,34 @@ public class AttendanceFormActivity extends MainActivity {
 				}
 			}
 		});
-		
+
 		editSearchCategory.setOnKeyListener(new OnKeyListener() {
 
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                {
-                    if(keyCode == KeyEvent.KEYCODE_ENTER)
-                    {
-                    	hideSoftKeyboard(AttendanceFormActivity.this);
-                        if(connectionAvailable()){
-        					onRequestSearchAccount();
-        				}else{
-        					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
-        				}
-                        return false;
-                    }
-                }
-                return false;
+				{
+					if(event.getAction() == KeyEvent.ACTION_DOWN)
+					{
+						if(keyCode == KeyEvent.KEYCODE_ENTER)
+						{
+							hideSoftKeyboard(AttendanceFormActivity.this);
+							if(connectionAvailable()){
+								if(!selectSearchCategory.equals("")){
+									onRequestSearchAccount();
+								}else{
+									alertMessage(ApplicationConstant.ERR_CATEGORY_EMPTY, AttendanceFormActivity.this);
+								}
+							}else{
+								alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
+							}
+							return true;
+						}
+					}
+				}
+				return false;
 			}
-        });
+		});
 
 	}
 	/**
