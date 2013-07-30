@@ -18,6 +18,7 @@ import android.text.Spanned;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -454,6 +455,19 @@ public class AttendanceListActivity extends MainActivity {
 				if(attendance.getAttendanceListModels().size() != 0){
 					ListGeneratedAttendanceListArrayAdapter tableReport = new ListGeneratedAttendanceListArrayAdapter(AttendanceListActivity.this, attendance.getAttendanceListModels());
 					attendanceListReport.setAdapter(tableReport);
+					
+					attendanceListReport.setOnItemClickListener(new OnItemClickListener() {
+
+						@Override
+						public void onItemClick(AdapterView<?> arg0, View arg1,
+								int arg2, long arg3) {
+							// TODO Auto-generated method stub
+							Intent listIntent = new Intent(AttendanceListActivity.this,AttendanceDetailActivity.class);
+							startActivity(listIntent);
+						}
+						
+					});
+					
 					tableReport.notifyDataSetChanged();
 				}else{
 					alertMessage("Incorrect "+ categoryName, AttendanceListActivity.this);

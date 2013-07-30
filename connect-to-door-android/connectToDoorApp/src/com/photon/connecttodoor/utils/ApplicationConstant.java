@@ -46,4 +46,5 @@ public class ApplicationConstant {
 	public static final String ERR_INPUT_EMP_ID = "PLEASE INPUT YOUR EMPLOYEE ID";
 	public static final String NO_INTERNET_CONNECTION = "NO INTERNET CONNECTION";
 	public static final String ERR_CATEGORY_BLANK = "Please fill input search category";
+	public static final String ERR_CATEGORY_EMPTY = "Please select category";
 }
