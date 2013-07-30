@@ -65,6 +65,10 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
+            android:name="com.photon.connecttodoor.activity.RequestActivity"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
             android:name="com.photon.connecttodoor.activity.AttendanceDetailActivity"
             android:screenOrientation="landscape" >
         </activity>

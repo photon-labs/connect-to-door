@@ -11,13 +11,14 @@ import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class VoucherActivity extends MainActivity {
 
-	private Button signOutButton,backButton, reimburseButton;
+	private Button signOutButton,backButton, reimburseButton,requestButton;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_voucher);
 		reimburseButton = (Button)findViewById(R.id.voucherreimbursement_button);
 		signOutButton = (Button)findViewById(R.id.signout_button);
+		requestButton = (Button)findViewById(R.id.voucherrequest_button);
 		backButton = (Button)findViewById(R.id.back_button);
 		actionButton();
 	}
@@ -30,6 +31,13 @@ public class VoucherActivity extends MainActivity {
 				goToReimbursePage();
 			}
 		}); */
+		requestButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				goToRequestPage();
+			}
+		});
 		signOutButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -59,6 +67,12 @@ public class VoucherActivity extends MainActivity {
 		finish();
 	}
 
+	private void goToRequestPage(){
+		Intent requestPage = new Intent(VoucherActivity.this,RequestActivity.class);
+		startActivity(requestPage);
+		finish();
+	}
+	
 	public void goToLoginPage(){
 		Intent logInPage = new Intent(VoucherActivity.this, LoginActivity.class);
 		startActivity(logInPage);
