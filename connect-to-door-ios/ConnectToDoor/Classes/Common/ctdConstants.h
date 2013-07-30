@@ -40,6 +40,7 @@
 #define MODULE_PROFILE @"profile"
 #define MODULE_REPORT @"report"
 #define MODULE_SIGNATURE_LINK @"signature"
+#define MODULE_REIMBURSEMENT @"reimburse"
 
 
 //this variable for common string
