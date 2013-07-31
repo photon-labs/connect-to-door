@@ -31,7 +31,7 @@ public class ReportActivity extends MainActivity {
 	private String category[] = {"","Before Adjustment", "Adjustment", "After Adjustment" };
 	Spinner dropDownCategory;
 	String selectCategory;
-	private String attendanceStatus = "before";
+	private String attendanceStatus = "";
 	private ListView attendanceAdminReport;
 	private Button signOutButton ;
 	private Button backButton, searchButton ;
@@ -123,8 +123,8 @@ public class ReportActivity extends MainActivity {
 			public void onClick(View v) {
 				String date = startFromDateTxt.getText().toString();
 				String empty = "";
-				if(date.equalsIgnoreCase(empty)){
-					alertMessage("Please Input Date", ReportActivity.this);
+				if(date.equalsIgnoreCase(empty) || selectCategory.equalsIgnoreCase(empty)){
+					alertMessage("Please Input Date or Choose Filter", ReportActivity.this);
 				}else{
 					/**check internet connection before call report service */
 					if(connectionAvailable()){
