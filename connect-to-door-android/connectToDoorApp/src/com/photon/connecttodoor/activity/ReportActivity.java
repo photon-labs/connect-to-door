@@ -88,7 +88,7 @@ public class ReportActivity extends MainActivity {
 			public void onClick(View v) {
 
 				/**check internet connection before sign out application */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					LoginActivity.onClickLogout();
 					goToLoginPage();
 				}else{
@@ -112,7 +112,7 @@ public class ReportActivity extends MainActivity {
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
-				getCurrentDate();
+				setCurrentDate();
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
@@ -127,7 +127,7 @@ public class ReportActivity extends MainActivity {
 					alertMessage("Please Input Date or Choose Filter", ReportActivity.this);
 				}else{
 					/**check internet connection before call report service */
-					if(connectionAvailable()){
+					if(hasConnectionAvailable()){
 						new CallServiceAttendanceReportTask().execute();
 					}else{
 						alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, ReportActivity.this);

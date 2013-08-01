@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.controller.LoginService;
 import com.photon.connecttodoor.controller.ProfileService;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
@@ -21,6 +22,7 @@ public class SignInActivity extends MainActivity {
 
 	private Button signInButton;
 	private EditText signInEditText;
+	LocalStorage localStorage;
 	private static final String EMPLOYEE_ID = "employeeId";
 	private static final String FACEBOOK_ID = "facebookId";
 
@@ -31,6 +33,7 @@ public class SignInActivity extends MainActivity {
 
 		signInEditText = (EditText)findViewById(R.id.edit_message);
 		signInButton = (Button)findViewById(R.id.buttonSignIn);
+		localStorage = new LocalStorage();
 		actionButton();
 	}		
 	private void actionButton(){
@@ -43,7 +46,7 @@ public class SignInActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				int empty = 0;
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					if(signInEditText.getText().length() != empty){
 						new CallServiceLoginTask().execute();
 						new CallServiceProfileTask().execute();
@@ -81,8 +84,8 @@ public class SignInActivity extends MainActivity {
 		@Override
 		protected String doInBackground(Void... params) {
 			String employeeId = signInEditText.getText().toString();
-			savePreference(EMPLOYEE_ID, employeeId, getApplicationContext());
-			String fbId = loadStringPreferences(FACEBOOK_ID, getApplicationContext());
+			localStorage.savePreference(EMPLOYEE_ID, employeeId, getApplicationContext());
+			String fbId = localStorage.loadStringPreferences(FACEBOOK_ID, getApplicationContext());
 			LoginService loginService = new LoginService();
 			String response = loginService.handleLoginRequest(employeeId, fbId);
 			return response;
@@ -90,7 +93,7 @@ public class SignInActivity extends MainActivity {
 
 		protected void onPostExecute(String result) {
 			if (result != null){
-				savePreference("responseLogin", result, getApplicationContext());
+				localStorage.savePreference("responseLogin", result, getApplicationContext());
 				String response = result;
 				LoginDataModel loginDataModel = new LoginDataModel();
 				try {
@@ -129,7 +132,7 @@ public class SignInActivity extends MainActivity {
 
 		protected void onPostExecute(String result) {
 			if(result != null){
-				savePreference("responseProfile", result, getApplicationContext());
+				localStorage.savePreference("responseProfile", result, getApplicationContext());
 			}
 		}
 	}

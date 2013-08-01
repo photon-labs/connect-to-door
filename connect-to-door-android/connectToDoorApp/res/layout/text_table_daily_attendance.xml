@@ -44,6 +44,18 @@
         android:paddingTop="10dp" >
     </TextView>
 
+    <EditText
+        android:id="@+id/edt_check_in_text"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:digits="1234567890:"
+        android:gravity="center_horizontal"
+        android:maxLength="5"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:visibility="gone" >
+    </EditText>
+
     <ImageView
         android:layout_width="2dp"
         android:layout_height="42dp"
@@ -57,6 +69,18 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
     </TextView>
+
+    <EditText
+        android:id="@+id/edt_check_out_text"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:digits="1234567890:"
+        android:gravity="center_horizontal"
+        android:maxLength="5"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:visibility="gone" >
+    </EditText>
 
     <ImageView
         android:layout_width="2dp"

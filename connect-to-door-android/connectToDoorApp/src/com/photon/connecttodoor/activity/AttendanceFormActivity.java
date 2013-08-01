@@ -103,7 +103,7 @@ public class AttendanceFormActivity extends MainActivity {
 		selectSearchCategory();
 		selectGender();
 		selectRole();
-		getCurrentDate();
+		setCurrentDate();
 		actionButton();
 	}
 
@@ -116,7 +116,7 @@ public class AttendanceFormActivity extends MainActivity {
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
-				getCurrentDate();
+				setCurrentDate();
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
@@ -175,7 +175,7 @@ public class AttendanceFormActivity extends MainActivity {
 				status = ApplicationConstant.DELETE;
 
 				/**check internet connection before delete form */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					if(editSearchCategory.getText().toString().length() > 0){
 						new CallServiceDeleteAccount().execute();
 					}else{
@@ -204,7 +204,7 @@ public class AttendanceFormActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before sign out application */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					LoginActivity.onClickLogout();
 					goToLoginPage();
 				}else{
@@ -220,7 +220,7 @@ public class AttendanceFormActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before save attendance form */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					new CallServiceCreateandEditAccount().execute();
 				}else{
 					alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, AttendanceFormActivity.this);
@@ -235,7 +235,7 @@ public class AttendanceFormActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before search attendance form */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					if(!selectSearchCategory.equals("")){
 						onRequestSearchAccount();
 					}else{
@@ -258,7 +258,7 @@ public class AttendanceFormActivity extends MainActivity {
 						if(keyCode == KeyEvent.KEYCODE_ENTER)
 						{
 							hideSoftKeyboard(AttendanceFormActivity.this);
-							if(connectionAvailable()){
+							if(hasConnectionAvailable()){
 								if(!selectSearchCategory.equals("")){
 									onRequestSearchAccount();
 								}else{

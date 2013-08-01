@@ -19,6 +19,7 @@ import android.widget.ListView;
 
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.DailyAttendanceService;
+import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.datamodel.DailyAttendanceModel;
 import com.photon.connecttodoor.uiadapter.ListGeneratedDailyArrayAdapter;
 import com.photon.connecttodoor.utils.ApplicationConstant;
@@ -31,6 +32,7 @@ public class DailyAttendanceActivity extends MainActivity{
 	private EditText startFromDateTxt;
 	private ImageView startFromDateImage;
 	private ListView dailyReport;
+	LocalStorage localStorage;
 	private static final String EMPLOYEE_ID = "employeeId";
 
 	@Override
@@ -44,16 +46,16 @@ public class DailyAttendanceActivity extends MainActivity{
 		dailyReport = (ListView) findViewById(R.id.table_report);
 
 		actionButton();
-		getCurrentDate();
+		setCurrentDate();
 		startFromDateTxt.setText(getDateEditText());
-
+		localStorage = new LocalStorage();
 		/**check internet connection before request for attendance list */
-		if(connectionAvailable()){
+		if(hasConnectionAvailable()){
 			new CallServiceAttendanceListTask().execute(getDateEditText().toString());
 		}else{
 			alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, DailyAttendanceActivity.this);
 		}
-
+		localStorage.savePreference("date", getDateEditText().toString(), getApplicationContext());
 		dailyReport.setOverScrollMode(View.OVER_SCROLL_NEVER);
 	}
 
@@ -74,7 +76,7 @@ public class DailyAttendanceActivity extends MainActivity{
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before sign out application */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					LoginActivity.onClickLogout();
 					goToLoginPage();
 				}else{
@@ -90,7 +92,7 @@ public class DailyAttendanceActivity extends MainActivity{
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
-				getCurrentDate();
+				setCurrentDate();
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
@@ -108,7 +110,7 @@ public class DailyAttendanceActivity extends MainActivity{
 			startFromDateTxt.setText(getDateEditText());
 
 			/**check internet connection before request for attendance list */
-			if(connectionAvailable()){
+			if(hasConnectionAvailable()){
 				new CallServiceAttendanceListTask().execute(getDateEditText().toString());
 			}else{
 				alertMessage(ApplicationConstant.NO_INTERNET_CONNECTION, DailyAttendanceActivity.this);
@@ -145,7 +147,8 @@ public class DailyAttendanceActivity extends MainActivity{
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
 			String searchValues = params[0];
-			String employeeId = loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
+			
+			String employeeId = localStorage.loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
 			String startDateParam = changeFormatDate(searchValues);
 			DailyAttendanceService dailyAttendanceService = new DailyAttendanceService();
 			String response = dailyAttendanceService.handleRequestDailyAttendance(employeeId,startDateParam);
@@ -163,10 +166,21 @@ public class DailyAttendanceActivity extends MainActivity{
 				}
 				ListGeneratedDailyArrayAdapter tableReport = new ListGeneratedDailyArrayAdapter(DailyAttendanceActivity.this,dailyModel.getDailyAttendanceListModels());
 				dailyReport.setAdapter(tableReport);
+				tableReport.setDataUpdated(new ChangeData());
 				tableReport.notifyDataSetChanged();
 			}
 			this.dialog.dismiss();
 		}
+	}
+	
+	public class ChangeData implements ListGeneratedDailyArrayAdapter.UpdateData{
+
+		@Override
+		public void onDataUpdated() {
+			// TODO Auto-generated method stub
+			new CallServiceAttendanceListTask().execute(getDateEditText().toString());
+		}
+		
 	}
 
 	/**

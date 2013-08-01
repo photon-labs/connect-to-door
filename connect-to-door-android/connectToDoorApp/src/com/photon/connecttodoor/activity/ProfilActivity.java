@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.facebook.widget.ProfilePictureView;
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.datamodel.ProfileModel;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
@@ -21,6 +22,7 @@ public class ProfilActivity extends MainActivity {
 	private TextView name,employeeId,projectId,role,startWorking,emailAddress,annual,
 	coof,condolances,married,maternity,paternity,onsite,sick;
 	ProfileModel profileDataModel;
+	LocalStorage localStorage;
 	private static final String DAYS = " Days"; 
 	private static final String FACEBOOK_ID = "facebookId";
 
@@ -46,6 +48,7 @@ public class ProfilActivity extends MainActivity {
 		onsite = (TextView)findViewById(R.id.onsiteInfoDynamicsProfile);
 		sick = (TextView)findViewById(R.id.sickInfoDynamicsProfile);
 		imageProfile =(ProfilePictureView)findViewById(R.id.photoProfile);
+		localStorage = new LocalStorage();
 		setProfilDataModel();
 		getDataProfile();
 		actionButton();
@@ -82,7 +85,7 @@ public class ProfilActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before sign out application */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					LoginActivity.onClickLogout();
 					goToLoginPage();
 				}else{
@@ -95,7 +98,7 @@ public class ProfilActivity extends MainActivity {
 	 * set profile data model
 	 */
 	private void setProfilDataModel(){
-		String dataProfile = loadStringPreferences("responseProfile", getApplicationContext());
+		String dataProfile = localStorage.loadStringPreferences("responseProfile", getApplicationContext());
 		if(!dataProfile.equalsIgnoreCase("")){
 			profileDataModel = new ProfileModel();
 			try {
@@ -105,6 +108,7 @@ public class ProfilActivity extends MainActivity {
 				e.printStackTrace();
 			}
 		}
+		
 	}
 	/**
 	 * get all value profile
@@ -124,7 +128,7 @@ public class ProfilActivity extends MainActivity {
 		paternity.setText(profileDataModel.getPaternity()+DAYS);
 		onsite.setText(profileDataModel.getOnsite()+DAYS);
 		sick.setText(profileDataModel.getSick()+DAYS);
-		String fbId = loadStringPreferences(FACEBOOK_ID, getApplicationContext());
+		String fbId = localStorage.loadStringPreferences(FACEBOOK_ID, getApplicationContext());
 		imageProfile.setProfileId(fbId);
 	}
 	/**

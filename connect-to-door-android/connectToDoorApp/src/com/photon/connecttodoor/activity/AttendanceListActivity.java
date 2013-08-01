@@ -15,7 +15,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -94,7 +93,7 @@ public class AttendanceListActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				isSetStartDateText = true;
-				getCurrentDate();
+				setCurrentDate();
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
@@ -107,7 +106,7 @@ public class AttendanceListActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				isSetStartDateText = false;
-				getUntilCurrentDate();
+				setUntilCurrentDate();
 				showDialog(DATE_UNTIL_DIALOG_ID);
 			}
 		});
@@ -121,7 +120,7 @@ public class AttendanceListActivity extends MainActivity {
 				int inputCategoryLength = inputCategory.getText().length();
 
 				/**check internet connection before request for attendance list */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					if(inputCategory.isShown()){
 						if(inputCategoryLength == EMPTY && startFromDateTxt.getText().length() == EMPTY && untilFromDateTxt.getText().length() == EMPTY){
 							alertMessage(ApplicationConstant.ERR_FILL_THE_BLANK,AttendanceListActivity.this);
@@ -199,7 +198,7 @@ public class AttendanceListActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before sign out application */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					LoginActivity.onClickLogout();
 					goToLogin();
 				}else{

@@ -30,6 +30,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.controller.SignatureLinkService;
 import com.photon.connecttodoor.datamodel.ProfileModel;
 import com.photon.connecttodoor.datamodel.RequestListModel;
@@ -79,7 +80,7 @@ public class RequestActivity extends MainActivity{
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); StrictMode.setThreadPolicy(policy); 
 		}
 		actionButton();
-		getCurrentDate();
+		setCurrentDate();
 		getResponseFromProfileModel();
 		setUpdateUI();
 		setRequestDropDown();
@@ -108,7 +109,7 @@ public class RequestActivity extends MainActivity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				getCurrentDate();
+				setCurrentDate();
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
@@ -128,7 +129,8 @@ public class RequestActivity extends MainActivity{
 	}
 	
 	private void getResponseFromProfileModel() {
-		String responseProfil = loadStringPreferences("responseProfile", getApplicationContext());
+		LocalStorage localStorage = new LocalStorage();
+		String responseProfil = localStorage.loadStringPreferences("responseProfile", getApplicationContext());
 		profileDataModel = new ProfileModel();
 		try {
 			profileDataModel.parseJSON(responseProfil);

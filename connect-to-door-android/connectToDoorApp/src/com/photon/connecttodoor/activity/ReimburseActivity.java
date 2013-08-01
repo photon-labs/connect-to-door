@@ -28,6 +28,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.controller.SignatureLinkService;
 import com.photon.connecttodoor.datamodel.ProfileModel;
 import com.photon.connecttodoor.datamodel.RequestListModel;
@@ -76,7 +77,7 @@ public class ReimburseActivity extends MainActivity{
 
 		setDropDownApprovalCategory();
 		setDropDownReimbursmentCategory();
-		getCurrentDate();
+		setCurrentDate();
 		if (android.os.Build.VERSION.SDK_INT > 9) { 
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); StrictMode.setThreadPolicy(policy); 
 		}
@@ -100,7 +101,7 @@ public class ReimburseActivity extends MainActivity{
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
-				getCurrentDate();
+				setCurrentDate();
 				showDialog(DATE_DIALOG_ID);
 			}
 		});
@@ -186,7 +187,8 @@ public class ReimburseActivity extends MainActivity{
 	}
 
 	private void getResponseFromProfileModel(){
-		String responseProfil = loadStringPreferences("responseProfile", getApplicationContext());
+		LocalStorage localStorage = new LocalStorage();
+		String responseProfil = localStorage.loadStringPreferences("responseProfile", getApplicationContext());
 		profileDataModel = new ProfileModel();
 		try {
 			profileDataModel.parseJSON(responseProfil);

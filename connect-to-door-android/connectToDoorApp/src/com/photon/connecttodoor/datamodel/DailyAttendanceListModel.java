@@ -85,6 +85,10 @@ public class DailyAttendanceListModel extends MainParser{
 			String checkOut = jsonObject.getString("check_out");
 			this.setCheckOut(checkOut);
 		}
+		if(jsonObject.has("presence_id")){
+			String presenceId = jsonObject.getString("presence_id");
+			this.setPresentId(presenceId);
+		}
 	}
 
 	

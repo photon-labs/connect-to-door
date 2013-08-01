@@ -58,7 +58,7 @@ public class AttendanceDetailActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before sign out application */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					LoginActivity.onClickLogout();
 					goToLogin();
 				}else{

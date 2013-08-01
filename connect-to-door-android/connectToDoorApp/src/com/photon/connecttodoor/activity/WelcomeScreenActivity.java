@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.CheckInOutService;
+import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.datamodel.CheckPresentModel;
 import com.photon.connecttodoor.datamodel.LoginDataModel;
 import com.photon.connecttodoor.utils.ApplicationConstant;
@@ -40,6 +41,7 @@ public class WelcomeScreenActivity extends MainActivity {
 	private static final String EMPLOYEE_ID = "employeeId";
 	private static final String CHECK_STATUS = "check-status";
 	CheckPresentModel checkPresentModel;
+	LocalStorage localStorage;
 	String status;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class WelcomeScreenActivity extends MainActivity {
 		checkOutText = (TextView) findViewById(R.id.checkOutText);
 		currentTime = (TextView) findViewById(R.id.currentTime);
 		status = CHECK_STATUS;
-
+		localStorage = new LocalStorage();
 		checkPresentModel = new CheckPresentModel();
 
 		/** 
@@ -140,7 +142,7 @@ public class WelcomeScreenActivity extends MainActivity {
 			@Override
 			public void onClick(View v) {
 				/**check internet connection before sign out application */
-				if(connectionAvailable()){
+				if(hasConnectionAvailable()){
 					LoginActivity.onClickLogout();
 					goToLoginPage();
 				}else{
@@ -153,7 +155,7 @@ public class WelcomeScreenActivity extends MainActivity {
 	 * set login data model
 	 */
 	private void setDataLogin(){
-		String datalogin = loadStringPreferences("responseLogin", getApplicationContext());
+		String datalogin = localStorage.loadStringPreferences("responseLogin", getApplicationContext());
 		if(!datalogin.equalsIgnoreCase("")){
 			loginDataModel = new LoginDataModel();
 			try {
@@ -220,6 +222,7 @@ public class WelcomeScreenActivity extends MainActivity {
 	 */
 	private void setUIWelcomeScreen(){
 		String previlage = loginDataModel.getPrevilage();
+		localStorage.savePreference("previlege", previlage, getApplicationContext());
 		if(previlage.equals(ADMIN)){
 			attendanceReportButton.setVisibility(View.VISIBLE);
 			attendanceFormButton.setVisibility(View.VISIBLE);
@@ -245,7 +248,7 @@ public class WelcomeScreenActivity extends MainActivity {
 		@Override
 		protected String doInBackground(Void... params) {
 			// TODO Auto-generated method stub
-			String employeeId = loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
+			String employeeId = localStorage.loadStringPreferences(EMPLOYEE_ID, getApplicationContext());
 			CheckInOutService checkInService = new CheckInOutService();
 			String response = checkInService.handleCheckInRequest(employeeId, status);
 			return response;

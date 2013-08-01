@@ -535,7 +535,8 @@
                             android:enabled="false"
                             android:inputType="number"
                             android:paddingLeft="10dp"
-                            android:paddingRight="10dp" />
+                            android:paddingRight="10dp" 
+                            android:singleLine="true"/>
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
@@ -615,7 +616,8 @@
                         android:digits="qwertzuiopasdfghjklyxcvbnm WERTYUIOPASDFGHJKLZXCVBNM_@.-"
                         android:enabled="false"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp" />
+                        android:paddingRight="10dp" 
+                        android:singleLine="true"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -656,7 +658,8 @@
                         android:background="@drawable/box_add_text_form_start_working_in_active"
                         android:enabled="false"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp" />
+                        android:paddingRight="10dp" 
+                        android:singleLine="true"/>
 
                     <EditText
                         android:id="@+id/edit_text_userId"
@@ -669,7 +672,8 @@
                         android:enabled="false"
                         android:inputType="number"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp" />
+                        android:paddingRight="10dp"
+                        android:singleLine="true" />
 
                     <Button
                         android:id="@+id/button_save"

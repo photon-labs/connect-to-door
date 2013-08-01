@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -14,7 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public abstract class MainActivity extends Activity{
-
+	
 	public int pYear, untilYear;
 	public int pMonth, untilMonth;
 	public int pDay, untilDay;
@@ -25,17 +24,17 @@ public abstract class MainActivity extends Activity{
 	public static final String SLASH = "/";
 	ArrayAdapter<CharSequence> adapter ;
 	/** 
-	 * Get the current date or reset date to current date after used 
+	 * set the current date or reset date to current date after used 
 	 * 
 	 */
-	public void getCurrentDate(){
+	public void setCurrentDate(){
 		final Calendar cal = Calendar.getInstance();
 		pYear = cal.get(Calendar.YEAR);
 		pMonth = cal.get(Calendar.MONTH);
 		pDay = cal.get(Calendar.DAY_OF_MONTH);
 	}
 
-	public void getUntilCurrentDate(){
+	public void setUntilCurrentDate(){
 		final Calendar cal = Calendar.getInstance();
 		untilYear = cal.get(Calendar.YEAR);
 		untilMonth = cal.get(Calendar.MONTH);
@@ -43,8 +42,8 @@ public abstract class MainActivity extends Activity{
 	}
 
 	/**
-	 * Create Date for startDate editText and untilDate editText 
-	 * @return getDateEditText as StringBuilder
+	 * Create Date for startDate editText and untilDate editText
+	 * @return dayMonthYear
 	 */
 	public StringBuilder getDateEditText(){
 		// Month is 0 based so add 1
@@ -60,10 +59,10 @@ public abstract class MainActivity extends Activity{
 			pDayString = NUMBER_DATE+pDayString;
 		}
 
-		return new StringBuilder()
-		.append(pDayString).append(STRIP)
-		.append(pMonthString).append(STRIP)
-		.append(pYearString).append("");
+		StringBuilder day = new StringBuilder(pDayString);
+		StringBuilder dayMonth = day.append(STRIP).append(pMonthString);
+		StringBuilder dayMonthYear = dayMonth.append(STRIP).append(pYearString).append("");
+		return dayMonthYear;
 	}
 
 	public StringBuilder getUntilDateEditText(){
@@ -79,11 +78,11 @@ public abstract class MainActivity extends Activity{
 		if(untilDayString.length() < 2){
 			untilDayString = NUMBER_DATE+untilDayString;
 		}
-
-		return new StringBuilder()
-		.append(untilDayString).append(STRIP)
-		.append(untilMonthString).append(STRIP)
-		.append(untilYearString).append("");
+		
+		StringBuilder day = new StringBuilder(untilDayString);
+		StringBuilder dayMonth = day.append(STRIP).append(untilMonthString);
+		StringBuilder dayMonthYear = dayMonth.append(STRIP).append(untilYearString).append("");
+		return dayMonthYear;
 	}
 
 	/**
@@ -141,30 +140,6 @@ public abstract class MainActivity extends Activity{
 		// show it
 		alertDialog.show();
 	}
-	/**
-	 * save value to internal storage
-	 * Store private primitive data in key-value pairs.
-	 * @param key 
-	 * @param value
-	 * @param context
-	 */
-	public void savePreference(String key, String value, Context context){
-		SharedPreferences sharedPreferences = context.getSharedPreferences("com.photon.connecttodoor", Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = sharedPreferences.edit();
-		editor.putString(key, value);
-		editor.commit();
-	}
-
-	/**
-	 * get value in internal storage
-	 * @param key
-	 * @param context
-	 * @return
-	 */
-	public String loadStringPreferences(String key, Context context){
-		SharedPreferences sharedPreferences = context.getSharedPreferences("com.photon.connecttodoor", Context.MODE_PRIVATE);
-		return sharedPreferences.getString(key, "");
-	}
 
 	/**
 	 * create dropdown category
@@ -182,7 +157,7 @@ public abstract class MainActivity extends Activity{
 	 * if no internet connection return false
 	 * @return
 	 */
-	public boolean connectionAvailable() {
+	public boolean hasConnectionAvailable() {
 		boolean connected = false;
 		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||

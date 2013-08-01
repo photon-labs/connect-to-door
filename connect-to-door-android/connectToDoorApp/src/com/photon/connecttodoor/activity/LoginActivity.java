@@ -14,6 +14,7 @@ import com.facebook.SessionState;
 import com.facebook.Settings;
 import com.facebook.model.GraphUser;
 import com.photon.connecttodoor.R;
+import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.utils.ApplicationConstant;
 
 public class LoginActivity extends MainActivity {
@@ -79,7 +80,8 @@ public class LoginActivity extends MainActivity {
 					// TODO Auto-generated method stub
 					if (session == Session.getActiveSession()) {
 						if (user != null) {
-							savePreference("facebookId", user.getId(), getApplicationContext());
+							LocalStorage localStorage = new LocalStorage();
+							localStorage.savePreference("facebookId", user.getId(), getApplicationContext());
 						}   
 
 					}   
@@ -94,7 +96,7 @@ public class LoginActivity extends MainActivity {
 		}
 	}
 	private void onClickLogin() {
-		if(connectionAvailable()){
+		if(hasConnectionAvailable()){
 			Session session = Session.getActiveSession();
 			if (!session.isOpened() && !session.isClosed()) {
 				session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
