@@ -115,26 +115,33 @@
                     android:textColor="#ffffff"
                     android:textSize="14sp" />
 
-                <Spinner
-                    android:id="@+id/spinnerCategory"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/box_white_att_form_long"
-                    android:paddingLeft="5dp" >
-                </Spinner>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp" >
+                    android:orientation="horizontal" >
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="0dp"
-                        android:background="@drawable/filter_by_button_arrow_dropdown" />
-                </RelativeLayout>
+                    <Spinner
+                        android:id="@+id/spinnerCategory"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/box_white_att_form_long"
+                        android:paddingLeft="5dp" >
+                    </Spinner>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-39dp"
+                        android:layout_marginTop="4dp" >
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="0dp"
+                            android:background="@drawable/filter_by_button_arrow_dropdown" />
+                    </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -163,7 +170,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/voucher_date"
+                    android:id="@+id/reimbursement_date"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -196,7 +203,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/reimburse_date"
+                    android:id="@+id/reimbursement_description"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -222,7 +229,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/reimburse_date"
+                    android:id="@+id/reimbursement_quantity"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -248,7 +255,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/reimburse_date"
+                    android:id="@+id/reimbursement_cost"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -274,7 +281,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/reimburse_date"
+                    android:id="@+id/reimbursement_cashadvance"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -292,6 +299,19 @@
                     android:layout_marginLeft="350dp"
                     android:background="@drawable/button_save" />
             </LinearLayout>
+            
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_marginTop="50dp" 
+                    android:paddingLeft="90dp"
+                    android:paddingRight="30dp">
+
+                    <include
+                        android:id="@+id/reimbursementList"
+                        layout="@layout/listview_requestlist" />
+                   
+                </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -341,8 +361,7 @@
                     android:id="@+id/signature"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
-                    android:layout_marginLeft="10dp"
-                  />
+                    android:layout_marginLeft="10dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -360,26 +379,33 @@
                     android:textColor="#ffffff"
                     android:textSize="14sp" />
 
-                <Spinner
-                    android:id="@+id/spinnerCategorySubmitTo"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/box_white_att_form_long"
-                    android:paddingLeft="5dp" >
-                </Spinner>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp" >
+                    android:orientation="horizontal" >
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="0dp"
-                        android:background="@drawable/filter_by_button_arrow_dropdown" />
-                </RelativeLayout>
+                    <Spinner
+                        android:id="@+id/spinnerCategorySubmitTo"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/box_white_att_form_long"
+                        android:paddingLeft="5dp" >
+                    </Spinner>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="-39dp" >
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="29dp"
+                            android:layout_marginLeft="0dp"
+                            android:background="@drawable/filter_by_button_arrow_dropdown" />
+                    </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout

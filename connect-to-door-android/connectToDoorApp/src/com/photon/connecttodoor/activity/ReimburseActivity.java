@@ -23,25 +23,31 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.SignatureLinkService;
 import com.photon.connecttodoor.datamodel.ProfileModel;
+import com.photon.connecttodoor.datamodel.RequestListModel;
+import com.photon.connecttodoor.datamodel.RequestModel;
 import com.photon.connecttodoor.datamodel.SignatureLinkModel;
+import com.photon.connecttodoor.uiadapter.ListGeneratedRequestArrayAdapter;
 
 public class ReimburseActivity extends MainActivity{
 
 	private String reimbursementCategory[] = {"Meal", "Transportation", "Utility" };
 	private String approvalCategory[] = {"Penfen Fealty","Kurnia Sari","Dimas Isharmaya","Namira","Joko Irwansyah"};
 	Spinner dropDownCategory, dropDownApprovalCategory;
-	ImageButton backButton,insertSignature;
-	private EditText voucherDate;
+	ImageButton backButton,insertSignature, saveButton;
+	private EditText reimbursementDate, reimbursementDescription, reimbursementQuantity, reimbursementCost, reimbursementCashAdvance;
 	private ImageView startFromDateImage,signature;
 	private  TextView txtEmpName,txtEmpId,txtProjectId,currentDate;
 	ProfileModel profileDataModel;
+	ListView reimbursementListview;
 	SignatureLinkModel signatureDataModel;
+	RequestModel voucherParam;
 
 	@SuppressLint("NewApi")
 	@Override
@@ -49,16 +55,24 @@ public class ReimburseActivity extends MainActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.reimburse_form);
 		backButton = (ImageButton)findViewById(R.id.backButton);
+		insertSignature = (ImageButton)findViewById(R.id.insertSignature);
+		saveButton = (ImageButton)findViewById(R.id.saveButton);
 		startFromDateImage = (ImageView)findViewById(R.id.startFromDateImage);
 		signature = (ImageView)findViewById(R.id.signature);
-		insertSignature = (ImageButton)findViewById(R.id.insertSignature);
-		voucherDate = (EditText)findViewById(R.id.voucher_date);
+		reimbursementDate = (EditText)findViewById(R.id.reimbursement_date);
+		reimbursementDescription = (EditText)findViewById(R.id.reimbursement_description);
+		reimbursementQuantity = (EditText)findViewById(R.id.reimbursement_quantity);
+		reimbursementCost = (EditText)findViewById(R.id.reimbursement_cost);
+		reimbursementCashAdvance = (EditText)findViewById(R.id.reimbursement_cashadvance);
 		dropDownApprovalCategory =(Spinner)findViewById(R.id.spinnerCategorySubmitTo);
 		dropDownCategory = (Spinner)findViewById(R.id.spinnerCategory);
 		txtEmpName = (TextView)findViewById(R.id.employee_name);
 		txtEmpId = (TextView)findViewById(R.id.employee_id);
 		txtProjectId = (TextView)findViewById(R.id.project_id);
 		currentDate = (TextView)findViewById(R.id.dateNow);
+		reimbursementListview = (ListView)findViewById(R.id.table_request_list);
+		
+		voucherParam = new RequestModel();
 
 		setDropDownApprovalCategory();
 		setDropDownReimbursmentCategory();
@@ -69,7 +83,7 @@ public class ReimburseActivity extends MainActivity{
 		getResponseFromProfileModel();
 		setupdateUIRembursment();
 		actionButton();
-		
+
 	}
 
 	private void actionButton(){
@@ -99,6 +113,15 @@ public class ReimburseActivity extends MainActivity{
 				new CallServiceSignatureLink().execute();
 			}
 		});
+		
+		saveButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onSaveReimbursement();
+			}
+		});
 	}
 	private void setDropDownApprovalCategory() {
 		createDropdownCategory(this,approvalCategory, dropDownApprovalCategory);
@@ -107,7 +130,6 @@ public class ReimburseActivity extends MainActivity{
 	private void setDropDownReimbursmentCategory() {
 		createDropdownCategory(this,reimbursementCategory, dropDownCategory);
 	}
-
 
 	/** Callback received when the user "picks" a date in the dialog */
 	private DatePickerDialog.OnDateSetListener pDateSetListener =
@@ -118,14 +140,14 @@ public class ReimburseActivity extends MainActivity{
 			pYear = year;
 			pMonth = monthOfYear;
 			pDay = dayOfMonth;
-			voucherDate.setText(getDateEditText());
+			reimbursementDate.setText(getDateEditText());
 		}
 	};
+	
 	/**
 	 * Create Date for startDate editText and untilDate editText 
 	 * @return getDateEditText as StringBuilder
 	 */
-
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
@@ -137,6 +159,26 @@ public class ReimburseActivity extends MainActivity{
 
 		return null;
 	}
+	
+	private void onSaveReimbursement() {
+		String cost = reimbursementCost.getText().toString();
+		String desc = reimbursementDescription.getText().toString();
+		String quantity = reimbursementQuantity.getText().toString();
+		String date = reimbursementDate.getText().toString();
+		RequestListModel modelRequestItemList = new RequestListModel();
+		modelRequestItemList.setQuantity(quantity);
+		modelRequestItemList.setCost(cost);
+		modelRequestItemList.setDescription(desc);
+		modelRequestItemList.setDate(date);
+		
+		voucherParam.addToList(modelRequestItemList);
+		// TODO Auto-generated method stub
+		ListGeneratedRequestArrayAdapter voucherArrayAdapter = new ListGeneratedRequestArrayAdapter(ReimburseActivity.this, voucherParam.getRequestListModel());
+		reimbursementListview.setAdapter(voucherArrayAdapter);
+		voucherArrayAdapter.notifyDataSetChanged();
+		
+	}
+	
 	private void goToVoucherPage(){
 		Intent voucherPage = new Intent(ReimburseActivity.this, VoucherActivity.class);
 		startActivity(voucherPage);

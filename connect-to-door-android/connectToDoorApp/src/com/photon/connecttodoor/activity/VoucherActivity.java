@@ -24,13 +24,13 @@ public class VoucherActivity extends MainActivity {
 	}
 
 	private void actionButton(){
-		/*	reimburseButton.setOnClickListener(new OnClickListener() {
+		reimburseButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				goToReimbursePage();
 			}
-		}); */
+		});
 		requestButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -72,7 +72,7 @@ public class VoucherActivity extends MainActivity {
 		startActivity(requestPage);
 		finish();
 	}
-	
+
 	public void goToLoginPage(){
 		Intent logInPage = new Intent(VoucherActivity.this, LoginActivity.class);
 		startActivity(logInPage);

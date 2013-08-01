@@ -51,7 +51,6 @@ public class RequestActivity extends MainActivity{
 	Spinner requestList, approvalList;
 	private EditText requestCost, requestQuantity, requestDesc;
 	String date, desc, quantity, cost;
-	ArrayList<RequestListModel> reqArrayList;
 	ListView requestListView;
 	RequestModel requestParam;
 	
@@ -74,7 +73,6 @@ public class RequestActivity extends MainActivity{
 		requestQuantity = (EditText)findViewById(R.id.requestQuantity);
 		requestDesc = (EditText)findViewById(R.id.requestDescription);
 		requestListView = (ListView)findViewById(R.id.table_request_list);
-		reqArrayList = new ArrayList<RequestListModel>();
 		requestParam = new RequestModel();
 		
 		if (android.os.Build.VERSION.SDK_INT > 9) { 
