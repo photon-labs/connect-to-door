@@ -49,8 +49,8 @@
                         android:background="@drawable/nubox_finddate"
                         android:editable="false"
                         android:hint="                        "
-                        android:paddingLeft="10dp"
-                        android:textSize="15sp"
+                        android:paddingLeft="20dp"
+                        android:textSize="18sp"
                         android:textStyle="normal" />
 
                     <ImageView
@@ -83,8 +83,8 @@
                         android:background="@drawable/nubox_finddate"
                         android:editable="false"
                         android:hint="                        "
-                        android:paddingLeft="10dp"
-                        android:textSize="15sp"
+                        android:paddingLeft="20dp"
+                        android:textSize="18sp"
                         android:textStyle="normal" />
 
                     <ImageView
