@@ -41,6 +41,7 @@
 #define MODULE_REPORT @"report"
 #define MODULE_SIGNATURE_LINK @"signature"
 #define MODULE_UPDATE_CHECKIN_OUT @"update-check-in-out"
+#define MODULE_REIMBURSEMENT @"reimburse"
 
 //this variable for common string
 #define CHECKIN @"checkIn"

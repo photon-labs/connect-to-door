@@ -38,6 +38,7 @@
 		71DFF0481739080500EF1491 /* ctdSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DFF0461739080500EF1491 /* ctdSignInViewController.m */; };
 		71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0471739080500EF1491 /* ctdSignInViewController.xib */; };
 		DD0706BB17A7C44A0085EAFB /* ctdUpdateAttendaceService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0706BA17A7C44A0085EAFB /* ctdUpdateAttendaceService.m */; };
+		DD0706BE17AA434A0085EAFB /* ctdCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0706BD17AA434A0085EAFB /* ctdCustomTextField.m */; };
 		DD3035F5179FA7CA00BA679C /* DropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035F4179FA7CA00BA679C /* DropDownView.m */; };
 		DD303600179FC37800BA679C /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035FF179FC37800BA679C /* CKCalendarView.m */; };
 		DD303602179FDF1E00BA679C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303601179FDF1E00BA679C /* QuartzCore.framework */; };
@@ -230,6 +231,8 @@
 		71DFF0471739080500EF1491 /* ctdSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ctdSignInViewController.xib; sourceTree = "<group>"; };
 		DD0706B917A7C44A0085EAFB /* ctdUpdateAttendaceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdUpdateAttendaceService.h; sourceTree = "<group>"; };
 		DD0706BA17A7C44A0085EAFB /* ctdUpdateAttendaceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdUpdateAttendaceService.m; sourceTree = "<group>"; };
+		DD0706BC17AA434A0085EAFB /* ctdCustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCustomTextField.h; sourceTree = "<group>"; };
+		DD0706BD17AA434A0085EAFB /* ctdCustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCustomTextField.m; sourceTree = "<group>"; };
 		DD3035F3179FA7CA00BA679C /* DropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownView.h; sourceTree = "<group>"; };
 		DD3035F4179FA7CA00BA679C /* DropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownView.m; sourceTree = "<group>"; };
 		DD3035FE179FC37800BA679C /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
@@ -917,6 +920,8 @@
 				DD9B4E6817A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.h */,
 				DD9B4E6917A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.m */,
 				DD9B4E6A17A0E170009037D0 /* ctdSelectViewDailyAttendanceCell.xib */,
+				DD0706BC17AA434A0085EAFB /* ctdCustomTextField.h */,
+				DD0706BD17AA434A0085EAFB /* ctdCustomTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1444,6 +1449,7 @@
 				DDB9EAA617A771DC00087D5A /* ctdResponseSignatureLinkModel.m in Sources */,
 				DDB9EAA917A771E600087D5A /* ctdReimbursementParser.m in Sources */,
 				DD0706BB17A7C44A0085EAFB /* ctdUpdateAttendaceService.m in Sources */,
+				DD0706BE17AA434A0085EAFB /* ctdCustomTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

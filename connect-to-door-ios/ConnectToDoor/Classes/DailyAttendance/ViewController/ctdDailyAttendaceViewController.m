@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 aldi cita putra. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ctdDailyAttendaceViewController.h"
 #import "ctdSelectViewDailyAttendanceCell.h"
 #import "ctdLocalStorage.h"
@@ -44,7 +45,12 @@
     
     [self requestDailyAttendance:[self getEmployeeId] date:dateString];
     
-    // Do any additional setup after loading the view from its nib.
+    NSString *previllage = [[NSUserDefaults standardUserDefaults] objectForKey:@"previllage"];
+    NSLog(@"previllage ===== %@", previllage);
+    
+    isAdmin = [previllage isEqualToString:@"Admin"] ? YES: NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 /*@uathor:aldi_p
@@ -57,9 +63,9 @@
 }
 
 
--(void)updateAttendance:(NSString*)employeeID date:(NSString*)date checkInTime:(NSString*)checkInTime checkOutTime:(NSString*)checkOutTime{
+-(void)updateAttendance:(NSString*)employeeID date:(NSString*)date checkInTime:(NSString*)checkInTime checkOutTime:(NSString*)checkOutTime presenceId:(NSString*)presenceId{
     [self showActivityIndicator];
-    [updateAttendanceService requestUpdateAttendanceToServer:[self getEmployeeId] date:date checkInTime:checkInTime checkOutTime:checkOutTime];
+    [updateAttendanceService requestUpdateAttendanceToServer:[self getEmployeeId] date:date checkInTime:checkInTime checkOutTime:checkOutTime presenceId:presenceId];
 }
 
 - (void)configureAllComponent{
@@ -122,14 +128,14 @@
     ctdResponseDailyAttendanceListModel *attendanceItem =[model.getDailyAttendanceListModels objectAtIndex:indexPath.row];
     
     //label Number
-    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0, 33.0,tableView.rowHeight)];
+    cell.numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0, 33.0,tableView.rowHeight)];
     [cell addColumn:50];
-    numberLabel.font = [UIFont systemFontOfSize:12.0];
-    numberLabel.text = [NSString stringWithFormat:@"%d.", indexPath.row + 1];
-    numberLabel.textColor = [UIColor blackColor];
-    numberLabel.textAlignment = NSTextAlignmentCenter;
-    numberLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:numberLabel];
+    cell.numberLabel.font = [UIFont systemFontOfSize:12.0];
+    cell.numberLabel.text = [NSString stringWithFormat:@"%d.", indexPath.row + 1];
+    cell.numberLabel.textColor = [UIColor blackColor];
+    cell.numberLabel.textAlignment = NSTextAlignmentCenter;
+    cell.numberLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:cell.numberLabel];
     
     //Saparator Number
     UIImageView *separator = [[UIImageView alloc] initWithFrame:CGRectMake(34.0, 0, 2.0,tableView.rowHeight)];
@@ -138,14 +144,14 @@
     [cell.contentView addSubview:separator];
     
     //label name employee
-    UILabel *nameLabel =  [[UILabel alloc] initWithFrame:CGRectMake(38, 0, 146.0,tableView.rowHeight)];
+    cell.nameLabel =  [[UILabel alloc] initWithFrame:CGRectMake(38, 0, 146.0,tableView.rowHeight)];
     [cell addColumn:70];
-    nameLabel.font = [UIFont systemFontOfSize:12.0];
-    nameLabel.text = attendanceItem.employeeName;
-    nameLabel.textColor = [UIColor blackColor];
-    nameLabel.textAlignment = NSTextAlignmentLeft;
-    nameLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:nameLabel];
+    cell.nameLabel.font = [UIFont systemFontOfSize:12.0];
+    cell.nameLabel.text = attendanceItem.employeeName;
+    cell.nameLabel.textColor = [UIColor blackColor];
+    cell.nameLabel.textAlignment = NSTextAlignmentLeft;
+    cell.nameLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:cell.nameLabel];
     
     //saparator name employee
     separator = [[UIImageView alloc] initWithFrame:CGRectMake(310.0, 0, 2.0,tableView.rowHeight)];
@@ -154,14 +160,31 @@
     [cell.contentView addSubview:separator];
     
     //label checkin
-    UILabel *checkinLabel =  [[UILabel alloc] initWithFrame:CGRectMake(305.0, 0, 86.0,tableView.rowHeight)];
+    cell.checkinLabel =  [[UILabel alloc] initWithFrame:CGRectMake(305.0, 0, 86.0,tableView.rowHeight)];
     [cell addColumn:90];
-    checkinLabel.font = [UIFont systemFontOfSize:12.0];
-    checkinLabel.text = attendanceItem.checkIn;
-    checkinLabel.textColor = [UIColor blackColor];
-    checkinLabel.textAlignment = NSTextAlignmentCenter;
-    checkinLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:checkinLabel];
+    cell.checkinLabel.font = [UIFont systemFontOfSize:12.0];
+    cell.checkinLabel.text = attendanceItem.checkIn;
+    cell.checkinLabel.textColor = [UIColor blackColor];
+    cell.checkinLabel.textAlignment = NSTextAlignmentCenter;
+    cell.checkinLabel.backgroundColor = [UIColor clearColor];
+    cell.checkinLabel.hidden = NO;
+    [cell.contentView addSubview:cell.checkinLabel];
+    
+    
+    cell.checkinField =  [[ctdCustomTextField alloc] initWithFrame:CGRectMake(313.0, 0, 68.0,tableView.rowHeight)];
+    [cell addColumn:90];
+    cell.checkinField.font = [UIFont systemFontOfSize:12.0];
+    cell.checkinField.text = attendanceItem.checkIn;
+    cell.checkinField.textColor = [UIColor blackColor];
+    cell.checkinField.textAlignment = NSTextAlignmentCenter;
+    cell.checkinField.backgroundColor = [UIColor whiteColor];
+    [cell.checkinField.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [cell.checkinField.layer setBorderWidth: 1.0];
+    cell.checkinField.hidden = YES;
+    cell.checkinField.delegate = self;
+    cell.checkinField.returnKeyType = UIReturnKeyDone;
+    cell.checkinField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    [cell.contentView addSubview:cell.checkinField];
     
     //saparator checkin
     separator = [[UIImageView alloc] initWithFrame:CGRectMake(382.0, 0, 2.0,tableView.rowHeight)];
@@ -170,14 +193,30 @@
     [cell.contentView addSubview:separator];
     
     //label checkout
-    UILabel *checkoutLabel =  [[UILabel alloc] initWithFrame:CGRectMake(374.0, 0, 88.0,tableView.rowHeight)];
+    cell.checkOutLabel =  [[UILabel alloc] initWithFrame:CGRectMake(374.0, 0, 88.0,tableView.rowHeight)];
     [cell addColumn:110];
-    checkoutLabel.font = [UIFont systemFontOfSize:12.0];
-    checkoutLabel.text = attendanceItem.checkOut;
-    checkoutLabel.textColor = [UIColor blackColor];
-    checkoutLabel.textAlignment = NSTextAlignmentCenter;
-    checkoutLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:checkoutLabel];
+    cell.checkOutLabel.font = [UIFont systemFontOfSize:12.0];
+    cell.checkOutLabel.text = attendanceItem.checkOut;
+    cell.checkOutLabel.textColor = [UIColor blackColor];
+    cell.checkOutLabel.textAlignment = NSTextAlignmentCenter;
+    cell.checkOutLabel.backgroundColor = [UIColor clearColor];
+    cell.checkOutLabel.hidden = NO;
+    [cell.contentView addSubview:cell.checkOutLabel];
+    
+    cell.checkOutField =  [[ctdCustomTextField alloc] initWithFrame:CGRectMake(385.0, 0, 68.0,tableView.rowHeight)];
+    [cell addColumn:90];
+    cell.checkOutField.font = [UIFont systemFontOfSize:12.0];
+    cell.checkOutField.text = attendanceItem.checkOut;
+    cell.checkOutField.textColor = [UIColor blackColor];
+    cell.checkOutField.textAlignment = NSTextAlignmentCenter;
+    cell.checkOutField.backgroundColor = [UIColor whiteColor];
+    [cell.checkOutField.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [cell.checkOutField.layer setBorderWidth: 1.0];
+    cell.checkOutField.returnKeyType = UIReturnKeyDone;
+    cell.checkOutField.hidden = YES;
+    cell.checkOutField.delegate = self;
+    cell.checkOutField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    [cell.contentView addSubview:cell.checkOutField];
     
     //saparator checkout
     separator = [[UIImageView alloc] initWithFrame:CGRectMake(455.0, 0, 2.0,tableView.rowHeight)];
@@ -186,14 +225,30 @@
     [cell.contentView addSubview:separator];
     
     //label edit by
-    UILabel *editByLabel =  [[UILabel alloc] initWithFrame:CGRectMake(465.0, 0, 86.0,tableView.rowHeight)];
+    cell.editByLabel =  [[UILabel alloc] initWithFrame:CGRectMake(465.0, 0, 86.0,tableView.rowHeight)];
     [cell addColumn:130];
-    editByLabel.font = [UIFont systemFontOfSize:12.0];
-    editByLabel.text = attendanceItem.previlage;
-    editByLabel.textColor = [UIColor blackColor];
-    editByLabel.textAlignment = NSTextAlignmentCenter;
-    editByLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:editByLabel];
+    cell.editByLabel.font = [UIFont systemFontOfSize:12.0];
+    cell.editByLabel.text = attendanceItem.previlage;
+    cell.editByLabel.textColor = [UIColor blackColor];
+    cell.editByLabel.textAlignment = NSTextAlignmentCenter;
+    cell.editByLabel.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:cell.editByLabel];
+    
+    cell.editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cell.editButton addTarget:self
+                        action:@selector(editClicked:)
+              forControlEvents:UIControlEventTouchDown];
+    [cell.editButton setImage:[UIImage imageNamed:@"button_small_edit.png"] forState:UIControlStateNormal];
+    cell.editButton.frame = CGRectMake(615, 0, 60, 33);
+    cell.editButton.hidden = YES;
+    [cell.contentView addSubview:cell.editButton];
+    if([indexPathClicked isEqual:indexPath]){
+        [self animateShowEditButton:cell.editButton];
+    }
+    
+    UISwipeGestureRecognizer *showExtrasSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellSwipe:)];
+    showExtrasSwipe.direction = (UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft);
+    [tableView addGestureRecognizer:showExtrasSwipe];
     
     return cell;}
 
@@ -208,26 +263,121 @@
     return 0.01f;
 }
 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Detemine if it's in editing mode
+    if (self.editing) {
+        return UITableViewCellEditingStyleDelete;
+    }
+    return UITableViewCellEditingStyleNone;
+}
+
+
+-(void)cellSwipe:(UISwipeGestureRecognizer *)gesture
+{
+    
+    CGPoint location = [gesture locationInView:itemAttendacen];
+    
+    NSIndexPath *swipedIndexPath = [itemAttendacen indexPathForRowAtPoint:location];
+    
+    ctdSelectViewDailyAttendanceCell *cell = (ctdSelectViewDailyAttendanceCell*)[itemAttendacen cellForRowAtIndexPath:swipedIndexPath];
+    
+    UIImage *selectedImg=[UIImage imageNamed:@"button_small_edit.png"];
+    if (cell.editButton.currentImage == selectedImg )
+    {
+        if(![indexPathClicked isEqual:swipedIndexPath]){
+            indexPathClicked = swipedIndexPath;
+            [itemAttendacen reloadData];
+        }else{
+            [self animateHideSaveButton:cell.editButton];
+            indexPathClicked = NULL;
+            [itemAttendacen reloadData];
+        }
+    }
+    
+    
     
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-
-- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)doneEdit:(ctdSelectViewDailyAttendanceCell*)cell{
     
-    return @"Edit";
+    cell.checkinField.hidden = YES;
+    cell.checkinLabel.hidden = NO;
+    
+    cell.checkOutField.hidden = YES;
+    cell.checkOutLabel.hidden = NO;
+    
+    [self hideKeyboard:cell.checkinField];
+    [self hideKeyboard:cell.checkOutField];
+    
+    indexPathClicked = NULL;
+    [itemAttendacen reloadData];
+}
+
+- (void)editClicked:(id)sender{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:itemAttendacen];
+    NSIndexPath *indexPath = [itemAttendacen indexPathForRowAtPoint:buttonPosition];
+    if (indexPath != nil)
+    {
+        ctdSelectViewDailyAttendanceCell *cell = (ctdSelectViewDailyAttendanceCell*)[itemAttendacen cellForRowAtIndexPath:indexPath];
+        
+        UIImage *selectedImg=[UIImage imageNamed:@"button_small_edit.png"];
+        if (cell.editButton.currentImage == selectedImg )
+        {
+            [cell.editButton setImage:[UIImage imageNamed:@"button_small_save.png"] forState:UIControlStateNormal];
+            cell.checkinField.hidden = NO;
+            cell.checkinLabel.hidden = YES;
+            
+            cell.checkOutField.hidden = NO;
+            cell.checkOutLabel.hidden = YES;
+            
+            [cell.checkinField becomeFirstResponder];
+        }
+        else
+        {
+            if((cell.checkinField.text.length == 0 || cell.checkinField.text.length == 5) && (cell.checkOutField.text.length == 0 || cell.checkOutField.text.length == 5)){
+                [self hideKeyboard:cell.checkinField];
+                [self hideKeyboard:cell.checkOutField];
+                [self savedButtonClicked:cell indexPath:indexPath];
+            }
+            
+        }
+    }
+    
+    
+}
+
+- (void)savedButtonClicked:(ctdSelectViewDailyAttendanceCell*)cell indexPath:(NSIndexPath*)indexPath{
+    
+    ctdResponseDailyAttendanceListModel *attendanceItem =[model.getDailyAttendanceListModels objectAtIndex:indexPath.row];
+    [self updateAttendance:[self getEmployeeId] date:dateTxt.text checkInTime:cell.checkinField.text checkOutTime:cell.checkOutField.text presenceId:attendanceItem.presenceId];
+}
+
+- (void)hideKeyboard:(UITextField*)textField{
+    [textField resignFirstResponder];
+}
+
+
+- (void)animateShowEditButton:(UIButton*)button{
+    [UIView animateWithDuration:0.2 delay: 0.0 options: UIViewAnimationOptionCurveEaseIn animations:^{
+        button.frame = CGRectMake(615, 0, 60, 33);
+    }
+                     completion:^(BOOL finished){ }
+     ];
+    
+    button.hidden = NO;
+}
+
+- (void)animateHideSaveButton:(UIButton*)button{
+    button.frame = CGRectMake(615, 0, 60, 33);
+    [UIView animateWithDuration:0.2 delay: 0.0 options: UIViewAnimationOptionCurveEaseIn animations:^{
+        button.frame = CGRectMake(675, 0, 0, 33);
+    }
+                     completion:^(BOOL finished){
+                         button.hidden = YES;
+                     }
+     ];
+    
+    
 }
 
 #pragma mark DailyAttendanceService methods
@@ -296,11 +446,15 @@
 
 - (void)didReceivedUpdateAttendanceResponse:(NSString*)response{
     [self hideActivityIndicator];
-    
+    [self requestDailyAttendance:[self getEmployeeId] date:dateTxt.text];
+    indexPathClicked = NULL;
 }
 
 - (void)didReceiveUpdateAttendanceErrorResponse:(NSError*)error{
     [self hideActivityIndicator];
+    ctdSelectViewDailyAttendanceCell *cell = (ctdSelectViewDailyAttendanceCell*)[itemAttendacen cellForRowAtIndexPath:indexPathClicked];
+    [self doneEdit:cell];
+    [self showAlert:kAlertForException];
 }
 
 
@@ -316,6 +470,86 @@
 
 - (void)invalidate{
     
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textfield {
+    [textfield resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    // You should already have set some string in the text field
+    if ([string length] == 0)
+        return YES;
+    
+    if ([textField.text length] > 4)
+        return NO;
+    
+    NSCharacterSet* notDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    if ([string rangeOfCharacterFromSet:notDigits].location == NSNotFound)
+    {
+        int value = [string intValue];
+        
+        
+        if(range.location == 0){
+            if(value > 2){
+                return NO;
+            }
+        }else if(range.location == 1){
+            int firstTextFieldValue = [[textField.text substringToIndex:1] intValue];
+            if(firstTextFieldValue > 1  && value > 9)
+                return NO;
+            if(firstTextFieldValue == 2 && value > 3)
+                return NO;
+        }else if(range.location == 2){
+            if(value < 6){
+                textField.text = [NSString stringWithFormat:@"%@:%@", textField.text, string];
+            }
+            return NO;
+        }
+        else if(range.location == 3 || range.location ==4){
+            if(value > 5){
+                return NO;
+            }
+        }
+        // newString consists only of the digits 0 through 9
+        
+        
+        return YES;
+    }
+    
+    // Return NO if you do not want to let user make any changes, otherwise YES
+    return NO;
+}
+
+- (void)keyboardWillShow:(NSNotification *)sender
+{
+    CGSize kbSize = [[[sender userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    NSTimeInterval duration = [[[sender userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0);
+        [itemAttendacen setContentInset:edgeInsets];
+        [itemAttendacen setScrollIndicatorInsets:edgeInsets];
+        if(indexPathClicked.row > 4){
+            [itemAttendacen scrollToRowAtIndexPath:indexPathClicked atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            CGPoint point = itemAttendacen.contentOffset;
+            point .y -= itemAttendacen.rowHeight;
+            itemAttendacen.contentOffset = point;
+        }
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)sender
+{
+    NSTimeInterval duration = [[[sender userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+        [itemAttendacen setContentInset:edgeInsets];
+        [itemAttendacen setScrollIndicatorInsets:edgeInsets];
+    }];
 }
 
 @end

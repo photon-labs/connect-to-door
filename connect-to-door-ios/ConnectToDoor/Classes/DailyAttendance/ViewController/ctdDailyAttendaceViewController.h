@@ -13,7 +13,7 @@
 #import "CKCalendarView.h"
 #import "ctdUpdateAttendaceService.h"
 
-@interface ctdDailyAttendaceViewController : ctdBaseViewController<UITableViewDataSource, UITableViewDelegate,DailyAttendanceServiceDelegate,CKCalendarDelegate, UpdateAttendanceServiceDelegate>{
+@interface ctdDailyAttendaceViewController : ctdBaseViewController<UITableViewDataSource, UITableViewDelegate,DailyAttendanceServiceDelegate,CKCalendarDelegate, UpdateAttendanceServiceDelegate, UITextFieldDelegate>{
     
     IBOutlet UITableView *itemAttendacen;
     //IBOutlet UIView *dateView;
@@ -29,6 +29,9 @@
     
     ctdDailyAttendanceService *dailyAttendanceService;
     ctdUpdateAttendaceService *updateAttendanceService;
+    
+    NSIndexPath *indexPathClicked;
+    BOOL isAdmin;
 }
 
 - (IBAction)didDatePickerClicked:(id)sender;

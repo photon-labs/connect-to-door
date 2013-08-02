@@ -14,8 +14,8 @@
 
 @synthesize delegate = _delegate;
 
--(void) requestUpdateAttendanceToServer:(NSString*)employeeId date:(NSString*)date checkInTime:(NSString*)checkInTime checkOutTime:(NSString*)checkOutTime{
-    NSString *presenceId = [[NSUserDefaults standardUserDefaults] objectForKey:kPresenceId];
+-(void) requestUpdateAttendanceToServer:(NSString*)employeeId date:(NSString*)date checkInTime:(NSString*)checkInTime checkOutTime:(NSString*)checkOutTime presenceId:(NSString*)presenceId{
+
     NSString* urlServer = URLSERVER;
     NSURL *url =[NSURL URLWithString:urlServer];
     

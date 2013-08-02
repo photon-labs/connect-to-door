@@ -18,6 +18,6 @@
 }
 @property (nonatomic,strong) id<UpdateAttendanceServiceDelegate>delegate;
 
--(void) requestUpdateAttendanceToServer:(NSString*)employeeId date:(NSString*)date checkInTime:(NSString*)checkInTime checkOutTime:(NSString*)checkOutTime;
+-(void) requestUpdateAttendanceToServer:(NSString*)employeeId date:(NSString*)date checkInTime:(NSString*)checkInTime checkOutTime:(NSString*)checkOutTime presenceId:(NSString*)presenceId;
 
 @end

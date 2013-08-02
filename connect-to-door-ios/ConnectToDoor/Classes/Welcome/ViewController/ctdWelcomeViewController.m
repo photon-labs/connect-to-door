@@ -50,6 +50,14 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    checkStatusService = [[ctdCheckStatusService alloc]init];
+    checkStatusService.delegate = self;
+    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
+    NSString *employeeId = [localStorage getEmployeeId];
+    [checkStatusService checkStatusToServer:employeeId];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,11 +67,7 @@
    
     [self setShowButton];
     
-    checkStatusService = [[ctdCheckStatusService alloc]init];
-    checkStatusService.delegate = self;
-    ctdLocalStorage *localStorage = [[ctdLocalStorage alloc]init];
-    NSString *employeeId = [localStorage getEmployeeId];
-    [checkStatusService checkStatusToServer:employeeId];
+    
 }
 
 - (void)setShowButton{
