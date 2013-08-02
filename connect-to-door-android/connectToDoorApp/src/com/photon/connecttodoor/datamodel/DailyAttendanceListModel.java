@@ -11,7 +11,16 @@ public class DailyAttendanceListModel extends MainParser{
 	private String checkOut;
 	private String previlage;
 	private String presentId;
-	
+	private String admin;
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
+
 	public String getPresentId() {
 		return presentId;
 	}
@@ -88,6 +97,10 @@ public class DailyAttendanceListModel extends MainParser{
 		if(jsonObject.has("presence_id")){
 			String presenceId = jsonObject.getString("presence_id");
 			this.setPresentId(presenceId);
+		}
+		if(jsonObject.has("admin")){
+			String admin = jsonObject.getString("admin");
+			this.setAdmin(admin);
 		}
 	}
 

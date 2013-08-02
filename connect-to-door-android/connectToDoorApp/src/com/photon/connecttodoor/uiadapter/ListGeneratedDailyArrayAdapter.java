@@ -70,6 +70,7 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 		final TextView checkOutTextView = (TextView) convertView.findViewById(R.id.check_out_text);
 		final EditText editCheckInUpdate = (EditText) convertView.findViewById(R.id.edt_check_in_text);
 		final EditText editCheckOutUpdate = (EditText) convertView.findViewById(R.id.edt_check_out_text);
+		final TextView editByAdmin = (TextView) convertView.findViewById(R.id.edit_by_text);
 		convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#cfe9d0"));
 
 		int number = position+1;
@@ -77,9 +78,9 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 		nameTextView.setText(values.get(position).getName());
 		checkInTextView.setText(values.get(position).getCheckIn());
 		checkOutTextView.setText(values.get(position).getCheckOut());
+		editByAdmin.setText(values.get(position).getAdmin());
 		LocalStorage localstorage = new LocalStorage();
 		String admin = localstorage.loadStringPreferences("previlege", context.getApplicationContext());
-
 		if(admin.equals("Admin")){
 			checkInTextView.setOnClickListener(new OnClickListener() {
 
@@ -118,19 +119,26 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 						{
 							if(keyCode == KeyEvent.KEYCODE_ENTER)
 							{
-								checkIn = values.get(position).getCheckIn().toString();
-								checkOut = values.get(position).getCheckOut().toString();
-								inputCheckIn = editCheckInUpdate.getText().toString();
-								inputCheckOut = editCheckOutUpdate.getText().toString();
-								updateCheckIn = inputCheckIn;
-								updateCheckOut = inputCheckOut;
-								values.get(position).setCheckIn(updateCheckIn);
-								values.get(position).setCheckOut(updateCheckOut);
-								checkInTextView.setText(values.get(position).getCheckIn());
-								checkOutTextView.setText(values.get(position).getCheckOut());
-								checkInTextView.setVisibility(View.VISIBLE);
-								checkOutTextView.setVisibility(View.VISIBLE);
-								new CallServiceAttendanceReportTask().execute();
+								setActionUpdateTime(position,editCheckInUpdate,editCheckOutUpdate,checkInTextView,checkOutTextView);
+								return true;
+							}
+						}
+					}
+					return false;
+				}
+			});
+
+			editCheckOutUpdate.setOnKeyListener(new OnKeyListener() {
+
+				@Override
+				public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+					{
+						if(event.getAction() == KeyEvent.ACTION_DOWN)
+						{
+							if(keyCode == KeyEvent.KEYCODE_ENTER)
+							{
+								setActionUpdateTime(position,editCheckInUpdate,editCheckOutUpdate,checkInTextView,checkOutTextView);
 								return true;
 							}
 						}
@@ -143,6 +151,29 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 		return convertView;
 	}
 
+	private void setActionUpdateTime(int selectedPosition, EditText editCheckInUpdate, EditText editCheckOutUpdate, TextView checkInTextView, TextView checkOutTextView){
+		checkIn = values.get(selectedPosition).getCheckIn().toString();
+		checkOut = values.get(selectedPosition).getCheckOut().toString();
+		inputCheckIn = editCheckInUpdate.getText().toString();
+		inputCheckOut = editCheckOutUpdate.getText().toString();
+		if(inputCheckIn.matches("") || (inputCheckIn == null)){
+			updateCheckIn = checkIn;
+		}else{
+			updateCheckIn = inputCheckIn;
+		}
+		if(inputCheckOut.matches("") || (inputCheckOut == null)){
+			updateCheckOut = checkOut;
+		}else{
+			updateCheckOut = inputCheckOut;
+		}
+		values.get(selectedPosition).setCheckIn(updateCheckIn);
+		values.get(selectedPosition).setCheckOut(updateCheckOut);
+		checkInTextView.setText(values.get(selectedPosition).getCheckIn());
+		checkOutTextView.setText(values.get(selectedPosition).getCheckOut());
+		checkInTextView.setVisibility(View.VISIBLE);
+		checkOutTextView.setVisibility(View.VISIBLE);
+		new CallServiceAttendanceReportTask().execute();
+	}
 	private class CallServiceAttendanceReportTask extends AsyncTask<Void, Void, String> {
 
 		protected void onPreExecute() {
