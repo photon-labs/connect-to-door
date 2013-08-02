@@ -44,7 +44,7 @@
                 android:layout_width="60dp"
                 android:layout_height="40dp"
                 android:contentDescription="Calendar-Image"
-                android:src="@drawable/calendar_icon" />
+                android:src="@drawable/nuicon_datealt" />
         </LinearLayout>
 
         <LinearLayout
