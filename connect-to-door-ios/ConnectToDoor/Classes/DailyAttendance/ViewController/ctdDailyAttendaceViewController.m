@@ -274,27 +274,26 @@
 
 -(void)cellSwipe:(UISwipeGestureRecognizer *)gesture
 {
-    
-    CGPoint location = [gesture locationInView:itemAttendacen];
-    
-    NSIndexPath *swipedIndexPath = [itemAttendacen indexPathForRowAtPoint:location];
-    
-    ctdSelectViewDailyAttendanceCell *cell = (ctdSelectViewDailyAttendanceCell*)[itemAttendacen cellForRowAtIndexPath:swipedIndexPath];
-    
-    UIImage *selectedImg=[UIImage imageNamed:@"button_small_edit.png"];
-    if (cell.editButton.currentImage == selectedImg )
-    {
-        if(![indexPathClicked isEqual:swipedIndexPath]){
-            indexPathClicked = swipedIndexPath;
-            [itemAttendacen reloadData];
-        }else{
-            [self animateHideSaveButton:cell.editButton];
-            indexPathClicked = NULL;
-            [itemAttendacen reloadData];
+    if(isAdmin){
+        CGPoint location = [gesture locationInView:itemAttendacen];
+        
+        NSIndexPath *swipedIndexPath = [itemAttendacen indexPathForRowAtPoint:location];
+        
+        ctdSelectViewDailyAttendanceCell *cell = (ctdSelectViewDailyAttendanceCell*)[itemAttendacen cellForRowAtIndexPath:swipedIndexPath];
+        
+        UIImage *selectedImg=[UIImage imageNamed:@"button_small_edit.png"];
+        if (cell.editButton.currentImage == selectedImg )
+        {
+            if(![indexPathClicked isEqual:swipedIndexPath]){
+                indexPathClicked = swipedIndexPath;
+                [itemAttendacen reloadData];
+            }else{
+                [self animateHideSaveButton:cell.editButton];
+                indexPathClicked = NULL;
+                [itemAttendacen reloadData];
+            }
         }
     }
-    
-    
     
 }
 
