@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,7 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 	private final Context context;
 	private ArrayList<DailyAttendanceListModel> values;
 	UpdateData updateData;
+	InputFilter timeFilter;
 
 	public ListGeneratedDailyArrayAdapter(Context context ,ArrayList<DailyAttendanceListModel> arrayList) {
 
@@ -146,7 +149,59 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 					return false;
 				}
 			});
+			/**
+			 *  input only time in ##:## format
+			 *  23:59 correct
+			 *  24:05 incorrect
+			 *  02:56 correct
+			 *  02:79 incorrect
+			 */
+			timeFilter  = new InputFilter() {
+				@Override
+				public CharSequence filter(CharSequence source, int start, int end, Spanned dest,
+						int dstart, int dend) {
 
+					if (source.length() == 0) {
+						return null;// deleting, keep original editing
+					}
+					String result = "";
+					result += dest.toString().substring(0, dstart);
+					result += source.toString().substring(start, end);
+					result += dest.toString().substring(dend, dest.length());
+					if (result.length() > 5) {
+						return "";// do not allow this edit
+					}
+					boolean allowEdit = true;
+					char c;
+					if (result.length() > 0) {
+						c = result.charAt(0);
+						allowEdit &= (c >= '0' && c <= '2');
+					}
+					if (result.length() > 1) {
+						c = result.charAt(1);
+						if(result.charAt(0) == '0' || result.charAt(0) == '1')
+							allowEdit &= (c >= '0' && c <= '9');
+						else
+							allowEdit &= (c >= '0' && c <= '3');
+					}
+					if (result.length() > 2) {
+						c = result.charAt(2);
+						allowEdit &= (c == ':');
+					}
+					if (result.length() > 3) {
+						c = result.charAt(3);
+						allowEdit &= (c >= '0' && c <= '5');
+					}
+					if (result.length() > 4) {
+						c = result.charAt(4);
+						allowEdit &= (c >= '0' && c <= '9');
+					}
+					return allowEdit ? null : "";
+				}
+			};
+
+			editCheckInUpdate.setFilters(new InputFilter[] { timeFilter });
+			editCheckOutUpdate.setFilters(new InputFilter[] { timeFilter });
 		}
 		return convertView;
 	}
@@ -174,6 +229,7 @@ public class ListGeneratedDailyArrayAdapter extends BaseAdapter {
 		checkOutTextView.setVisibility(View.VISIBLE);
 		new CallServiceAttendanceReportTask().execute();
 	}
+
 	private class CallServiceAttendanceReportTask extends AsyncTask<Void, Void, String> {
 
 		protected void onPreExecute() {
