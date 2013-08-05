@@ -88,15 +88,15 @@
                 android:background="#27593E" />
         </LinearLayout>
 
-        <ListView
+        <LinearLayout
             android:id="@+id/table_request_list"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:columnWidth="50dp"
-            android:fastScrollEnabled="false"
-            android:gravity="center"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth" />
+            android:orientation="vertical"
+            android:gravity="center">
+      	</LinearLayout>
+            
     </LinearLayout>
 
 </LinearLayout>

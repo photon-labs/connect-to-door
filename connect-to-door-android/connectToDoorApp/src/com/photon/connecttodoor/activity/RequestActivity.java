@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 import org.json.JSONException;
 
@@ -12,12 +11,15 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -25,7 +27,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -33,10 +35,8 @@ import com.photon.connecttodoor.R;
 import com.photon.connecttodoor.controller.LocalStorage;
 import com.photon.connecttodoor.controller.SignatureLinkService;
 import com.photon.connecttodoor.datamodel.ProfileModel;
-import com.photon.connecttodoor.datamodel.RequestListModel;
 import com.photon.connecttodoor.datamodel.RequestModel;
 import com.photon.connecttodoor.datamodel.SignatureLinkModel;
-import com.photon.connecttodoor.uiadapter.ListGeneratedRequestArrayAdapter;
 
 @SuppressLint("NewApi")
 public class RequestActivity extends MainActivity{
@@ -52,9 +52,10 @@ public class RequestActivity extends MainActivity{
 	Spinner requestList, approvalList;
 	private EditText requestCost, requestQuantity, requestDesc;
 	String date, desc, quantity, cost;
-	ListView requestListView;
+	LinearLayout requestListView;
+	View reqDataList, view;
 	RequestModel requestParam;
-	
+	int index;
 	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -73,7 +74,9 @@ public class RequestActivity extends MainActivity{
 		requestCost = (EditText)findViewById(R.id.requestCost);
 		requestQuantity = (EditText)findViewById(R.id.requestQuantity);
 		requestDesc = (EditText)findViewById(R.id.requestDescription);
-		requestListView = (ListView)findViewById(R.id.table_request_list);
+		requestListView = (LinearLayout)findViewById(R.id.table_request_list);
+		
+		
 		requestParam = new RequestModel();
 		
 		if (android.os.Build.VERSION.SDK_INT > 9) { 
@@ -199,23 +202,30 @@ public class RequestActivity extends MainActivity{
 		}
 	}
 	
+	/**
+	 * put the data input into table and add index to each view
+	 */
 	private void onSaveRequestState() {
-		String cost = requestCost.getText().toString();
-		String desc = requestDesc.getText().toString();
-		String quantity = requestQuantity.getText().toString();
-		String date = requestVoucherDate.getText().toString();
-		RequestListModel modelRequestItemList = new RequestListModel();
-		modelRequestItemList.setQuantity(quantity);
-		modelRequestItemList.setCost(cost);
-		modelRequestItemList.setDescription(desc);
-		modelRequestItemList.setDate(date);
-		
-		requestParam.addToList(modelRequestItemList);
 		// TODO Auto-generated method stub
-		ListGeneratedRequestArrayAdapter reqArrayAdapter = new ListGeneratedRequestArrayAdapter(RequestActivity.this, requestParam.getRequestListModel());
-		requestListView.setAdapter(reqArrayAdapter);
-		reqArrayAdapter.notifyDataSetChanged();
-		
+			LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+			View view = inflater.inflate(R.layout.text_table_requestlist, null);
+			requestListView.addView(view, index);
+			view.setBackgroundColor(index % 2 == 0 ? Color.WHITE : Color.parseColor("#cfe9d0"));
+			TextView numberTextView = (TextView)view.findViewById(R.id.req_no);
+			TextView dateTextView = (TextView)view.findViewById(R.id.req_date);
+			TextView descTextView = (TextView)view.findViewById(R.id.req_desc);
+			TextView quantityTextView = (TextView)view.findViewById(R.id.req_quantity);
+			TextView costTextView = (TextView)view.findViewById(R.id.req_cost);
+			index = index + 1;
+			String cost = requestCost.getText().toString();
+			String desc = requestDesc.getText().toString();
+			String quantity = requestQuantity.getText().toString();
+			String date = requestVoucherDate.getText().toString();
+			numberTextView.setText(""+index);
+			dateTextView.setText(date);
+			descTextView.setText(desc);
+			quantityTextView.setText(quantity);
+			costTextView.setText(cost);
 	}
 	
 	private class CallServiceSignatureLink extends AsyncTask<Void, Void, String> {
