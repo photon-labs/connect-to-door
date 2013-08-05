@@ -21,7 +21,6 @@
     IBOutlet UITextField *dateTxt;
     NSString* dateString;
     ctdResponseDailyAttendanceModel *model;
-    CKCalendarView *calendar;
     NSString *maxDate;
     NSString *datePickerActive;
     //NSDateFormatter *dateFormatter;
@@ -33,6 +32,11 @@
     NSIndexPath *indexPathClicked;
     BOOL isAdmin;
 }
+
+@property(nonatomic, strong) CKCalendarView *calendar;
+@property(nonatomic, strong) NSDate *minimumDate;
+@property(nonatomic, strong) NSDate *maximumDate;
+@property(nonatomic, strong) NSArray *disabledDates;
 
 - (IBAction)didDatePickerClicked:(id)sender;
 - (IBAction)didPrintClicked:(id)sender;

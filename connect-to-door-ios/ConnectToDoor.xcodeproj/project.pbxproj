@@ -39,6 +39,10 @@
 		71DFF0491739080500EF1491 /* ctdSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DFF0471739080500EF1491 /* ctdSignInViewController.xib */; };
 		DD0706BB17A7C44A0085EAFB /* ctdUpdateAttendaceService.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0706BA17A7C44A0085EAFB /* ctdUpdateAttendaceService.m */; };
 		DD0706BE17AA434A0085EAFB /* ctdCustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0706BD17AA434A0085EAFB /* ctdCustomTextField.m */; };
+		DD0706C317AF49300085EAFB /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DD0706BF17AF49300085EAFB /* left_arrow.png */; };
+		DD0706C417AF49300085EAFB /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD0706C017AF49300085EAFB /* left_arrow@2x.png */; };
+		DD0706C517AF49300085EAFB /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DD0706C117AF49300085EAFB /* right_arrow.png */; };
+		DD0706C617AF49300085EAFB /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD0706C217AF49300085EAFB /* right_arrow@2x.png */; };
 		DD3035F5179FA7CA00BA679C /* DropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035F4179FA7CA00BA679C /* DropDownView.m */; };
 		DD303600179FC37800BA679C /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3035FF179FC37800BA679C /* CKCalendarView.m */; };
 		DD303602179FDF1E00BA679C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD303601179FDF1E00BA679C /* QuartzCore.framework */; };
@@ -233,6 +237,10 @@
 		DD0706BA17A7C44A0085EAFB /* ctdUpdateAttendaceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdUpdateAttendaceService.m; sourceTree = "<group>"; };
 		DD0706BC17AA434A0085EAFB /* ctdCustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctdCustomTextField.h; sourceTree = "<group>"; };
 		DD0706BD17AA434A0085EAFB /* ctdCustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ctdCustomTextField.m; sourceTree = "<group>"; };
+		DD0706BF17AF49300085EAFB /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left_arrow.png; path = Resources/Images/left_arrow.png; sourceTree = "<group>"; };
+		DD0706C017AF49300085EAFB /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "left_arrow@2x.png"; path = "Resources/Images/left_arrow@2x.png"; sourceTree = "<group>"; };
+		DD0706C117AF49300085EAFB /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right_arrow.png; path = Resources/Images/right_arrow.png; sourceTree = "<group>"; };
+		DD0706C217AF49300085EAFB /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "right_arrow@2x.png"; path = "Resources/Images/right_arrow@2x.png"; sourceTree = "<group>"; };
 		DD3035F3179FA7CA00BA679C /* DropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownView.h; sourceTree = "<group>"; };
 		DD3035F4179FA7CA00BA679C /* DropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownView.m; sourceTree = "<group>"; };
 		DD3035FE179FC37800BA679C /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
@@ -540,14 +548,14 @@
 				7133432E1737CB8500057FE6 /* ctdAppDelegate.m */,
 				DDE8407C17A26F7B008B71CB /* AttendanceForm */,
 				DDDAEF80179528D3008E8482 /* AttendanceList */,
-				71DFF0201738C9C800EF1491 /* Profile */,
-				71DFF01F1738C9B900EF1491 /* Voucher */,
-				71DFF01E1738C9AB00EF1491 /* DailyAttendance */,
-				713343541737EF5F00057FE6 /* Utilities */,
-				7133433F1737D0CF00057FE6 /* Common */,
-				713343471737D66B00057FE6 /* Login */,
-				713343441737D23900057FE6 /* Welcome */,
 				7133432C1737CB8500057FE6 /* Base */,
+				7133433F1737D0CF00057FE6 /* Common */,
+				71DFF01E1738C9AB00EF1491 /* DailyAttendance */,
+				713343471737D66B00057FE6 /* Login */,
+				71DFF0201738C9C800EF1491 /* Profile */,
+				713343541737EF5F00057FE6 /* Utilities */,
+				71DFF01F1738C9B900EF1491 /* Voucher */,
+				713343441737D23900057FE6 /* Welcome */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -991,6 +999,10 @@
 		DD47734517A11B660050D327 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DD0706BF17AF49300085EAFB /* left_arrow.png */,
+				DD0706C017AF49300085EAFB /* left_arrow@2x.png */,
+				DD0706C117AF49300085EAFB /* right_arrow.png */,
+				DD0706C217AF49300085EAFB /* right_arrow@2x.png */,
 				DD5716F017A253120074B63C /* button_print.png */,
 				DDB6109E17A66CA2003262B0 /* button_save.png */,
 				DDB610A017A66D2A003262B0 /* button_attform_create_account.png */,
@@ -1349,6 +1361,10 @@
 				DDB610A517A66D2A003262B0 /* button_attform_edit_account.png in Resources */,
 				DDB610A717A6B1F8003262B0 /* button_deleteacc.png in Resources */,
 				DDC6DEA717A6B4770056C6A2 /* button_deleteacc.png in Resources */,
+				DD0706C317AF49300085EAFB /* left_arrow.png in Resources */,
+				DD0706C417AF49300085EAFB /* left_arrow@2x.png in Resources */,
+				DD0706C517AF49300085EAFB /* right_arrow.png in Resources */,
+				DD0706C617AF49300085EAFB /* right_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

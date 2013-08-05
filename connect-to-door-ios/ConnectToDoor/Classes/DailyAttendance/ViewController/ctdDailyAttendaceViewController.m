@@ -23,6 +23,11 @@
 
 @implementation ctdDailyAttendaceViewController
 
+@synthesize calendar;
+@synthesize maximumDate;
+@synthesize minimumDate;
+@synthesize disabledDates;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,9 +54,15 @@
     NSLog(@"previllage ===== %@", previllage);
     
     isAdmin = [previllage isEqualToString:@"Admin"] ? YES: NO;
+    
+    NSDateComponents* deltaComps = [[NSDateComponents alloc] init];
+    [deltaComps setDay:1];
+    self.maximumDate = [[NSCalendar currentCalendar] dateByAddingComponents:deltaComps toDate:[NSDate date] options:0];
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
+
 
 /*@uathor:aldi_p
  *this method for handle request service daily attendance
@@ -246,17 +257,16 @@
         [self animateShowEditButton:cell.editButton];
     }
     
-    UISwipeGestureRecognizer *showExtrasSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellSwipe:)];
-    showExtrasSwipe.direction = (UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft);
-    [tableView addGestureRecognizer:showExtrasSwipe];
+    if(isAdmin){
+        UISwipeGestureRecognizer *showExtrasSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellSwipe:)];
+        showExtrasSwipe.direction = (UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft);
+        [tableView addGestureRecognizer:showExtrasSwipe];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;}
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // By default, allow row to be selected
-    return indexPath;
-}
 
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -271,30 +281,26 @@
     return UITableViewCellEditingStyleNone;
 }
 
-
 -(void)cellSwipe:(UISwipeGestureRecognizer *)gesture
 {
-    if(isAdmin){
-        CGPoint location = [gesture locationInView:itemAttendacen];
-        
-        NSIndexPath *swipedIndexPath = [itemAttendacen indexPathForRowAtPoint:location];
-        
-        ctdSelectViewDailyAttendanceCell *cell = (ctdSelectViewDailyAttendanceCell*)[itemAttendacen cellForRowAtIndexPath:swipedIndexPath];
-        
-        UIImage *selectedImg=[UIImage imageNamed:@"button_small_edit.png"];
-        if (cell.editButton.currentImage == selectedImg )
-        {
-            if(![indexPathClicked isEqual:swipedIndexPath]){
-                indexPathClicked = swipedIndexPath;
-                [itemAttendacen reloadData];
-            }else{
-                [self animateHideSaveButton:cell.editButton];
-                indexPathClicked = NULL;
-                [itemAttendacen reloadData];
-            }
+    CGPoint location = [gesture locationInView:itemAttendacen];
+    
+    NSIndexPath *swipedIndexPath = [itemAttendacen indexPathForRowAtPoint:location];
+    
+    ctdSelectViewDailyAttendanceCell *cell = (ctdSelectViewDailyAttendanceCell*)[itemAttendacen cellForRowAtIndexPath:swipedIndexPath];
+    
+    UIImage *selectedImg=[UIImage imageNamed:@"button_small_edit.png"];
+    if (cell.editButton.currentImage == selectedImg )
+    {
+        if(![indexPathClicked isEqual:swipedIndexPath]){
+            indexPathClicked = swipedIndexPath;
+            [itemAttendacen reloadData];
+        }else{
+            [self animateHideSaveButton:cell.editButton];
+            indexPathClicked = NULL;
+            [itemAttendacen reloadData];
         }
     }
-    
 }
 
 - (void)doneEdit:(ctdSelectViewDailyAttendanceCell*)cell{
@@ -402,8 +408,10 @@
 
 - (void) createPopUpCalendar :(CGFloat)positionX :(CGFloat)positionY
 {
+    itemAttendacen.userInteractionEnabled = NO;
     calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
     calendar.delegate = self;
+    
     
     calendar.onlyShowCurrentMonth = NO;
     calendar.adaptHeightToNumberOfWeeksInMonth = YES;
@@ -423,19 +431,51 @@
 
 - (void) removePopUp
 {
+    itemAttendacen.userInteractionEnabled = YES;
     datePickerActive = @"";
     calendar.delegate = nil;
     [calendar removeFromSuperview];
     calendar = nil;
 }
 
+- (BOOL)dateIsDisabled:(NSDate *)date {
+    for (NSDate *disabledDate in self.disabledDates) {
+        if ([disabledDate isEqualToDate:date]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 #pragma mark - CKCalendarDelegate
+
+- (void)calendar:(CKCalendarView *)calendar configureDateItem:(CKDateItem *)dateItem forDate:(NSDate *)date {
+    // TODO: play with the coloring if we want to...
+    if ([self dateIsDisabled:date]) {
+        dateItem.backgroundColor = [UIColor redColor];
+        dateItem.textColor = [UIColor whiteColor];
+    }
+}
+
+- (BOOL)calendar:(CKCalendarView *)calendar willSelectDate:(NSDate *)date {
+    return [self.calendar dateIsInCurrentMonth:date];
+}
+
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date
 {
     dateTxt.text = [self paternDateForRequest:date];
     [self removePopUp];
     [self requestDailyAttendance:[self getEmployeeId] date:[self paternDateForRequest:date]];
 }
+
+- (BOOL)calendar:(CKCalendarView *)calendar willChangeToMonth:(NSDate *)date {
+    return YES;
+}
+
+- (void)calendar:(CKCalendarView *)calendar didLayoutInRect:(CGRect)frame {
+    NSLog(@"calendar layout: %@", NSStringFromCGRect(frame));
+}
+
 
 - (IBAction)didPrintClicked:(id)sender{
     [self showAlert:kAlertUnderConstruction];
@@ -458,7 +498,7 @@
 
 
 - (void)releaseDelegates{
-    NSLog(@"masuk releaseDelegates ");
+    NSLog(@"enter releaseDelegates ");
     dailyAttendanceService.delegate = nil;
     updateAttendanceService.delegate = nil;
     itemAttendacen.delegate = nil;
@@ -549,6 +589,17 @@
         [itemAttendacen setContentInset:edgeInsets];
         [itemAttendacen setScrollIndicatorInsets:edgeInsets];
     }];
+}
+
+// Close popup if the Background is touched
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[super touchesBegan:touches withEvent:event];
+    NSLog(@"enter touchesBegan");
+    UITouch *touch = [[event allTouches] anyObject];
+	if ([touch view] != self.calendar) {
+        [self removePopUp];
+    }
+    
 }
 
 @end

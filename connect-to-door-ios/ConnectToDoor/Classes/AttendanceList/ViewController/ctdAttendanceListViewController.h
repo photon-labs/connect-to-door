@@ -38,6 +38,10 @@
 @property (nonatomic, strong) IBOutlet UIButton *searchButton;
 @property (nonatomic, strong) IBOutlet UIButton *searchOptionTextButton;
 @property (nonatomic, strong) IBOutlet UIButton *printButton;
+@property(nonatomic, strong) CKCalendarView *calendar;
+@property(nonatomic, strong) NSDate *minimumDate;
+@property(nonatomic, strong) NSDate *maximumDate;
+@property(nonatomic, strong) NSArray *disabledDates;
 
 - (IBAction)didDateStartClicked:(id)sender;
 - (IBAction)didDateEndClicked:(id)sender;

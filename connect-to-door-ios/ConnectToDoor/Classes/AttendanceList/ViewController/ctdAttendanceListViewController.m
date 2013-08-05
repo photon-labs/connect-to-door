@@ -20,6 +20,10 @@
 @synthesize searchKeyText;
 @synthesize printButton;
 @synthesize searchButton;
+@synthesize calendar;
+@synthesize maximumDate;
+@synthesize minimumDate;
+@synthesize disabledDates;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -229,8 +233,12 @@
     averageWorkingLabel.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:averageWorkingLabel];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
+
+
 
 - (IBAction)didDateStartClicked:(id)sender
 {
@@ -304,7 +312,30 @@
     calendar = nil;
 }
 
+
+- (BOOL)dateIsDisabled:(NSDate *)date {
+    for (NSDate *disabledDate in self.disabledDates) {
+        if ([disabledDate isEqualToDate:date]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 #pragma mark - CKCalendarDelegate
+
+- (void)calendar:(CKCalendarView *)calendar configureDateItem:(CKDateItem *)dateItem forDate:(NSDate *)date {
+    // TODO: play with the coloring if we want to...
+    if ([self dateIsDisabled:date]) {
+        dateItem.backgroundColor = [UIColor redColor];
+        dateItem.textColor = [UIColor whiteColor];
+    }
+}
+
+- (BOOL)calendar:(CKCalendarView *)calendar willSelectDate:(NSDate *)date {
+    return [self.calendar dateIsInCurrentMonth:date];
+}
+
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date
 {
     if([datePickerActive isEqualToString:DATE_START]) {
@@ -313,6 +344,14 @@
         self.dateEndText.text = [dateFormatter stringFromDate:date];
     }
     [self removePopUp];
+}
+
+- (BOOL)calendar:(CKCalendarView *)calendar willChangeToMonth:(NSDate *)date {
+    return YES;
+}
+
+- (void)calendar:(CKCalendarView *)calendar didLayoutInRect:(CGRect)frame {
+    NSLog(@"calendar layout: %@", NSStringFromCGRect(frame));
 }
 
 #pragma mark - Dropdown View Delegate
@@ -359,7 +398,7 @@
 // Close popup if the Background is touched
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesBegan:touches withEvent:event];
-    NSLog(@"masuk touchesBegan");
+    NSLog(@"enter touchesBegan");
     UITouch *touch = [[event allTouches] anyObject];
 	if ([touch view] != calendar) {
         [self removePopUp];
