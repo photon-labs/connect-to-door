@@ -238,12 +238,10 @@ public class RequestActivity extends MainActivity{
 	private void doCalculate(String cost, String quantity) {
 		
 		if("".equals(cost) || cost == null){
-			Log.i(cost, "dpt nihh>>>>>>>>>>>>>>>>>>>>>");
 			sumTotal.setText("Rp. "+total);
 			
 		}
 		else {
-			Log.i(cost, "<<<<<<<<<yang kedua nih>>>>>>>>>>>>>>>>>>>>>");
 			subTotal = Integer.parseInt(cost);
 			amount = Integer.parseInt(quantity);
 			total = (subTotal * amount) + this.total;
