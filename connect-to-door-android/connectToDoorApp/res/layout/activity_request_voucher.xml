@@ -249,7 +249,7 @@
                             android:layout_toRightOf="@+id/text_emp"
                             android:textSize="18sp"
                             android:background="@drawable/box_white_att_form_long"
-                            android:inputType="numberDecimal"
+                            android:inputType="number"
                             android:text="0"
                             android:gravity="center_vertical"
                             android:paddingBottom="5dp"
@@ -311,6 +311,7 @@
                         android:gravity="center"
                         android:paddingTop="8dp"
                         android:textSize="15sp"
+                        android:textStyle="bold"
                         android:textColor="#000000"/>
                     
                 	<ImageView
@@ -322,8 +323,22 @@
                 	    android:id="@+id/sumTotalReq"
                 	    android:layout_width="120dp"
                 	    android:layout_height="wrap_content"
-                	    android:gravity="center" />
+                	    android:gravity="center"
+                	    android:text="Rp.  0,-"
+                	    android:textStyle="bold" />
                     
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                	
+                    <TextView 
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginRight="30dp"
+                        android:text="Don't forget to attach receipts!"
+                        android:textColor="#FF0000"/>
                 </LinearLayout>
 
                 <LinearLayout

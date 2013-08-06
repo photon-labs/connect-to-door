@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:background="@drawable/background_allpages">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="794dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/box_transparent_att_form"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="50dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:paddingRight="30dp" >
+
+                    <TextView
+                        android:id="@+id/reqSubmitDate"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/nubox_finddate"
+                        android:textSize="18sp"
+                        android:paddingLeft="10dp" 
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/reqSubmitDateImage"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/nuicon_datealt" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="30dp" >
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="50dp" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:text="Employee Name"
+                            android:textColor="#ffff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:text="@string/employeeId_profile"
+                            android:textColor="#ffff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Request"
+                            android:textColor="#ffff"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="385dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="90dp" >
+
+                        <TextView
+                            android:id="@+id/employee_name"
+                            android:layout_width="250dp"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="8dp"
+                            android:textSize="18sp" 
+                            android:textColor="#ffff"/>
+
+                        <TextView
+                            android:id="@+id/employee_id"
+                            android:layout_width="250dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="8dp"
+                            android:textSize="18sp"
+                            android:textColor="#ffff" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                android:id="@+id/reqSubmitCategory"
+                                android:layout_width="210dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/box_white_att_form_long"
+                                android:inputType="text"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="8dp"
+                                android:paddingTop="3dp"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:layout_width="29dp"
+                                android:layout_height="29dp"
+                                android:layout_marginLeft="176dp"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/filter_by_button_arrow_dropdown"
+                                android:orientation="vertical" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp" 
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp">
+
+                    <include
+                        android:id="@+id/requestList"
+                        layout="@layout/listview_requestlist" />
+                   
+                </LinearLayout>
+                
+                <LinearLayout 
+                    android:layout_width="577dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#FFFFFF"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_gravity="right">
+                    
+                    <TextView 
+                        android:layout_width="457dp"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL"
+                        android:gravity="center"
+                        android:paddingTop="8dp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+                    
+                	<ImageView
+				        android:layout_width="2dp"
+				        android:layout_height="35dp"
+				        android:background="#86AA8E" />
+
+                	<TextView
+                	    android:id="@+id/sumTotalReq"
+                	    android:layout_width="120dp"
+                	    android:layout_height="wrap_content"
+                	    android:textStyle="bold"
+                	    android:gravity="center" />
+                    
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                	
+                    <TextView 
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_marginRight="30dp"
+                        android:text="Don't forget to attach receipts!"
+                        android:textColor="#FF0000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Submited by"
+                        android:textColor="#ffff"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/reqEmpSignature"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toRightOf="@+id/text_emp"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="8dp" />
+
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This Request need your approval. Please attach your signature to complete this request"
+                        android:textColor="#ffff"
+                        android:textSize="18sp" />
+              	</LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+
+                    <ImageView
+                        android:id="@+id/reqSignature"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toRightOf="@+id/text_emp"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="8dp" />
+
+                    <ImageButton
+                        android:id="@+id/insertSignButton"
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/button_save" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="90dp" >
+
+                    <Button
+                        android:id="@+id/approveButton"
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/button_back" />
+
+                    <Button
+                        android:id="@+id/declineButton"
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="50dp"
+                        android:background="@drawable/button_save" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

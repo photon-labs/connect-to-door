@@ -45,13 +45,14 @@ public class RequestActivity extends MainActivity{
 	private String requestCategory[] = {"Building","Communication", "Consumption","Depreciation", "Electricity","Equipment", "Fixed Asset",
 			"Fixed Asset Insurance", "Hosting", "Internet", "Maintenance", "Miscellanous", "Postage", "Profesional", "Recruiting", "Rent", "Stationary", "Tax", "Transportation"};
 	private String approvalCategory[] = {"Mohammad Daud","Dodik Purnomo"}; 
+	private EditText requestCost, requestQuantity, requestDesc;
+	private String strI;
 	ImageView requestEntryDate, signature;
 	SignatureLinkModel signatureDataModel;
 	ProfileModel profileDataModel;
-	Button  backButton, saveButton;
+	Button  backButton, saveButton, submitButton;
 	ImageButton insertSignature;
 	Spinner requestList, approvalList;
-	private EditText requestCost, requestQuantity, requestDesc;
 	String date, desc, quantity, cost;
 	LinearLayout requestListView;
 	View reqDataList, view;
@@ -68,6 +69,7 @@ public class RequestActivity extends MainActivity{
 		empID = (TextView)findViewById(R.id.employee_id);
 		backButton = (Button)findViewById(R.id.backButton);
 		saveButton = (Button)findViewById(R.id.save_button);
+		submitButton = (Button)findViewById(R.id.submitButton);
 		requestList = (Spinner)findViewById(R.id.requestCategory);
 		approvalList = (Spinner)findViewById(R.id.approvalPersonList);
 		dateNow = (TextView)findViewById(R.id.requestDate);
@@ -128,11 +130,27 @@ public class RequestActivity extends MainActivity{
 				new CallServiceSignatureLink().execute();
 			}
 		});
+		submitButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				goToSubmitRequestPage();
+			}
+		});
 	}
 
 	private void goToVoucherPage() {
 		Intent voucherPage = new Intent(this, VoucherActivity.class);
 		startActivity(voucherPage);
+	}
+	
+	private void goToSubmitRequestPage() {
+		String getCatItem =  requestList.getSelectedItem().toString();
+		Intent requestSubmitPage = new Intent(this, RequestSubmittedActivity.class);
+		requestSubmitPage.putExtra("item",getCatItem);
+		Log.i(getCatItem, "<<<<<<<before>>>>>>");
+		startActivity(requestSubmitPage);
 	}
 
 	private void getResponseFromProfileModel() {
@@ -157,7 +175,6 @@ public class RequestActivity extends MainActivity{
 			requestVoucherDate.setText(getDateEditText());
 		}
 	};
-	private String strI;
 
 	@Override
 	protected Dialog onCreateDialog(int id) {
@@ -233,12 +250,19 @@ public class RequestActivity extends MainActivity{
 		costTextView.setText("Rp. "+cost);
 		
 		doCalculate(cost, quantity);
+		onClearInput();
 	}
+	
+	/**
+	 * to calculate the input data
+	 * @param cost
+	 * @param quantity
+	 */
 	
 	private void doCalculate(String cost, String quantity) {
 		
 		if("".equals(cost) || cost == null){
-			sumTotal.setText("Rp. "+total);
+			sumTotal.setText("Rp. "+total+",-");
 			
 		}
 		else {
@@ -251,9 +275,17 @@ public class RequestActivity extends MainActivity{
 			sb.append(total);
 			strI = sb.toString();
 			
-			sumTotal.setText("Rp. "+strI);
+			sumTotal.setText("Rp. "+strI+",-");
 		}
 
+	}
+	
+	private void onClearInput() {
+		// TODO Auto-generated method stub
+		requestCost.setText("");
+		requestDesc.setText("");
+		requestQuantity.setText("0");
+		requestVoucherDate.setText("");
 	}
 
 	private class CallServiceSignatureLink extends AsyncTask<Void, Void, String> {
