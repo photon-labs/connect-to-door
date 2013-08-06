@@ -19,6 +19,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,7 +41,7 @@ import com.photon.connecttodoor.datamodel.SignatureLinkModel;
 
 @SuppressLint("NewApi")
 public class RequestActivity extends MainActivity{
-	private TextView empName, empID, dateNow, requestVoucherDate;
+	private TextView empName, empID, dateNow, requestVoucherDate, sumTotal;
 	private String requestCategory[] = {"Building","Communication", "Consumption","Depreciation", "Electricity","Equipment", "Fixed Asset",
 			"Fixed Asset Insurance", "Hosting", "Internet", "Maintenance", "Miscellanous", "Postage", "Profesional", "Recruiting", "Rent", "Stationary", "Tax", "Transportation"};
 	private String approvalCategory[] = {"Mohammad Daud","Dodik Purnomo"}; 
@@ -56,7 +57,9 @@ public class RequestActivity extends MainActivity{
 	View reqDataList, view;
 	RequestModel requestParam;
 	int index;
-	
+	Integer subTotal, amount, total = 0;
+
+
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_request_voucher);
@@ -75,10 +78,11 @@ public class RequestActivity extends MainActivity{
 		requestQuantity = (EditText)findViewById(R.id.requestQuantity);
 		requestDesc = (EditText)findViewById(R.id.requestDescription);
 		requestListView = (LinearLayout)findViewById(R.id.table_request_list);
-		
-		
+		sumTotal = (TextView)findViewById(R.id.sumTotalReq);
+
+
 		requestParam = new RequestModel();
-		
+
 		if (android.os.Build.VERSION.SDK_INT > 9) { 
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); StrictMode.setThreadPolicy(policy); 
 		}
@@ -89,25 +93,25 @@ public class RequestActivity extends MainActivity{
 		setRequestDropDown();
 		setApprovalListDropDown();
 	}
-	
+
 	private void actionButton() {
 		backButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				goToVoucherPage();
 			}
 		});
-		
+
 		saveButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				onSaveRequestState();
 			}
 		});
-		
+
 		requestEntryDate.setOnClickListener(new OnClickListener() {
-			
+
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
@@ -117,7 +121,7 @@ public class RequestActivity extends MainActivity{
 			}
 		});
 		insertSignature.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -125,12 +129,12 @@ public class RequestActivity extends MainActivity{
 			}
 		});
 	}
-	
+
 	private void goToVoucherPage() {
 		Intent voucherPage = new Intent(this, VoucherActivity.class);
 		startActivity(voucherPage);
 	}
-	
+
 	private void getResponseFromProfileModel() {
 		LocalStorage localStorage = new LocalStorage();
 		String responseProfil = localStorage.loadStringPreferences("responseProfile", getApplicationContext());
@@ -141,7 +145,7 @@ public class RequestActivity extends MainActivity{
 			e.printStackTrace();
 		}
 	}
-	
+
 	private DatePickerDialog.OnDateSetListener pDateSetListener =
 			new DatePickerDialog.OnDateSetListener() {
 
@@ -153,7 +157,8 @@ public class RequestActivity extends MainActivity{
 			requestVoucherDate.setText(getDateEditText());
 		}
 	};
-	
+	private String strI;
+
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
@@ -165,28 +170,28 @@ public class RequestActivity extends MainActivity{
 
 		return null;
 	}
-	
+
 	private void setUpdateUI() {
 		empName.setText(profileDataModel.getEmployeeName());
 		empID.setText(profileDataModel.getEmployeeId());
 		dateNow.setText(getDateEditText());
 	}
-	
+
 	private void setRequestDropDown() {
 		createDropdownCategory(this, requestCategory, requestList);
 	}
-	
+
 	private void setApprovalListDropDown() {
 		createDropdownCategory(this, approvalCategory, approvalList);
 	}
-	
+
 	private void showSignatureImage(){
 		String urlImage= signatureDataModel.getUrlSignature();
 		Bitmap bimage=  getBitmapFromURL(urlImage);
 		signature.setImageBitmap(bimage);
 		insertSignature.setVisibility(View.GONE);
 	}
-	
+
 	public static Bitmap getBitmapFromURL(String src) {
 		try {
 			URL url = new URL(src);
@@ -201,33 +206,58 @@ public class RequestActivity extends MainActivity{
 			return null;
 		}
 	}
-	
+
 	/**
 	 * put the data input into table and add index to each view
 	 */
 	private void onSaveRequestState() {
 		// TODO Auto-generated method stub
-			LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
-			View view = inflater.inflate(R.layout.text_table_requestlist, null);
-			requestListView.addView(view, index);
-			view.setBackgroundColor(index % 2 == 0 ? Color.WHITE : Color.parseColor("#cfe9d0"));
-			TextView numberTextView = (TextView)view.findViewById(R.id.req_no);
-			TextView dateTextView = (TextView)view.findViewById(R.id.req_date);
-			TextView descTextView = (TextView)view.findViewById(R.id.req_desc);
-			TextView quantityTextView = (TextView)view.findViewById(R.id.req_quantity);
-			TextView costTextView = (TextView)view.findViewById(R.id.req_cost);
-			index = index + 1;
-			String cost = requestCost.getText().toString();
-			String desc = requestDesc.getText().toString();
-			String quantity = requestQuantity.getText().toString();
-			String date = requestVoucherDate.getText().toString();
-			numberTextView.setText(""+index);
-			dateTextView.setText(date);
-			descTextView.setText(desc);
-			quantityTextView.setText(quantity);
-			costTextView.setText(cost);
+		LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+		View view = inflater.inflate(R.layout.text_table_requestlist, null);
+		requestListView.addView(view, index);
+		view.setBackgroundColor(index % 2 == 0 ? Color.WHITE : Color.parseColor("#cfe9d0"));
+		TextView numberTextView = (TextView)view.findViewById(R.id.req_no);
+		TextView dateTextView = (TextView)view.findViewById(R.id.req_date);
+		TextView descTextView = (TextView)view.findViewById(R.id.req_desc);
+		TextView quantityTextView = (TextView)view.findViewById(R.id.req_quantity);
+		TextView costTextView = (TextView)view.findViewById(R.id.req_cost);
+		index = index + 1;
+		String cost = requestCost.getText().toString();
+		String desc = requestDesc.getText().toString();
+		String quantity = requestQuantity.getText().toString();
+		String date = requestVoucherDate.getText().toString();
+		numberTextView.setText(""+index);
+		dateTextView.setText(date);
+		descTextView.setText(desc);
+		quantityTextView.setText(quantity);
+		costTextView.setText("Rp. "+cost);
+		
+		doCalculate(cost, quantity);
 	}
 	
+	private void doCalculate(String cost, String quantity) {
+		
+		if("".equals(cost) || cost == null){
+			Log.i(cost, "dpt nihh>>>>>>>>>>>>>>>>>>>>>");
+			sumTotal.setText("Rp. "+total);
+			
+		}
+		else {
+			Log.i(cost, "<<<<<<<<<yang kedua nih>>>>>>>>>>>>>>>>>>>>>");
+			subTotal = Integer.parseInt(cost);
+			amount = Integer.parseInt(quantity);
+			total = (subTotal * amount) + this.total;
+			
+			StringBuilder sb = new StringBuilder();
+			sb.append("");
+			sb.append(total);
+			strI = sb.toString();
+			
+			sumTotal.setText("Rp. "+strI);
+		}
+
+	}
+
 	private class CallServiceSignatureLink extends AsyncTask<Void, Void, String> {
 
 		private ProgressDialog dialog;
