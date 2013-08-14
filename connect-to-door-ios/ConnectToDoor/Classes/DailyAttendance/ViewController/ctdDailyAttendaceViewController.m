@@ -47,7 +47,7 @@
     
     updateAttendanceService = [[ctdUpdateAttendaceService alloc]init];
     updateAttendanceService.delegate = self;
-    
+    dateTxt.enabled = NO;
     [self requestDailyAttendance:[self getEmployeeId] date:dateString];
     
     NSString *previllage = [[NSUserDefaults standardUserDefaults] objectForKey:@"previllage"];
