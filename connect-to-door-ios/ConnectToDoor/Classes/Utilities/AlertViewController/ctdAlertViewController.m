@@ -68,6 +68,8 @@
          [message setText:MESSAGE_ERROR_EMPTY_DATE];
     }else if(type == kAlertUnderConstruction){
         [message setText:MESSAGE_UNDER_CONSTRUCTION];
+    }else if(type == kAlertNotAuthorized){
+        [message setText:MESSAGE_NOT_AUTHORIZED];
     }else{
         [message setText:MESSAGE_EXCEPTION];
     }

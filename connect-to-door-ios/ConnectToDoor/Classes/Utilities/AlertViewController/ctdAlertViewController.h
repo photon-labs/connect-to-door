@@ -16,7 +16,8 @@ typedef enum {
     kAlertErrorAlreadyCheckIn,
     kAlertErrorAlreadyCheckOut,
     kAlertErrorEmptyDate,
-    kAlertUnderConstruction
+    kAlertUnderConstruction,
+    kAlertNotAuthorized
 } typeAlert;
 
 @protocol AlertViewDelegate <NSObject>

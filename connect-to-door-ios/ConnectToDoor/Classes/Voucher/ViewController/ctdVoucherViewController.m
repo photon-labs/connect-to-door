@@ -33,6 +33,7 @@
 }
 
 - (IBAction)didRequestClicked:(id)sender{
+      [self showAlert:kAlertNotAuthorized];
 }
 
 - (IBAction)didReimbursementClicked:(id)sender{
